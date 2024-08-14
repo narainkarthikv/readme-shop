@@ -1,9 +1,12 @@
 # README-SHOP
 
-README-SHOP is a straightforward web application designed for quick emoji selection and filtering. This documentation provides an overview of the project, installation instructions, and contributing guidelines. 🔎😉
+README-SHOP is a web application shop designed for quick readme customisation of github. This documentation provides an overview of the project, installation instructions, and contributing guidelines. 🔎😉
+
+## Special Thanks
+
+A sincere thank you to the repository owners `Ileriayo` and `tandpfun` for their invaluable contributions. The icons and badges from your repositories have been instrumental in the creation of the README SHOP project. Your work has greatly enriched our project, and we deeply appreciate the icons and badges you've provided.
 
 ## Table of Contents
-- [Usage](#usage)
 - [Contributing](#contributing)
   - [Forking the Repository](#forking-the-repository)
   - [Cloning the Repository](#cloning-the-repository)
@@ -15,10 +18,6 @@ README-SHOP is a straightforward web application designed for quick emoji select
 - [Project Structure](#project-structure)
 - [Contributors](#contributors)
 - [License](#license)
-
-## Usage
-
-1. Open `index.html` in your preferred web browser to view the application.
 
 ## Contributing
 
@@ -81,8 +80,6 @@ We welcome contributions! To contribute to README-SHOP, follow these steps:
 
 ## Project Structure
 
-The `frontend` directory contains the React application.
-
 - `public`: Contains the public assets of the application.
 - `src`: Contains the source code of the application.
   - `assets`: asset directory
@@ -102,10 +99,10 @@ The `frontend` directory contains the React application.
 
 ## Contributors
 
-We appreciate the contributions of the following individuals: [Contributors](https://github.com/Wisdom-Fox/README-SHOP/blob/main/Contributors.md)
+We appreciate the contributions of the following individuals: [Contributors](https://github.com/narainkarthikv/README-SHOP/blob/main/Contributors.md)
 
 This is just the beginning! I look forward to making more meaningful contributions and collaborating with this amazing community. Let's build something great together and make README-SHOP the best it can be! ❤️🤝
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE]([LICENSE](https://github.com/Wisdom-Fox/README-SHOP/blob/main/LICENSE)) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/narainkarthikv/README-SHOP/blob/main/LICENSE) file for details.

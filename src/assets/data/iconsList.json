@@ -1,0 +1,10 @@
+[
+    { "name": "HTML", "url": "https://skillicons.dev/icons?i=html" },
+    { "name": "CSS", "url": "https://skillicons.dev/icons?i=css" },
+    { "name": "JavaScript", "url": "https://skillicons.dev/icons?i=javascript" },
+    { "name": "React", "url": "https://skillicons.dev/icons?i=react" },
+    { "name": "Node.js", "url": "https://skillicons.dev/icons?i=nodejs" },
+    { "name": "Git", "url": "https://skillicons.dev/icons?i=git" },
+    { "name": "Webpack", "url": "https://skillicons.dev/icons?i=webpack" },
+    { "name": "TypeScript", "url": "https://skillicons.dev/icons?i=typescript" }
+]
