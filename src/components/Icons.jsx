@@ -9,7 +9,6 @@ const Icons = () => {
 
     useEffect(() => {
         const loadIcons = () => {
-            // No need to map URLs; the iconList already has URL
             setIcons(iconList);
         };
         loadIcons();
@@ -24,6 +23,7 @@ const Icons = () => {
             <h1 className="my-4">Icons</h1>
             <InputGroup className="mb-3" style={{ maxWidth: '300px' }}>
                 <FormControl
+                    className="text-center"
                     placeholder="Search icons..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
@@ -31,8 +31,8 @@ const Icons = () => {
             </InputGroup>
             <div className="icon-grid">
                 <Row className="d-flex justify-content-center">
-                    {filteredIcons.slice(0, 15).map((icon, index) => (
-                        <Col key={index} xs={4} className="text-center p-2">
+                    {filteredIcons.map((icon, index) => (
+                        <Col key={index} className="text-center p-2">
                             <div className="icon-container">
                                 <img src={icon.url} alt={icon.name} className="icon-image" />
                                 <p className="icon-name">{icon.name}</p>
