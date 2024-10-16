@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
-import '../styles/Icons.css';
+import { Container, Grid, TextField, Typography, Box } from '@mui/material';
+import { loadAndFilter }  from '../utils/loadAndFilter';
 import iconList from '../assets/data/iconsList.json';
 
 const Icons = () => {
@@ -8,41 +8,39 @@ const Icons = () => {
     const [icons, setIcons] = useState([]);
 
     useEffect(() => {
-        const loadIcons = () => {
-            setIcons(iconList);
-        };
-        loadIcons();
+        setIcons(iconList); // Load icons
     }, []);
 
-    const filteredIcons = icons.filter(icon =>
-        icon.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    const filteredIcons = loadAndFilter(icons, searchTerm);
 
     return (
-        <Container className="d-flex flex-column align-items-center">
-            <h1 className="my-4">Icons</h1>
-            <InputGroup className="mb-3" style={{ maxWidth: '300px' }}>
-                <FormControl
-                    className="text-center"
-                    placeholder="Search icons..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                />
-            </InputGroup>
-            <div className="icon-grid">
-                <Row className="d-flex justify-content-center">
-                    {filteredIcons.map((icon, index) => (
-                        <Col key={index} className="text-center p-2">
-                            <div className="icon-container">
-                                <img src={icon.url} alt={icon.name} className="icon-image" />
-                                <p className="icon-name">{icon.name}</p>
-                            </div>
-                        </Col>
-                    ))}
-                </Row>
-            </div>
+        <Container sx={{ textAlign: 'center', mt: 4 }}>
+            <Typography variant="h4" gutterBottom>
+                Icons
+            </Typography>
+
+            {/* Search Input */}
+            <TextField
+                variant="outlined"
+                placeholder="Search icons..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                sx={{ mb: 3, maxWidth: '300px' }}
+            />
+
+            {/* Icons Grid */}
+            <Grid container spacing={2} justifyContent="center">
+                {filteredIcons.map((icon, index) => (
+                    <Grid item key={index} xs={4} sm={2} lg={2}>
+                        <Box className="icon-container">
+                            <img src={icon.url} alt={icon.name} className="icon-image" />
+                            <Typography variant="body1">{icon.name}</Typography>
+                        </Box>
+                    </Grid>
+                ))}
+            </Grid>
         </Container>
     );
-}
+};
 
 export default Icons;
