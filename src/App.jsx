@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Body from './pages/Body';
+import Output from './pages/Output';
 import { Box } from '@mui/material';
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
         <Box
           component="main"
           sx={{
-            flexGrow: 1, // Allows the main content to grow and push the footer down
+            flexGrow: 1,
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
@@ -28,7 +29,7 @@ function App() {
         >
           <Routes>
             <Route path="/" element={<Body />} />
-            {/* <Route path="/shop" element={<Output />} /> */}
+            <Route path="/shop" element={<Output />} />
           </Routes>
         </Box>
         <Footer />
