@@ -8,7 +8,7 @@ const Badges = () => {
     const [badges, setBadges] = useState([]);
 
     useEffect(() => {
-        setBadges(badgeList); // Load badges
+        setBadges(badgeList); 
     }, []);
 
     const filteredBadges = loadAndFilter(badges, searchTerm);

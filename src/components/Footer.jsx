@@ -1,9 +1,9 @@
 import React from 'react';
-import { Typography, Link as MuiLink, Box } from '@mui/material';
+import { Typography, Link as MuiLink, BottomNavigation } from '@mui/material';
 
 const Footer = () => {
   return (
-    <Box
+    <BottomNavigation
       component="footer"
       sx={{
         display: 'flex',
@@ -27,7 +27,7 @@ const Footer = () => {
           Wisdom Fox Community
         </MuiLink>
       </Typography>
-    </Box>
+    </BottomNavigation>
   );
 };
 
