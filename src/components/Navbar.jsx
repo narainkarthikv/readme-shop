@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, IconButton } from '@mui/material';
-import { FaShoppingCart } from 'react-icons/fa'; // Using FontAwesome icon as per your original
-import { Box } from '@mui/system'; // For layout styling
+import { FaShoppingCart } from 'react-icons/fa';
+import { Box } from '@mui/system'; 
 
 const Navbar = () => {
   return (

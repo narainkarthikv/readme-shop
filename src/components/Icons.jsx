@@ -8,7 +8,7 @@ const Icons = () => {
     const [icons, setIcons] = useState([]);
 
     useEffect(() => {
-        setIcons(iconList); // Load icons
+        setIcons(iconList); 
     }, []);
 
     const filteredIcons = loadAndFilter(icons, searchTerm);

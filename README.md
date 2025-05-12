@@ -1,108 +1,149 @@
 # README-SHOP
 
-README-SHOP is a web application shop designed for quick readme customisation of github. This documentation provides an overview of the project, installation instructions, and contributing guidelines. 🔎😉
+README-SHOP is a modern web application designed to simplify and accelerate the customization of GitHub READMEs. This guide provides an overview of the project, installation instructions, and contribution guidelines. 🚀✨
 
 ## Special Thanks
 
-A sincere thank you to the repository owners `Ileriayo` and `tandpfun` for their invaluable contributions. The icons and badges from your repositories have been instrumental in the creation of the README SHOP project. Your work has greatly enriched our project, and we deeply appreciate the icons and badges you've provided.
+A heartfelt thank you to the repository owners `Ileriayo` and `tandpfun` for their incredible contributions. The icons and badges from your repositories have been pivotal in shaping the README-SHOP project. Your work has significantly enhanced our project, and we deeply appreciate your efforts. 🙌
+
+## Tech Stack
+
+<table>
+    <tr>
+     <td>Frontend</td>
+     <td><img src="https://skillicons.dev/icons?i=react,mui,vite" /></td>
+    </tr>
+    <tr>
+     <td>CI/CD</td>
+     <td><img src="https://skillicons.dev/icons?i=netlify,githubactions" /></td>
+    </tr>
+</table>
 
 ## Table of Contents
-- [Contributing](#contributing)
-  - [Forking the Repository](#forking-the-repository)
-  - [Cloning the Repository](#cloning-the-repository)
-  - [Creating a Branch](#creating-a-branch)
-  - [Making Changes](#making-changes)
-  - [Committing Changes](#committing-changes)
-  - [Pushing Changes](#pushing-changes)
-  - [Creating a Pull Request](#creating-a-pull-request)
+
+- [Getting Started](#getting-started)
+  - [Clone the Repository](#clone-the-repository)
+  - [Setup the Project](#setup-the-project)
 - [Project Structure](#project-structure)
-- [Contributors](#contributors)
+- [Contributing Guide](#contributing-guide)
+  - [Fork the Repository](#fork-the-repository)
+  - [Clone Your Fork](#clone-your-fork)
+  - [Create a Branch](#create-a-branch)
+  - [Make Changes](#make-changes)
+  - [Commit Changes](#commit-changes)
+  - [Push Changes](#push-changes)
+  - [Submit a Pull Request](#submit-a-pull-request)
+- [Acknowledgments](#acknowledgments)
 - [License](#license)
 
-## Contributing
+## Getting Started
 
-We welcome contributions! To contribute to README-SHOP, follow these steps:
+### Clone the Repository
 
-### Forking the Repository
-
-1. Fork the repository by clicking the "Fork" button at the top right of the repository page on GitHub.
+1. **Fork the repository** by clicking the "Fork" button on the GitHub page.
    ![Forking the Repository](https://github-images.s3.amazonaws.com/help/bootcamp/Bootcamp-Fork.png)
-
-### Cloning the Repository
-
-2. Clone your forked repository to your local machine:
-    ```sh
+2. **Clone your fork** to your local machine:
+    ```bash
     git clone https://github.com/your-username/README-SHOP.git
     ```
 3. Navigate to the project directory:
-    ```sh
+    ```bash
     cd README-SHOP
     ```
 
-### Creating a Branch
+### Setup the Project
 
-4. Create a new branch for your feature or bug fix (create a branch according to the issue you're working on):
-    ```sh
-    git switch -c your-branch-name
+1. **Install dependencies**:
+    ```bash
+    npm install
     ```
-
-### Making Changes
-
-5. Make your changes to the codebase. You can edit the files using your preferred code editor.
-
-6. Don't forget to add your name to `Contributors.md` after contributing
-    ```sh
-    -[Username](https://github.com/your-username) **Your message** 
+2. **Start the development server**:
+    ```bash
+    npm start
     ```
-
-### Committing Changes
-
-7. Add the changes to the staging area:
-    ```sh
-    git add .
-    ```
-8. Commit the changes with a descriptive message:
-    ```sh
-    git commit -m "Description of your changes"
-    ```
-
-### Pushing Changes
-
-9. Push the changes to your forked repository:
-    ```sh
-    git push origin your-branch-name
-    ```
-
-### Creating a Pull Request
-
-9. Create a pull request from your forked repository to the main repository. Go to the "Pull Requests" tab on the main repository, and click "New Pull Request". Follow the instructions to create your pull request.
-   ![Creating a Pull Request](https://github-images.s3.amazonaws.com/help/pull_requests/pull-request-start-review-button.png)
 
 ## Project Structure
 
-- `public`: Contains the public assets of the application.
-- `src`: Contains the source code of the application.
-  - `assets`: asset directory
-    - `fonts`
-    - `icons`  
-  - `components`: Reusable UI components.
-    - `list of components`: List of all components
-  - `images`: images directory
-  - `pages`: pages
-    - `list of pages`: List of all pages 
-  - `styles`: Styling
-    - `list of styles`: List of all stylesheets
-  - `utils`
-    - `list of utils`: List of all utilities    
-- `App.js`: The main component that sets up routes.
-- `index.js`: The entry point of the React application.
+The project is organized as follows:
 
-## Contributors
+```
+public/                 # Public assets
+src/                    # Source code
+├── assets/             # Fonts, icons, and other assets
+├── components/         # Reusable UI components
+├── images/             # Image assets
+├── pages/              # Application pages
+├── styles/             # Styling files
+├── utils/              # Utility functions
+├── App.js              # Main component that sets up routes
+└── index.js            # Entry point of the React application
+```
 
-We appreciate the contributions of the following individuals: [Contributors](https://github.com/narainkarthikv/README-SHOP/blob/main/Contributors.md)
+## Contributing Guide
 
-This is just the beginning! I look forward to making more meaningful contributions and collaborating with this amazing community. Let's build something great together and make README-SHOP the best it can be! ❤️🤝
+We welcome contributions! Follow these steps to get started:
+
+### Fork the Repository
+
+1. Fork the repository by clicking the "Fork" button on the GitHub page.
+   ![Forking the Repository](https://github-images.s3.amazonaws.com/help/bootcamp/Bootcamp-Fork.png)
+
+### Clone Your Fork
+
+2. Clone your forked repository:
+    ```bash
+    git clone https://github.com/your-username/README-SHOP.git
+    ```
+3. Navigate to the project directory:
+    ```bash
+    cd README-SHOP
+    ```
+
+### Create a Branch
+
+4. Create a new branch for your feature or bug fix:
+    ```bash
+    git switch -c feature/your-feature-name
+    ```
+
+### Make Changes
+
+5. Implement your changes in the codebase using your preferred editor.
+
+6. Add your name to `Contributors.md` after contributing:
+    ```markdown
+    - [YourUsername](https://github.com/your-username) **Your message**
+    ```
+
+### Commit Changes
+
+7. Stage your changes:
+    ```bash
+    git add .
+    ```
+8. Commit with a descriptive message:
+    ```bash
+    git commit -m "Add feature: your-feature-name"
+    ```
+
+### Push Changes
+
+9. Push your branch to your fork:
+    ```bash
+    git push origin feature/your-feature-name
+    ```
+
+### Submit a Pull Request
+
+10. Open a pull request from your fork to the main repository. Navigate to the "Pull Requests" tab in the main repository and click "New Pull Request." Follow the instructions to complete your PR.
+    ![Creating a Pull Request](https://github-images.s3.amazonaws.com/help/pull_requests/pull-request-start-review-button.png)
+
+## Acknowledgments
+
+We’re grateful to all contributors who help make README-SHOP better. Check out the [Contributors](https://github.com/narainkarthikv/README-SHOP/blob/main/Contributors.md) page to see everyone who has contributed.
+
+Let’s collaborate and build something amazing together! ❤️
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/narainkarthikv/README-SHOP/blob/main/LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/narainkarthikv/README-SHOP/blob/main/LICENSE) file for more details.
