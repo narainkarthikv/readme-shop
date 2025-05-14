@@ -8,24 +8,19 @@ import Typography from '@mui/material/Typography';
 
 const Output = () => {
   const [markdown, setMarkdown] = useState('');
-
-  const handleChange = (e) => {
-    setMarkdown(e.target.value);
-  };
-
-  const createMarkup = () => {
-    return { __html: DOMPurify.sanitize(marked(markdown)) };
-  };
+  const createMarkup = () => ({
+    __html: DOMPurify.sanitize(marked(markdown)),
+  });
 
   return (
     <Box
       display="flex"
+      flexDirection={{ xs: 'column', md: 'row' }}
       gap={2}
       mt={2}
-      width="50%"
-      margin="0 auto" 
+      width={{ xs: '100%', md: '80%' }}
+      mx="auto"
     >
-      {/* Markdown input area */}
       <TextField
         label="Enter Markdown"
         multiline
@@ -33,16 +28,14 @@ const Output = () => {
         variant="outlined"
         fullWidth
         value={markdown}
-        onChange={handleChange}
+        onChange={(e) => setMarkdown(e.target.value)}
       />
-
-      {/* Preview area */}
       <Paper
         elevation={3}
         sx={{
-          padding: 2,
+          p: 2,
           width: '100%',
-          maxHeight: '600px',
+          maxHeight: 600,
           overflowY: 'auto',
         }}
       >
@@ -53,12 +46,12 @@ const Output = () => {
           dangerouslySetInnerHTML={createMarkup()}
           sx={{
             '& h1, h2, h3, h4, h5, h6': {
-              marginTop: '0.5em',
-              marginBottom: '0.5em',
+              mt: '0.5em',
+              mb: '0.5em',
             },
             '& p': {
-              marginBottom: '1em',
-              },
+              mb: '1em',
+            },
           }}
         />
       </Paper>
