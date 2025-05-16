@@ -1,15 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { marked } from 'marked';
 import DOMPurify from 'dompurify';
 import TextField from '@mui/material/TextField';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import { useMarkdown } from '../context/MarkdownContext';
 
 const Output = () => {
-  const [markdown, setMarkdown] = useState('');
+  const { markdown, setMarkdown } = useMarkdown();
+  const [localMarkdown, setLocalMarkdown] = useState(markdown);
+
+  // Sync context markdown to local state when it changes
+  useEffect(() => {
+    setLocalMarkdown(markdown);
+  }, [markdown]);
+
+  const handleChange = (e) => {
+    setLocalMarkdown(e.target.value);
+    setMarkdown(e.target.value);
+  };
+
   const createMarkup = () => ({
-    __html: DOMPurify.sanitize(marked(markdown)),
+    __html: DOMPurify.sanitize(
+      marked(localMarkdown),
+      {
+        ADD_TAGS: ['img'],
+        ADD_ATTR: ['src', 'alt', 'width', 'height', 'style'],
+      }
+    ),
   });
 
   return (
@@ -27,8 +46,8 @@ const Output = () => {
         minRows={10}
         variant="outlined"
         fullWidth
-        value={markdown}
-        onChange={(e) => setMarkdown(e.target.value)}
+        value={localMarkdown}
+        onChange={handleChange}
       />
       <Paper
         elevation={3}

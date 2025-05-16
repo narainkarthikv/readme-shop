@@ -16,5 +16,7 @@ code {
   display: block;
   margin: 0 auto 8px auto;
   max-width: 60px;
-  height: auto;
+  height: 24px;
+  border-radius: 50%;
+  width: 24px;
 }
