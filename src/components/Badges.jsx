@@ -3,12 +3,15 @@ import { Container, Grid, TextField, Typography, Box } from '@mui/material';
 import { loadAndFilter } from '../utils/loadAndFilter';
 import badgeList from '../assets/data/badgesList.json';
 import { useMarkdown } from '../context/MarkdownContext';
+import { useShopStore } from '../store/useShopStore';
 
 const STORAGE_KEY = 'selectedBadges';
 
 const Badges = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selected, setSelected] = useState([]);
+  const selected = useShopStore((state) => state.selectedBadges);
+  const setSelected = useShopStore((state) => state.setSelectedBadges);
+  const searchTerm = useShopStore((state) => state.badgeSearchTerm);
+  const setSearchTerm = useShopStore((state) => state.setBadgeSearchTerm);
   const filteredBadges = loadAndFilter(badgeList, searchTerm);
   const { embedBadge, badgeLine } = useMarkdown();
 
