@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import { AppBar, Toolbar, Typography, IconButton } from '@mui/material';
 import { FaShoppingCart } from 'react-icons/fa';
 import MenuIcon from '@mui/icons-material/Menu';
