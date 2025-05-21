@@ -1,0 +1,27 @@
+[
+  {
+    "label": "Simple",
+    "description": "A minimal README template for quick project setup.",
+    "content": "# Project Title\n\nA brief description of what this project does and who it's for\n\n## Features\n\n- Feature 1\n- Feature 2\n\n## Installation\n\n```bash\nnpm install\n```\n\n## Usage\n\n```bash\nnpm start\n```\n"
+  },
+  {
+    "label": "Professional",
+    "description": "A professional template with license, about, and contributing sections.",
+    "content": "# Project Title\n\n![License](https://img.shields.io/badge/license-MIT-blue.svg)\n\n## 🚀 About\n\nDescribe your project in 1-2 sentences.\n\n## 🛠️ Built With\n\n- React\n- Node.js\n- Express\n\n## Getting Started\n\n```bash\ngit clone https://github.com/your-username/your-repo.git\ncd your-repo\nnpm install\nnpm start\n```\n\n## Contributing\n\nSee [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.\n"
+  },
+  {
+    "label": "Open Source",
+    "description": "A template for open source projects with contributors and license badges.",
+    "content": "# Project Title\n\n[![Contributors](https://img.shields.io/github/contributors/your-username/your-repo.svg)](https://github.com/your-username/your-repo/graphs/contributors)\n[![Forks](https://img.shields.io/github/forks/your-username/your-repo.svg)](https://github.com/your-username/your-repo/network/members)\n[![Stargazers](https://img.shields.io/github/stars/your-username/your-repo.svg)](https://github.com/your-username/your-repo/stargazers)\n\n## 📄 Description\n\nA detailed description of your open source project.\n\n## 🤝 Contributing\n\nContributions are always welcome!\n\n## 📄 License\n\n[MIT](LICENSE)\n"
+  },
+  {
+    "label": "Card Style",
+    "description": "A visually distinctive card-style README template.",
+    "content": "<div align=\"center\">\n  <img src=\"https://svg-banners.vercel.app/api?type=luminance&text1=Project%20Name&width=800&height=200\" alt=\"Banner\" style=\"border-radius:12px;max-width:100%;\"/>\n  \n  <h1>Project Name</h1>\n  <p>A short and catchy project description goes here.</p>\n  \n  <img src=\"https://img.shields.io/badge/License-MIT-blue.svg\" alt=\"License\" />\n  <img src=\"https://img.shields.io/github/stars/your-username/your-repo?style=social\" alt=\"Stars\" />\n</div>\n\n---\n\n## 🚀 Features\n\n- Feature 1\n- Feature 2\n- Feature 3\n\n## 🛠️ Tech Stack\n\n- React\n- Node.js\n- Express\n\n## 📦 Installation\n\n```bash\ngit clone https://github.com/your-username/your-repo.git\ncd your-repo\nnpm install\n```\n\n## 🏃 Usage\n\n```bash\nnpm start\n```\n"
+  },
+  {
+    "label": "Startup Card",
+    "description": "A startup-style README card with call-to-action.",
+    "content": "<div align=\"center\" style=\"border:1px solid #eee; border-radius:16px; padding:32px; max-width:600px; margin:auto;\">\n  <h1>🚀 Startup Project</h1>\n  <p>Innovate. Disrupt. Deliver.</p>\n  <a href=\"https://your-demo-link.com\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Demo-Online-green?style=for-the-badge\" alt=\"Demo\" /></a>\n  <a href=\"https://github.com/your-username/your-repo\" target=\"_blank\"><img src=\"https://img.shields.io/github/stars/your-username/your-repo?style=social\" alt=\"Stars\" /></a>\n</div>\n\n---\n\n## ✨ Highlights\n\n- 🚀 Fast and scalable\n- 🔒 Secure by design\n- 🌐 Modern stack\n\n## 📦 Quick Start\n\n```bash\ngit clone https://github.com/your-username/your-repo.git\ncd your-repo\nnpm install\nnpm run dev\n```\n"
+  }
+]

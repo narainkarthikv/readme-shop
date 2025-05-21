@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Body from './pages/Body';
 import Output from './pages/Output';
+import TemplatesPage from './pages/TemplatesPage';
 import { Box } from '@mui/material';
 import { MarkdownProvider } from './context/MarkdownContext';
 
@@ -17,6 +18,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Body />} />
               <Route path="/shop" element={<Output />} />
+              <Route path="/templates" element={<TemplatesPage />} />
             </Routes>
           </Box>
           <Footer />
