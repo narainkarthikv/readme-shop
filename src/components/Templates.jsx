@@ -18,14 +18,14 @@ const Templates = () => {
   };
 
   return (
-    <Box sx={{ mt: 4, maxWidth: 1200, mx: 'auto' }}>
-      <Typography variant="h4" sx={{ mb: 3, textAlign: 'center' }}>
+    <Box sx={{ mt: 4, maxWidth: 1200, mx: 'auto', px: { xs: 2, sm: 3 }}}>
+      <Typography variant="h4" sx={{ mb: 3, textAlign: 'center', fontSize: { xs: '1.5rem', sm: '2rem' } }}>
         README.md Templates
       </Typography>
       <Grid container spacing={3} justifyContent="center">
         {templates.map((tpl, idx) => (
           <Grid item xs={12} sm={6} md={4} key={tpl.label}>
-            <Card sx={{ minHeight: 420, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <Card sx={{ height:'100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <CardContent>
                 <Typography variant="h6" gutterBottom>
                   {tpl.label}
@@ -42,7 +42,7 @@ const Templates = () => {
                     overflowX: 'auto',
                     fontSize: '0.95rem',
                     minHeight: 160,
-                    maxHeight: 220,
+                    maxHeight: { xs: 160, sm: 220 },
                     mb: 1,
                     whiteSpace: 'pre-wrap',
                   }}
