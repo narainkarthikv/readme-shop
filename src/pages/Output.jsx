@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { marked } from 'marked';
 import DOMPurify from 'dompurify';
 import TextField from '@mui/material/TextField';
@@ -6,15 +6,31 @@ import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { useMarkdown } from '../context/MarkdownContext';
+import {useLocation} from "react-router-dom";
 
 const Output = () => {
   const { markdown, setMarkdown } = useMarkdown();
   const [localMarkdown, setLocalMarkdown] = useState(markdown);
+  const location = useLocation();
 
-  // Sync context markdown to local state when it changes
+  const passedContent = location.state?.content;
+
+  useEffect(() =>{
+    if (passedContent) {
+    setMarkdown(passedContent);
+    setLocalMarkdown(passedContent);
+  } else {
+    setLocalMarkdown(markdown);
+  }
+ },[])
+
+
+  // Sync context markdown changes to local state (original code)
   useEffect(() => {
     setLocalMarkdown(markdown);
   }, [markdown]);
+
+
 
   const handleChange = (e) => {
     setLocalMarkdown(e.target.value);
