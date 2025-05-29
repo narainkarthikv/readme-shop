@@ -16,7 +16,7 @@ const GithubStats = () => {
 
   return (
     <Box sx={{ textAlign: 'center', mb: 4 }}>
-      <Typography variant="h5" sx={{ mb: 1 }}>GitHub Stats</Typography>
+      <Typography variant="h5" sx={{ mb: 1,fontWeight:500 }}>GitHub Stats</Typography>
       <span style={{ cursor: 'pointer', display: 'inline-block' }} onClick={handleClick}>
         <img
           src="https://github-readme-stats.vercel.app/api?username=narainkarthikv&theme=tokyonight&hide_border=true"

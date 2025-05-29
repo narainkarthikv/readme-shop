@@ -14,7 +14,7 @@ const Footer = () => (
       width: '100%',
     }}
   >
-    <Typography variant="body2">
+    <Typography sx={{fontWeight:100}} variant="body2">
       &#169; 2024 Open-Source Project -{' '}
       <MuiLink href="https://www.github.com/Wisdom-Fox/README-SHOP" color="inherit" target="_blank" rel="noopener">
         GitHub Repository

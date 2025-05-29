@@ -13,7 +13,7 @@ const GithubTrophies = () => {
 
   return (
     <Box sx={{ textAlign: 'center', mb: 4 }}>
-      <Typography variant="h5" sx={{ mb: 1 }}>GitHub Trophies</Typography>
+      <Typography variant="h5" sx={{ mb: 1 , fontWeight:500 }}>GitHub Trophies</Typography>
       <span style={{ cursor: 'pointer', display: 'inline-block' }} onClick={handleClick}>
         <a href="https://github-profile-trophy.vercel.app/" target="_blank" rel="noopener noreferrer">
           <img

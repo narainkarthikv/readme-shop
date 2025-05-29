@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import { AppBar, Toolbar, Typography, IconButton } from '@mui/material';
+import { useState ,useEffect} from 'react';
+import { AppBar, Toolbar, Typography, IconButton, Badge } from '@mui/material';
 import { FaShoppingCart } from 'react-icons/fa';
 import MenuIcon from '@mui/icons-material/Menu';
 import CustomDrawer from './CustomDrawer';
@@ -26,11 +26,14 @@ const Navbar = () => {
     '/templates',
   ];
 
+  
+
   return (
     <AppBar position="static" color="primary">
       <Toolbar>
         <IconButton
           edge="start"
+          className='myiconbutton'
           color="inherit"
           aria-label="menu"
           onClick={handleDrawerToggle}
@@ -40,14 +43,17 @@ const Navbar = () => {
         </IconButton>
         <Typography
           variant="h6"
+          className='myiconbutton'
           component={Link}
           to="/"
-          sx={{ textDecoration: 'none', color: 'inherit', flexGrow: 1 }}
+          sx={{ textDecoration: 'none', color: 'inherit', flexGrow: 1,fontWeight:400,fontSize:30 }}
         >
           README SHOP
         </Typography>
-        <IconButton component={Link} to="/shop" color="inherit">
-          <FaShoppingCart />
+        <IconButton className='myiconbutton' component={Link} to="/shop" color="inherit">
+        
+           <FaShoppingCart />
+        
         </IconButton>
         <CustomDrawer
           open={drawerOpen}
