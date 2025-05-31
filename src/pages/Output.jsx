@@ -1,3 +1,4 @@
+import  { useState, useEffect } from 'react';
 import React from 'react';
 import { marked } from 'marked';
 import DOMPurify from 'dompurify';
@@ -6,9 +7,31 @@ import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { useMarkdown } from '../context/MarkdownContext';
+import Badge from '@mui/material/Badge';
+import {useLocation} from "react-router-dom";
 
 const Output = React.memo(() => {
   const { markdown, setMarkdown } = useMarkdown();
+  const [localMarkdown, setLocalMarkdown] = useState(markdown);
+  const location = useLocation();
+  const [count,setCount]=useState(0);
+
+  const passedContent = location.state?.content;
+
+  useEffect(() =>{
+    if (passedContent) {
+    setMarkdown(passedContent);
+    setLocalMarkdown(passedContent);
+  } else {
+    setLocalMarkdown(markdown);
+  }
+ },[])
+
+
+  // Sync context markdown to local state when it changes
+  useEffect(() => {
+    setLocalMarkdown(markdown);
+  }, [markdown]);
 
   const handleChange = React.useCallback((e) => {
     setMarkdown(e.target.value);
