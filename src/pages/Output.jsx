@@ -6,10 +6,13 @@ import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { useMarkdown } from '../context/MarkdownContext';
+import Badge from '@mui/material/Badge';
+
 
 const Output = () => {
   const { markdown, setMarkdown } = useMarkdown();
   const [localMarkdown, setLocalMarkdown] = useState(markdown);
+  const [count,setCount]=useState(0);
 
   // Sync context markdown to local state when it changes
   useEffect(() => {
@@ -20,7 +23,7 @@ const Output = () => {
     setLocalMarkdown(e.target.value);
     setMarkdown(e.target.value);
   };
-
+  
   const createMarkup = () => ({
     __html: DOMPurify.sanitize(
       marked(localMarkdown),
@@ -30,6 +33,21 @@ const Output = () => {
       }
     ),
   });
+
+useEffect(() => {
+  const html = document.createElement('div');
+  html.innerHTML = marked(localMarkdown);
+  const img = html.querySelector('img');
+  if (!img) return; // skips if img is null
+  const src = img.getAttribute('src');
+  const url = new URL(src);
+  const iParam = url.searchParams.get("i");
+  if (!iParam) return; // skips if iparam is null
+  const Paramcount = iParam.split(',').length;
+  setCount(Paramcount);
+}, [localMarkdown]);
+
+  
 
   return (
     <Box
@@ -58,9 +76,12 @@ const Output = () => {
           overflowY: 'auto',
         }}
       >
+       
         <Typography variant="h6" gutterBottom>
           Preview
         </Typography>
+         <Badge badgeContent={count} style={{padding:3}} color="error">
+        </Badge>
         <Box
           dangerouslySetInnerHTML={createMarkup()}
           sx={{

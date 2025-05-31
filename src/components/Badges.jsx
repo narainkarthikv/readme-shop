@@ -86,7 +86,7 @@ const Badges = () => {
 
   return (
     <Container sx={{ textAlign: 'center', mt: 4 }}>
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" sx={{fontWeight:500}} gutterBottom>
         Badges
       </Typography>
       <TextField

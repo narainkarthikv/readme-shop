@@ -3,6 +3,7 @@ import { loadAndFilter } from '../utils/loadAndFilter';
 import iconList from '../assets/data/iconsList.json';
 import { useMarkdown } from '../context/MarkdownContext';
 import { useShopStore } from '../store/useShopStore';
+import { useState,useEffect } from 'react';
 const Icons = () => {
   const searchTerm = useShopStore((state) => state.iconSearchTerm);
   const setSearchTerm = useShopStore((state) => state.setIconSearchTerm);
@@ -17,6 +18,8 @@ const Icons = () => {
     iconNames.length > 0
       ? `https://skillicons.dev/icons?i=${iconNames.join(',')}`
       : '';
+
+ 
 
   return (
     <Paper
@@ -36,7 +39,8 @@ const Icons = () => {
         flexDirection: 'column',
       }}
     >
-      <Typography variant="h4" gutterBottom>
+    
+      <Typography variant="h4" sx={{fontWeight:500}} gutterBottom>
         Icons
       </Typography>
       <TextField
@@ -51,6 +55,7 @@ const Icons = () => {
           <img src={skilliconsUrl} alt="Selected icons" style={{ maxWidth: 300 }} />
         </Box>
       )}
+       
       {/* Make the icons grid scrollable and rest fixed */}
       <Box sx={{ flex: 1, overflowY: 'auto', minHeight: 0 }}>
         <Grid container spacing={2} justifyContent="center">
