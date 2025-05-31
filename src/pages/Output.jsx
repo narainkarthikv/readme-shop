@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { marked } from 'marked';
 import DOMPurify from 'dompurify';
 import TextField from '@mui/material/TextField';
@@ -7,12 +7,26 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { useMarkdown } from '../context/MarkdownContext';
 import Badge from '@mui/material/Badge';
+import {useLocation} from "react-router-dom";
 
 
 const Output = () => {
   const { markdown, setMarkdown } = useMarkdown();
   const [localMarkdown, setLocalMarkdown] = useState(markdown);
+   const location = useLocation();
   const [count,setCount]=useState(0);
+
+  const passedContent = location.state?.content;
+
+  useEffect(() =>{
+    if (passedContent) {
+    setMarkdown(passedContent);
+    setLocalMarkdown(passedContent);
+  } else {
+    setLocalMarkdown(markdown);
+  }
+ },[])
+
 
   // Sync context markdown to local state when it changes
   useEffect(() => {

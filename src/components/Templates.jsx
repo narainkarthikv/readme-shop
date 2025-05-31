@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Box, Typography, Paper, Grid, IconButton, Tooltip, Card, CardContent, CardActions, Button } from '@mui/material';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import templatesData from '../assets/data/templates.json';
+import {useNavigate} from "react-router-dom";
+
 
 const Templates = () => {
+  const navigate = useNavigate();
   const [copiedIdx, setCopiedIdx] = useState(null);
   const [templates, setTemplates] = useState([]);
 
@@ -18,14 +21,14 @@ const Templates = () => {
   };
 
   return (
-    <Box sx={{ mt: 4, maxWidth: 1200, mx: 'auto' }}>
-      <Typography variant="h4" sx={{ mb: 3, textAlign: 'center' }}>
+    <Box sx={{ mt: 4, maxWidth: 1200, mx: 'auto', px: { xs: 2, sm: 3 }}}>
+      <Typography variant="h4" sx={{ mb: 3, textAlign: 'center',fontSize: { xs: '1.5rem', sm: '2rem' } }}>
         README.md Templates
       </Typography>
       <Grid container spacing={3} justifyContent="center">
         {templates.map((tpl, idx) => (
           <Grid item xs={12} sm={6} md={4} key={tpl.label}>
-            <Card sx={{ minHeight: 420, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <Card sx={{ height:'100%',display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <CardContent>
                 <Typography variant="h6" gutterBottom>
                   {tpl.label}
@@ -51,6 +54,12 @@ const Templates = () => {
                 </Paper>
               </CardContent>
               <CardActions sx={{ justifyContent: 'flex-end' }}>
+               <Button onClick={async () => {
+                  await handleCopy(tpl.content, idx);
+                  navigate("/shop",{ state: { content: tpl.content } })
+                  }}>
+                  Use Template
+                </Button>
                 <Tooltip title={copiedIdx === idx ? "Copied!" : "Copy to clipboard"}>
                   <span>
                     <IconButton
