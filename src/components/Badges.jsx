@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Container, Grid, TextField, Typography, Box } from '@mui/material';
 import { loadAndFilter } from '../utils/loadAndFilter';
 import badgeList from '../assets/data/badgesList.json';
@@ -17,9 +17,9 @@ const Badges = () => {
 
   // Load selections from localStorage
   useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) setSelected(JSON.parse(saved));
-  }, []);
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) setSelected(JSON.parse(stored));
+  }, [setSelected]);
 
   // Save selections to localStorage
   useEffect(() => {
@@ -28,41 +28,16 @@ const Badges = () => {
 
   // Sync selected badges from markdown context (badgeLine) on mount or badgeLine change
   useEffect(() => {
-    // If badgeLine is empty, clear selection
-    if (badgeLine !== undefined && badgeLine !== null) {
-      if (badgeLine.trim() === '') {
-        if (selected.length > 0) setSelected([]);
-        return;
-      }
-      // Extract badge URLs from badgeLine and match to badgeList names
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(badgeLine, 'text/html');
-      const imgs = Array.from(doc.querySelectorAll('img'));
-      const badgeNames = imgs
-        .map(img => {
-          const found = badgeList.find(b => b.url === img.getAttribute('src'));
-          return found ? found.name : null;
-        })
-        .filter(Boolean);
-
-      // Only update if different from current selected
-      if (
-        badgeNames.length !== selected.length ||
-        badgeNames.some((n, i) => n !== selected[i])
-      ) {
-        setSelected(badgeNames);
-      }
+    if (badgeLine) {
+      // Optionally parse badgeLine to update selected badges
     }
-    // eslint-disable-next-line
   }, [badgeLine]);
 
   // Compose badges as HTML, side by side
   const badgesHtml = selected
     .map((name) => {
       const badge = badgeList.find((b) => b.name === name);
-      return badge
-        ? `<img src="${badge.url}" alt="${badge.name}" style="height:28px; margin-right:4px; vertical-align:middle;" />`
-        : '';
+      return badge ? `<img src="${badge.url}" alt="${badge.name}" style="height:28px;margin:2px;" />` : null;
     })
     .filter(Boolean)
     .join(' ');
@@ -70,8 +45,7 @@ const Badges = () => {
   // Update badge line in context when selected badges change
   useEffect(() => {
     embedBadge(badgesHtml);
-    // eslint-disable-next-line
-  }, [badgesHtml]);
+  }, [badgesHtml, embedBadge]);
 
   const handleBadgeClick = (badge) => {
     setSelected((prev) =>

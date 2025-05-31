@@ -1,25 +1,28 @@
-import {  Grid, TextField, Typography, Box, Paper } from '@mui/material';
-import { loadAndFilter } from '../utils/loadAndFilter';
-import iconList from '../assets/data/iconsList.json';
-import { useMarkdown } from '../context/MarkdownContext';
+import React, { useState, useEffect } from 'react';
 import { useShopStore } from '../store/useShopStore';
-import { useState,useEffect } from 'react';
+import iconList from '../assets/data/iconsList.json';
+import { loadAndFilter } from '../utils/loadAndFilter';
+import { useMarkdown } from '../context/MarkdownContext';
+import {  Grid, TextField, Typography, Box, Paper } from '@mui/material';
+
 const Icons = () => {
   const searchTerm = useShopStore((state) => state.iconSearchTerm);
   const setSearchTerm = useShopStore((state) => state.setIconSearchTerm);
-  const { embedIcon, iconNames } = useMarkdown();
+  const { embedIcon, iconNames, removeIcon } = useMarkdown();
   const filteredIcons = loadAndFilter(iconList, searchTerm);
 
   const handleIconClick = (icon) => {
-    embedIcon(icon.name.toLowerCase());
+    if (iconNames.includes(icon.name.toLowerCase())) {
+      removeIcon(icon.name.toLowerCase());
+    } else {
+      embedIcon(icon.name.toLowerCase());
+    }
   };
 
   const skilliconsUrl =
     iconNames.length > 0
       ? `https://skillicons.dev/icons?i=${iconNames.join(',')}`
       : '';
-
- 
 
   return (
     <Paper
