@@ -15,9 +15,13 @@ const Templates = () => {
   }, []);
 
   const handleCopy = async (content, idx) => {
-    await navigator.clipboard.writeText(content);
-    setCopiedIdx(idx);
-    setTimeout(() => setCopiedIdx(null), 1200);
+    try {
+      await navigator.clipboard.writeText(content);
+      setCopiedIdx(idx);
+      setTimeout(() => setCopiedIdx(null), 1500);
+    } catch (e) {
+      alert('Failed to copy!');
+    }
   };
 
   return (
