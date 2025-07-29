@@ -1,27 +1,68 @@
 [
   {
-    "label": "Simple",
-    "description": "A minimal README template for quick project setup.",
-    "content": "# Project Title\n\nA brief description of what this project does and who it's for\n\n## Features\n\n- Feature 1\n- Feature 2\n\n## Installation\n\n```bash\nnpm install\n```\n\n## Usage\n\n```bash\nnpm start\n```\n"
+    "label": "Community",
+    "category": "Community",
+    "description": "A template highlighting community, support, and how to get involved.",
+    "content": "# Project Title\n\n## 🌟 Community\n\nJoin our community on [Discord](https://discord.gg/your-invite) or follow us on [Twitter](https://twitter.com/your-handle)!\n\n## 🙋‍♂️ Support\n\nIf you have any questions or need help, open an issue or join our discussions.\n\n## 🤝 How to Contribute\n\n- Fork the repo\n- Create your feature branch (`git checkout -b feature/AmazingFeature`)\n- Commit your changes\n- Push to the branch\n- Open a Pull Request\n"
   },
   {
-    "label": "Professional",
-    "description": "A professional template with license, about, and contributing sections.",
-    "content": "# Project Title\n\n![License](https://img.shields.io/badge/license-MIT-blue.svg)\n\n## 🚀 About\n\nDescribe your project in 1-2 sentences.\n\n## 🛠️ Built With\n\n- React\n- Node.js\n- Express\n\n## Getting Started\n\n```bash\ngit clone https://github.com/your-username/your-repo.git\ncd your-repo\nnpm install\nnpm start\n```\n\n## Contributing\n\nSee [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.\n"
+    "label": "Documentation",
+    "category": "Documentation",
+    "description": "A template emphasizing documentation and usage examples.",
+    "content": "# Project Title\n\n## 📚 Documentation\n\nFind the full documentation at [docs.yourproject.com](https://docs.yourproject.com).\n\n## 📝 Usage Example\n\n```js\nimport { AwesomeComponent } from 'your-library';\n\n<AwesomeComponent prop=\"value\" />\n```\n"
   },
   {
-    "label": "Open Source",
-    "description": "A template for open source projects with contributors and license badges.",
-    "content": "# Project Title\n\n[![Contributors](https://img.shields.io/github/contributors/your-username/your-repo.svg)](https://github.com/your-username/your-repo/graphs/contributors)\n[![Forks](https://img.shields.io/github/forks/your-username/your-repo.svg)](https://github.com/your-username/your-repo/network/members)\n[![Stargazers](https://img.shields.io/github/stars/your-username/your-repo.svg)](https://github.com/your-username/your-repo/stargazers)\n\n## 📄 Description\n\nA detailed description of your open source project.\n\n## 🤝 Contributing\n\nContributions are always welcome!\n\n## 📄 License\n\n[MIT](LICENSE)\n"
+    "label": "Code of Conduct",
+    "category": "Community",
+    "description": "A template for including a code of conduct section.",
+    "content": "# Project Title\n\n## 📜 Code of Conduct\n\nThis project adheres to the [Contributor Covenant](https://www.contributor-covenant.org/). By participating, you are expected to uphold this code.\n\nFor more information, see [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).\n"
   },
   {
-    "label": "Card Style",
-    "description": "A visually distinctive card-style README template.",
-    "content": "<div align=\"center\">\n  <img src=\"https://svg-banners.vercel.app/api?type=luminance&text1=Project%20Name&width=800&height=200\" alt=\"Banner\" style=\"border-radius:12px;max-width:100%;\"/>\n  \n  <h1>Project Name</h1>\n  <p>A short and catchy project description goes here.</p>\n  \n  <img src=\"https://img.shields.io/badge/License-MIT-blue.svg\" alt=\"License\" />\n  <img src=\"https://img.shields.io/github/stars/your-username/your-repo?style=social\" alt=\"Stars\" />\n</div>\n\n---\n\n## 🚀 Features\n\n- Feature 1\n- Feature 2\n- Feature 3\n\n## 🛠️ Tech Stack\n\n- React\n- Node.js\n- Express\n\n## 📦 Installation\n\n```bash\ngit clone https://github.com/your-username/your-repo.git\ncd your-repo\nnpm install\n```\n\n## 🏃 Usage\n\n```bash\nnpm start\n```\n"
+    "label": "Bug Report",
+    "category": "Issue",
+    "description": "A template for users to report bugs effectively.",
+    "content": "# 🐛 Bug Report\n\n**Describe the bug**\nA clear and concise description of what the bug is.\n\n**To Reproduce**\nSteps to reproduce the behavior:\n1. Go to '...'\n2. Click on '...'\n3. Scroll down to '...'\n4. See error\n\n**Expected behavior**\nA clear and concise description of what you expected to happen.\n\n**Screenshots**\nIf applicable, add screenshots to help explain your problem.\n\n**Environment (please complete the following information):**\n- OS: [e.g. Windows, MacOS, Linux]\n- Browser [e.g. chrome, safari]\n- Version [e.g. 22]\n\n**Additional context**\nAdd any other context about the problem here.\n"
   },
   {
-    "label": "Startup Card",
-    "description": "A startup-style README card with call-to-action.",
-    "content": "<div align=\"center\" style=\"border:1px solid #eee; border-radius:16px; padding:32px; max-width:600px; margin:auto;\">\n  <h1>🚀 Startup Project</h1>\n  <p>Innovate. Disrupt. Deliver.</p>\n  <a href=\"https://your-demo-link.com\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Demo-Online-green?style=for-the-badge\" alt=\"Demo\" /></a>\n  <a href=\"https://github.com/your-username/your-repo\" target=\"_blank\"><img src=\"https://img.shields.io/github/stars/your-username/your-repo?style=social\" alt=\"Stars\" /></a>\n</div>\n\n---\n\n## ✨ Highlights\n\n- 🚀 Fast and scalable\n- 🔒 Secure by design\n- 🌐 Modern stack\n\n## 📦 Quick Start\n\n```bash\ngit clone https://github.com/your-username/your-repo.git\ncd your-repo\nnpm install\nnpm run dev\n```\n"
+    "label": "Feature Request",
+    "category": "Issue",
+    "description": "A template for users to suggest new features.",
+    "content": "# 🚀 Feature Request\n\n**Is your feature request related to a problem? Please describe.**\nA clear and concise description of what the problem is. Ex. I'm always frustrated when ...\n\n**Describe the solution you'd like**\nA clear and concise description of what you want to happen.\n\n**Describe alternatives you've considered**\nA clear and concise description of any alternative solutions or features you've considered.\n\n**Additional context**\nAdd any other context or screenshots about the feature request here.\n"
+  },
+  {
+    "label": "Getting Started",
+    "category": "Documentation",
+    "description": "A template for a quick start section to help users get up and running.",
+    "content": "# 🚀 Getting Started\n\nFollow these steps to get your project up and running quickly.\n\n## Prerequisites\n- Node.js >= 18\n- npm >= 9\n\n## Installation\n```bash\nnpm install your-package\n```\n\n## Usage\n```bash\nnpm start\n```\n"
+  },
+  {
+    "label": "Contributing Guide",
+    "category": "Contribution",
+    "description": "A template for a contributing section to encourage collaboration.",
+    "content": "# 🤝 Contributing\n\nWe welcome contributions!\n\n- Fork the repository\n- Create a new branch (`git checkout -b feature/YourFeature`)\n- Make your changes\n- Submit a pull request\n\nPlease read [CONTRIBUTING.md](CONTRIBUTING.md) for more details.\n"
+  },
+  {
+    "label": "License",
+    "category": "License",
+    "description": "A template for a license section.",
+    "content": "# 📝 License\n\nDistributed under the MIT License. See [LICENSE](LICENSE) for more information.\n"
+  },
+  {
+    "label": "Acknowledgements",
+    "category": "Documentation",
+    "description": "A template for an acknowledgements section to thank contributors and resources.",
+    "content": "# 🙏 Acknowledgements\n\n- Thanks to all contributors\n- Inspired by awesome projects like [Project1](https://github.com/project1), [Project2](https://github.com/project2)\n- Special thanks to [Your Inspiration](https://your-inspiration-link.com)\n"
+  },
+  {
+    "label": "FAQ",
+    "category": "Documentation",
+    "description": "A template for a frequently asked questions section.",
+    "content": "# ❓ FAQ\n\n**Q: How do I install this project?**\nA: See the Installation section above.\n\n**Q: How do I contribute?**\nA: See the Contributing Guide section.\n"
+  },
+  {
+    "label": "Showcase",
+    "category": "Documentation",
+    "description": "A template for a showcase section to highlight projects using this repo.",
+    "content": "# 🏆 Showcase\n\nHere are some awesome projects using this repository:\n- [Project A](https://github.com/user/project-a)\n- [Project B](https://github.com/user/project-b)\n"
   }
 ]
