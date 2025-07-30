@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.icon-image, .badge-image {
+  display: block;
+  margin: 0 auto 8px auto;
+  max-width: 60px;
+  height: 24px;
+  border-radius: 50%;
+  width: 24px;
+}
+
+.myiconbutton:hover{
+  color: #E1D9D1 ;
+}

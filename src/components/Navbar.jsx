@@ -1,34 +1,69 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import { AppBar, Toolbar, Typography, IconButton } from '@mui/material';
+import { useState ,useEffect} from 'react';
+import { AppBar, Toolbar, Typography, IconButton, Badge } from '@mui/material';
 import { FaShoppingCart } from 'react-icons/fa';
-import { Box } from '@mui/system'; 
+import MenuIcon from '@mui/icons-material/Menu';
+import CustomDrawer from './CustomDrawer';
+import HomeIcon from '@mui/icons-material/Home';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 
 const Navbar = () => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const handleDrawerToggle = () => setDrawerOpen((open) => !open);
+
+  // Only Home and Templates
+  const drawerItems = [
+    'Home',
+    'Templates',
+  ];
+  const drawerIcons = [
+    <HomeIcon />,
+    <MenuBookIcon />,
+  ];
+  const drawerLinks = [
+    '/',
+    '/templates',
+  ];
+
+  
+
   return (
     <AppBar position="static" color="primary">
       <Toolbar>
-        {/* Logo/Brand */}
-        <Typography variant="h6" component={Link} to="/" sx={{ textDecoration: 'none', color: 'inherit', flexGrow: 1 }}>
+        <IconButton
+          edge="start"
+          className='myiconbutton'
+          color="inherit"
+          aria-label="menu"
+          onClick={handleDrawerToggle}
+          sx={{ mr: 2 }}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Typography
+          variant="h6"
+          className='myiconbutton'
+          component={Link}
+          to="/"
+          sx={{ textDecoration: 'none', color: 'inherit', flexGrow: 1,fontWeight:400,fontSize:30 }}
+        >
           README SHOP
         </Typography>
-
-        {/* Shopping Cart Icon */}
-        <IconButton component={Link} to="/shop" color="inherit">
-          <FaShoppingCart />
+        <IconButton className='myiconbutton' component={Link} to="/shop" color="inherit">
+        
+           <FaShoppingCart />
+        
         </IconButton>
-
-        {/* Optional Dropdown can go here */}
-        {/* 
-        <Box>
-          <IconButton component={Link} to="/editUser" color="inherit">
-            Edit Profile
-          </IconButton>
-          <IconButton component={Link} to="/logout" color="inherit">
-            Logout
-          </IconButton>
-        </Box>
-        */}
+        <CustomDrawer
+          open={drawerOpen}
+          onClose={handleDrawerToggle}
+          anchor="left"
+          items={drawerItems}
+          itemIcons={drawerIcons}
+          itemLinks={drawerLinks}
+          title="Navigation"
+        />
       </Toolbar>
     </AppBar>
   );

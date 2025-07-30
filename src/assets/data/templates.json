@@ -1,0 +1,68 @@
+[
+  {
+    "label": "Community",
+    "category": "Community",
+    "description": "A template highlighting community, support, and how to get involved.",
+    "content": "# Project Title\n\n## 🌟 Community\n\nJoin our community on [Discord](https://discord.gg/your-invite) or follow us on [Twitter](https://twitter.com/your-handle)!\n\n## 🙋‍♂️ Support\n\nIf you have any questions or need help, open an issue or join our discussions.\n\n## 🤝 How to Contribute\n\n- Fork the repo\n- Create your feature branch (`git checkout -b feature/AmazingFeature`)\n- Commit your changes\n- Push to the branch\n- Open a Pull Request\n"
+  },
+  {
+    "label": "Documentation",
+    "category": "Documentation",
+    "description": "A template emphasizing documentation and usage examples.",
+    "content": "# Project Title\n\n## 📚 Documentation\n\nFind the full documentation at [docs.yourproject.com](https://docs.yourproject.com).\n\n## 📝 Usage Example\n\n```js\nimport { AwesomeComponent } from 'your-library';\n\n<AwesomeComponent prop=\"value\" />\n```\n"
+  },
+  {
+    "label": "Code of Conduct",
+    "category": "Community",
+    "description": "A template for including a code of conduct section.",
+    "content": "# Project Title\n\n## 📜 Code of Conduct\n\nThis project adheres to the [Contributor Covenant](https://www.contributor-covenant.org/). By participating, you are expected to uphold this code.\n\nFor more information, see [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).\n"
+  },
+  {
+    "label": "Bug Report",
+    "category": "Issue",
+    "description": "A template for users to report bugs effectively.",
+    "content": "# 🐛 Bug Report\n\n**Describe the bug**\nA clear and concise description of what the bug is.\n\n**To Reproduce**\nSteps to reproduce the behavior:\n1. Go to '...'\n2. Click on '...'\n3. Scroll down to '...'\n4. See error\n\n**Expected behavior**\nA clear and concise description of what you expected to happen.\n\n**Screenshots**\nIf applicable, add screenshots to help explain your problem.\n\n**Environment (please complete the following information):**\n- OS: [e.g. Windows, MacOS, Linux]\n- Browser [e.g. chrome, safari]\n- Version [e.g. 22]\n\n**Additional context**\nAdd any other context about the problem here.\n"
+  },
+  {
+    "label": "Feature Request",
+    "category": "Issue",
+    "description": "A template for users to suggest new features.",
+    "content": "# 🚀 Feature Request\n\n**Is your feature request related to a problem? Please describe.**\nA clear and concise description of what the problem is. Ex. I'm always frustrated when ...\n\n**Describe the solution you'd like**\nA clear and concise description of what you want to happen.\n\n**Describe alternatives you've considered**\nA clear and concise description of any alternative solutions or features you've considered.\n\n**Additional context**\nAdd any other context or screenshots about the feature request here.\n"
+  },
+  {
+    "label": "Getting Started",
+    "category": "Documentation",
+    "description": "A template for a quick start section to help users get up and running.",
+    "content": "# 🚀 Getting Started\n\nFollow these steps to get your project up and running quickly.\n\n## Prerequisites\n- Node.js >= 18\n- npm >= 9\n\n## Installation\n```bash\nnpm install your-package\n```\n\n## Usage\n```bash\nnpm start\n```\n"
+  },
+  {
+    "label": "Contributing Guide",
+    "category": "Contribution",
+    "description": "A template for a contributing section to encourage collaboration.",
+    "content": "# 🤝 Contributing\n\nWe welcome contributions!\n\n- Fork the repository\n- Create a new branch (`git checkout -b feature/YourFeature`)\n- Make your changes\n- Submit a pull request\n\nPlease read [CONTRIBUTING.md](CONTRIBUTING.md) for more details.\n"
+  },
+  {
+    "label": "License",
+    "category": "License",
+    "description": "A template for a license section.",
+    "content": "# 📝 License\n\nDistributed under the MIT License. See [LICENSE](LICENSE) for more information.\n"
+  },
+  {
+    "label": "Acknowledgements",
+    "category": "Documentation",
+    "description": "A template for an acknowledgements section to thank contributors and resources.",
+    "content": "# 🙏 Acknowledgements\n\n- Thanks to all contributors\n- Inspired by awesome projects like [Project1](https://github.com/project1), [Project2](https://github.com/project2)\n- Special thanks to [Your Inspiration](https://your-inspiration-link.com)\n"
+  },
+  {
+    "label": "FAQ",
+    "category": "Documentation",
+    "description": "A template for a frequently asked questions section.",
+    "content": "# ❓ FAQ\n\n**Q: How do I install this project?**\nA: See the Installation section above.\n\n**Q: How do I contribute?**\nA: See the Contributing Guide section.\n"
+  },
+  {
+    "label": "Showcase",
+    "category": "Documentation",
+    "description": "A template for a showcase section to highlight projects using this repo.",
+    "content": "# 🏆 Showcase\n\nHere are some awesome projects using this repository:\n- [Project A](https://github.com/user/project-a)\n- [Project B](https://github.com/user/project-b)\n"
+  }
+]
