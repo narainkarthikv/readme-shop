@@ -2,43 +2,61 @@
   {
     "label": "Community",
     "category": "Community",
-    "description": "A template highlighting community, support, and how to get involved.",
+    "description": "Highlight your community, support channels, and how to get involved.",
     "content": "# Project Title\n\n## 🌟 Community\n\nJoin our community on [Discord](https://discord.gg/your-invite) or follow us on [Twitter](https://twitter.com/your-handle)!\n\n## 🙋‍♂️ Support\n\nIf you have any questions or need help, open an issue or join our discussions.\n\n## 🤝 How to Contribute\n\n- Fork the repo\n- Create your feature branch (`git checkout -b feature/AmazingFeature`)\n- Commit your changes\n- Push to the branch\n- Open a Pull Request\n"
   },
   {
-    "label": "Documentation",
+    "label": "Quickstart",
+    "category": "Getting Started",
+    "description": "A modern, visual quickstart for new users.",
+    "content": "# 🚀 Quickstart\n\nWelcome to **Project Title**!\n\n## Prerequisites\n- Node.js >= 18\n- npm >= 9\n\n## Installation\n```bash\nnpm install your-package\n```\n\n## Run\n```bash\nnpm start\n```\n\n## Next Steps\n- Explore the [Documentation](#documentation)\n- Check out [Contributing](#contributing)\n- Join our [Community](#community)\n"
+  },
+  {
+    "label": "Feature Overview",
     "category": "Documentation",
-    "description": "A template emphasizing documentation and usage examples.",
-    "content": "# Project Title\n\n## 📚 Documentation\n\nFind the full documentation at [docs.yourproject.com](https://docs.yourproject.com).\n\n## 📝 Usage Example\n\n```js\nimport { AwesomeComponent } from 'your-library';\n\n<AwesomeComponent prop=\"value\" />\n```\n"
+    "description": "A visually engaging feature list with icons.",
+    "content": "# ✨ Features\n\n- ⚡ Fast and lightweight\n- �️ Easy to customize\n- 🔒 Secure by default\n- 🌍 Internationalization support\n- 📦 Modular architecture\n- 🚀 Modern toolchain\n"
+  },
+  {
+    "label": "Usage Example",
+    "category": "Documentation",
+    "description": "Show how to use your project with a real code snippet.",
+    "content": "# 📝 Usage Example\n\n```js\nimport { AwesomeComponent } from 'your-library';\n\n<AwesomeComponent prop=\"value\" />\n```\n"
   },
   {
     "label": "Code of Conduct",
     "category": "Community",
-    "description": "A template for including a code of conduct section.",
-    "content": "# Project Title\n\n## 📜 Code of Conduct\n\nThis project adheres to the [Contributor Covenant](https://www.contributor-covenant.org/). By participating, you are expected to uphold this code.\n\nFor more information, see [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).\n"
+    "description": "Set expectations for behavior in your project.",
+    "content": "# 📜 Code of Conduct\n\nThis project adheres to the [Contributor Covenant](https://www.contributor-covenant.org/). By participating, you are expected to uphold this code.\n\nFor more information, see [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).\n"
   },
   {
     "label": "Bug Report",
-    "category": "Issue",
-    "description": "A template for users to report bugs effectively.",
+    "category": "Issue Templates",
+    "description": "A clear, user-friendly bug report template.",
     "content": "# 🐛 Bug Report\n\n**Describe the bug**\nA clear and concise description of what the bug is.\n\n**To Reproduce**\nSteps to reproduce the behavior:\n1. Go to '...'\n2. Click on '...'\n3. Scroll down to '...'\n4. See error\n\n**Expected behavior**\nA clear and concise description of what you expected to happen.\n\n**Screenshots**\nIf applicable, add screenshots to help explain your problem.\n\n**Environment (please complete the following information):**\n- OS: [e.g. Windows, MacOS, Linux]\n- Browser [e.g. chrome, safari]\n- Version [e.g. 22]\n\n**Additional context**\nAdd any other context about the problem here.\n"
   },
   {
     "label": "Feature Request",
-    "category": "Issue",
+    "category": "Issue Templates",
     "description": "A template for users to suggest new features.",
     "content": "# 🚀 Feature Request\n\n**Is your feature request related to a problem? Please describe.**\nA clear and concise description of what the problem is. Ex. I'm always frustrated when ...\n\n**Describe the solution you'd like**\nA clear and concise description of what you want to happen.\n\n**Describe alternatives you've considered**\nA clear and concise description of any alternative solutions or features you've considered.\n\n**Additional context**\nAdd any other context or screenshots about the feature request here.\n"
   },
   {
-    "label": "Getting Started",
-    "category": "Documentation",
-    "description": "A template for a quick start section to help users get up and running.",
-    "content": "# 🚀 Getting Started\n\nFollow these steps to get your project up and running quickly.\n\n## Prerequisites\n- Node.js >= 18\n- npm >= 9\n\n## Installation\n```bash\nnpm install your-package\n```\n\n## Usage\n```bash\nnpm start\n```\n"
+    "label": "Pull Request",
+    "category": "Issue Templates",
+    "description": "A ready-to-use pull request template for contributors.",
+    "content": "# � Pull Request\n\n**What kind of change does this PR introduce?**\n- [ ] Bugfix\n- [ ] Feature\n- [ ] Code style update\n- [ ] Refactor\n- [ ] Build related changes\n- [ ] Other, please describe:\n\n**What is the current behavior?**\n\n**What is the new behavior?**\n\n**Does this PR introduce a breaking change?**\n- [ ] Yes\n- [ ] No\n\n**Other information:**\n"
+  },
+  {
+    "label": "Security Policy",
+    "category": "Security",
+    "description": "A template for responsible vulnerability disclosure.",
+    "content": "# 🛡️ Security Policy\n\n## Reporting a Vulnerability\n\nIf you discover a security vulnerability, please report it by emailing [security@yourproject.com](mailto:security@yourproject.com).\nWe will respond as soon as possible to address the issue.\n"
   },
   {
     "label": "Contributing Guide",
     "category": "Contribution",
-    "description": "A template for a contributing section to encourage collaboration.",
+    "description": "Encourage collaboration and set contribution guidelines.",
     "content": "# 🤝 Contributing\n\nWe welcome contributions!\n\n- Fork the repository\n- Create a new branch (`git checkout -b feature/YourFeature`)\n- Make your changes\n- Submit a pull request\n\nPlease read [CONTRIBUTING.md](CONTRIBUTING.md) for more details.\n"
   },
   {
@@ -50,19 +68,61 @@
   {
     "label": "Acknowledgements",
     "category": "Documentation",
-    "description": "A template for an acknowledgements section to thank contributors and resources.",
+    "description": "Thank contributors and resources in a friendly way.",
     "content": "# 🙏 Acknowledgements\n\n- Thanks to all contributors\n- Inspired by awesome projects like [Project1](https://github.com/project1), [Project2](https://github.com/project2)\n- Special thanks to [Your Inspiration](https://your-inspiration-link.com)\n"
   },
   {
     "label": "FAQ",
     "category": "Documentation",
-    "description": "A template for a frequently asked questions section.",
+    "description": "A modern FAQ section for common questions.",
     "content": "# ❓ FAQ\n\n**Q: How do I install this project?**\nA: See the Installation section above.\n\n**Q: How do I contribute?**\nA: See the Contributing Guide section.\n"
   },
   {
     "label": "Showcase",
     "category": "Documentation",
-    "description": "A template for a showcase section to highlight projects using this repo.",
+    "description": "Highlight projects using your repo.",
     "content": "# 🏆 Showcase\n\nHere are some awesome projects using this repository:\n- [Project A](https://github.com/user/project-a)\n- [Project B](https://github.com/user/project-b)\n"
+  },
+  {
+    "label": "Roadmap",
+    "category": "Project Management",
+    "description": "A visual roadmap for your project's future.",
+    "content": "# 🗺️ Roadmap\n\n- [x] Initial release\n- [ ] Add feature X\n- [ ] Improve documentation\n- [ ] Community events\n- [ ] More integrations\n"
+  },
+  {
+    "label": "Release Notes",
+    "category": "Project Management",
+    "description": "A template for clear, engaging release notes.",
+    "content": "# 📝 Release Notes\n\n## [v1.0.0] - 2025-07-31\n### Added\n- Initial release\n\n### Changed\n- N/A\n\n### Fixed\n- N/A\n"
+  },
+  {
+    "label": "Support",
+    "category": "Community",
+    "description": "A friendly support section for users.",
+    "content": "# 💬 Support\n\nIf you need help, open an issue or join our [Discussions](https://github.com/your-repo/discussions).\nYou can also reach us on [Discord](https://discord.gg/your-invite).\n"
+  },
+  {
+    "label": "Sponsors",
+    "category": "Community",
+    "description": "A section to thank your sponsors.",
+    "content": "# 💖 Sponsors\n\nThanks to our amazing sponsors for supporting this project!\n\n- [Sponsor 1](https://github.com/sponsor1)\n- [Sponsor 2](https://github.com/sponsor2)\n\nWant to become a sponsor? [Learn more](https://github.com/sponsors/your-repo).\n"
+  },
+  {
+    "label": "Demo GIF",
+    "category": "Documentation",
+    "description": "Showcase your project with a demo GIF.",
+    "content": "# 🎬 Demo\n\n![Demo GIF](https://your-demo-link.com/demo.gif)\n\n> _A quick look at what this project can do!_\n"
+  },
+  {
+    "label": "API Reference",
+    "category": "Documentation",
+    "description": "A clean API reference section.",
+    "content": "# 📖 API Reference\n\n## `AwesomeComponent`\n\n| Prop   | Type   | Description         |\n|--------|--------|---------------------|\n| prop   | string | The main property.  |\n\n---\n\nFor more details, see [API Docs](https://docs.yourproject.com/api).\n"
+  },
+  {
+    "label": "Badges",
+    "category": "Documentation",
+    "description": "Add eye-catching badges to your README.",
+    "content": "# 🏅 Badges\n\n![Build](https://img.shields.io/github/actions/workflow/status/your-repo/ci.yml)\n![License](https://img.shields.io/github/license/your-repo/your-repo)\n![Contributors](https://img.shields.io/github/contributors/your-repo/your-repo)\n"
   }
 ]
