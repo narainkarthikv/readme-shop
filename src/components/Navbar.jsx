@@ -1,14 +1,22 @@
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useState ,useEffect} from 'react';
+import { useShopStore } from '../store/useShopStore';
+import { FaMoon, FaSun, FaShoppingCart } from 'react-icons/fa';
 import { AppBar, Toolbar, Typography, IconButton, Badge } from '@mui/material';
-import { FaShoppingCart } from 'react-icons/fa';
 import MenuIcon from '@mui/icons-material/Menu';
 import CustomDrawer from './CustomDrawer';
 import HomeIcon from '@mui/icons-material/Home';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 
 const Navbar = () => {
+
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const themeMode = useShopStore((state) => state.themeMode);
+  const setThemeMode = useShopStore((state) => state.setThemeMode);
+
+  const handleThemeToggle = () => {
+    setThemeMode(themeMode === 'light' ? 'dark' : 'light');
+  };
 
   const handleDrawerToggle = () => setDrawerOpen((open) => !open);
 
@@ -50,10 +58,11 @@ const Navbar = () => {
         >
           README SHOP
         </Typography>
+        <IconButton className='myiconbutton' onClick={handleThemeToggle} color="inherit" sx={{ mr: 1 }}>
+          {themeMode === 'light' ? <FaMoon /> : <FaSun />}
+        </IconButton>
         <IconButton className='myiconbutton' component={Link} to="/shop" color="inherit">
-        
-           <FaShoppingCart />
-        
+          <FaShoppingCart />
         </IconButton>
         <CustomDrawer
           open={drawerOpen}

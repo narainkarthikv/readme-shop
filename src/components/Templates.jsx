@@ -3,7 +3,7 @@ import { Box, Typography, Paper, Grid, IconButton, Tooltip, Card, CardContent, C
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import templatesData from '../assets/data/templates.json';
 import { useNavigate } from "react-router-dom";
-
+import { useTheme } from '@mui/material/styles';
 
 const getCategories = (templates) => {
   const cats = templates.map((tpl) => tpl.category || 'Other');
@@ -22,6 +22,7 @@ const Templates = () => {
     setTemplates(templatesData);
   }, []);
 
+  const theme = useTheme();
   const categories = ['All', ...getCategories(templates)];
 
   const filteredTemplates = (() => {
@@ -150,13 +151,14 @@ const Templates = () => {
                   </Box>
                 </Box>
                 <CardContent sx={{ pt: 1, flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
-                  <Typography variant="body2" color="text.secondary" sx={{ mb: 2, minHeight: 40 }}>
+                  <Typography variant="body2" sx={{ mb: 2, minHeight: 40, color: theme.palette.text.secondary }}>
                     {tpl.description}
                   </Typography>
                   <Paper
                     variant="outlined"
                     sx={{
-                      background: '#f5f5f5',
+                      background: theme.palette.background.paper,
+                      color: theme.palette.text.primary,
                       p: 2,
                       borderRadius: 2,
                       overflowX: 'auto',
@@ -178,6 +180,6 @@ const Templates = () => {
       </Grid>
     </Box>
   );
-};
+}
 
 export default Templates;
