@@ -7,4 +7,6 @@ export const useShopStore = create((set) => ({
   setSelectedBadges: (selectedBadges) => set({ selectedBadges }),
   iconSearchTerm: "",
   setIconSearchTerm: (iconSearchTerm) => set({ iconSearchTerm }),
+  themeMode: 'light',
+  setThemeMode: (themeMode) => set({ themeMode }),
 }));
