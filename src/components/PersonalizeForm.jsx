@@ -1,21 +1,23 @@
+import React from 'react';
 import { useMarkdown } from '../context/MarkdownContext';
 
-const PersonalizeForm = () => {
+const PersonalizeForm = React.memo(() => {
   const { userName, setUserName, theme, setTheme } = useMarkdown();
 
   return (
     <div style={{ marginBottom: 16 }}>
-      <label>
+      <label htmlFor="userName">
         Name:{' '}
         <input
+          id="userName"
           value={userName}
           onChange={e => setUserName(e.target.value)}
           placeholder="Your name"
         />
       </label>
-      <label style={{ marginLeft: 16 }}>
+      <label htmlFor="theme" style={{ marginLeft: 16 }}>
         Theme:{' '}
-        <select value={theme} onChange={e => setTheme(e.target.value)}>
+        <select id="theme" value={theme} onChange={e => setTheme(e.target.value)}>
           <option value="default">Default</option>
           <option value="tokyonight">Tokyo Night</option>
           <option value="luminance">Luminance</option>
@@ -23,6 +25,6 @@ const PersonalizeForm = () => {
       </label>
     </div>
   );
-};
+});
 
 export default PersonalizeForm;

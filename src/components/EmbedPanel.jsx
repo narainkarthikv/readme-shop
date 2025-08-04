@@ -17,16 +17,15 @@ const EMBEDS = [
     embedContent:
       '<img src="https://github-profile-trophy.vercel.app/?username=narainkarthikv&theme=tokyonight&no-frame=true&margin-w=15&margin-h=15" alt="GitHub Trophies" />',
   },
-  // Add more as needed
 ];
 
-const EmbedPanel = () => (
+const EmbedPanel = React.memo(() => (
   <div>
     <h4>Embed Badges/Icons</h4>
-    {EMBEDS.map((item, idx) => (
-      <EmbedButton key={idx} {...item} />
+    {EMBEDS.map((item) => (
+      <EmbedButton key={item.label} {...item} />
     ))}
   </div>
-);
+));
 
 export default EmbedPanel;
