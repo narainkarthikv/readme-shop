@@ -1,20 +1,12 @@
 /**
- * Filters the provided data based on the given search term.
- * @param {Array} data - The list of items (icons or badges) to filter.
- * @param {string} searchTerm - The term to search and filter the data by.
- * @returns {Array} - The filtered list of items.
+ * Filters a list of items by a search term (case-insensitive).
+ * @param {Array} data - List of items to filter (must have 'name' property).
+ * @param {string} searchTerm - Search term to filter by.
+ * @returns {Array} Filtered items.
  */
-
 export const loadAndFilter = (data, searchTerm) => {
-    if (!data) {
-        return [];
-    }
-
-    if (!searchTerm) {
-        return data;
-    }
-
-    return data.filter(item => 
-        item.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+  if (!Array.isArray(data)) return [];
+  if (!searchTerm) return data;
+  const term = searchTerm.toLowerCase();
+  return data.filter((item) => item.name.toLowerCase().includes(term));
 };

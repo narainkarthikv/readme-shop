@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography, Link as MuiLink, BottomNavigation } from '@mui/material';
 
-const Footer = () => (
+const Footer = React.memo(() => (
   <BottomNavigation
     component="footer"
     sx={{
@@ -14,17 +14,27 @@ const Footer = () => (
       width: '100%',
     }}
   >
-    <Typography sx={{fontWeight:100}} variant="body2">
+    <Typography sx={{ fontWeight: 100 }} variant="body2">
       &#169; 2024 Open-Source Project -{' '}
-      <MuiLink href="https://www.github.com/Wisdom-Fox/README-SHOP" color="inherit" target="_blank" rel="noopener">
+      <MuiLink
+        href="https://www.github.com/Wisdom-Fox/README-SHOP"
+        color="inherit"
+        target="_blank"
+        rel="noopener"
+      >
         GitHub Repository
       </MuiLink>
       &nbsp; Developed By{' '}
-      <MuiLink href="https://www.github.com/Wisdom-Fox" color="inherit" target="_blank" rel="noopener">
+      <MuiLink
+        href="https://www.github.com/Wisdom-Fox"
+        color="inherit"
+        target="_blank"
+        rel="noopener"
+      >
         Wisdom Fox Community
       </MuiLink>
     </Typography>
   </BottomNavigation>
-);
+));
 
 export default Footer;
