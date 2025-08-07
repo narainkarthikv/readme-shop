@@ -1,20 +1,28 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { ThemeProvider } from '@mui/material/styles';
 import App from './App.jsx';
 import './styles/index.css';
-import { ThemeProvider } from '@mui/material/styles';
-import { getTheme } from './theme';
+import { getTheme } from './theme/theme';
 import { useShopStore } from './store/useShopStore';
+import { ErrorBoundary } from './components/ErrorBoundary';
 
-// ThemeWrapper as a custom hook for better separation
-function ThemeWrapper({ children }) {
+const ThemeWrapper = React.memo(({ children }) => {
   const themeMode = useShopStore((state) => state.themeMode);
   const theme = React.useMemo(() => getTheme(themeMode), [themeMode]);
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
-}
+  
+  return (
+    <ThemeProvider theme={theme}>
+      <ErrorBoundary>
+        {children}
+      </ErrorBoundary>
+    </ThemeProvider>
+  );
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
     <ThemeWrapper>

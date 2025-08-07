@@ -1,29 +1,44 @@
 import React from 'react';
+import { Box, TextField, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 import { useMarkdown } from '../context/MarkdownContext';
+import { THEME_OPTIONS } from '../config/constants';
 
 const PersonalizeForm = React.memo(() => {
   const { userName, setUserName, theme, setTheme } = useMarkdown();
 
   return (
-    <div style={{ marginBottom: 16 }}>
-      <label htmlFor="userName">
-        Name:{' '}
-        <input
-          id="userName"
-          value={userName}
-          onChange={e => setUserName(e.target.value)}
-          placeholder="Your name"
-        />
-      </label>
-      <label htmlFor="theme" style={{ marginLeft: 16 }}>
-        Theme:{' '}
-        <select id="theme" value={theme} onChange={e => setTheme(e.target.value)}>
-          <option value="default">Default</option>
-          <option value="tokyonight">Tokyo Night</option>
-          <option value="luminance">Luminance</option>
-        </select>
-      </label>
-    </div>
+    <Box sx={{ 
+      display: 'flex', 
+      gap: 2, 
+      mb: 2,
+      flexDirection: { xs: 'column', sm: 'row' }
+    }}>
+      <TextField
+        id="userName"
+        label="Name"
+        value={userName}
+        onChange={e => setUserName(e.target.value)}
+        placeholder="Your name"
+        size="small"
+        fullWidth
+      />
+      <FormControl size="small" fullWidth>
+        <InputLabel id="theme-label">Theme</InputLabel>
+        <Select
+          labelId="theme-label"
+          id="theme"
+          value={theme}
+          label="Theme"
+          onChange={e => setTheme(e.target.value)}
+        >
+          {THEME_OPTIONS.map(option => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+    </Box>
   );
 });
 

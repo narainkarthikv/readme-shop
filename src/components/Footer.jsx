@@ -15,7 +15,7 @@ const Footer = React.memo(() => (
     }}
   >
     <Typography sx={{ fontWeight: 100 }} variant="body2">
-      &#169; 2024 Open-Source Project -{' '}
+      &#169; 2025 Open-Source Project -{' '}
       <MuiLink
         href="https://www.github.com/Wisdom-Fox/README-SHOP"
         color="inherit"
