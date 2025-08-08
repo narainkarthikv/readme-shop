@@ -7,6 +7,8 @@ Welcome to **README-SHOP**! This modern web app makes customizing your GitHub RE
 [![GitHub forks](https://img.shields.io/github/forks/narainkarthikv/README-SHOP?style=flat-square)](https://github.com/narainkarthikv/README-SHOP/network)
 [![GitHub stars](https://img.shields.io/github/stars/narainkarthikv/README-SHOP?style=flat-square)](https://github.com/narainkarthikv/README-SHOP/stargazers)
 [![MIT License](https://img.shields.io/github/license/narainkarthikv/README-SHOP?style=flat-square)](./LICENSE)
+[![Version](https://img.shields.io/github/package-json/v/narainkarthikv/README-SHOP?style=flat-square)](./package.json)
+[![CI](https://github.com/narainkarthikv/README-SHOP/actions/workflows/greetings.yml/badge.svg)](https://github.com/narainkarthikv/README-SHOP/actions)
 
 ---
 
@@ -16,8 +18,10 @@ Welcome to **README-SHOP**! This modern web app makes customizing your GitHub RE
 - [Demo](#demo)
 - [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
+- [Configuration & Deployment](#configuration--deployment)
 - [How to Contribute](#how-to-contribute)
 - [Project Structure](#project-structure)
+- [Changelog](#changelog)
 - [Contributors](#contributors)
 - [License](#license)
 
@@ -26,6 +30,7 @@ Welcome to **README-SHOP**! This modern web app makes customizing your GitHub RE
 ## 📝 About
 
 **README-SHOP** lets you:
+
 - Instantly add badges, icons, banners, and stats to your README
 - Personalize and preview your markdown in real time
 - Copy, embed, and share beautiful markdown widgets
@@ -51,40 +56,48 @@ Welcome to **README-SHOP**! This modern web app makes customizing your GitHub RE
 
 ## 🚀 Getting Started
 
-Follow these steps to get started:
-
 1. **Fork** this repository (top right of this page)
 2. **Clone** your fork:
+
    ```bash
    git clone https://github.com/<your-username>/README-SHOP.git
    cd README-SHOP
    ```
+
 3. **Install dependencies**:
+
    ```bash
    npm install
    ```
+
 4. **Start the development server**:
+
    ```bash
    npm run dev
    ```
+
 5. **Open** [http://localhost:5173](http://localhost:5173) in your browser to view the app.
+
+---
+
+## ⚙️ Configuration & Deployment
+
+### Environment Variables
+
+No special environment variables are required for local development. For production deployment, you may configure environment variables as needed for analytics or integrations.
+
+### Deployment
+
+- **Vercel**: Click the "Deploy to Vercel" button or connect your repo to Vercel for instant deployment.
+- **Manual**: Build with `npm run build` and serve the `dist/` folder with any static server.
+
+---
 
 ---
 
 ## 🤝 How to Contribute
 
-We welcome all contributions! Here’s a quick guide:
-
-1. **Fork** the repo and create your branch from `develop`.
-2. **Make your changes** (add features, fix bugs, improve docs, etc).
-3. **Check your changes**: Run the app locally and ensure everything works.
-4. **Commit** and **push** your changes:
-   ```bash
-   git add .
-   git commit -m "Describe your changes"
-   git push origin <your-branch-name>
-   ```
-5. **Open a Pull Request** and fill out the PR template.
+We welcome all contributions! Please read our [Contributing Guide](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md) before submitting issues or pull requests.
 
 **Need help?** Open an [issue](https://github.com/narainkarthikv/README-SHOP/issues) or ask in the discussions!
 
@@ -131,6 +144,10 @@ We appreciate the contributions of the following individuals: [Contributors](htt
 
 This is just the beginning! Let’s build something amazing together and make README-SHOP the best it can be! ❤️🤝
 
+## 📜 Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for release notes and version history.
+
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/narainkarthikv/README-SHOP/blob/main/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.

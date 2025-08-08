@@ -15,9 +15,9 @@ export const BADGE_CATEGORIES = {
 };
 
 export const API_ENDPOINTS = {
-  GITHUB_STATS: 'https://github-readme-stats.vercel.app/api',
+  GITHUB_STATS: 'https://github-readme-stats.vercel.app/',
   SKILLICONS: 'https://skillicons.dev/icons',
-  SVG_BANNERS: 'https://svg-banners.vercel.app/api',
+  SVG_BANNERS: 'https://svg-banners.vercel.app/',
 };
 
 export const THEME_OPTIONS = {
