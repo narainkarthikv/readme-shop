@@ -35,7 +35,9 @@ const Icons = () => {
         maxWidth: '100%',
         minHeight: 420,
         maxHeight: 600,
-        overflowY: 'auto',
+  overflowY: 'auto',
+  touchAction: 'pan-y',
+  overscrollBehavior: 'contain',
         boxSizing: 'border-box',
         flex: 1,
         display: 'flex',
@@ -60,7 +62,7 @@ const Icons = () => {
       )}
        
       {/* Make the icons grid scrollable and rest fixed */}
-      <Box sx={{ flex: 1, overflowY: 'auto', minHeight: 0 }}>
+  <Box sx={{ flex: 1, overflowY: 'auto', minHeight: 0, touchAction: 'pan-y', overscrollBehavior: 'contain' }}>
         <Grid container spacing={2} justifyContent="center">
           {filteredIcons.map((icon, index) => (
             <Grid item key={index} xs={4} sm={3} md={3}>

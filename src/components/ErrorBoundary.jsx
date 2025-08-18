@@ -74,7 +74,9 @@ class ErrorBoundaryFallback extends React.Component {
                   bgcolor: 'grey.100',
                   borderRadius: 1,
                   textAlign: 'left',
-                  overflowX: 'auto'
+                  overflowX: 'auto',
+                  touchAction: 'pan-x',
+                  overscrollBehavior: 'contain'
                 }}
               >
                 <Typography variant="body2" component="pre" sx={{ color: 'error.main' }}>

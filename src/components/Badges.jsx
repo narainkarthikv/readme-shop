@@ -70,7 +70,7 @@ const Badges = () => {
         onChange={(e) => setSearchTerm(e.target.value)}
         sx={{ mb: 3, maxWidth: 300 }}
       />
-      <Box sx={{ mb: 2, overflowX: 'auto', whiteSpace: 'nowrap', textAlign: 'center' }}>
+  <Box sx={{ mb: 2, overflowX: 'auto', whiteSpace: 'nowrap', textAlign: 'center', touchAction: 'pan-x', overscrollBehavior: 'contain' }}>
         {selectedBadges.map((badge) => (
           <span
             key={badge.name}
