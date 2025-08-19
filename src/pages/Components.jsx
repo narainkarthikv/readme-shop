@@ -6,7 +6,7 @@ import GithubTrophies from '../components/GithubTrophies';
 import GithubStats from '../components/GithubStats';
 import { Container, Grid, Box } from '@mui/material';
 
-const Body = () => (
+const Components = () => (
   <Container
     maxWidth="xl"
     disableGutters
@@ -98,4 +98,4 @@ const Body = () => (
   </Container>
 );
 
-export default Body;
+export default Components;

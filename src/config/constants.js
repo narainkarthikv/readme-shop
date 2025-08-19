@@ -36,6 +36,7 @@ export const DEFAULT_DIMENSIONS = {
 
 export const ROUTES = {
   HOME: '/',
+  COMPONENTS: '/components',
   SHOP: '/shop',
   TEMPLATES: '/templates',
   NOT_FOUND: '*',
