@@ -1,77 +1,90 @@
 import { createTheme } from '@mui/material/styles';
 import { THEME_OPTIONS } from '../config/constants';
 
-const baseTheme = {
-  typography: {
-    fontFamily: '"Inter", "Helvetica", "Arial", sans-serif',
-    h1: { fontWeight: 600 },
-    h2: { fontWeight: 600 },
-    h3: { fontWeight: 500 },
-    h4: { fontWeight: 500 },
-    h5: { fontWeight: 500 },
-    h6: { fontWeight: 500 },
-  },
-  shape: {
-    borderRadius: 8,
-  },
-  components: {
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          textTransform: 'none',
-        },
-      },
-    },
-    MuiPaper: {
-      defaultProps: {
-        elevation: 2,
-      },
-    },
-  },
+// Monochrome palette tokens
+export const themeTokens = {
+  blue: '#007bff',
+  blueDark: '#3399ff',
+  black: '#181a1b',
+  white: '#ffffff',
+  gray: '#222326',
+  borderLight: '#e5e7eb',
+  borderDark: '#343a40',
+  textLight: '#212529',
+  textDark: '#f8f9fa',
+};
+
+const baseTypography = {
+  fontFamily: '"Inter", "Helvetica", "Arial", sans-serif',
+  h1: { fontWeight: 600 },
+  h2: { fontWeight: 600 },
+  h3: { fontWeight: 500 },
+  h4: { fontWeight: 500 },
+  h5: { fontWeight: 500 },
+  h6: { fontWeight: 500 },
 };
 
 const lightTheme = {
-  ...baseTheme,
+  typography: baseTypography,
   palette: {
     mode: 'light',
     primary: {
-      main: '#1976d2',
-      light: '#42a5f5',
-      dark: '#1565c0',
-    },
-    secondary: {
-      main: '#9c27b0',
-      light: '#ba68c8',
-      dark: '#7b1fa2',
+      main: themeTokens.blue,
+      contrastText: themeTokens.white,
     },
     background: {
-      default: '#f5f5f5',
-      paper: '#ffffff',
+      default: themeTokens.white,
+      paper: themeTokens.white,
     },
+    text: {
+      primary: themeTokens.textLight,
+      secondary: themeTokens.blue,
+    },
+    divider: themeTokens.borderLight,
+    action: {
+      hover: '#e6f0ff',
+      selected: '#e6f0ff',
+      focus: '#0056b3',
+    },
+    card: themeTokens.white,
+    input: themeTokens.gray,
+    button: themeTokens.blue,
+    buttonText: themeTokens.white,
+    border: themeTokens.borderLight,
   },
 };
 
 const darkTheme = {
-  ...baseTheme,
+  typography: baseTypography,
   palette: {
     mode: 'dark',
     primary: {
-      main: '#90caf9',
-      light: '#e3f2fd',
-      dark: '#42a5f5',
-    },
-    secondary: {
-      main: '#ce93d8',
-      light: '#f3e5f5',
-      dark: '#ab47bc',
+      main: themeTokens.blueDark,
+      contrastText: themeTokens.black,
     },
     background: {
-      default: '#121212',
-      paper: '#1e1e1e',
+      default: themeTokens.black,
+      paper: themeTokens.gray,
     },
+    text: {
+      primary: themeTokens.textDark,
+      secondary: themeTokens.blueDark,
+    },
+    divider: themeTokens.borderDark,
+    action: {
+      hover: '#222e3a',
+      selected: '#222e3a',
+      focus: '#0056b3',
+    },
+    card: themeTokens.gray,
+    input: themeTokens.black,
+    button: themeTokens.blueDark,
+    buttonText: themeTokens.black,
+    border: themeTokens.borderDark,
   },
 };
 
 export const getTheme = (mode = THEME_OPTIONS.DEFAULT) => {
-  return createTheme(mode === 'light' ? lightTheme : darkTheme);
+  return createTheme(mode === 'dark' ? darkTheme : lightTheme);
 };
+
