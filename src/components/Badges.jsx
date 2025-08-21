@@ -3,7 +3,7 @@ import { Container, Grid, TextField, Typography, Box } from '@mui/material';
 import { loadAndFilter } from '../utils/loadAndFilter';
 import badgeList from '../assets/data/badgesList.json';
 import { useMarkdown } from '../context/MarkdownContext';
-import { useShopStore } from '../store/useShopStore';
+import { useShopStore } from '@/context/store/useShopStore';
 
 const STORAGE_KEY = 'selectedBadges';
 

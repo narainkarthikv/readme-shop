@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useShopStore } from '../store/useShopStore';
+import { useShopStore } from '@/context/store/useShopStore';
 import iconList from '../assets/data/iconsList.json';
 import { loadAndFilter } from '../utils/loadAndFilter';
 import { useMarkdown } from '../context/MarkdownContext';

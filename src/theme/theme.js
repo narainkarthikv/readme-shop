@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material/styles';
-import { THEME_OPTIONS } from '../config/constants';
+import { THEME_OPTIONS } from '@/utils/config/constants';
 
 // Monochrome palette tokens
 export const themeTokens = {

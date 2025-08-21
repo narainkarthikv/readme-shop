@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, TextField, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 import { useMarkdown } from '../context/MarkdownContext';
-import { THEME_OPTIONS } from '../config/constants';
+import { THEME_OPTIONS } from '@/utils/config/constants';
 
 const PersonalizeForm = React.memo(() => {
   const { userName, setUserName, theme, setTheme } = useMarkdown();
