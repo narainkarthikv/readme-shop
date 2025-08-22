@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useShopStore } from '../store/useShopStore';
-import { FaMoon, FaSun, FaShoppingCart } from 'react-icons/fa';
+import { FaMoon, FaSun, FaShoppingCart, FaObjectGroup } from 'react-icons/fa';
 import { AppBar, Toolbar, Typography, IconButton, Badge } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CustomDrawer from './CustomDrawer';
@@ -22,15 +22,15 @@ const Navbar = () => {
 
   // Only Home and Templates
   const drawerItems = [
-    'Home',
+    'Github components',
     'Templates',
   ];
   const drawerIcons = [
-    <HomeIcon />,
+    <FaObjectGroup />,
     <MenuBookIcon />,
   ];
   const drawerLinks = [
-    '/',
+    '/components',
     '/templates',
   ];
 

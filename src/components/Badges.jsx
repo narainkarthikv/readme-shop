@@ -3,7 +3,7 @@ import { Container, Grid, TextField, Typography, Box } from '@mui/material';
 import { loadAndFilter } from '../utils/loadAndFilter';
 import badgeList from '../assets/data/badgesList.json';
 import { useMarkdown } from '../context/MarkdownContext';
-import { useShopStore } from '../store/useShopStore';
+import { useShopStore } from '@/context/store/useShopStore';
 
 const STORAGE_KEY = 'selectedBadges';
 
@@ -70,7 +70,7 @@ const Badges = () => {
         onChange={(e) => setSearchTerm(e.target.value)}
         sx={{ mb: 3, maxWidth: 300 }}
       />
-      <Box sx={{ mb: 2, overflowX: 'auto', whiteSpace: 'nowrap', textAlign: 'center' }}>
+  <Box sx={{ mb: 2, overflowX: 'auto', whiteSpace: 'nowrap', textAlign: 'center', touchAction: 'pan-x', overscrollBehavior: 'contain' }}>
         {selectedBadges.map((badge) => (
           <span
             key={badge.name}
