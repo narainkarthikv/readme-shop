@@ -1,0 +1,23 @@
+import React from 'react';
+import { Box } from '@mui/material';
+import GithubTrophies from '../GithubTrophies';
+import GithubStats from '../GithubStats';
+
+const StatsSection = React.memo(() => (
+  <Box
+    sx={{
+      width: '100%',
+      maxWidth: '1400px',
+      mt: 2,
+      flexShrink: 0,
+      mx: 'auto',
+    }}
+  >
+    <GithubTrophies />
+    <GithubStats />
+  </Box>
+));
+
+StatsSection.displayName = 'StatsSection';
+
+export default StatsSection;
