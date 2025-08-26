@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Container, Grid, TextField, Typography, Box } from '@mui/material';
 import { loadAndFilter } from '../utils/loadAndFilter';
 import badgeList from '../assets/data/badgesList.json';
-import { useMarkdown } from '../context/MarkdownContext';
+import useMarkdownStore from '@/features/markdown/store/markdownStore';
 import { useShopStore } from '@/context/store/useShopStore';
 
 const STORAGE_KEY = 'selectedBadges';
@@ -13,7 +13,8 @@ const Badges = () => {
   const searchTerm = useShopStore((state) => state.badgeSearchTerm);
   const setSearchTerm = useShopStore((state) => state.setBadgeSearchTerm);
   const filteredBadges = loadAndFilter(badgeList, searchTerm);
-  const { embedBadge, badgeLine } = useMarkdown();
+  const embedBadge = useMarkdownStore(state => state.embedBadge);
+  const badgeLine = useMarkdownStore(state => state.badgeLine);
 
   // Load selections from localStorage
   useEffect(() => {

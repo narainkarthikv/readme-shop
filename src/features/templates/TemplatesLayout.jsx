@@ -1,28 +1,54 @@
 import React from 'react';
 import { Box, Typography, Grid, Fade } from '@mui/material';
-import templatesData from '../../assets/data/templates.json';
-import TemplateCard from './TemplateCard';
-import TemplateCategories from './TemplateCategories';
-import TemplateSearch from './TemplateSearch';
-import { useTemplates } from '../../hooks/useTemplates';
+import useTemplatesStore from './store/templatesStore';
+import TemplateCard from './components/TemplateCard';
+import TemplateCategories from './components/TemplateCategories';
+import TemplateSearch from './components/TemplateSearch';
+import useMarkdownStore from '../markdown/store/markdownStore';
+import useClipboard from '@/hooks/useClipboard';
 
-const TemplatesGrid = () => {
-  const {
-    templates,
-    categories,
-    search,
+const TemplatesLayout = () => {
+  const { 
+    search, 
     setSearch,
     selectedCategory,
     setSelectedCategory,
     selectedIdx,
+    setSelectedIdx,
     copiedIdx,
-    handleCopy,
-    handleUseTemplate,
-  } = useTemplates();
+    setCopiedIdx,
+    getFilteredTemplates,
+    getCategories
+  } = useTemplatesStore();
+
+  const { setMarkdown } = useMarkdownStore();
+  const { copyToClipboard } = useClipboard();
+
+  const templates = getFilteredTemplates();
+  const categories = getCategories();
+
+  const handleCopy = async (content, idx) => {
+    await copyToClipboard(content);
+    setCopiedIdx(idx);
+    setTimeout(() => setCopiedIdx(null), 2000);
+  };
+
+  const handleUseTemplate = (content, idx) => {
+    setMarkdown(content);
+    setSelectedIdx(idx);
+    setTimeout(() => setSelectedIdx(null), 2000);
+  };
 
   return (
     <Box sx={{ mt: 4, maxWidth: 1200, mx: 'auto', px: { xs: 2, sm: 3 } }}>
-      <Typography variant="h4" sx={{ mb: 3, textAlign: 'center', fontSize: { xs: '1.5rem', sm: '2rem' } }}>
+      <Typography 
+        variant="h4" 
+        sx={{ 
+          mb: 3, 
+          textAlign: 'center', 
+          fontSize: { xs: '1.5rem', sm: '2rem' } 
+        }}
+      >
         README.md Templates
       </Typography>
 
@@ -67,4 +93,4 @@ const TemplatesGrid = () => {
   );
 };
 
-export default TemplatesGrid;
+export default TemplatesLayout;

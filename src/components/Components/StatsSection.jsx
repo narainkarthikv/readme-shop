@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/material';
-import GithubTrophies from '../GithubTrophies';
-import GithubStats from '../GithubStats';
+import GithubTrophies from '@/features/github/components/GithubTrophies';
+import GithubStats from '@/features/github/components/GithubStats';
 
 const StatsSection = React.memo(() => (
   <Box
