@@ -1,10 +1,15 @@
 import React from 'react';
 import { Box, TextField, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
-import { useMarkdown } from '../context/MarkdownContext';
+import useMarkdownStore from '../store/markdownStore';
 import { THEME_OPTIONS } from '@/utils/config/constants';
 
-const PersonalizeForm = React.memo(() => {
-  const { userName, setUserName, theme, setTheme } = useMarkdown();
+const themeOptions = Object.entries(THEME_OPTIONS).map(([key, value]) => ({
+  value: value,
+  label: key.charAt(0) + key.slice(1).toLowerCase()
+}));
+
+const PersonalizeForm = () => {
+  const { userName, setUserName, theme, setTheme } = useMarkdownStore();
 
   return (
     <Box sx={{ 
@@ -31,7 +36,7 @@ const PersonalizeForm = React.memo(() => {
           label="Theme"
           onChange={e => setTheme(e.target.value)}
         >
-          {THEME_OPTIONS.map(option => (
+          {themeOptions.map(option => (
             <MenuItem key={option.value} value={option.value}>
               {option.label}
             </MenuItem>
@@ -40,6 +45,6 @@ const PersonalizeForm = React.memo(() => {
       </FormControl>
     </Box>
   );
-});
+};
 
-export default PersonalizeForm;
+export default React.memo(PersonalizeForm);

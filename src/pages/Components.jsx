@@ -1,6 +1,11 @@
 import React from 'react';
-import ComponentsLayout from '../components/Components/ComponentsLayout';
+import GithubSection from '@/features/github/GithubSection';
+import ComponentsLayout from '@/components/Components/ComponentsLayout';
 
-const Components = () => <ComponentsLayout />;
+const Components = () => (
+  <ComponentsLayout>
+    <GithubSection />
+  </ComponentsLayout>
+);
 
-export default Components;
+export default React.memo(Components);

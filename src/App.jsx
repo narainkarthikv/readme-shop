@@ -1,13 +1,10 @@
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Box } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { ROUTES } from './config/constants';
-import { MarkdownProvider } from './context/MarkdownContext';
 import { LoadingSpinner } from './components/common/LoadingSpinner';
 import { ErrorBoundary } from './components/ErrorBoundary';
-
-// Components that are part of the main layout
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -27,8 +24,6 @@ const SEO = () => (
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </>
 );
-
-import { useLocation } from 'react-router-dom';
 
 const AppLayout = ({ children }) => {
   const theme = useTheme();
@@ -70,46 +65,44 @@ const AppLayout = ({ children }) => {
 const App = () => {
   return (
     <ErrorBoundary>
-      <MarkdownProvider>
-        <Router>
-          <Suspense fallback={<LoadingSpinner />}>
-            <Routes>
-              <Route
-                path={ROUTES.HOME}
-                element={
-                  <AppLayout>
-                    <Home />
-                  </AppLayout>
-                }
-              />
-              <Route
-                path={ROUTES.COMPONENTS}
-                element={
-                  <AppLayout>
-                    <Components />
-                  </AppLayout>
-                }
-              />
-              <Route
-                path={ROUTES.SHOP}
-                element={
-                  <AppLayout>
-                    <Output />
-                  </AppLayout>
-                }
-              />
-              <Route
-                path={ROUTES.TEMPLATES}
-                element={
-                  <AppLayout>
-                    <TemplatesPage />
-                  </AppLayout>
-                }
-              />
-            </Routes>
-          </Suspense>
-        </Router>
-      </MarkdownProvider>
+      <Router>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Routes>
+            <Route
+              path={ROUTES.HOME}
+              element={
+                <AppLayout>
+                  <Home />
+                </AppLayout>
+              }
+            />
+            <Route
+              path={ROUTES.COMPONENTS}
+              element={
+                <AppLayout>
+                  <Components />
+                </AppLayout>
+              }
+            />
+            <Route
+              path={ROUTES.SHOP}
+              element={
+                <AppLayout>
+                  <Output />
+                </AppLayout>
+              }
+            />
+            <Route
+              path={ROUTES.TEMPLATES}
+              element={
+                <AppLayout>
+                  <TemplatesPage />
+                </AppLayout>
+              }
+            />
+          </Routes>
+        </Suspense>
+      </Router>
     </ErrorBoundary>
   );
 }

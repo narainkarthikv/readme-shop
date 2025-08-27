@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { useShopStore } from '@/context/store/useShopStore';
 import iconList from '../assets/data/iconsList.json';
 import { loadAndFilter } from '../utils/loadAndFilter';
-import { useMarkdown } from '../context/MarkdownContext';
-import {  Grid, TextField, Typography, Box, Paper } from '@mui/material';
+import useMarkdownStore from '@/features/markdown/store/markdownStore';
+import { Grid, TextField, Typography, Box, Paper } from '@mui/material';
 
 const Icons = () => {
   const searchTerm = useShopStore((state) => state.iconSearchTerm);
   const setSearchTerm = useShopStore((state) => state.setIconSearchTerm);
-  const { embedIcon, iconNames, removeIcon } = useMarkdown();
+  const embedIcon = useMarkdownStore(state => state.embedIcon);
+  const removeIcon = useMarkdownStore(state => state.removeIcon);
+  const iconNames = useMarkdownStore(state => state.iconNames);
   const filteredIcons = loadAndFilter(iconList, searchTerm);
 
   const handleIconClick = (icon) => {

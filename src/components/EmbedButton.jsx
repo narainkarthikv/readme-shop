@@ -1,8 +1,8 @@
 import React from 'react';
-import { useMarkdown } from '../context/MarkdownContext';
+import useMarkdownStore from '@/features/markdown/store/markdownStore';
 
 const EmbedButton = React.memo(({ label, embedContent }) => {
-  const { embedMarkdown } = useMarkdown();
+  const embedMarkdown = useMarkdownStore(state => state.embedMarkdown);
   const handleClick = React.useCallback(() => embedMarkdown(embedContent), [embedMarkdown, embedContent]);
   return (
     <button
