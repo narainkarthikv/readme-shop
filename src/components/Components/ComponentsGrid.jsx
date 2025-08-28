@@ -1,7 +1,6 @@
 import React from 'react';
 import { Grid, Box } from '@mui/material';
 import Icons from '../Icons';
-import Badges from '../Badges';
 
 const ComponentsGrid = () => (
   <Grid
@@ -20,9 +19,6 @@ const ComponentsGrid = () => (
   >
     <ComponentPanel>
       <Icons />
-    </ComponentPanel>
-    <ComponentPanel>
-      <Badges />
     </ComponentPanel>
   </Grid>
 );

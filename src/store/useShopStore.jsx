@@ -3,8 +3,6 @@ import { persist } from 'zustand/middleware';
 import { STORAGE_KEYS } from '../config/constants';
 
 const initialState = {
-  badgeSearchTerm: '',
-  selectedBadges: [],
   iconSearchTerm: '',
   themeMode: 'light',
   loading: false,
@@ -17,22 +15,8 @@ export const useShopStore = create(
       ...initialState,
       
       // Search terms
-      setBadgeSearchTerm: (badgeSearchTerm) => 
-        set({ badgeSearchTerm }),
       setIconSearchTerm: (iconSearchTerm) => 
         set({ iconSearchTerm }),
-      
-      // Selected badges
-      setSelectedBadges: (selectedBadges) => 
-        set({ selectedBadges }),
-      addBadge: (badge) =>
-        set((state) => ({
-          selectedBadges: [...state.selectedBadges, badge]
-        })),
-      removeBadge: (badgeName) =>
-        set((state) => ({
-          selectedBadges: state.selectedBadges.filter(b => b !== badgeName)
-        })),
       
       // Theme
       setThemeMode: (themeMode) => 
