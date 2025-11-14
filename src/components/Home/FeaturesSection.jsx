@@ -1,63 +1,98 @@
-import React from 'react';
-import { Box, Typography, Grid, Paper } from '@mui/material';
-import { motion } from 'framer-motion';
-import { useTheme } from '@mui/material/styles';
-import { sectionVariants, staggerVariants, cardVariants } from './animations';
+/* eslint-disable react/prop-types */
+import { Box, Typography, Grid, Paper } from "@mui/material";
+import { motion } from "framer-motion";
+import { useTheme } from "@mui/material/styles";
+import {
+  sectionVariants,
+  staggerVariants,
+  cardVariants,
+  floatVariants,
+} from "./animations";
 
 const features = [
   {
-    title: 'Instant README Generation',
-    description: 'Create beautiful, informative README files for your projects in seconds.',
-    icon: '⚡',
+    title: "Instant README Generation",
+    description:
+      "Create beautiful, informative README files for your projects in seconds.",
+    icon: "⚡",
   },
   {
-    title: 'Customizable Badges & Icons',
-    description: 'Showcase your project stats and achievements with a rich badge library.',
-    icon: '🏅',
+    title: "Customizable Badges & Icons",
+    description:
+      "Showcase your project stats and achievements with a rich badge library.",
+    icon: "🏅",
   },
   {
-    title: 'SEO Optimized Templates',
-    description: 'Boost your project visibility with templates designed for discoverability.',
-    icon: '🔍',
+    title: "SEO Optimized Templates",
+    description:
+      "Boost your project visibility with templates designed for discoverability.",
+    icon: "🔍",
   },
 ];
 
 const FeatureCard = ({ feature }) => {
   const theme = useTheme();
-  
+
   return (
-    <motion.div variants={cardVariants} whileHover="hover" style={{ height: '100%' }}>
+    <motion.div
+      variants={cardVariants}
+      whileHover={{ scale: 1.04, y: -6, rotateX: 2 }}
+      style={{ height: "100%", display: "flex" }}
+    >
       <Paper
         elevation={0}
         sx={{
           p: 3,
-          textAlign: 'center',
-          height: '100%',
+          textAlign: "center",
+          height: "100%",
+          width: "100%",
           bgcolor: theme.palette.card,
           color: theme.palette.text.primary,
           border: `1px solid ${theme.palette.border}`,
-          boxShadow: 'none',
-          transition: 'box-shadow 0.3s, border-color 0.3s, background 0.3s, color 0.3s',
-          '&:hover': {
-            boxShadow: 4,
-            borderColor: theme.palette.action.hover,
-            bgcolor: theme.palette.action.hover,
-          },
+          boxShadow: "none",
+          borderRadius: 2,
+          transition:
+            "box-shadow 0.3s, border-color 0.3s, background 0.3s, color 0.3s, transform 0.2s",
+          backdropFilter: "saturate(1.05) blur(6px)",
         }}
         aria-label={feature.title}
       >
-        <Typography
-          variant="h3"
-          component="h3"
-          sx={{ fontSize: '2.5rem', mb: 2, color: theme.palette.text.secondary, transition: 'color 0.3s' }}
-          aria-label={`${feature.title} icon`}
+        <motion.div
+          variants={floatVariants}
+          animate="animate"
+          style={{ display: "inline-block" }}
         >
-          {feature.icon}
-        </Typography>
-        <Typography variant="h4" component="h4" sx={{ fontWeight: 500, mb: 1, color: theme.palette.text.primary, transition: 'color 0.3s' }}>
+          <Typography
+            variant="h3"
+            component="h3"
+            sx={{
+              fontSize: "2.2rem",
+              mb: 2,
+              color: theme.palette.text.secondary,
+              transition: "color 0.3s",
+            }}
+            aria-label={`${feature.title} icon`}
+          >
+            {feature.icon}
+          </Typography>
+        </motion.div>
+
+        <Typography
+          variant="h4"
+          component="h4"
+          sx={{
+            fontWeight: 500,
+            mb: 1,
+            color: theme.palette.text.primary,
+            transition: "color 0.3s",
+          }}
+        >
           {feature.title}
         </Typography>
-        <Typography variant="body1" sx={{ color: theme.palette.text.secondary, transition: 'color 0.3s' }}>
+        <Typography
+          variant="body1"
+          sx={{ color: theme.palette.text.secondary, transition: "color 0.3s" }}
+        >
           {feature.description}
         </Typography>
       </Paper>
@@ -74,14 +109,23 @@ const FeaturesSection = () => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       variants={sectionVariants}
-      style={{ width: '100%' }}
+      style={{ width: "100%" }}
       aria-label="Features Section"
     >
-      <Box component="section" sx={{ py: { xs: 5, md: 8 }, px: 2, maxWidth: 1200, mx: 'auto' }}>
+      <Box
+        component="section"
+        sx={{ py: { xs: 5, md: 8 }, px: 2, maxWidth: 1200, mx: "auto" }}
+      >
         <Typography
           variant="h2"
           component="h2"
-          sx={{ fontWeight: 600, mb: 3, textAlign: 'center', color: theme.palette.text.primary, transition: 'color 0.3s' }}
+          sx={{
+            fontWeight: 600,
+            mb: 3,
+            textAlign: "center",
+            color: theme.palette.text.primary,
+            transition: "color 0.3s",
+          }}
         >
           Features
         </Typography>

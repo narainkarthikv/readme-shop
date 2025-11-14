@@ -5,7 +5,6 @@ const useMarkdownStore = create((set) => ({
   markdown: '',
   userName: '',
   theme: THEME_OPTIONS.DEFAULT,
-  badgeLine: '',
   iconNames: [],
   setMarkdown: (markdown) => set({ markdown }),
   setUserName: (userName) => set({ userName }),
@@ -13,11 +12,7 @@ const useMarkdownStore = create((set) => ({
   embedMarkdown: (content) => set((state) => ({
     markdown: state.markdown ? `${state.markdown}\n${content}` : content
   })),
-  embedBadge: (content) => set((state) => ({
-    badgeLine: content,
-    markdown: state.markdown.replace(/<!-- BADGES -->\n.*\n<!-- END BADGES -->/s, '') + 
-      `\n<!-- BADGES -->\n${content}\n<!-- END BADGES -->\n`
-  })),
+
   embedIcon: (iconName) => set((state) => {
     const newIconNames = [...state.iconNames, iconName];
     const skilliconsUrl = `https://skillicons.dev/icons?i=${newIconNames.join(',')}`;

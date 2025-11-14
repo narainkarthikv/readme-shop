@@ -1,17 +1,10 @@
 export const STORAGE_KEYS = {
-  SELECTED_BADGES: 'selectedBadges',
   THEME_MODE: 'themeMode',
 };
 
 export const GITHUB_URLS = {
   REPOSITORY: 'https://github.com/narainkarthikv/readme-shop',
   COMMUNITY: 'https://github.com/narainkarthikv',
-};
-
-export const BADGE_CATEGORIES = {
-  SOCIAL: 'social',
-  TECH: 'tech',
-  STATS: 'stats',
 };
 
 export const API_ENDPOINTS = {
