@@ -1,14 +1,18 @@
 import React from 'react';
 import { Box, Chip } from '@mui/material';
 
-const TemplateCategories = ({ categories, selectedCategory, onCategorySelect }) => (
-  <Box 
-    sx={{ 
-      display: 'flex', 
-      flexWrap: 'wrap', 
-      gap: 1, 
-      mb: 3, 
-      justifyContent: 'center' 
+const TemplateCategories = ({
+  categories,
+  selectedCategory,
+  onCategorySelect,
+}) => (
+  <Box
+    sx={{
+      display: 'flex',
+      flexWrap: 'wrap',
+      gap: 1,
+      mb: 3,
+      justifyContent: 'center',
     }}
   >
     {categories.map(({ value, label }) => (
@@ -18,13 +22,14 @@ const TemplateCategories = ({ categories, selectedCategory, onCategorySelect }) 
         onClick={() => onCategorySelect(value)}
         color={selectedCategory === value ? 'primary' : 'default'}
         variant={selectedCategory === value ? 'filled' : 'outlined'}
-        sx={{ 
+        sx={{
           borderRadius: 1,
           '&:hover': {
-            backgroundColor: theme => selectedCategory === value 
-              ? theme.palette.primary.main 
-              : theme.palette.action.hover
-          }
+            backgroundColor: (theme) =>
+              selectedCategory === value
+                ? theme.palette.primary.main
+                : theme.palette.action.hover,
+          },
         }}
       />
     ))}

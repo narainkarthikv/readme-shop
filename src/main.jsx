@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ThemeProvider } from '@mui/material/styles';
@@ -11,12 +10,10 @@ import { ErrorBoundary } from './components/ErrorBoundary';
 const ThemeWrapper = React.memo(({ children }) => {
   const themeMode = useShopStore((state) => state.themeMode);
   const theme = React.useMemo(() => getTheme(themeMode), [themeMode]);
-  
+
   return (
     <ThemeProvider theme={theme}>
-      <ErrorBoundary>
-        {children}
-      </ErrorBoundary>
+      <ErrorBoundary>{children}</ErrorBoundary>
     </ThemeProvider>
   );
 });

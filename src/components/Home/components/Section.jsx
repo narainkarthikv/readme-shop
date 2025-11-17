@@ -18,7 +18,7 @@ const Section = React.memo(({ children, ...props }) => (
         py: { xs: 5, md: 8 },
         px: 2,
         maxWidth: 1200,
-        mx: 'auto'
+        mx: 'auto',
       }}
     >
       {children}

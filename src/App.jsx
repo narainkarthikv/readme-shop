@@ -1,5 +1,10 @@
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from 'react-router-dom';
 import { Box } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { ROUTES } from './config/constants';
@@ -19,8 +24,14 @@ const TemplatesPage = lazy(() => import('./pages/TemplatesPage'));
 const SEO = () => (
   <>
     <title>Readme Shop - Create Beautiful README.md Files Instantly</title>
-    <meta name="description" content="Readme Shop helps you create, customize, and copy beautiful README.md files for your projects. Discover templates, features, and testimonials." />
-    <meta name="keywords" content="readme-shop, README generator, markdown, templates, open source, documentation" />
+    <meta
+      name="description"
+      content="Readme Shop helps you create, customize, and copy beautiful README.md files for your projects. Discover templates, features, and testimonials."
+    />
+    <meta
+      name="keywords"
+      content="readme-shop, README generator, markdown, templates, open source, documentation"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </>
 );
@@ -105,6 +116,6 @@ const App = () => {
       </Router>
     </ErrorBoundary>
   );
-}
+};
 
 export default App;

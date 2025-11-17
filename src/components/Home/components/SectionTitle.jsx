@@ -11,7 +11,7 @@ const SectionTitle = React.memo(({ children, sx = {} }) => (
       textAlign: 'center',
       color: 'text.primary',
       transition: 'color 0.3s',
-      ...sx
+      ...sx,
     }}
   >
     {children}

@@ -5,11 +5,11 @@ import CardContainer from '@/components/ui/CardContainer';
 
 const STATS_MARKDOWN = [
   `<img src="https://github-readme-stats.vercel.app/api?username=narainkarthikv&theme=tokyonight&hide_border=true" alt="GitHub Stats" style="width:100%;max-width:400px;margin-right:8px;border-radius:8px;" />`,
-  `<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=narainkarthikv&layout=compact&theme=tokyonight&count_private=true&hide_border=true" alt="Top Languages" style="width:100%;max-width:300px;border-radius:8px;" />`
+  `<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=narainkarthikv&layout=compact&theme=tokyonight&count_private=true&hide_border=true" alt="Top Languages" style="width:100%;max-width:300px;border-radius:8px;" />`,
 ].join('\n');
 
 const GithubStats = () => {
-  const embedMarkdown = useMarkdownStore(state => state.embedMarkdown);
+  const embedMarkdown = useMarkdownStore((state) => state.embedMarkdown);
 
   const handleClick = () => {
     embedMarkdown(STATS_MARKDOWN);
@@ -20,7 +20,14 @@ const GithubStats = () => {
       <Typography variant="h5" sx={{ mb: 1, fontWeight: 500 }}>
         GitHub Stats
       </Typography>
-      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, justifyContent: 'center' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: 2,
+          justifyContent: 'center',
+        }}
+      >
         <img
           src="https://github-readme-stats.vercel.app/api?username=narainkarthikv&theme=tokyonight&hide_border=true"
           alt="GitHub Stats"

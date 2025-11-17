@@ -1,32 +1,32 @@
 /* eslint-disable react/prop-types */
-import { Box, Typography, Grid, Paper } from "@mui/material";
-import { motion } from "framer-motion";
-import { useTheme } from "@mui/material/styles";
+import { Box, Typography, Grid, Paper } from '@mui/material';
+import { motion } from 'framer-motion';
+import { useTheme } from '@mui/material/styles';
 import {
   sectionVariants,
   staggerVariants,
   cardVariants,
   floatVariants,
-} from "./animations";
+} from './animations';
 
 const features = [
   {
-    title: "Instant README Generation",
+    title: 'Instant README Generation',
     description:
-      "Create beautiful, informative README files for your projects in seconds.",
-    icon: "⚡",
+      'Create beautiful, informative README files for your projects in seconds.',
+    icon: '⚡',
   },
   {
-    title: "Customizable Badges & Icons",
+    title: 'Customizable Badges & Icons',
     description:
-      "Showcase your project stats and achievements with a rich badge library.",
-    icon: "🏅",
+      'Showcase your project stats and achievements with a rich badge library.',
+    icon: '🏅',
   },
   {
-    title: "SEO Optimized Templates",
+    title: 'SEO Optimized Templates',
     description:
-      "Boost your project visibility with templates designed for discoverability.",
-    icon: "🔍",
+      'Boost your project visibility with templates designed for discoverability.',
+    icon: '🔍',
   },
 ];
 
@@ -37,39 +37,39 @@ const FeatureCard = ({ feature }) => {
     <motion.div
       variants={cardVariants}
       whileHover={{ scale: 1.04, y: -6, rotateX: 2 }}
-      style={{ height: "100%", display: "flex" }}
+      style={{ height: '100%', display: 'flex' }}
     >
       <Paper
         elevation={0}
         sx={{
           p: 3,
-          textAlign: "center",
-          height: "100%",
-          width: "100%",
+          textAlign: 'center',
+          height: '100%',
+          width: '100%',
           bgcolor: theme.palette.card,
           color: theme.palette.text.primary,
           border: `1px solid ${theme.palette.border}`,
-          boxShadow: "none",
+          boxShadow: 'none',
           borderRadius: 2,
           transition:
-            "box-shadow 0.3s, border-color 0.3s, background 0.3s, color 0.3s, transform 0.2s",
-          backdropFilter: "saturate(1.05) blur(6px)",
+            'box-shadow 0.3s, border-color 0.3s, background 0.3s, color 0.3s, transform 0.2s',
+          backdropFilter: 'saturate(1.05) blur(6px)',
         }}
         aria-label={feature.title}
       >
         <motion.div
           variants={floatVariants}
           animate="animate"
-          style={{ display: "inline-block" }}
+          style={{ display: 'inline-block' }}
         >
           <Typography
             variant="h3"
             component="h3"
             sx={{
-              fontSize: "2.2rem",
+              fontSize: '2.2rem',
               mb: 2,
               color: theme.palette.text.secondary,
-              transition: "color 0.3s",
+              transition: 'color 0.3s',
             }}
             aria-label={`${feature.title} icon`}
           >
@@ -84,14 +84,14 @@ const FeatureCard = ({ feature }) => {
             fontWeight: 500,
             mb: 1,
             color: theme.palette.text.primary,
-            transition: "color 0.3s",
+            transition: 'color 0.3s',
           }}
         >
           {feature.title}
         </Typography>
         <Typography
           variant="body1"
-          sx={{ color: theme.palette.text.secondary, transition: "color 0.3s" }}
+          sx={{ color: theme.palette.text.secondary, transition: 'color 0.3s' }}
         >
           {feature.description}
         </Typography>
@@ -109,12 +109,12 @@ const FeaturesSection = () => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       variants={sectionVariants}
-      style={{ width: "100%" }}
+      style={{ width: '100%' }}
       aria-label="Features Section"
     >
       <Box
         component="section"
-        sx={{ py: { xs: 5, md: 8 }, px: 2, maxWidth: 1200, mx: "auto" }}
+        sx={{ py: { xs: 5, md: 8 }, px: 2, maxWidth: 1200, mx: 'auto' }}
       >
         <Typography
           variant="h2"
@@ -122,9 +122,9 @@ const FeaturesSection = () => {
           sx={{
             fontWeight: 600,
             mb: 3,
-            textAlign: "center",
+            textAlign: 'center',
             color: theme.palette.text.primary,
-            transition: "color 0.3s",
+            transition: 'color 0.3s',
           }}
         >
           Features

@@ -22,7 +22,14 @@ const TemplatesGrid = () => {
 
   return (
     <Box sx={{ mt: 4, maxWidth: 1200, mx: 'auto', px: { xs: 2, sm: 3 } }}>
-      <Typography variant="h4" sx={{ mb: 3, textAlign: 'center', fontSize: { xs: '1.5rem', sm: '2rem' } }}>
+      <Typography
+        variant="h4"
+        sx={{
+          mb: 3,
+          textAlign: 'center',
+          fontSize: { xs: '1.5rem', sm: '2rem' },
+        }}
+      >
         README.md Templates
       </Typography>
 
@@ -32,10 +39,7 @@ const TemplatesGrid = () => {
         onCategorySelect={setSelectedCategory}
       />
 
-      <TemplateSearch 
-        search={search}
-        onSearchChange={setSearch}
-      />
+      <TemplateSearch search={search} onSearchChange={setSearch} />
 
       <Grid container spacing={3} justifyContent="center" alignItems="stretch">
         {templates.length === 0 && (
@@ -45,9 +49,16 @@ const TemplatesGrid = () => {
             </Typography>
           </Grid>
         )}
-        
+
         {templates.map((template, idx) => (
-          <Grid item xs={12} sm={6} md={4} key={template.label} sx={{ display: 'flex' }}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={4}
+            key={template.label}
+            sx={{ display: 'flex' }}
+          >
             <Fade in timeout={400} style={{ width: '100%' }}>
               <div style={{ width: '100%' }}>
                 <TemplateCard
