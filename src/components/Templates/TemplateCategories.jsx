@@ -1,8 +1,20 @@
 import React from 'react';
 import { Box, Chip } from '@mui/material';
 
-const TemplateCategories = ({ categories, selectedCategory, onCategorySelect }) => (
-  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 2, justifyContent: 'center' }}>
+const TemplateCategories = ({
+  categories,
+  selectedCategory,
+  onCategorySelect,
+}) => (
+  <Box
+    sx={{
+      display: 'flex',
+      flexWrap: 'wrap',
+      gap: 1,
+      mb: 2,
+      justifyContent: 'center',
+    }}
+  >
     {categories.map((category) => (
       <Chip
         key={category}

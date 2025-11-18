@@ -19,25 +19,31 @@ export const useTemplates = () => {
     copiedIdx,
     setCopiedIdx,
     getFilteredTemplates,
-    getCategories
+    getCategories,
   } = useTemplatesStore();
-      
-  const handleCopy = useCallback(async (content, idx) => {
-    try {
-      await copyToClipboard(content);
-      setCopiedIdx(idx);
-      setTimeout(() => setCopiedIdx(null), 2000);
-    } catch (err) {
-      console.error('Failed to copy: ', err);
-    }
-  }, [copyToClipboard, setCopiedIdx]);
 
-  const handleUseTemplate = useCallback((content, idx) => {
-    setMarkdown(content);
-    navigate('/shop');
-    setSelectedIdx(idx);
-    setTimeout(() => setSelectedIdx(null), 2000);
-  }, [navigate, setMarkdown, setSelectedIdx]);
+  const handleCopy = useCallback(
+    async (content, idx) => {
+      try {
+        await copyToClipboard(content);
+        setCopiedIdx(idx);
+        setTimeout(() => setCopiedIdx(null), 2000);
+      } catch (err) {
+        console.error('Failed to copy: ', err);
+      }
+    },
+    [copyToClipboard, setCopiedIdx]
+  );
+
+  const handleUseTemplate = useCallback(
+    (content, idx) => {
+      setMarkdown(content);
+      navigate('/shop');
+      setSelectedIdx(idx);
+      setTimeout(() => setSelectedIdx(null), 2000);
+    },
+    [navigate, setMarkdown, setSelectedIdx]
+  );
 
   return {
     templates: getFilteredTemplates(),

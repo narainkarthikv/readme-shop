@@ -4,18 +4,21 @@ import DOMPurify from 'dompurify';
 import { marked } from 'marked';
 
 const MarkdownPreview = React.memo(({ markdown }) => {
-  const createMarkup = React.useCallback(() => ({
-    __html: DOMPurify.sanitize(
-      marked.parse(markdown),
-      {
+  const createMarkup = React.useCallback(
+    () => ({
+      __html: DOMPurify.sanitize(marked.parse(markdown), {
         ADD_TAGS: ['img'],
         ADD_ATTR: ['src', 'alt', 'width', 'height', 'style'],
-      }
-    ),
-  }), [markdown]);
+      }),
+    }),
+    [markdown]
+  );
 
   return (
-    <Paper elevation={3} sx={{ flex: 1, p: 2, minHeight: 400, overflow: 'auto' }}>
+    <Paper
+      elevation={3}
+      sx={{ flex: 1, p: 2, minHeight: 400, overflow: 'auto' }}
+    >
       <Typography variant="h6" sx={{ mb: 1 }}>
         Preview
       </Typography>

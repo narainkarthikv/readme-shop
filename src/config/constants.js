@@ -33,4 +33,4 @@ export const ROUTES = {
   SHOP: '/shop',
   TEMPLATES: '/templates',
   NOT_FOUND: '*',
-};  
+};

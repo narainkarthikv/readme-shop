@@ -15,13 +15,11 @@ const CardContainer = ({ children, sx = {}, ...props }) => (
         transform: 'translateY(-4px)',
         boxShadow: 4,
       },
-      ...sx
+      ...sx,
     }}
     {...props}
   >
-    <Box sx={{ p: 2, flex: 1 }}>
-      {children}
-    </Box>
+    <Box sx={{ p: 2, flex: 1 }}>{children}</Box>
   </Paper>
 );
 

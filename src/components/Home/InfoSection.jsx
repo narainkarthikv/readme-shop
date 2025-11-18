@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-import { Box, Typography, Grid } from "@mui/material";
-import { motion } from "framer-motion";
-import { useTheme } from "@mui/material/styles";
-import { floatVariants } from "./animations";
+import { Box, Typography, Grid } from '@mui/material';
+import { motion } from 'framer-motion';
+import { useTheme } from '@mui/material/styles';
+import { floatVariants } from './animations';
 
 const InfoItem = ({ icon, title, description }) => {
   const theme = useTheme();
@@ -12,23 +12,23 @@ const InfoItem = ({ icon, title, description }) => {
       <motion.div
         variants={floatVariants}
         animate="animate"
-        style={{ display: "inline-block" }}
+        style={{ display: 'inline-block' }}
       >
         <Typography
           variant="h5"
           sx={{
             color: theme.palette.primary.main,
             fontWeight: 500,
-            transition: "color 0.3s",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
+            transition: 'color 0.3s',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
             gap: 1,
           }}
         >
           <Box
             component="span"
-            sx={{ fontSize: { xs: "1.6rem", md: "2rem" }, lineHeight: 1 }}
+            sx={{ fontSize: { xs: '1.6rem', md: '2rem' }, lineHeight: 1 }}
           >
             {icon}
           </Box>
@@ -40,7 +40,7 @@ const InfoItem = ({ icon, title, description }) => {
         variant="body2"
         sx={{
           color: theme.palette.text.secondary,
-          transition: "color 0.3s",
+          transition: 'color 0.3s',
           mt: 1,
         }}
       >
@@ -55,22 +55,22 @@ const InfoSection = () => {
 
   const infoItems = [
     {
-      icon: "🚀",
-      title: "Stand Out",
+      icon: '🚀',
+      title: 'Stand Out',
       description:
-        "Make your projects memorable with custom banners, badges, and icons.",
+        'Make your projects memorable with custom banners, badges, and icons.',
     },
     {
-      icon: "🌐",
-      title: "Connect",
+      icon: '🌐',
+      title: 'Connect',
       description:
-        "Showcase your skills, achievements, and social links in one place.",
+        'Showcase your skills, achievements, and social links in one place.',
     },
     {
-      icon: "💡",
-      title: "Inspire",
+      icon: '💡',
+      title: 'Inspire',
       description:
-        "Use our templates to inspire others and grow your open-source impact.",
+        'Use our templates to inspire others and grow your open-source impact.',
     },
   ];
 
@@ -80,8 +80,8 @@ const InfoSection = () => {
         py: { xs: 4, md: 6 },
         px: 2,
         maxWidth: 900,
-        mx: "auto",
-        textAlign: "center",
+        mx: 'auto',
+        textAlign: 'center',
       }}
     >
       <Typography
@@ -90,7 +90,7 @@ const InfoSection = () => {
           fontWeight: 600,
           mb: 2,
           color: theme.palette.primary.main,
-          transition: "color 0.3s",
+          transition: 'color 0.3s',
         }}
       >
         Why README Shop?
@@ -100,7 +100,7 @@ const InfoSection = () => {
         sx={{
           mb: 2,
           color: theme.palette.text.secondary,
-          transition: "color 0.3s",
+          transition: 'color 0.3s',
         }}
       >
         Elevate your GitHub profile and project documentation with interactive,

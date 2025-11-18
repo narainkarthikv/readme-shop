@@ -1,5 +1,14 @@
 import React from 'react';
-import { Drawer, IconButton, List, ListItemIcon, ListItemText, ListItemButton, Box, Typography } from '@mui/material';
+import {
+  Drawer,
+  IconButton,
+  List,
+  ListItemIcon,
+  ListItemText,
+  ListItemButton,
+  Box,
+  Typography,
+} from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import { Link } from 'react-router-dom';
@@ -24,7 +33,7 @@ const CustomDrawer = ({
       sx: {
         bgcolor: 'background.default',
         color: 'text.primary',
-      }
+      },
     }}
   >
     <Box
@@ -36,7 +45,15 @@ const CustomDrawer = ({
       }}
       role="presentation"
     >
-      <Box sx={{ display: 'flex', alignItems: 'center', p: 2, borderBottom: 1, borderColor: 'divider' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          p: 2,
+          borderBottom: 1,
+          borderColor: 'divider',
+        }}
+      >
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
           {title}
         </Typography>
@@ -57,7 +74,7 @@ const CustomDrawer = ({
               <ListItemButton
                 key={idx}
                 component={Link}
-                to={itemLinks[idx] || "/"}
+                to={itemLinks[idx] || '/'}
                 onClick={onClose}
                 sx={{
                   '&:hover': {

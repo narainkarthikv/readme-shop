@@ -9,7 +9,6 @@ import HomeIcon from '@mui/icons-material/Home';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 
 const Navbar = () => {
-
   const [drawerOpen, setDrawerOpen] = useState(false);
   const themeMode = useShopStore((state) => state.themeMode);
   const setThemeMode = useShopStore((state) => state.setThemeMode);
@@ -21,27 +20,16 @@ const Navbar = () => {
   const handleDrawerToggle = () => setDrawerOpen((open) => !open);
 
   // Only Home and Templates
-  const drawerItems = [
-    'Github components',
-    'Templates',
-  ];
-  const drawerIcons = [
-    <FaObjectGroup />,
-    <MenuBookIcon />,
-  ];
-  const drawerLinks = [
-    '/components',
-    '/templates',
-  ];
-
-  
+  const drawerItems = ['Github components', 'Templates'];
+  const drawerIcons = [<FaObjectGroup />, <MenuBookIcon />];
+  const drawerLinks = ['/components', '/templates'];
 
   return (
     <AppBar position="static" color="primary">
       <Toolbar>
         <IconButton
           edge="start"
-          className='myiconbutton'
+          className="myiconbutton"
           color="inherit"
           aria-label="menu"
           onClick={handleDrawerToggle}
@@ -51,17 +39,33 @@ const Navbar = () => {
         </IconButton>
         <Typography
           variant="h6"
-          className='myiconbutton'
+          className="myiconbutton"
           component={Link}
           to="/"
-          sx={{ textDecoration: 'none', color: 'inherit', flexGrow: 1,fontWeight:400,fontSize:30 }}
+          sx={{
+            textDecoration: 'none',
+            color: 'inherit',
+            flexGrow: 1,
+            fontWeight: 400,
+            fontSize: 30,
+          }}
         >
           README SHOP
         </Typography>
-        <IconButton className='myiconbutton' onClick={handleThemeToggle} color="inherit" sx={{ mr: 1 }}>
+        <IconButton
+          className="myiconbutton"
+          onClick={handleThemeToggle}
+          color="inherit"
+          sx={{ mr: 1 }}
+        >
           {themeMode === 'light' ? <FaMoon /> : <FaSun />}
         </IconButton>
-        <IconButton className='myiconbutton' component={Link} to="/shop" color="inherit">
+        <IconButton
+          className="myiconbutton"
+          component={Link}
+          to="/shop"
+          color="inherit"
+        >
           <FaShoppingCart />
         </IconButton>
         <CustomDrawer

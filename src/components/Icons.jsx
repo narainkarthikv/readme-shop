@@ -8,9 +8,9 @@ import { Grid, TextField, Typography, Box, Paper } from '@mui/material';
 const Icons = () => {
   const searchTerm = useShopStore((state) => state.iconSearchTerm);
   const setSearchTerm = useShopStore((state) => state.setIconSearchTerm);
-  const embedIcon = useMarkdownStore(state => state.embedIcon);
-  const removeIcon = useMarkdownStore(state => state.removeIcon);
-  const iconNames = useMarkdownStore(state => state.iconNames);
+  const embedIcon = useMarkdownStore((state) => state.embedIcon);
+  const removeIcon = useMarkdownStore((state) => state.removeIcon);
+  const iconNames = useMarkdownStore((state) => state.iconNames);
   const filteredIcons = loadAndFilter(iconList, searchTerm);
 
   const handleIconClick = (icon) => {
@@ -37,17 +37,16 @@ const Icons = () => {
         maxWidth: '100%',
         minHeight: 420,
         maxHeight: 600,
-  overflowY: 'auto',
-  touchAction: 'pan-y',
-  overscrollBehavior: 'contain',
+        overflowY: 'auto',
+        touchAction: 'pan-y',
+        overscrollBehavior: 'contain',
         boxSizing: 'border-box',
         flex: 1,
         display: 'flex',
         flexDirection: 'column',
       }}
     >
-    
-      <Typography variant="h4" sx={{fontWeight:500}} gutterBottom>
+      <Typography variant="h4" sx={{ fontWeight: 500 }} gutterBottom>
         Icons
       </Typography>
       <TextField
@@ -59,18 +58,39 @@ const Icons = () => {
       />
       {skilliconsUrl && (
         <Box sx={{ mb: 3 }}>
-          <img src={skilliconsUrl} alt="Selected icons" style={{ maxWidth: 300 }} />
+          <img
+            src={skilliconsUrl}
+            alt="Selected icons"
+            style={{ maxWidth: 300 }}
+          />
         </Box>
       )}
-       
+
       {/* Make the icons grid scrollable and rest fixed */}
-  <Box sx={{ flex: 1, overflowY: 'auto', minHeight: 0, touchAction: 'pan-y', overscrollBehavior: 'contain' }}>
+      <Box
+        sx={{
+          flex: 1,
+          overflowY: 'auto',
+          minHeight: 0,
+          touchAction: 'pan-y',
+          overscrollBehavior: 'contain',
+        }}
+      >
         <Grid container spacing={2} justifyContent="center">
           {filteredIcons.map((icon, index) => (
             <Grid item key={index} xs={4} sm={3} md={3}>
-              <Box onClick={() => handleIconClick(icon)} sx={{ cursor: 'pointer' }}>
-                <img src={icon.url} alt={icon.name} style={{ width: '100%', maxWidth: 60 }} />
-                <Typography variant="body1" noWrap>{icon.name}</Typography>
+              <Box
+                onClick={() => handleIconClick(icon)}
+                sx={{ cursor: 'pointer' }}
+              >
+                <img
+                  src={icon.url}
+                  alt={icon.name}
+                  style={{ width: '100%', maxWidth: 60 }}
+                />
+                <Typography variant="body1" noWrap>
+                  {icon.name}
+                </Typography>
               </Box>
             </Grid>
           ))}

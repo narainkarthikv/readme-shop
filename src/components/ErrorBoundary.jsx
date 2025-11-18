@@ -6,10 +6,10 @@ import HomeIcon from '@mui/icons-material/Home';
 import RefreshIcon from '@mui/icons-material/Refresh';
 
 class ErrorBoundaryFallback extends React.Component {
-  state = { 
-    hasError: false, 
+  state = {
+    hasError: false,
     error: null,
-    errorInfo: null 
+    errorInfo: null,
   };
 
   static getDerivedStateFromError(error) {
@@ -19,7 +19,7 @@ class ErrorBoundaryFallback extends React.Component {
   componentDidCatch(error, errorInfo) {
     console.error('Error caught by ErrorBoundary:', error, errorInfo);
     this.setState({ errorInfo });
-    
+
     // Could add error reporting service here
     // reportError(error, errorInfo);
   }
@@ -41,45 +41,43 @@ class ErrorBoundaryFallback extends React.Component {
             p: 3,
           }}
         >
-          <Paper 
+          <Paper
             elevation={3}
             sx={{
               p: 4,
               maxWidth: 600,
               width: '100%',
               textAlign: 'center',
-              borderRadius: 2
+              borderRadius: 2,
             }}
           >
-            <ErrorOutlineIcon 
-              color="error" 
-              sx={{ fontSize: 64, mb: 2 }} 
-            />
+            <ErrorOutlineIcon color="error" sx={{ fontSize: 64, mb: 2 }} />
             <Typography variant="h4" gutterBottom>
               Oops! Something went wrong
             </Typography>
-            <Typography 
-              variant="body1" 
-              color="text.secondary" 
-              sx={{ mb: 4 }}
-            >
-              We're sorry for the inconvenience. You can try refreshing the page or return to the homepage.
+            <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
+              We're sorry for the inconvenience. You can try refreshing the page
+              or return to the homepage.
             </Typography>
-            
+
             {process.env.NODE_ENV === 'development' && this.state.error && (
-              <Box 
-                sx={{ 
-                  my: 2, 
-                  p: 2, 
+              <Box
+                sx={{
+                  my: 2,
+                  p: 2,
                   bgcolor: 'grey.100',
                   borderRadius: 1,
                   textAlign: 'left',
                   overflowX: 'auto',
                   touchAction: 'pan-x',
-                  overscrollBehavior: 'contain'
+                  overscrollBehavior: 'contain',
                 }}
               >
-                <Typography variant="body2" component="pre" sx={{ color: 'error.main' }}>
+                <Typography
+                  variant="body2"
+                  component="pre"
+                  sx={{ color: 'error.main' }}
+                >
                   {this.state.error.toString()}
                 </Typography>
               </Box>

@@ -2,9 +2,9 @@ import React from 'react';
 import { TextField, Paper, Typography } from '@mui/material';
 
 const MarkdownEditor = ({ value, onChange }) => (
-  <Paper 
-    elevation={3} 
-    sx={{ 
+  <Paper
+    elevation={3}
+    sx={{
       flex: 1,
       display: 'flex',
       flexDirection: 'column',
@@ -14,8 +14,8 @@ const MarkdownEditor = ({ value, onChange }) => (
       position: 'relative',
       '& .MuiInputBase-root': {
         fontFamily: 'monospace',
-        height: '100%'
-      }
+        height: '100%',
+      },
     }}
   >
     <Typography variant="h6" sx={{ mb: 1, flexShrink: 0 }}>
@@ -28,7 +28,7 @@ const MarkdownEditor = ({ value, onChange }) => (
       fullWidth
       variant="outlined"
       placeholder="Write your README markdown here..."
-      sx={{ 
+      sx={{
         flex: 1,
         '& .MuiInputBase-root': {
           height: '100%',
@@ -36,9 +36,9 @@ const MarkdownEditor = ({ value, onChange }) => (
           '& textarea': {
             flex: 1,
             resize: 'none',
-            overflowY: 'auto'
-          }
-        }
+            overflowY: 'auto',
+          },
+        },
       }}
     />
   </Paper>

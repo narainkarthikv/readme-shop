@@ -13,21 +13,23 @@ const useTemplatesStore = create((set, get) => ({
   setCopiedIdx: (idx) => set({ copiedIdx: idx }),
   getFilteredTemplates: () => {
     const { templates, search, selectedCategory } = get();
-    return templates.filter(template => {
-      const matchesSearch = template.label.toLowerCase().includes(search.toLowerCase()) ||
+    return templates.filter((template) => {
+      const matchesSearch =
+        template.label.toLowerCase().includes(search.toLowerCase()) ||
         template.description.toLowerCase().includes(search.toLowerCase());
-      const matchesCategory = selectedCategory === 'all' || template.category === selectedCategory;
+      const matchesCategory =
+        selectedCategory === 'all' || template.category === selectedCategory;
       return matchesSearch && matchesCategory;
     });
   },
   getCategories: () => {
     const { templates } = get();
-    const categories = ['all', ...new Set(templates.map(t => t.category))];
-    return categories.map(category => ({
+    const categories = ['all', ...new Set(templates.map((t) => t.category))];
+    return categories.map((category) => ({
       value: category,
-      label: category.charAt(0).toUpperCase() + category.slice(1)
+      label: category.charAt(0).toUpperCase() + category.slice(1),
     }));
-  }
+  },
 }));
 
 export default useTemplatesStore;

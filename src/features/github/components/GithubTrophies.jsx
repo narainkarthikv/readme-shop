@@ -6,7 +6,7 @@ import CardContainer from '@/components/ui/CardContainer';
 const TROPHY_MARKDOWN = `<img src="https://github-profile-trophy.vercel.app/?username=narainkarthikv&theme=tokyonight&no-frame=true&margin-w=4" alt="GitHub Trophies" style="width:100%;max-width:100%;border-radius:8px;" />`;
 
 const GithubTrophies = () => {
-  const embedMarkdown = useMarkdownStore(state => state.embedMarkdown);
+  const embedMarkdown = useMarkdownStore((state) => state.embedMarkdown);
 
   const handleClick = () => {
     embedMarkdown(TROPHY_MARKDOWN);

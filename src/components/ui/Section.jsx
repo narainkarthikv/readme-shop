@@ -15,7 +15,7 @@ const Section = ({ children, sx = {}, ...props }) => {
         color: theme.palette.text.primary,
         borderBottom: `1px solid ${theme.palette.divider}`,
         transition: 'background 0.3s, color 0.3s, border-color 0.3s',
-        ...sx
+        ...sx,
       }}
       {...props}
     >

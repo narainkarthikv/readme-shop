@@ -13,22 +13,20 @@ export const useShopStore = create(
   persist(
     (set, get) => ({
       ...initialState,
-      
+
       // Search terms
-      setIconSearchTerm: (iconSearchTerm) => 
-        set({ iconSearchTerm }),
-      
+      setIconSearchTerm: (iconSearchTerm) => set({ iconSearchTerm }),
+
       // Theme
-      setThemeMode: (themeMode) => 
-        set({ themeMode }),
+      setThemeMode: (themeMode) => set({ themeMode }),
       toggleTheme: () =>
-        set((state) => ({ 
-          themeMode: state.themeMode === 'light' ? 'dark' : 'light' 
+        set((state) => ({
+          themeMode: state.themeMode === 'light' ? 'dark' : 'light',
         })),
-      
+
       // Reset
       resetStore: () => set(initialState),
-      
+
       // Loading & Error states
       setLoading: (loading) => set({ loading }),
       setError: (error) => set({ error }),

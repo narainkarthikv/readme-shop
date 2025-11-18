@@ -20,7 +20,7 @@ export const sanitizeHTML = (content) => {
 export const filterItems = (items, searchTerm, property = 'name') => {
   if (!searchTerm) return items;
   const lowercasedTerm = searchTerm.toLowerCase();
-  return items.filter(item => 
+  return items.filter((item) =>
     item[property]?.toLowerCase().includes(lowercasedTerm)
   );
 };

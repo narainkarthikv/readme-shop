@@ -1,8 +1,22 @@
 import { useState, useEffect } from 'react';
-import { Box, Typography, Paper, Grid, IconButton, Tooltip, Card, CardContent, CardActions, Button, Chip, TextField, Fade } from '@mui/material';
+import {
+  Box,
+  Typography,
+  Paper,
+  Grid,
+  IconButton,
+  Tooltip,
+  Card,
+  CardContent,
+  CardActions,
+  Button,
+  Chip,
+  TextField,
+  Fade,
+} from '@mui/material';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import templatesData from '../assets/data/templates.json';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
 
 const getCategories = (templates) => {
@@ -35,7 +49,8 @@ const Templates = () => {
         (tpl) =>
           tpl.label.toLowerCase().includes(search.toLowerCase()) ||
           tpl.description.toLowerCase().includes(search.toLowerCase()) ||
-          (tpl.content && tpl.content.toLowerCase().includes(search.toLowerCase()))
+          (tpl.content &&
+            tpl.content.toLowerCase().includes(search.toLowerCase()))
       );
     }
     return filtered;
@@ -54,15 +69,30 @@ const Templates = () => {
   const handleUseTemplate = (content, idx) => {
     setSelectedIdx(idx);
     handleCopy(content, idx);
-    navigate("/shop", { state: { content } });
+    navigate('/shop', { state: { content } });
   };
 
   return (
     <Box sx={{ mt: 4, maxWidth: 1200, mx: 'auto', px: { xs: 2, sm: 3 } }}>
-      <Typography variant="h4" sx={{ mb: 3, textAlign: 'center', fontSize: { xs: '1.5rem', sm: '2rem' } }}>
+      <Typography
+        variant="h4"
+        sx={{
+          mb: 3,
+          textAlign: 'center',
+          fontSize: { xs: '1.5rem', sm: '2rem' },
+        }}
+      >
         README.md Templates
       </Typography>
-      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 2, justifyContent: 'center' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: 1,
+          mb: 2,
+          justifyContent: 'center',
+        }}
+      >
         {categories.map((cat) => (
           <Chip
             key={cat}
@@ -92,7 +122,14 @@ const Templates = () => {
           </Grid>
         )}
         {filteredTemplates.map((tpl, idx) => (
-          <Grid item xs={12} sm={6} md={4} key={tpl.label} sx={{ display: 'flex' }}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={4}
+            key={tpl.label}
+            sx={{ display: 'flex' }}
+          >
             <Fade in timeout={400} style={{ width: '100%' }}>
               <Card
                 sx={{
@@ -105,7 +142,8 @@ const Templates = () => {
                   flexDirection: 'column',
                   justifyContent: 'flex-start',
                   border: selectedIdx === idx ? 2 : 1,
-                  borderColor: selectedIdx === idx ? 'primary.main' : 'grey.300',
+                  borderColor:
+                    selectedIdx === idx ? 'primary.main' : 'grey.300',
                   boxShadow: selectedIdx === idx ? 6 : 1,
                   transition: 'box-shadow 0.2s, border-color 0.2s',
                   m: 'auto',
@@ -121,8 +159,27 @@ const Templates = () => {
                 aria-selected={selectedIdx === idx}
               >
                 {/* Header actions always at the top */}
-                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', px: 2, pt: 2, pb: 1, bgcolor: 'background.paper', borderTopLeftRadius: 8, borderTopRightRadius: 8 }}>
-                  <Typography variant="h6" sx={{ fontWeight: 600, fontSize: { xs: '1.1rem', sm: '1.2rem' }, color: 'primary.main' }}>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    px: 2,
+                    pt: 2,
+                    pb: 1,
+                    bgcolor: 'background.paper',
+                    borderTopLeftRadius: 8,
+                    borderTopRightRadius: 8,
+                  }}
+                >
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      fontWeight: 600,
+                      fontSize: { xs: '1.1rem', sm: '1.2rem' },
+                      color: 'primary.main',
+                    }}
+                  >
                     {tpl.label}
                   </Typography>
                   <Box sx={{ display: 'flex', gap: 1 }}>
@@ -130,16 +187,26 @@ const Templates = () => {
                       variant={selectedIdx === idx ? 'contained' : 'outlined'}
                       color="primary"
                       size="small"
-                      onClick={(e) => { e.stopPropagation(); handleUseTemplate(tpl.content, idx); }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleUseTemplate(tpl.content, idx);
+                      }}
                       sx={{ minWidth: 110, fontWeight: 500, borderRadius: 2 }}
                     >
                       {selectedIdx === idx ? 'Selected' : 'Use Template'}
                     </Button>
-                    <Tooltip title={copiedIdx === idx ? 'Copied!' : 'Copy to clipboard'}>
+                    <Tooltip
+                      title={
+                        copiedIdx === idx ? 'Copied!' : 'Copy to clipboard'
+                      }
+                    >
                       <span>
                         <IconButton
                           color={copiedIdx === idx ? 'success' : 'primary'}
-                          onClick={(e) => { e.stopPropagation(); handleCopy(tpl.content, idx); }}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleCopy(tpl.content, idx);
+                          }}
                           tabIndex={-1}
                           size="small"
                           sx={{ borderRadius: 2 }}
@@ -150,8 +217,23 @@ const Templates = () => {
                     </Tooltip>
                   </Box>
                 </Box>
-                <CardContent sx={{ pt: 1, flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
-                  <Typography variant="body2" sx={{ mb: 2, minHeight: 40, color: theme.palette.text.secondary }}>
+                <CardContent
+                  sx={{
+                    pt: 1,
+                    flexGrow: 1,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-start',
+                  }}
+                >
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      mb: 2,
+                      minHeight: 40,
+                      color: theme.palette.text.secondary,
+                    }}
+                  >
                     {tpl.description}
                   </Typography>
                   <Paper
@@ -161,9 +243,9 @@ const Templates = () => {
                       color: theme.palette.text.primary,
                       p: 2,
                       borderRadius: 2,
-                        overflowX: 'auto',
-                        touchAction: 'pan-x',
-                        overscrollBehavior: 'contain',
+                      overflowX: 'auto',
+                      touchAction: 'pan-x',
+                      overscrollBehavior: 'contain',
                       fontSize: '0.95rem',
                       minHeight: 120,
                       maxHeight: 180,
@@ -182,6 +264,6 @@ const Templates = () => {
       </Grid>
     </Box>
   );
-}
+};
 
 export default Templates;

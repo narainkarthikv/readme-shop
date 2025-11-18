@@ -1,19 +1,19 @@
 ---
-name: 4DD Pull Request
+name: Pull Request
 about: Submit a pull request to improve the project
 labels: enhancement
 assignees: ''
 ---
 
-## 4DD Description
+## Description
 
 Please describe your changes and the motivation behind them.
 
-## 4A1 Related Issue(s)
+## Related Issue(s)
 
-- Closes # (issue)
+- Closes #ISSUE_NUMBER
 
-## 4CB Checklist
+## Checklist
 
 - [ ] My code follows the style guidelines of this project
 - [ ] I have performed a self-review of my code
@@ -23,6 +23,6 @@ Please describe your changes and the motivation behind them.
 - [ ] I have added tests that prove my fix is effective or that my feature works
 - [ ] New and existing unit tests pass locally with my changes
 
-## 4AC Additional Comments
+## Additional Comments
 
 Add any other context or screenshots about the pull request here.

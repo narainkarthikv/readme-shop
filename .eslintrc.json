@@ -16,11 +16,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": [
-    "react",
-    "react-hooks",
-    "jsx-a11y"
-  ],
+  "plugins": ["react", "react-hooks", "jsx-a11y"],
   "rules": {
     "react/prop-types": "warn",
     "react/react-in-jsx-scope": "off",
