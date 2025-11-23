@@ -18,6 +18,7 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import templatesData from '../assets/data/templates.json';
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
+import useMarkdownStore from '@/features/markdown/store/markdownStore';
 
 const getCategories = (templates) => {
   const cats = templates.map((tpl) => tpl.category || 'Other');
@@ -26,6 +27,7 @@ const getCategories = (templates) => {
 
 const Templates = () => {
   const navigate = useNavigate();
+  const { setMarkdown } = useMarkdownStore();
   const [copiedIdx, setCopiedIdx] = useState(null);
   const [search, setSearch] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -67,9 +69,10 @@ const Templates = () => {
   };
 
   const handleUseTemplate = (content, idx) => {
+    setMarkdown(content);
     setSelectedIdx(idx);
-    handleCopy(content, idx);
-    navigate('/shop', { state: { content } });
+    navigate('/shop');
+    setTimeout(() => setSelectedIdx(null), 1500);
   };
 
   return (

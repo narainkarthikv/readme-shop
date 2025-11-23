@@ -38,8 +38,8 @@ export const useTemplates = () => {
   const handleUseTemplate = useCallback(
     (content, idx) => {
       setMarkdown(content);
-      navigate('/shop');
       setSelectedIdx(idx);
+      navigate('/shop');
       setTimeout(() => setSelectedIdx(null), 2000);
     },
     [navigate, setMarkdown, setSelectedIdx]
