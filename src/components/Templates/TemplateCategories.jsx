@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Chip } from '@mui/material';
+import PropTypes from 'prop-types';
 
 const TemplateCategories = ({
   categories,
@@ -27,5 +28,11 @@ const TemplateCategories = ({
     ))}
   </Box>
 );
+
+TemplateCategories.propTypes = {
+  categories: PropTypes.arrayOf(PropTypes.string).isRequired,
+  selectedCategory: PropTypes.string.isRequired,
+  onCategorySelect: PropTypes.func.isRequired,
+};
 
 export default React.memo(TemplateCategories);

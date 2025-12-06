@@ -1,5 +1,6 @@
 import React from 'react';
 import { TextField, Box } from '@mui/material';
+import PropTypes from 'prop-types';
 
 const TemplateSearch = ({ search, onSearchChange }) => (
   <Box sx={{ mb: 3, display: 'flex', justifyContent: 'center' }}>
@@ -12,5 +13,10 @@ const TemplateSearch = ({ search, onSearchChange }) => (
     />
   </Box>
 );
+
+TemplateSearch.propTypes = {
+  search: PropTypes.string.isRequired,
+  onSearchChange: PropTypes.func.isRequired,
+};
 
 export default React.memo(TemplateSearch);

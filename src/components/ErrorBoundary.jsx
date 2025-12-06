@@ -1,11 +1,12 @@
 import React from 'react';
 import { Box, Typography, Button, Paper } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import HomeIcon from '@mui/icons-material/Home';
 import RefreshIcon from '@mui/icons-material/Refresh';
 
-class ErrorBoundaryFallback extends React.Component {
+class ErrorBoundary extends React.Component {
   state = {
     hasError: false,
     error: null,
@@ -56,32 +57,34 @@ class ErrorBoundaryFallback extends React.Component {
               Oops! Something went wrong
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
-              We're sorry for the inconvenience. You can try refreshing the page
-              or return to the homepage.
+              We&apos;re sorry for the inconvenience. You can try refreshing the
+              page or return to the homepage.
             </Typography>
 
-            {process.env.NODE_ENV === 'development' && this.state.error && (
-              <Box
-                sx={{
-                  my: 2,
-                  p: 2,
-                  bgcolor: 'grey.100',
-                  borderRadius: 1,
-                  textAlign: 'left',
-                  overflowX: 'auto',
-                  touchAction: 'pan-x',
-                  overscrollBehavior: 'contain',
-                }}
-              >
-                <Typography
-                  variant="body2"
-                  component="pre"
-                  sx={{ color: 'error.main' }}
+            {typeof process !== 'undefined' && // eslint-disable-next-line no-undef
+              process.env?.NODE_ENV === 'development' &&
+              this.state.error && (
+                <Box
+                  sx={{
+                    my: 2,
+                    p: 2,
+                    bgcolor: 'grey.100',
+                    borderRadius: 1,
+                    textAlign: 'left',
+                    overflowX: 'auto',
+                    touchAction: 'pan-x',
+                    overscrollBehavior: 'contain',
+                  }}
                 >
-                  {this.state.error.toString()}
-                </Typography>
-              </Box>
-            )}
+                  <Typography
+                    variant="body2"
+                    component="pre"
+                    sx={{ color: 'error.main' }}
+                  >
+                    {this.state.error.toString()}
+                  </Typography>
+                </Box>
+              )}
 
             <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center' }}>
               <Button
@@ -110,4 +113,8 @@ class ErrorBoundaryFallback extends React.Component {
   }
 }
 
-export const ErrorBoundary = ErrorBoundaryFallback;
+export { ErrorBoundary };
+
+ErrorBoundary.propTypes = {
+  children: PropTypes.node.isRequired,
+};

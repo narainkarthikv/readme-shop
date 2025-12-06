@@ -28,4 +28,6 @@ const EmbedPanel = React.memo(() => (
   </div>
 ));
 
+EmbedPanel.displayName = 'EmbedPanel';
+
 export default EmbedPanel;

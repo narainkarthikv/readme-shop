@@ -1,4 +1,5 @@
 import { Suspense, lazy } from 'react';
+import PropTypes from 'prop-types';
 import {
   BrowserRouter as Router,
   Routes,
@@ -71,6 +72,10 @@ const AppLayout = ({ children }) => {
       <Footer />
     </Box>
   );
+};
+
+AppLayout.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 const App = () => {

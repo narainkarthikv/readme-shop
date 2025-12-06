@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import useMarkdownStore from '@/features/markdown/store/markdownStore';
 
 const EmbedButton = React.memo(({ label, embedContent }) => {
@@ -13,5 +14,12 @@ const EmbedButton = React.memo(({ label, embedContent }) => {
     </button>
   );
 });
+
+EmbedButton.displayName = 'EmbedButton';
+
+EmbedButton.propTypes = {
+  label: PropTypes.string.isRequired,
+  embedContent: PropTypes.string.isRequired,
+};
 
 export default EmbedButton;

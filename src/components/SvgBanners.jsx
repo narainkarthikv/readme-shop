@@ -35,4 +35,6 @@ const SvgBanners = React.memo(() => {
   );
 });
 
+SvgBanners.displayName = 'SvgBanners';
+
 export default SvgBanners;

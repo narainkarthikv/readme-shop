@@ -2,6 +2,7 @@ import React from 'react';
 import { Paper, Typography } from '@mui/material';
 import DOMPurify from 'dompurify';
 import { marked } from 'marked';
+import PropTypes from 'prop-types';
 
 const MarkdownPreview = ({ markdown }) => {
   const createMarkup = React.useCallback(
@@ -48,6 +49,10 @@ const MarkdownPreview = ({ markdown }) => {
       />
     </Paper>
   );
+};
+
+MarkdownPreview.propTypes = {
+  markdown: PropTypes.string.isRequired,
 };
 
 export default React.memo(MarkdownPreview);

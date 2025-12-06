@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ThemeProvider } from '@mui/material/styles';
+import PropTypes from 'prop-types';
 import App from './App.jsx';
 import './styles/index.css';
 import { getTheme } from './theme/theme';
@@ -17,6 +18,12 @@ const ThemeWrapper = React.memo(({ children }) => {
     </ThemeProvider>
   );
 });
+
+ThemeWrapper.displayName = 'ThemeWrapper';
+
+ThemeWrapper.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

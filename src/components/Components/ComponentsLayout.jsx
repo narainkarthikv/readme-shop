@@ -1,4 +1,3 @@
-import React from 'react';
 import { Container } from '@mui/material';
 import SvgBanners from '../SvgBanners';
 import ComponentsGrid from './ComponentsGrid';

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Typography } from '@mui/material';
+import PropTypes from 'prop-types';
 
 const SectionTitle = React.memo(({ children, sx = {} }) => (
   <Typography
@@ -19,5 +20,10 @@ const SectionTitle = React.memo(({ children, sx = {} }) => (
 ));
 
 SectionTitle.displayName = 'SectionTitle';
+
+SectionTitle.propTypes = {
+  children: PropTypes.node.isRequired,
+  sx: PropTypes.object,
+};
 
 export default SectionTitle;

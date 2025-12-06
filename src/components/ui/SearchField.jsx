@@ -1,5 +1,5 @@
-import React from 'react';
 import { TextField } from '@mui/material';
+import PropTypes from 'prop-types';
 
 const SearchField = ({ value, onChange, placeholder, sx = {}, ...props }) => (
   <TextField
@@ -18,5 +18,12 @@ const SearchField = ({ value, onChange, placeholder, sx = {}, ...props }) => (
     {...props}
   />
 );
+
+SearchField.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
+  sx: PropTypes.object,
+};
 
 export default SearchField;

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box } from '@mui/material';
 import GithubStats from './components/GithubStats';
 import GithubTrophies from './components/GithubTrophies';

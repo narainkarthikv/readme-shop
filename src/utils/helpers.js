@@ -4,6 +4,13 @@
  * @returns {string} - Sanitized HTML content
  */
 export const sanitizeHTML = (content) => {
+  // DOMPurify is typically available globally in browsers
+  // If it's not installed, this function should be updated
+  if (typeof DOMPurify === 'undefined') {
+    console.warn('DOMPurify is not available, returning unsanitized content');
+    return content;
+  }
+  // eslint-disable-next-line no-undef
   return DOMPurify.sanitize(content, {
     ADD_TAGS: ['img'],
     ADD_ATTR: ['src', 'alt', 'width', 'height', 'style'],

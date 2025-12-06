@@ -13,7 +13,7 @@ const initialState = {
 
 export const useShopStore = create(
   persist(
-    (set, get) => ({
+    (set) => ({
       ...initialState,
       // Search terms
       setBadgeSearchTerm: (badgeSearchTerm) => set({ badgeSearchTerm }),

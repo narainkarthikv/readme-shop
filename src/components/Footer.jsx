@@ -54,4 +54,6 @@ const Footer = React.memo(() => (
   </BottomNavigation>
 ));
 
+Footer.displayName = 'Footer';
+
 export default Footer;

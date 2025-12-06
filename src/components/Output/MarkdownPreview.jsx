@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Paper, Typography } from '@mui/material';
 import DOMPurify from 'dompurify';
 import { marked } from 'marked';
@@ -31,5 +32,9 @@ const MarkdownPreview = React.memo(({ markdown }) => {
 });
 
 MarkdownPreview.displayName = 'MarkdownPreview';
+
+MarkdownPreview.propTypes = {
+  markdown: PropTypes.string.isRequired,
+};
 
 export default MarkdownPreview;

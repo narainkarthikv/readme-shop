@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useShopStore } from '../store/useShopStore';
 import { FaMoon, FaSun, FaShoppingCart, FaObjectGroup } from 'react-icons/fa';
-import { AppBar, Toolbar, Typography, IconButton, Badge } from '@mui/material';
+import { AppBar, Toolbar, Typography, IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import CustomDrawer from './CustomDrawer';
-import HomeIcon from '@mui/icons-material/Home';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
+import CustomDrawer from './CustomDrawer';
 
 const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -21,7 +20,10 @@ const Navbar = () => {
 
   // Only Home and Templates
   const drawerItems = ['Github components', 'Templates'];
-  const drawerIcons = [<FaObjectGroup />, <MenuBookIcon />];
+  const drawerIcons = [
+    <FaObjectGroup key="github" />,
+    <MenuBookIcon key="templates" />,
+  ];
   const drawerLinks = ['/components', '/templates'];
 
   return (

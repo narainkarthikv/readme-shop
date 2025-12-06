@@ -1,6 +1,4 @@
-import React from 'react';
 import { Box, Typography, Grid, Fade } from '@mui/material';
-import templatesData from '../../assets/data/templates.json';
 import TemplateCard from './TemplateCard';
 import TemplateCategories from './TemplateCategories';
 import TemplateSearch from './TemplateSearch';
