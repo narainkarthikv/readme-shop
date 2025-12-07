@@ -8,7 +8,6 @@ import {
   Tooltip,
   Card,
   CardContent,
-  CardActions,
   Button,
   Chip,
   TextField,
@@ -63,7 +62,7 @@ const Templates = () => {
       await navigator.clipboard.writeText(content);
       setCopiedIdx(idx);
       setTimeout(() => setCopiedIdx(null), 1500);
-    } catch (e) {
+    } catch {
       alert('Failed to copy!');
     }
   };

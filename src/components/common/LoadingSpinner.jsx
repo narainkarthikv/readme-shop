@@ -1,7 +1,8 @@
 import React from 'react';
 import { Box, CircularProgress, Typography } from '@mui/material';
+import PropTypes from 'prop-types';
 
-export const LoadingSpinner = React.memo(({ message = 'Loading...' }) => (
+const LoadingSpinner = React.memo(({ message = 'Loading...' }) => (
   <Box
     sx={{
       display: 'flex',
@@ -18,3 +19,11 @@ export const LoadingSpinner = React.memo(({ message = 'Loading...' }) => (
     </Typography>
   </Box>
 ));
+
+LoadingSpinner.displayName = 'LoadingSpinner';
+
+LoadingSpinner.propTypes = {
+  message: PropTypes.string,
+};
+
+export { LoadingSpinner };

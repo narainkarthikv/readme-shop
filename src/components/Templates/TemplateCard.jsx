@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Typography,
   Paper,
@@ -73,6 +74,18 @@ const TemplateCardHeader = React.memo(
 
 TemplateCardHeader.displayName = 'TemplateCardHeader';
 
+TemplateCardHeader.propTypes = {
+  template: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+  }).isRequired,
+  selectedIdx: PropTypes.number,
+  index: PropTypes.number.isRequired,
+  copiedIdx: PropTypes.number,
+  onUseTemplate: PropTypes.func.isRequired,
+  onCopy: PropTypes.func.isRequired,
+};
+
 const TemplatePreview = React.memo(({ content }) => {
   const theme = useTheme();
 
@@ -117,6 +130,10 @@ const TemplatePreview = React.memo(({ content }) => {
 });
 
 TemplatePreview.displayName = 'TemplatePreview';
+
+TemplatePreview.propTypes = {
+  content: PropTypes.string.isRequired,
+};
 
 const TemplateCard = ({
   template,
@@ -187,5 +204,18 @@ const TemplateCard = ({
 };
 
 TemplateCard.displayName = 'TemplateCard';
+
+TemplateCard.propTypes = {
+  template: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+  }).isRequired,
+  selectedIdx: PropTypes.number,
+  index: PropTypes.number.isRequired,
+  copiedIdx: PropTypes.number,
+  onUseTemplate: PropTypes.func.isRequired,
+  onCopy: PropTypes.func.isRequired,
+};
 
 export default React.memo(TemplateCard);

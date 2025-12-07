@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Typography, Grid, Fade } from '@mui/material';
 import useTemplatesStore from './store/templatesStore';
 import TemplateCard from './components/TemplateCard';

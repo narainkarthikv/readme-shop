@@ -1,5 +1,5 @@
-import React from 'react';
 import { Box, Paper } from '@mui/material';
+import PropTypes from 'prop-types';
 
 const CardContainer = ({ children, sx = {}, ...props }) => (
   <Paper
@@ -22,5 +22,10 @@ const CardContainer = ({ children, sx = {}, ...props }) => (
     <Box sx={{ p: 2, flex: 1 }}>{children}</Box>
   </Paper>
 );
+
+CardContainer.propTypes = {
+  children: PropTypes.node.isRequired,
+  sx: PropTypes.object,
+};
 
 export default CardContainer;

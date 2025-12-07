@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Grid, Box } from '@mui/material';
 import Icons from '../Icons';
 
@@ -50,3 +51,7 @@ ComponentPanel.displayName = 'ComponentPanel';
 ComponentsGrid.displayName = 'ComponentsGrid';
 
 export default ComponentsGrid;
+
+ComponentPanel.propTypes = {
+  children: PropTypes.node,
+};

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Box, Typography, Button, IconButton, Tooltip } from '@mui/material';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
@@ -63,6 +64,19 @@ const TemplateCard = ({
       </Box>
     </CardContainer>
   );
+};
+
+TemplateCard.propTypes = {
+  template: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
+  selectedIdx: PropTypes.number,
+  copiedIdx: PropTypes.number,
+  onUseTemplate: PropTypes.func.isRequired,
+  onCopy: PropTypes.func.isRequired,
 };
 
 export default React.memo(TemplateCard);

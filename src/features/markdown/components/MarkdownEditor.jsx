@@ -1,5 +1,6 @@
 import React from 'react';
 import { TextField, Paper, Typography } from '@mui/material';
+import PropTypes from 'prop-types';
 
 const MarkdownEditor = ({ value, onChange }) => (
   <Paper
@@ -43,5 +44,10 @@ const MarkdownEditor = ({ value, onChange }) => (
     />
   </Paper>
 );
+
+MarkdownEditor.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default React.memo(MarkdownEditor);

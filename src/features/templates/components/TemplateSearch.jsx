@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchField from '@/components/ui/SearchField';
+import PropTypes from 'prop-types';
 
 const TemplateSearch = ({ search, onSearchChange }) => (
   <SearchField
@@ -9,5 +10,10 @@ const TemplateSearch = ({ search, onSearchChange }) => (
     sx={{ mb: 3 }}
   />
 );
+
+TemplateSearch.propTypes = {
+  search: PropTypes.string.isRequired,
+  onSearchChange: PropTypes.func.isRequired,
+};
 
 export default React.memo(TemplateSearch);

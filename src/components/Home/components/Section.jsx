@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Box } from '@mui/material';
+import PropTypes from 'prop-types';
 import { sectionVariants } from '../animations';
 
 const Section = React.memo(({ children, ...props }) => (
@@ -25,6 +26,10 @@ const Section = React.memo(({ children, ...props }) => (
     </Box>
   </motion.section>
 ));
+
+Section.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 Section.displayName = 'Section';
 

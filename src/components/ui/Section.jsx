@@ -1,5 +1,5 @@
-import React from 'react';
 import { Box } from '@mui/material';
+import PropTypes from 'prop-types';
 import { useTheme } from '@mui/material/styles';
 
 const Section = ({ children, sx = {}, ...props }) => {
@@ -22,6 +22,11 @@ const Section = ({ children, sx = {}, ...props }) => {
       {children}
     </Box>
   );
+};
+
+Section.propTypes = {
+  children: PropTypes.node.isRequired,
+  sx: PropTypes.object,
 };
 
 export default Section;

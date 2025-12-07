@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Drawer,
   IconButton,
@@ -9,6 +8,7 @@ import {
   Box,
   Typography,
 } from '@mui/material';
+import PropTypes from 'prop-types';
 import CloseIcon from '@mui/icons-material/Close';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import { Link } from 'react-router-dom';
@@ -97,3 +97,15 @@ const CustomDrawer = ({
 );
 
 export default CustomDrawer;
+
+CustomDrawer.propTypes = {
+  open: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  anchor: PropTypes.oneOf(['left', 'top', 'right', 'bottom']),
+  items: PropTypes.arrayOf(PropTypes.string),
+  itemIcons: PropTypes.arrayOf(PropTypes.node),
+  itemLinks: PropTypes.arrayOf(PropTypes.string),
+  title: PropTypes.string,
+  renderItem: PropTypes.func,
+  sx: PropTypes.object,
+};

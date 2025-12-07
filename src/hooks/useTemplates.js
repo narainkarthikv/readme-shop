@@ -9,7 +9,6 @@ export const useTemplates = () => {
   const { copyToClipboard } = useClipboard();
   const { setMarkdown } = useMarkdownStore();
   const {
-    templates,
     search,
     setSearch,
     selectedCategory,

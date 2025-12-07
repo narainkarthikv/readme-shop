@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box } from '@mui/material';
 import MarkdownEditor from './components/MarkdownEditor';
 import MarkdownPreview from './components/MarkdownPreview';
