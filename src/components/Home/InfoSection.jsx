@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Box, Typography, Grid } from '@mui/material';
+import { Box, Typography, Grid, Button, Stack } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTheme } from '@mui/material/styles';
 import { floatVariants } from './animations';
@@ -111,6 +111,29 @@ const InfoSection = () => {
           <InfoItem key={item.title} {...item} />
         ))}
       </Grid>
+
+      <Stack
+        direction={{ xs: 'column', sm: 'row' }}
+        spacing={2}
+        justifyContent="center"
+        sx={{ mt: 3 }}
+      >
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => (window.location.href = '/templates')}
+        >
+          Browse Templates
+        </Button>
+
+        <Button
+          variant="outlined"
+          color="primary"
+          onClick={() => (window.location.href = '/components')}
+        >
+          Components Library
+        </Button>
+      </Stack>
     </Box>
   );
 };

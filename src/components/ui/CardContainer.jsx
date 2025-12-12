@@ -10,10 +10,14 @@ const CardContainer = ({ children, sx = {}, ...props }) => (
       flexDirection: 'column',
       borderRadius: 2,
       overflow: 'hidden',
-      transition: 'transform 0.2s, box-shadow 0.2s',
+      transition: 'transform 0.2s, box-shadow 0.2s, outline 0.15s',
       '&:hover': {
         transform: 'translateY(-4px)',
         boxShadow: 4,
+      },
+      '&:focus-visible': {
+        outline: (theme) => `3px solid ${theme.palette.primary.main}33`,
+        outlineOffset: '2px',
       },
       ...sx,
     }}
