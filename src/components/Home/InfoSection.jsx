@@ -1,19 +1,13 @@
 /* eslint-disable react/prop-types */
 import { Box, Typography, Grid, Button, Stack } from '@mui/material';
-import { motion } from 'framer-motion';
 import { useTheme } from '@mui/material/styles';
-import { floatVariants } from './animations';
 
 const InfoItem = ({ icon, title, description }) => {
   const theme = useTheme();
 
   return (
     <Grid item xs={12} sm={4}>
-      <motion.div
-        variants={floatVariants}
-        animate="animate"
-        style={{ display: 'inline-block' }}
-      >
+      <div style={{ display: 'inline-block' }}>
         <Typography
           variant="h5"
           sx={{
@@ -34,7 +28,7 @@ const InfoItem = ({ icon, title, description }) => {
           </Box>
           {title}
         </Typography>
-      </motion.div>
+      </div>
 
       <Typography
         variant="body2"

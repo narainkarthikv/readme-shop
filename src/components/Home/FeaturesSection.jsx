@@ -36,40 +36,44 @@ const FeatureCard = ({ feature }) => {
   return (
     <motion.div
       variants={cardVariants}
-      whileHover={{ scale: 1.04, y: -6, rotateX: 2 }}
+      whileHover="hover"
+      whileTap="tap"
       style={{ height: '100%', display: 'flex' }}
     >
       <Paper
         elevation={0}
         sx={{
-          p: 3,
+          p: 4,
           textAlign: 'center',
           height: '100%',
           width: '100%',
-          bgcolor: theme.palette.card,
+          bgcolor: theme.palette.background.paper,
           color: theme.palette.text.primary,
-          border: `1px solid ${theme.palette.border}`,
+          border: `1px solid ${theme.palette.divider}`,
           boxShadow: 'none',
-          borderRadius: 2,
-          transition:
-            'box-shadow 0.3s, border-color 0.3s, background 0.3s, color 0.3s, transform 0.2s',
-          backdropFilter: 'saturate(1.05) blur(6px)',
+          borderRadius: 3,
+          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+          backdropFilter: 'blur(8px)',
+          '&:hover': {
+            borderColor: theme.palette.primary.main + '40',
+            boxShadow: `0 8px 32px ${theme.palette.primary.main}15`,
+          },
         }}
         aria-label={feature.title}
       >
         <motion.div
           variants={floatVariants}
           animate="animate"
-          style={{ display: 'inline-block' }}
+          style={{ display: 'inline-block', marginBottom: '1.5rem' }}
         >
           <Typography
             variant="h3"
             component="h3"
             sx={{
-              fontSize: '2.2rem',
-              mb: 2,
-              color: theme.palette.text.secondary,
-              transition: 'color 0.3s',
+              fontSize: '3rem',
+              color: theme.palette.primary.main,
+              transition: 'color 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+              filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.1))',
             }}
             aria-label={`${feature.title} icon`}
           >

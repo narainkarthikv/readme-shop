@@ -2,7 +2,12 @@
 import { Box, Typography, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTheme } from '@mui/material/styles';
-import { sectionVariants, floatVariants } from './animations';
+import {
+  sectionVariants,
+  floatVariants,
+  slideInLeftVariants,
+  slideInRightVariants,
+} from './animations';
 
 const steps = [
   {
@@ -28,30 +33,34 @@ const Step = ({ title, description, delay, index }) => {
   return (
     <Grid item xs={12} md={4}>
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.55, delay }}
+        variants={index % 2 === 0 ? slideInLeftVariants : slideInRightVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ delay }}
       >
         <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2 }}>
           <motion.div
             variants={floatVariants}
             animate="animate"
-            style={{ minWidth: 56 }}
+            style={{ minWidth: 64 }}
           >
             <Box
               sx={{
-                width: 56,
-                height: 56,
+                width: 64,
+                height: 64,
                 borderRadius: '50%',
-                bgcolor: theme.palette.background.default,
+                bgcolor: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: theme.palette.primary.main,
+                color: theme.palette.getContrastText(
+                  theme.palette.primary.main
+                ),
                 fontWeight: 700,
-                boxShadow: 1,
-                border: `1px solid ${theme.palette.divider}`,
+                fontSize: '1.5rem',
+                boxShadow: `0 8px 24px ${theme.palette.primary.main}30`,
+                border: `2px solid ${theme.palette.background.paper}`,
               }}
               aria-hidden
             >

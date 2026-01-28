@@ -11,15 +11,12 @@ import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 import useMarkdownStore from '@/features/markdown/store/markdownStore';
 import CardContainer from '@/components/ui/CardContainer';
 
-const STATS_MARKDOWN = [
-  `<img src="https://github-readme-stats.vercel.app/api?username=narainkarthikv&theme=tokyonight&hide_border=true" alt="GitHub Stats" style="width:100%;max-width:400px;margin-right:8px;border-radius:8px;" />`,
-  `<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=narainkarthikv&layout=compact&theme=tokyonight&count_private=true&hide_border=true" alt="Top Languages" style="width:100%;max-width:300px;border-radius:8px;" />`,
-].join('\n');
+const STREAK_MARKDOWN = `<img src="https://github-readme-streak-stats.herokuapp.com/?user=narainkarthikv&theme=tokyonight&hide_border=true" alt="GitHub Streak Stats" style="width:100%;max-width:500px;border-radius:8px;" />`;
 
-const GithubStats = () => {
+const GithubStreak = () => {
   const embedMarkdown = useMarkdownStore((state) => state.embedMarkdown);
 
-  const handleClick = () => embedMarkdown(STATS_MARKDOWN);
+  const handleClick = () => embedMarkdown(STREAK_MARKDOWN);
 
   const openInNewTab = () => {
     window.open('https://github.com/narainkarthikv', '_blank', 'noopener');
@@ -41,7 +38,7 @@ const GithubStats = () => {
       }}
       role="button"
       tabIndex={0}
-      aria-label="Insert GitHub stats"
+      aria-label="Insert GitHub streak stats"
     >
       <Typography
         variant="h6"
@@ -52,38 +49,21 @@ const GithubStats = () => {
           fontSize: '1.125rem',
         }}
       >
-        GitHub Stats
+        Contribution Streak
       </Typography>
 
-      <Stack
-        spacing={2}
-        direction={{ xs: 'column', sm: 'row' }}
-        flexWrap="nowrap"
-        justifyContent="center"
-        alignItems="center"
-      >
-        <Box
-          component="img"
-          src="https://github-readme-stats.vercel.app/api?username=narainkarthikv&theme=tokyonight&hide_border=true"
-          alt="GitHub contribution stats for narainkarthikv"
-          sx={{
-            width: '100%',
-            maxWidth: { xs: 420, sm: 350 },
-            borderRadius: 1,
-          }}
-        />
-
-        <Box
-          component="img"
-          src="https://github-readme-stats.vercel.app/api/top-langs/?username=narainkarthikv&layout=compact&theme=tokyonight&count_private=true&hide_border=true"
-          alt="Top languages used by narainkarthikv"
-          sx={{
-            width: '100%',
-            maxWidth: { xs: 420, sm: 280 },
-            borderRadius: 1,
-          }}
-        />
-      </Stack>
+      <Box
+        component="img"
+        src="https://github-readme-streak-stats.herokuapp.com/?user=narainkarthikv&theme=tokyonight&hide_border=true"
+        alt="GitHub contribution streak for narainkarthikv"
+        sx={{
+          width: '100%',
+          maxWidth: 500,
+          borderRadius: 1,
+          display: 'block',
+          mx: 'auto',
+        }}
+      />
 
       <Stack direction="row" spacing={1} justifyContent="center" sx={{ mt: 1.5 }}>
         <Tooltip title="Insert into editor">
@@ -117,4 +97,4 @@ const GithubStats = () => {
   );
 };
 
-export default GithubStats;
+export default GithubStreak;

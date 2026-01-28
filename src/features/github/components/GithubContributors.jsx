@@ -1,26 +1,24 @@
 import {
-  Box,
   Typography,
   Stack,
   Button,
   Tooltip,
   IconButton,
+  Box,
 } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 import useMarkdownStore from '@/features/markdown/store/markdownStore';
 import CardContainer from '@/components/ui/CardContainer';
 
-const TROPHY_MARKDOWN = `<img src="https://github-profile-trophy.vercel.app/?username=narainkarthikv&theme=tokyonight&no-frame=true&margin-w=4" alt="GitHub Trophies" style="width:100%;max-width:100%;border-radius:8px;" />`;
+const REPO = 'narainkarthikv/readme-shop';
 
-const GithubTrophies = () => {
+const CONTRIBUTORS_MD = `<img src="https://contrib.rocks/image?repo=${REPO}" alt="Contributors" style="width:100%;max-width:600px;border-radius:8px;" />`;
+
+const GithubContributors = () => {
   const embedMarkdown = useMarkdownStore((state) => state.embedMarkdown);
 
-  const handleClick = () => embedMarkdown(TROPHY_MARKDOWN);
-
-  const openInNewTab = () => {
-    window.open('https://github.com/narainkarthikv', '_blank', 'noopener');
-  };
+  const handleClick = () => embedMarkdown(CONTRIBUTORS_MD);
 
   return (
     <CardContainer
@@ -38,7 +36,7 @@ const GithubTrophies = () => {
       }}
       role="button"
       tabIndex={0}
-      aria-label="Insert GitHub trophies"
+      aria-label="Insert contributors"
     >
       <Typography
         variant="h6"
@@ -49,21 +47,17 @@ const GithubTrophies = () => {
           fontSize: '1.125rem',
         }}
       >
-        GitHub Trophies
+        Contributors
       </Typography>
 
-      <Box
-        component="img"
-        src="https://github-profile-trophy.vercel.app/?username=narainkarthikv&theme=tokyonight&no-frame=true&margin-w=4"
-        alt="GitHub trophies for narainkarthikv"
-        sx={{
-          width: '100%',
-          maxWidth: '100%',
-          borderRadius: 1,
-          display: 'block',
-          mx: 'auto',
-        }}
-      />
+      <Box sx={{ display: 'flex', justifyContent: 'center', mb: 1 }}>
+        <Box
+          component="img"
+          src={`https://contrib.rocks/image?repo=${REPO}`}
+          alt="Repository contributors"
+          sx={{ width: '100%', maxWidth: 500, borderRadius: 1 }}
+        />
+      </Box>
 
       <Stack direction="row" spacing={1} justifyContent="center" sx={{ mt: 1.5 }}>
         <Tooltip title="Insert into editor">
@@ -85,9 +79,9 @@ const GithubTrophies = () => {
             size="small"
             onClick={(e) => {
               e.stopPropagation();
-              openInNewTab();
+              window.open(`https://github.com/${REPO}`, '_blank', 'noopener');
             }}
-            aria-label="Open GitHub profile"
+            aria-label="Open repository"
           >
             <OpenInNewIcon fontSize="small" />
           </IconButton>
@@ -97,4 +91,4 @@ const GithubTrophies = () => {
   );
 };
 
-export default GithubTrophies;
+export default GithubContributors;

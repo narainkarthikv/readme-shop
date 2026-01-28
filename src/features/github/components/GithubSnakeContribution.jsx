@@ -11,18 +11,19 @@ import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 import useMarkdownStore from '@/features/markdown/store/markdownStore';
 import CardContainer from '@/components/ui/CardContainer';
 
-const STATS_MARKDOWN = [
-  `<img src="https://github-readme-stats.vercel.app/api?username=narainkarthikv&theme=tokyonight&hide_border=true" alt="GitHub Stats" style="width:100%;max-width:400px;margin-right:8px;border-radius:8px;" />`,
-  `<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=narainkarthikv&layout=compact&theme=tokyonight&count_private=true&hide_border=true" alt="Top Languages" style="width:100%;max-width:300px;border-radius:8px;" />`,
-].join('\n');
+const SNAKE_MARKDOWN = `<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/narainkarthikv/narainkarthikv/output/github-contribution-grid-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/narainkarthikv/narainkarthikv/output/github-contribution-grid-snake.svg">
+  <img alt="GitHub contribution grid snake animation" src="https://raw.githubusercontent.com/narainkarthikv/narainkarthikv/output/github-contribution-grid-snake.svg">
+</picture>`;
 
-const GithubStats = () => {
+const GithubSnakeContribution = () => {
   const embedMarkdown = useMarkdownStore((state) => state.embedMarkdown);
 
-  const handleClick = () => embedMarkdown(STATS_MARKDOWN);
+  const handleClick = () => embedMarkdown(SNAKE_MARKDOWN);
 
   const openInNewTab = () => {
-    window.open('https://github.com/narainkarthikv', '_blank', 'noopener');
+    window.open('https://github.com/Platane/snk', '_blank', 'noopener');
   };
 
   return (
@@ -41,7 +42,7 @@ const GithubStats = () => {
       }}
       role="button"
       tabIndex={0}
-      aria-label="Insert GitHub stats"
+      aria-label="Insert GitHub snake contribution animation"
     >
       <Typography
         variant="h6"
@@ -52,38 +53,32 @@ const GithubStats = () => {
           fontSize: '1.125rem',
         }}
       >
-        GitHub Stats
+        Contribution Snake Animation
       </Typography>
 
-      <Stack
-        spacing={2}
-        direction={{ xs: 'column', sm: 'row' }}
-        flexWrap="nowrap"
-        justifyContent="center"
-        alignItems="center"
+      <Box
+        sx={{
+          width: '100%',
+          bgcolor: 'background.default',
+          borderRadius: 1,
+          overflow: 'hidden',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          minHeight: 200,
+          border: (theme) => `1px solid ${theme.palette.divider}`,
+        }}
       >
-        <Box
-          component="img"
-          src="https://github-readme-stats.vercel.app/api?username=narainkarthikv&theme=tokyonight&hide_border=true"
-          alt="GitHub contribution stats for narainkarthikv"
-          sx={{
+        <img
+          src="https://raw.githubusercontent.com/narainkarthikv/narainkarthikv/output/github-contribution-grid-snake.svg"
+          alt="GitHub snake contribution animation for narainkarthikv"
+          style={{
             width: '100%',
-            maxWidth: { xs: 420, sm: 350 },
-            borderRadius: 1,
+            maxWidth: 800,
+            display: 'block',
           }}
         />
-
-        <Box
-          component="img"
-          src="https://github-readme-stats.vercel.app/api/top-langs/?username=narainkarthikv&layout=compact&theme=tokyonight&count_private=true&hide_border=true"
-          alt="Top languages used by narainkarthikv"
-          sx={{
-            width: '100%',
-            maxWidth: { xs: 420, sm: 280 },
-            borderRadius: 1,
-          }}
-        />
-      </Stack>
+      </Box>
 
       <Stack direction="row" spacing={1} justifyContent="center" sx={{ mt: 1.5 }}>
         <Tooltip title="Insert into editor">
@@ -100,14 +95,14 @@ const GithubStats = () => {
           </Button>
         </Tooltip>
 
-        <Tooltip title="View on GitHub">
+        <Tooltip title="Learn more about Snake animation">
           <IconButton
             size="small"
             onClick={(e) => {
               e.stopPropagation();
               openInNewTab();
             }}
-            aria-label="Open GitHub profile"
+            aria-label="Learn more about contribution snake"
           >
             <OpenInNewIcon fontSize="small" />
           </IconButton>
@@ -117,4 +112,4 @@ const GithubStats = () => {
   );
 };
 
-export default GithubStats;
+export default GithubSnakeContribution;

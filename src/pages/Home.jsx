@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import {
   HeroSection,
   InfoSection,
@@ -31,7 +31,7 @@ const Home = React.memo(() => {
       aria-label="Landing Page Main Content"
     >
       <Helmet>
-        <title>README Shop - Create Stunning Project READMEs</title>
+        <title>README Shop</title>
         <meta
           name="description"
           content="README Shop helps you create beautiful, SEO-optimized README files for your open-source projects. Try our templates, badges, and icons!"
@@ -42,7 +42,7 @@ const Home = React.memo(() => {
         />
         <meta
           property="og:title"
-          content="README Shop - Create Stunning Project READMEs"
+          content="README Shop - Create Beautiful README Files"
         />
         <meta
           property="og:description"

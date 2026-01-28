@@ -1,16 +1,24 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useShopStore } from '../store/useShopStore';
-import { FaMoon, FaSun, FaShoppingCart, FaObjectGroup } from 'react-icons/fa';
-import { AppBar, Toolbar, Typography, IconButton } from '@mui/material';
+import { FaMoon, FaSun, FaShoppingCart } from 'react-icons/fa';
 import MenuIcon from '@mui/icons-material/Menu';
-import MenuBookIcon from '@mui/icons-material/MenuBook';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  useTheme,
+  Box,
+} from '@mui/material';
 import CustomDrawer from './CustomDrawer';
 
 const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const themeMode = useShopStore((state) => state.themeMode);
   const setThemeMode = useShopStore((state) => state.setThemeMode);
+  const theme = useTheme();
+  const location = useLocation();
 
   const handleThemeToggle = () => {
     setThemeMode(themeMode === 'light' ? 'dark' : 'light');
@@ -18,66 +26,101 @@ const Navbar = () => {
 
   const handleDrawerToggle = () => setDrawerOpen((open) => !open);
 
-  // Only Home and Templates
-  const drawerItems = ['Github components', 'Templates'];
-  const drawerIcons = [
-    <FaObjectGroup key="github" />,
-    <MenuBookIcon key="templates" />,
-  ];
-  const drawerLinks = ['/components', '/templates'];
-
   return (
-    <AppBar position="static" color="primary">
-      <Toolbar>
+    <AppBar
+      position="sticky"
+      elevation={0}
+      sx={{
+        borderRadius: 0,
+        backdropFilter: 'blur(12px)',
+        backgroundColor: theme.palette.mode === 'dark' 
+          ? 'rgba(18, 18, 20, 0.95)'
+          : 'rgba(255, 255, 255, 0.95)',
+        borderBottom: `1px solid ${theme.palette.divider}`,
+        boxShadow: 'none',
+      }}
+    >
+      <Toolbar
+        sx={{
+          minHeight: { xs: 56, sm: 64 },
+          px: { xs: 2, sm: 3 },
+        }}
+      >
+        {/* Left side: Menu icon */}
         <IconButton
           edge="start"
-          className="myiconbutton"
           color="inherit"
-          aria-label="menu"
+          aria-label="open navigation menu"
           onClick={handleDrawerToggle}
-          sx={{ mr: 2 }}
+          sx={{
+            mr: 2,
+            '&:hover': {
+              backgroundColor: theme.palette.action.hover,
+            },
+          }}
         >
           <MenuIcon />
         </IconButton>
+
+        {/* Center/Left: App name */}
         <Typography
           variant="h6"
-          className="myiconbutton"
           component={Link}
           to="/"
           sx={{
             textDecoration: 'none',
             color: 'inherit',
+            fontWeight: 700,
+            fontSize: { xs: '1.25rem', md: '1.5rem' },
+            letterSpacing: '-0.5px',
             flexGrow: 1,
-            fontWeight: 400,
-            fontSize: 30,
+            background: `linear-gradient(135deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            transition: 'opacity 0.2s',
+            '&:hover': {
+              opacity: 0.8,
+            },
           }}
         >
           README SHOP
         </Typography>
-        <IconButton
-          className="myiconbutton"
-          onClick={handleThemeToggle}
-          color="inherit"
-          sx={{ mr: 1 }}
-        >
-          {themeMode === 'light' ? <FaMoon /> : <FaSun />}
-        </IconButton>
-        <IconButton
-          className="myiconbutton"
-          component={Link}
-          to="/shop"
-          color="inherit"
-        >
-          <FaShoppingCart />
-        </IconButton>
+
+        {/* Right side: Action icons */}
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+          <IconButton
+            color="inherit"
+            onClick={handleThemeToggle}
+            aria-label={`switch to ${themeMode === 'light' ? 'dark' : 'light'} mode`}
+            sx={{
+              '&:hover': {
+                backgroundColor: theme.palette.action.hover,
+              },
+            }}
+          >
+            {themeMode === 'light' ? <FaMoon size={18} /> : <FaSun size={18} />}
+          </IconButton>
+
+          <IconButton
+            component={Link}
+            to="/shop"
+            color="inherit"
+            aria-label="view shopping cart"
+            sx={{
+              '&:hover': {
+                backgroundColor: theme.palette.action.hover,
+              },
+            }}
+          >
+            <FaShoppingCart size={18} />
+          </IconButton>
+        </Box>
+
         <CustomDrawer
           open={drawerOpen}
           onClose={handleDrawerToggle}
-          anchor="left"
-          items={drawerItems}
-          itemIcons={drawerIcons}
-          itemLinks={drawerLinks}
-          title="Navigation"
+          currentPath={location.pathname}
         />
       </Toolbar>
     </AppBar>

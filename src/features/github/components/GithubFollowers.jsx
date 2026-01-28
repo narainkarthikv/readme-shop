@@ -11,16 +11,14 @@ import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 import useMarkdownStore from '@/features/markdown/store/markdownStore';
 import CardContainer from '@/components/ui/CardContainer';
 
-const TROPHY_MARKDOWN = `<img src="https://github-profile-trophy.vercel.app/?username=narainkarthikv&theme=tokyonight&no-frame=true&margin-w=4" alt="GitHub Trophies" style="width:100%;max-width:100%;border-radius:8px;" />`;
+const USER = 'narainkarthikv';
 
-const GithubTrophies = () => {
+const FOLLOWERS_MARKDOWN = `<img src="https://img.shields.io/github/followers/${USER}?label=Followers&style=social" alt="GitHub Followers" />`;
+
+const GithubFollowers = () => {
   const embedMarkdown = useMarkdownStore((state) => state.embedMarkdown);
 
-  const handleClick = () => embedMarkdown(TROPHY_MARKDOWN);
-
-  const openInNewTab = () => {
-    window.open('https://github.com/narainkarthikv', '_blank', 'noopener');
-  };
+  const handleClick = () => embedMarkdown(FOLLOWERS_MARKDOWN);
 
   return (
     <CardContainer
@@ -38,7 +36,7 @@ const GithubTrophies = () => {
       }}
       role="button"
       tabIndex={0}
-      aria-label="Insert GitHub trophies"
+      aria-label="Insert followers badge"
     >
       <Typography
         variant="h6"
@@ -49,23 +47,25 @@ const GithubTrophies = () => {
           fontSize: '1.125rem',
         }}
       >
-        GitHub Trophies
+        Followers Badge
       </Typography>
 
       <Box
-        component="img"
-        src="https://github-profile-trophy.vercel.app/?username=narainkarthikv&theme=tokyonight&no-frame=true&margin-w=4"
-        alt="GitHub trophies for narainkarthikv"
         sx={{
-          width: '100%',
-          maxWidth: '100%',
-          borderRadius: 1,
-          display: 'block',
-          mx: 'auto',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          py: 2,
         }}
-      />
+      >
+        <img
+          src={`https://img.shields.io/github/followers/${USER}?label=Followers&style=social`}
+          alt="GitHub followers badge"
+          style={{ height: 24 }}
+        />
+      </Box>
 
-      <Stack direction="row" spacing={1} justifyContent="center" sx={{ mt: 1.5 }}>
+      <Stack direction="row" spacing={1} justifyContent="center" sx={{ mt: 1 }}>
         <Tooltip title="Insert into editor">
           <Button
             startIcon={<InsertDriveFileIcon />}
@@ -80,12 +80,12 @@ const GithubTrophies = () => {
           </Button>
         </Tooltip>
 
-        <Tooltip title="View on GitHub">
+        <Tooltip title="View profile">
           <IconButton
             size="small"
             onClick={(e) => {
               e.stopPropagation();
-              openInNewTab();
+              window.open(`https://github.com/${USER}`, '_blank', 'noopener');
             }}
             aria-label="Open GitHub profile"
           >
@@ -97,4 +97,4 @@ const GithubTrophies = () => {
   );
 };
 
-export default GithubTrophies;
+export default GithubFollowers;
