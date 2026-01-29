@@ -1,29 +1,51 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import viteCompression from 'vite-plugin-compression';
+import compression from 'vite-plugin-compression';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    // Keep the basic React plugin — minimal and stable
-    react({
-      jsxRuntime: 'automatic',
+    react(),
+    compression({
+      verbose: true,
+      disable: false,
+      threshold: 10240,
+      algorithm: 'brotli',
+      ext: '.br',
     }),
   ],
-  // Minimal but necessary aliases used across the repo
+  server: {
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
       '@components': path.resolve(__dirname, 'src/components'),
-      '@features': path.resolve(__dirname, 'src/features'),
-      '@hooks': path.resolve(__dirname, 'src/hooks'),
-      '@utils': path.resolve(__dirname, 'src/utils'),
-      '@config': path.resolve(__dirname, 'src/config'),
       '@store': path.resolve(__dirname, 'src/store'),
-      '@assets': path.resolve(__dirname, 'src/assets'),
+      '@utils': path.resolve(__dirname, 'src/utils'),
+      '@theme': path.resolve(__dirname, 'src/theme'),
+      '@config': path.resolve(__dirname, 'src/config'),
     },
+  },
+  build: {
+    target: 'esnext',
+    minify: 'esbuild',
+    rollupOptions: {
+      output: {
+        // Code splitting configuration for core dependencies
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'animation': ['framer-motion'],
+        },
+      },
+    },
+    reportCompressedSize: false,
+    chunkSizeWarningLimit: 500,
   },
 });
