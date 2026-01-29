@@ -44,16 +44,13 @@ export default defineConfig({
     sourcemap: false,
     rollupOptions: {
       output: {
-        manualChunks: {
-          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'mui-vendor': [
-            '@mui/material',
-            '@mui/icons-material',
-            '@emotion/react',
-            '@emotion/styled',
-          ],
-          'animation-vendor': ['framer-motion'],
-          'markdown-vendor': ['marked', 'dompurify'],
+        // Group all node_modules into a single vendor chunk to avoid circular
+        // chunking (e.g. mui <-> react) which can cause runtime errors like
+        // "__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED" being undefined.
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
         },
         chunkFileNames: 'assets/js/[name]-[hash].js',
         entryFileNames: 'assets/js/[name]-[hash].js',
