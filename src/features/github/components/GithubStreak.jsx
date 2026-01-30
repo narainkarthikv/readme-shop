@@ -2,21 +2,20 @@ import {
   Box,
   Typography,
   Stack,
-  Button,
   Tooltip,
   IconButton,
 } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 import useMarkdownStore from '@/features/markdown/store/markdownStore';
 import CardContainer from '@/components/ui/CardContainer';
+import DualActionButton from '@/components/ui/DualActionButton.jsx';
 
 const STREAK_MARKDOWN = `<img src="https://github-readme-streak-stats.herokuapp.com/?user=narainkarthikv&theme=tokyonight&hide_border=true" alt="GitHub Streak Stats" style="width:100%;max-width:500px;border-radius:8px;" />`;
 
 const GithubStreak = () => {
   const embedMarkdown = useMarkdownStore((state) => state.embedMarkdown);
 
-  const handleClick = () => embedMarkdown(STREAK_MARKDOWN);
+  const handleInsert = () => embedMarkdown(STREAK_MARKDOWN);
 
   const openInNewTab = () => {
     window.open('https://github.com/narainkarthikv', '_blank', 'noopener');
@@ -24,33 +23,64 @@ const GithubStreak = () => {
 
   return (
     <CardContainer
-      onClick={handleClick}
       sx={{
-        cursor: 'pointer',
         mb: 3,
-        p: 2,
+        p: 3,
         borderRadius: 2,
-        transition: 'all 0.3s ease',
+        border: (theme) => `1px solid ${theme.customTokens?.borderSubtle || theme.palette.divider}`,
+        bgcolor: 'background.paper',
+        transition: 'all 0.2s ease',
         '&:hover': {
-          transform: 'translateY(-2px)',
-          boxShadow: (theme) => theme.shadows[4],
+          borderColor: (theme) => theme.customTokens?.border || theme.palette.divider,
+          boxShadow: (theme) => theme.customTokens?.shadow.md || theme.shadows[3],
         },
       }}
-      role="button"
-      tabIndex={0}
-      aria-label="Insert GitHub streak stats"
+      role="article"
+      aria-label="GitHub Contribution Streak Component"
     >
-      <Typography
-        variant="h6"
+      <Box
         sx={{
-          mb: 1.5,
-          fontWeight: 600,
-          textAlign: 'center',
-          fontSize: '1.125rem',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          mb: 2,
         }}
       >
-        Contribution Streak
-      </Typography>
+        <Typography
+          variant="h6"
+          sx={{
+            fontWeight: 600,
+            fontSize: '1.125rem',
+            color: (theme) => theme.customTokens?.textPrimary || theme.palette.text.primary,
+          }}
+        >
+          Contribution Streak
+        </Typography>
+
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+          <DualActionButton
+            content={STREAK_MARKDOWN}
+            onInsert={handleInsert}
+            contentType="markdown"
+            size="small"
+            variant="compact"
+          />
+          <Tooltip title="View on GitHub" arrow>
+            <IconButton
+              size="small"
+              onClick={openInNewTab}
+              aria-label="Open GitHub profile"
+              sx={{
+                '&:hover': {
+                  bgcolor: (theme) => theme.customTokens?.surfaceHover || theme.palette.action.hover,
+                },
+              }}
+            >
+              <OpenInNewIcon fontSize="small" />
+            </IconButton>
+          </Tooltip>
+        </Box>
+      </Box>
 
       <Box
         component="img"
@@ -59,40 +89,13 @@ const GithubStreak = () => {
         sx={{
           width: '100%',
           maxWidth: 500,
-          borderRadius: 1,
+          borderRadius: 1.5,
           display: 'block',
           mx: 'auto',
+          mb: 2,
+          border: (theme) => `1px solid ${theme.customTokens?.borderSubtle || theme.palette.divider}`,
         }}
       />
-
-      <Stack direction="row" spacing={1} justifyContent="center" sx={{ mt: 1.5 }}>
-        <Tooltip title="Insert into editor">
-          <Button
-            startIcon={<InsertDriveFileIcon />}
-            size="small"
-            variant="contained"
-            onClick={(e) => {
-              e.stopPropagation();
-              handleClick();
-            }}
-          >
-            Insert
-          </Button>
-        </Tooltip>
-
-        <Tooltip title="View on GitHub">
-          <IconButton
-            size="small"
-            onClick={(e) => {
-              e.stopPropagation();
-              openInNewTab();
-            }}
-            aria-label="Open GitHub profile"
-          >
-            <OpenInNewIcon fontSize="small" />
-          </IconButton>
-        </Tooltip>
-      </Stack>
     </CardContainer>
   );
 };

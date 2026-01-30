@@ -49,11 +49,11 @@ const Navbar = () => {
         {/* Left side: Menu icon */}
         <IconButton
           edge="start"
-          color="inherit"
           aria-label="open navigation menu"
           onClick={handleDrawerToggle}
           sx={{
             mr: 2,
+            color: theme.palette.text.primary,
             '&:hover': {
               backgroundColor: theme.palette.action.hover,
             },
@@ -90,10 +90,10 @@ const Navbar = () => {
         {/* Right side: Action icons */}
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
           <IconButton
-            color="inherit"
             onClick={handleThemeToggle}
             aria-label={`switch to ${themeMode === 'light' ? 'dark' : 'light'} mode`}
             sx={{
+              color: theme.palette.text.primary,
               '&:hover': {
                 backgroundColor: theme.palette.action.hover,
               },
@@ -105,9 +105,9 @@ const Navbar = () => {
           <IconButton
             component={Link}
             to="/shop"
-            color="inherit"
             aria-label="view shopping cart"
             sx={{
+              color: theme.palette.text.primary,
               '&:hover': {
                 backgroundColor: theme.palette.action.hover,
               },

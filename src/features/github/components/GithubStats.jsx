@@ -2,14 +2,13 @@ import {
   Box,
   Typography,
   Stack,
-  Button,
-  Tooltip,
   IconButton,
+  Tooltip,
 } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 import useMarkdownStore from '@/features/markdown/store/markdownStore';
 import CardContainer from '@/components/ui/CardContainer';
+import DualActionButton from '@/components/ui/DualActionButton.jsx';
 
 const STATS_MARKDOWN = [
   `<img src="https://github-readme-stats.vercel.app/api?username=narainkarthikv&theme=tokyonight&hide_border=true" alt="GitHub Stats" style="width:100%;max-width:400px;margin-right:8px;border-radius:8px;" />`,
@@ -19,7 +18,7 @@ const STATS_MARKDOWN = [
 const GithubStats = () => {
   const embedMarkdown = useMarkdownStore((state) => state.embedMarkdown);
 
-  const handleClick = () => embedMarkdown(STATS_MARKDOWN);
+  const handleInsert = () => embedMarkdown(STATS_MARKDOWN);
 
   const openInNewTab = () => {
     window.open('https://github.com/narainkarthikv', '_blank', 'noopener');
@@ -27,33 +26,64 @@ const GithubStats = () => {
 
   return (
     <CardContainer
-      onClick={handleClick}
       sx={{
-        cursor: 'pointer',
         mb: 3,
-        p: 2,
+        p: 3,
         borderRadius: 2,
-        transition: 'all 0.3s ease',
+        border: (theme) => `1px solid ${theme.customTokens?.borderSubtle || theme.palette.divider}`,
+        bgcolor: 'background.paper',
+        transition: 'all 0.2s ease',
         '&:hover': {
-          transform: 'translateY(-2px)',
-          boxShadow: (theme) => theme.shadows[4],
+          borderColor: (theme) => theme.customTokens?.border || theme.palette.divider,
+          boxShadow: (theme) => theme.customTokens?.shadow.md || theme.shadows[3],
         },
       }}
-      role="button"
-      tabIndex={0}
-      aria-label="Insert GitHub stats"
+      role="article"
+      aria-label="GitHub Stats Component"
     >
-      <Typography
-        variant="h6"
+      <Box
         sx={{
-          mb: 1.5,
-          fontWeight: 600,
-          textAlign: 'center',
-          fontSize: '1.125rem',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          mb: 2,
         }}
       >
-        GitHub Stats
-      </Typography>
+        <Typography
+          variant="h6"
+          sx={{
+            fontWeight: 600,
+            fontSize: '1.125rem',
+            color: (theme) => theme.customTokens?.textPrimary || theme.palette.text.primary,
+          }}
+        >
+          GitHub Stats
+        </Typography>
+        
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+          <DualActionButton
+            content={STATS_MARKDOWN}
+            onInsert={handleInsert}
+            contentType="markdown"
+            size="small"
+            variant="compact"
+          />
+          <Tooltip title="View on GitHub" arrow>
+            <IconButton
+              size="small"
+              onClick={openInNewTab}
+              aria-label="Open GitHub profile"
+              sx={{
+                '&:hover': {
+                  bgcolor: (theme) => theme.customTokens?.surfaceHover || theme.palette.action.hover,
+                },
+              }}
+            >
+              <OpenInNewIcon fontSize="small" />
+            </IconButton>
+          </Tooltip>
+        </Box>
+      </Box>
 
       <Stack
         spacing={2}
@@ -61,6 +91,7 @@ const GithubStats = () => {
         flexWrap="nowrap"
         justifyContent="center"
         alignItems="center"
+        sx={{ mb: 2 }}
       >
         <Box
           component="img"
@@ -69,7 +100,8 @@ const GithubStats = () => {
           sx={{
             width: '100%',
             maxWidth: { xs: 420, sm: 350 },
-            borderRadius: 1,
+            borderRadius: 1.5,
+            border: (theme) => `1px solid ${theme.customTokens?.borderSubtle || theme.palette.divider}`,
           }}
         />
 
@@ -80,39 +112,12 @@ const GithubStats = () => {
           sx={{
             width: '100%',
             maxWidth: { xs: 420, sm: 280 },
-            borderRadius: 1,
+            borderRadius: 1.5,
+            border: (theme) => `1px solid ${theme.customTokens?.borderSubtle || theme.palette.divider}`,
           }}
         />
       </Stack>
 
-      <Stack direction="row" spacing={1} justifyContent="center" sx={{ mt: 1.5 }}>
-        <Tooltip title="Insert into editor">
-          <Button
-            startIcon={<InsertDriveFileIcon />}
-            size="small"
-            variant="contained"
-            onClick={(e) => {
-              e.stopPropagation();
-              handleClick();
-            }}
-          >
-            Insert
-          </Button>
-        </Tooltip>
-
-        <Tooltip title="View on GitHub">
-          <IconButton
-            size="small"
-            onClick={(e) => {
-              e.stopPropagation();
-              openInNewTab();
-            }}
-            aria-label="Open GitHub profile"
-          >
-            <OpenInNewIcon fontSize="small" />
-          </IconButton>
-        </Tooltip>
-      </Stack>
     </CardContainer>
   );
 };

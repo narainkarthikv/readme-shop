@@ -1,15 +1,14 @@
 import {
   Typography,
   Stack,
-  Button,
-  Tooltip,
   IconButton,
   Box,
+  Tooltip,
 } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 import useMarkdownStore from '@/features/markdown/store/markdownStore';
 import CardContainer from '@/components/ui/CardContainer';
+import DualActionButton from '@/components/ui/DualActionButton.jsx';
 
 const USER = 'narainkarthikv';
 
@@ -22,37 +21,68 @@ const BADGES_MD = [
 const GithubBadges = () => {
   const embedMarkdown = useMarkdownStore((state) => state.embedMarkdown);
 
-  const handleClick = () => embedMarkdown(BADGES_MD);
+  const handleInsert = () => embedMarkdown(BADGES_MD);
 
   return (
     <CardContainer
-      onClick={handleClick}
       sx={{
-        cursor: 'pointer',
         mb: 3,
-        p: 2,
+        p: 3,
         borderRadius: 2,
-        transition: 'all 0.3s ease',
+        border: (theme) => `1px solid ${theme.customTokens?.borderSubtle || theme.palette.divider}`,
+        bgcolor: 'background.paper',
+        transition: 'all 0.2s ease',
         '&:hover': {
-          transform: 'translateY(-2px)',
-          boxShadow: (theme) => theme.shadows[4],
+          borderColor: (theme) => theme.customTokens?.border || theme.palette.divider,
+          boxShadow: (theme) => theme.customTokens?.shadow.md || theme.shadows[3],
         },
       }}
-      role="button"
-      tabIndex={0}
-      aria-label="Insert GitHub badges"
+      role="article"
+      aria-label="GitHub Badges Component"
     >
-      <Typography
-        variant="h6"
+      <Box
         sx={{
-          mb: 1.5,
-          fontWeight: 600,
-          textAlign: 'center',
-          fontSize: '1.125rem',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          mb: 2,
         }}
       >
-        GitHub Badges
-      </Typography>
+        <Typography
+          variant="h6"
+          sx={{
+            fontWeight: 600,
+            fontSize: '1.125rem',
+            color: (theme) => theme.customTokens?.textPrimary || theme.palette.text.primary,
+          }}
+        >
+          GitHub Badges
+        </Typography>
+
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+          <DualActionButton
+            content={BADGES_MD}
+            onInsert={handleInsert}
+            contentType="markdown"
+            size="small"
+            variant="compact"
+          />
+          <Tooltip title="View on shields.io" arrow>
+            <IconButton
+              size="small"
+              onClick={() => window.open('https://shields.io', '_blank', 'noopener')}
+              aria-label="Open shields.io"
+              sx={{
+                '&:hover': {
+                  bgcolor: (theme) => theme.customTokens?.surfaceHover || theme.palette.action.hover,
+                },
+              }}
+            >
+              <OpenInNewIcon fontSize="small" />
+            </IconButton>
+          </Tooltip>
+        </Box>
+      </Box>
 
       <Stack
         direction="row"
@@ -60,7 +90,7 @@ const GithubBadges = () => {
         justifyContent="center"
         alignItems="center"
         flexWrap="wrap"
-        sx={{ mb: 1 }}
+        sx={{ mb: 2 }}
       >
         <Box
           component="img"
@@ -80,35 +110,6 @@ const GithubBadges = () => {
           alt="GitHub issues badge"
           sx={{ height: 28 }}
         />
-      </Stack>
-
-      <Stack direction="row" spacing={1} justifyContent="center" sx={{ mt: 1.5 }}>
-        <Tooltip title="Insert into editor">
-          <Button
-            startIcon={<InsertDriveFileIcon />}
-            size="small"
-            variant="contained"
-            onClick={(e) => {
-              e.stopPropagation();
-              handleClick();
-            }}
-          >
-            Insert
-          </Button>
-        </Tooltip>
-
-        <Tooltip title="View on GitHub">
-          <IconButton
-            size="small"
-            onClick={(e) => {
-              e.stopPropagation();
-              window.open(`https://github.com/${USER}`, '_blank', 'noopener');
-            }}
-            aria-label="Open GitHub profile"
-          >
-            <OpenInNewIcon fontSize="small" />
-          </IconButton>
-        </Tooltip>
       </Stack>
     </CardContainer>
   );

@@ -1,56 +1,59 @@
-import {
-  Box,
-  Typography,
-  Stack,
-  Button,
-  Tooltip,
-  IconButton,
-} from '@mui/material';
+import { Box, Typography, IconButton, Tooltip } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 import useMarkdownStore from '@/features/markdown/store/markdownStore';
 import CardContainer from '@/components/ui/CardContainer';
+import DualActionButton from '@/components/ui/DualActionButton.jsx';
 
 const TROPHY_MARKDOWN = `<img src="https://github-profile-trophy.vercel.app/?username=narainkarthikv&theme=tokyonight&no-frame=true&margin-w=4" alt="GitHub Trophies" style="width:100%;max-width:100%;border-radius:8px;" />`;
 
 const GithubTrophies = () => {
-  const embedMarkdown = useMarkdownStore((state) => state.embedMarkdown);
-
-  const handleClick = () => embedMarkdown(TROPHY_MARKDOWN);
-
   const openInNewTab = () => {
     window.open('https://github.com/narainkarthikv', '_blank', 'noopener');
   };
 
   return (
     <CardContainer
-      onClick={handleClick}
       sx={{
-        cursor: 'pointer',
-        mb: 3,
         p: 2,
         borderRadius: 2,
-        transition: 'all 0.3s ease',
-        '&:hover': {
-          transform: 'translateY(-2px)',
-          boxShadow: (theme) => theme.shadows[4],
-        },
       }}
-      role="button"
-      tabIndex={0}
-      aria-label="Insert GitHub trophies"
     >
-      <Typography
-        variant="h6"
+      <Box
         sx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
           mb: 1.5,
-          fontWeight: 600,
-          textAlign: 'center',
-          fontSize: '1.125rem',
         }}
       >
-        GitHub Trophies
-      </Typography>
+        <Typography
+          variant="h6"
+          sx={{
+            fontWeight: 600,
+            fontSize: '1.125rem',
+          }}
+        >
+          GitHub Trophies
+        </Typography>
+        
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+          <DualActionButton
+            content={TROPHY_MARKDOWN}
+            contentType="markdown"
+            variant="compact"
+            size="small"
+          />
+          <Tooltip title="View on GitHub">
+            <IconButton
+              size="small"
+              onClick={openInNewTab}
+              aria-label="Open GitHub profile"
+            >
+              <OpenInNewIcon fontSize="small" />
+            </IconButton>
+          </Tooltip>
+        </Box>
+      </Box>
 
       <Box
         component="img"
@@ -64,35 +67,6 @@ const GithubTrophies = () => {
           mx: 'auto',
         }}
       />
-
-      <Stack direction="row" spacing={1} justifyContent="center" sx={{ mt: 1.5 }}>
-        <Tooltip title="Insert into editor">
-          <Button
-            startIcon={<InsertDriveFileIcon />}
-            size="small"
-            variant="contained"
-            onClick={(e) => {
-              e.stopPropagation();
-              handleClick();
-            }}
-          >
-            Insert
-          </Button>
-        </Tooltip>
-
-        <Tooltip title="View on GitHub">
-          <IconButton
-            size="small"
-            onClick={(e) => {
-              e.stopPropagation();
-              openInNewTab();
-            }}
-            aria-label="Open GitHub profile"
-          >
-            <OpenInNewIcon fontSize="small" />
-          </IconButton>
-        </Tooltip>
-      </Stack>
     </CardContainer>
   );
 };

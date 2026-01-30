@@ -2,7 +2,6 @@ import { Container, Box } from '@mui/material';
 import PropTypes from 'prop-types';
 import SvgBanners from '../SvgBanners';
 import ComponentsGrid from './ComponentsGrid';
-import StatsSection from './StatsSection';
 
 const ComponentsLayout = ({ children }) => (
   <Box
@@ -22,7 +21,6 @@ const ComponentsLayout = ({ children }) => (
       <SvgBanners />
       <ComponentsGrid />
       {children}
-      <StatsSection />
     </Container>
   </Box>
 );
