@@ -88,7 +88,16 @@ const HeroSection = () => {
                     letterSpacing: '-0.02em',
                     mb: 2,
                   }}>
-                  Build a README that feels polished, fast, and credible
+                  Build a{' '}
+                  <Box
+                    component='span'
+                    sx={{
+                      color: theme.palette.primary.main,
+                      fontWeight: 800,
+                    }}>
+                    README
+                  </Box>{' '}
+                  that feels polished, fast, and credible
                 </Typography>
               </motion.div>
 
