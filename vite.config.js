@@ -41,7 +41,7 @@ export default defineConfig({
         // Code splitting configuration for core dependencies
         manualChunks: {
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'animation': ['framer-motion'],
+          animation: ['framer-motion'],
         },
       },
     },

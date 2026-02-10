@@ -19,23 +19,20 @@ const TemplatesLayout = ({ children }) => {
       sx={{
         minHeight: '100vh',
         width: '100%',
-        bgcolor: 'background.default',
-      }}
-    >
+        bgcolor: 'transparent',
+      }}>
       <Container
-        maxWidth="xl"
+        maxWidth='xl'
         sx={{
           py: { xs: 3, md: 4 },
           px: { xs: 2, md: 3 },
-        }}
-      >
+        }}>
         {/* Modern Section Wrapper */}
         <ModernSection
-          title="README.md Templates"
-          description="Choose from professionally crafted templates to kickstart your project documentation"
-          variant="default"
-          sx={{ mb: 2 }}
-        >
+          title='README.md Templates'
+          description='Choose from professionally crafted templates to kickstart your project documentation'
+          variant='default'
+          sx={{ mb: 2 }}>
           <Paper
             elevation={0}
             sx={{
@@ -43,8 +40,7 @@ const TemplatesLayout = ({ children }) => {
               borderRadius: 2,
               bgcolor: 'background.paper',
               border: `1px solid ${theme.customTokens?.borderSubtle || theme.palette.divider}`,
-            }}
-          >
+            }}>
             <TemplatesGrid />
           </Paper>
         </ModernSection>

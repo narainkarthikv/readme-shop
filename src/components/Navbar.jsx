@@ -28,28 +28,27 @@ const Navbar = () => {
 
   return (
     <AppBar
-      position="sticky"
+      position='sticky'
       elevation={0}
       sx={{
         borderRadius: 0,
         backdropFilter: 'blur(12px)',
-        backgroundColor: theme.palette.mode === 'dark' 
-          ? 'rgba(18, 18, 20, 0.95)'
-          : 'rgba(255, 255, 255, 0.95)',
+        backgroundColor:
+          theme.palette.mode === 'dark'
+            ? 'rgba(18, 18, 20, 0.95)'
+            : 'rgba(255, 255, 255, 0.95)',
         borderBottom: `1px solid ${theme.palette.divider}`,
         boxShadow: 'none',
-      }}
-    >
+      }}>
       <Toolbar
         sx={{
           minHeight: { xs: 56, sm: 64 },
           px: { xs: 2, sm: 3 },
-        }}
-      >
+        }}>
         {/* Left side: Menu icon */}
         <IconButton
-          edge="start"
-          aria-label="open navigation menu"
+          edge='start'
+          aria-label='open navigation menu'
           onClick={handleDrawerToggle}
           sx={{
             mr: 2,
@@ -57,16 +56,15 @@ const Navbar = () => {
             '&:hover': {
               backgroundColor: theme.palette.action.hover,
             },
-          }}
-        >
+          }}>
           <MenuIcon />
         </IconButton>
 
         {/* Center/Left: App name */}
         <Typography
-          variant="h6"
+          variant='h6'
           component={Link}
-          to="/"
+          to='/'
           sx={{
             textDecoration: 'none',
             color: 'inherit',
@@ -82,8 +80,7 @@ const Navbar = () => {
             '&:hover': {
               opacity: 0.8,
             },
-          }}
-        >
+          }}>
           README SHOP
         </Typography>
 
@@ -97,22 +94,20 @@ const Navbar = () => {
               '&:hover': {
                 backgroundColor: theme.palette.action.hover,
               },
-            }}
-          >
+            }}>
             {themeMode === 'light' ? <FaMoon size={18} /> : <FaSun size={18} />}
           </IconButton>
 
           <IconButton
             component={Link}
-            to="/shop"
-            aria-label="view shopping cart"
+            to='/shop'
+            aria-label='view shopping cart'
             sx={{
               color: theme.palette.text.primary,
               '&:hover': {
                 backgroundColor: theme.palette.action.hover,
               },
-            }}
-          >
+            }}>
             <FaShoppingCart size={18} />
           </IconButton>
         </Box>

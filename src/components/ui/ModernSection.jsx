@@ -8,7 +8,7 @@ import { useState } from 'react';
  * ModernSection Component
  * Creates logical content grouping with clear hierarchy
  * Supports collapsible sections for dense content
- * 
+ *
  * @example
  * <ModernSection
  *   title="GitHub Statistics"
@@ -39,19 +39,20 @@ const ModernSection = ({
 
   return (
     <Box
-      component="section"
+      component='section'
       sx={{
         mb: isCompact ? 4 : 6,
         ...(isBordered && {
-          border: (theme) => `1px solid ${theme.customTokens?.border || theme.palette.divider}`,
-          borderRadius: 2,
+          border: (theme) =>
+            `1px solid ${theme.customTokens?.border || theme.palette.divider}`,
+          borderRadius: 3,
           p: 3,
           bgcolor: 'background.paper',
+          boxShadow: (theme) => theme.shadows[1],
         }),
         ...sx,
       }}
-      aria-labelledby={`section-${title?.toLowerCase().replace(/\s+/g, '-')}`}
-    >
+      aria-labelledby={`section-${title?.toLowerCase().replace(/\s+/g, '-')}`}>
       {/* Section Header */}
       <Box
         sx={{
@@ -60,8 +61,7 @@ const ModernSection = ({
           alignItems: 'flex-start',
           justifyContent: 'space-between',
           gap: 2,
-        }}
-      >
+        }}>
         <Box sx={{ flex: 1 }}>
           {title && (
             <Typography
@@ -70,45 +70,45 @@ const ModernSection = ({
               sx={{
                 fontWeight: 600,
                 mb: description ? 1 : 0,
-                color: (theme) => theme.customTokens?.textPrimary || theme.palette.text.primary,
+                color: (theme) =>
+                  theme.customTokens?.textPrimary || theme.palette.text.primary,
                 display: 'flex',
                 alignItems: 'center',
                 gap: 1,
-              }}
-            >
+              }}>
               {title}
               {collapsible && (
                 <IconButton
                   onClick={toggleExpanded}
-                  size="small"
+                  size='small'
                   aria-label={expanded ? 'Collapse section' : 'Expand section'}
                   aria-expanded={expanded}
                   sx={{
                     ml: 1,
                     transition: 'transform 0.2s',
                     transform: expanded ? 'rotate(0deg)' : 'rotate(-180deg)',
-                  }}
-                >
+                  }}>
                   <ExpandMoreIcon />
                 </IconButton>
               )}
             </Typography>
           )}
-          
+
           {description && (
             <Typography
-              variant="body2"
+              variant='body2'
               sx={{
-                color: (theme) => theme.customTokens?.textSecondary || theme.palette.text.secondary,
+                color: (theme) =>
+                  theme.customTokens?.textSecondary ||
+                  theme.palette.text.secondary,
                 maxWidth: 600,
                 lineHeight: 1.6,
-              }}
-            >
+              }}>
               {description}
             </Typography>
           )}
         </Box>
-        
+
         {actions && <Box>{actions}</Box>}
       </Box>
 
@@ -119,7 +119,7 @@ const ModernSection = ({
 
       {/* Section Content */}
       {collapsible ? (
-        <Collapse in={expanded} timeout="auto">
+        <Collapse in={expanded} timeout='auto'>
           <Box>{children}</Box>
         </Collapse>
       ) : (
@@ -153,8 +153,7 @@ export const SectionGroup = ({ children, spacing = 6, sx }) => (
         mb: 0,
       },
       ...sx,
-    }}
-  >
+    }}>
     {children}
   </Box>
 );
@@ -168,13 +167,7 @@ SectionGroup.propTypes = {
 /**
  * SectionHeader - Standalone section header
  */
-export const SectionHeader = ({ 
-  title, 
-  subtitle, 
-  level = 2,
-  actions,
-  sx 
-}) => {
+export const SectionHeader = ({ title, subtitle, level = 2, actions, sx }) => {
   const variantMap = {
     1: 'h4',
     2: 'h5',
@@ -190,26 +183,26 @@ export const SectionHeader = ({
         justifyContent: 'space-between',
         gap: 2,
         ...sx,
-      }}
-    >
+      }}>
       <Box>
         <Typography
           variant={variantMap[level]}
           sx={{
             fontWeight: 600,
             mb: subtitle ? 0.5 : 0,
-            color: (theme) => theme.customTokens?.textPrimary || theme.palette.text.primary,
-          }}
-        >
+            color: (theme) =>
+              theme.customTokens?.textPrimary || theme.palette.text.primary,
+          }}>
           {title}
         </Typography>
         {subtitle && (
           <Typography
-            variant="body2"
+            variant='body2'
             sx={{
-              color: (theme) => theme.customTokens?.textSecondary || theme.palette.text.secondary,
-            }}
-          >
+              color: (theme) =>
+                theme.customTokens?.textSecondary ||
+                theme.palette.text.secondary,
+            }}>
             {subtitle}
           </Typography>
         )}

@@ -9,9 +9,9 @@ import PropTypes from 'prop-types';
 /**
  * Modern Toast Component
  * Provides non-intrusive feedback for user actions
- * 
+ *
  * @example
- * <Toast 
+ * <Toast
  *   open={true}
  *   message="Copied to clipboard"
  *   severity="success"
@@ -31,14 +31,14 @@ const Toast = ({
   const getSeverityIcon = () => {
     switch (severity) {
       case 'success':
-        return <CheckCircleIcon fontSize="small" />;
+        return <CheckCircleIcon fontSize='small' />;
       case 'error':
-        return <ErrorIcon fontSize="small" />;
+        return <ErrorIcon fontSize='small' />;
       case 'warning':
-        return <WarningIcon fontSize="small" />;
+        return <WarningIcon fontSize='small' />;
       case 'info':
       default:
-        return <InfoIcon fontSize="small" />;
+        return <InfoIcon fontSize='small' />;
     }
   };
 
@@ -53,8 +53,7 @@ const Toast = ({
           bottom: { xs: 16, sm: 24 },
           right: { xs: 16, sm: 24 },
         },
-      }}
-    >
+      }}>
       <Alert
         severity={severity}
         icon={getSeverityIcon()}
@@ -62,19 +61,19 @@ const Toast = ({
         action={
           action || (
             <IconButton
-              size="small"
-              aria-label="close"
-              color="inherit"
-              onClick={onClose}
-            >
-              <CloseIcon fontSize="small" />
+              size='small'
+              aria-label='close'
+              color='inherit'
+              onClick={onClose}>
+              <CloseIcon fontSize='small' />
             </IconButton>
           )
         }
         sx={{
           minWidth: 300,
           maxWidth: 500,
-          boxShadow: (theme) => theme.customTokens?.shadow.lg || theme.shadows[8],
+          boxShadow: (theme) =>
+            theme.customTokens?.shadow.lg || theme.shadows[8],
           borderRadius: (theme) => theme.shape.borderRadius,
           '& .MuiAlert-icon': {
             alignItems: 'center',
@@ -82,8 +81,7 @@ const Toast = ({
           '& .MuiAlert-message': {
             padding: '4px 0',
           },
-        }}
-      >
+        }}>
         {title && <AlertTitle>{title}</AlertTitle>}
         {message}
       </Alert>

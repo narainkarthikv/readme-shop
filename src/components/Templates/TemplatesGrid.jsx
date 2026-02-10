@@ -72,20 +72,19 @@ const TemplatesGrid = () => {
           direction={{ xs: 'column', sm: 'row' }}
           spacing={2}
           alignItems={{ xs: 'stretch', sm: 'center' }}
-          justifyContent="space-between"
-        >
+          justifyContent='space-between'>
           <SearchField
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search templates by name, description, or content..."
-            sx={{ 
-              mb: 0, 
+            placeholder='Search templates by name, description, or content...'
+            sx={{
+              mb: 0,
               flex: 1,
               maxWidth: { sm: 600 },
             }}
             InputProps={{
               startAdornment: (
-                <InputAdornment position="start">
+                <InputAdornment position='start'>
                   <SearchIcon sx={{ color: 'text.secondary' }} />
                 </InputAdornment>
               ),
@@ -96,18 +95,17 @@ const TemplatesGrid = () => {
             value={view}
             exclusive
             onChange={handleViewChange}
-            size="small"
-            sx={{ 
+            size='small'
+            sx={{
               alignSelf: { xs: 'flex-end', sm: 'center' },
               bgcolor: alpha(theme.palette.background.default, 0.5),
             }}
-            aria-label="View mode"
-          >
-            <ToggleButton value="grid" aria-label="Grid view">
-              <ViewModuleIcon fontSize="small" />
+            aria-label='View mode'>
+            <ToggleButton value='grid' aria-label='Grid view'>
+              <ViewModuleIcon fontSize='small' />
             </ToggleButton>
-            <ToggleButton value="list" aria-label="List view">
-              <ViewListIcon fontSize="small" />
+            <ToggleButton value='list' aria-label='List view'>
+              <ViewListIcon fontSize='small' />
             </ToggleButton>
           </ToggleButtonGroup>
         </Stack>
@@ -115,17 +113,16 @@ const TemplatesGrid = () => {
 
       {/* Category Filters */}
       <Box sx={{ mb: 3 }}>
-        <Typography 
-          variant="subtitle2" 
-          sx={{ 
-            mb: 1.5, 
+        <Typography
+          variant='subtitle2'
+          sx={{
+            mb: 1.5,
             fontWeight: 600,
             color: 'text.secondary',
             textTransform: 'uppercase',
             letterSpacing: 0.5,
             fontSize: '0.75rem',
-          }}
-        >
+          }}>
           Categories
         </Typography>
         <TemplateCategories
@@ -143,7 +140,7 @@ const TemplatesGrid = () => {
           action={
             hasActiveFilters ? (
               <Box
-                component="button"
+                component='button'
                 onClick={handleClearFilters}
                 sx={{
                   px: 3,
@@ -158,8 +155,7 @@ const TemplatesGrid = () => {
                   '&:hover': {
                     bgcolor: 'primary.dark',
                   },
-                }}
-              >
+                }}>
                 Clear Filters
               </Box>
             ) : null
@@ -169,28 +165,23 @@ const TemplatesGrid = () => {
         <>
           {/* Results Count */}
           <Typography
-            variant="body2"
+            variant='body2'
             sx={{
               mb: 2,
               color: 'text.secondary',
               fontWeight: 500,
-            }}
-          >
-            Showing {templates.length} template{templates.length !== 1 ? 's' : ''}
+            }}>
+            Showing {templates.length} template
+            {templates.length !== 1 ? 's' : ''}
           </Typography>
 
-          <Grid
-            container
-            spacing={{ xs: 2, md: 3 }}
-            alignItems="stretch"
-          >
+          <Grid container spacing={{ xs: 2, md: 3 }} alignItems='stretch'>
             {templates.map((template, idx) => (
               <Grid
                 item
                 key={template.label}
                 {...gridColumns}
-                sx={{ display: 'flex' }}
-              >
+                sx={{ display: 'flex' }}>
                 <Fade in timeout={300 + idx * 50} style={{ width: '100%' }}>
                   <div style={{ width: '100%', display: 'flex' }}>
                     <TemplateCard

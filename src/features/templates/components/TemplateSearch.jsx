@@ -6,7 +6,7 @@ const TemplateSearch = ({ search, onSearchChange }) => (
   <SearchField
     value={search}
     onChange={(e) => onSearchChange(e.target.value)}
-    placeholder="Search templates..."
+    placeholder='Search templates...'
     sx={{ mb: 3 }}
   />
 );

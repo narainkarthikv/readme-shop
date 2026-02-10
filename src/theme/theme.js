@@ -1,92 +1,105 @@
 import { createTheme } from '@mui/material/styles';
 import { THEME_OPTIONS } from '@config/index';
-
-/**
- * Design tokens for consistent theming
- */
-export const themeTokens = {
-  blue: '#007bff',
-  blueDark: '#3399ff',
-  blueLight: '#e6f0ff',
-  black: '#181a1b',
-  white: '#ffffff',
-  gray: '#222326',
-  grayLight: '#f8f9fa',
-  borderLight: '#e5e7eb',
-  borderDark: '#343a40',
-  textLight: '#212529',
-  textDark: '#f8f9fa',
-  success: '#28a745',
-  warning: '#ffc107',
-  error: '#dc3545',
-  info: '#17a2b8',
-};
+import {
+  lightTokens,
+  darkTokens,
+  typography as designTypography,
+  animation,
+} from './tokens';
 
 /**
  * Base typography configuration
- * Using Inter font family with appropriate weights
+ * Sora is the brand font across the product
  */
 const baseTypography = {
-  fontFamily: '"Inter", "Helvetica", "Arial", sans-serif',
+  fontFamily: designTypography.fontFamily.sans,
   h1: {
-    fontWeight: 700,
-    fontSize: '2.5rem',
-    lineHeight: 1.2,
-    letterSpacing: '-0.01562em',
+    fontWeight: designTypography.fontWeight.bold,
+    fontSize: '2.75rem',
+    lineHeight: 1.12,
+    letterSpacing: designTypography.letterSpacing.tight,
   },
   h2: {
-    fontWeight: 600,
-    fontSize: '2rem',
-    lineHeight: 1.3,
-    letterSpacing: '-0.00833em',
+    fontWeight: designTypography.fontWeight.semibold,
+    fontSize: '2.125rem',
+    lineHeight: 1.18,
+    letterSpacing: designTypography.letterSpacing.tight,
   },
   h3: {
-    fontWeight: 600,
+    fontWeight: designTypography.fontWeight.semibold,
     fontSize: '1.75rem',
-    lineHeight: 1.4,
+    lineHeight: 1.25,
   },
   h4: {
-    fontWeight: 500,
+    fontWeight: designTypography.fontWeight.semibold,
     fontSize: '1.5rem',
-    lineHeight: 1.4,
+    lineHeight: 1.3,
   },
   h5: {
-    fontWeight: 500,
+    fontWeight: designTypography.fontWeight.medium,
     fontSize: '1.25rem',
-    lineHeight: 1.5,
+    lineHeight: 1.35,
   },
   h6: {
-    fontWeight: 500,
+    fontWeight: designTypography.fontWeight.medium,
     fontSize: '1rem',
-    lineHeight: 1.5,
+    lineHeight: 1.4,
   },
   body1: {
     fontSize: '1rem',
-    lineHeight: 1.5,
+    lineHeight: 1.6,
   },
   body2: {
     fontSize: '0.875rem',
-    lineHeight: 1.43,
+    lineHeight: 1.5,
   },
   button: {
     textTransform: 'none',
-    fontWeight: 500,
+    fontWeight: designTypography.fontWeight.semibold,
   },
 };
+
+const buildShadows = (tokens) => [
+  'none',
+  tokens.shadow.sm,
+  tokens.shadow.md,
+  tokens.shadow.lg,
+  tokens.shadow.xl,
+  tokens.shadow.xl,
+  tokens.shadow.xl,
+  tokens.shadow.xl,
+  tokens.shadow.xl,
+  tokens.shadow.xl,
+  tokens.shadow.xl,
+  tokens.shadow.xl,
+  tokens.shadow.xl,
+  tokens.shadow.xl,
+  tokens.shadow.xl,
+  tokens.shadow.xl,
+  tokens.shadow.xl,
+  tokens.shadow.xl,
+  tokens.shadow.xl,
+  tokens.shadow.xl,
+  tokens.shadow.xl,
+  tokens.shadow.xl,
+  tokens.shadow.xl,
+  tokens.shadow.xl,
+  tokens.shadow.xl,
+];
 
 /**
  * Common component overrides with enhanced modern styling
  */
-const getComponentOverrides = (mode) => ({
+const getComponentOverrides = (mode, tokens) => ({
   MuiButton: {
     styleOverrides: {
       root: {
-        borderRadius: 6,
+        borderRadius: 10,
         padding: '8px 20px',
         fontSize: '0.9rem',
-        fontWeight: 600,
+        fontWeight: designTypography.fontWeight.semibold,
         textTransform: 'none',
-        transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
+        transition: `transform ${animation.duration.base} ${animation.easing.out}, box-shadow ${animation.duration.base} ${animation.easing.out}`,
         '&:hover': {
           transform: 'translateY(-1px)',
         },
@@ -97,7 +110,7 @@ const getComponentOverrides = (mode) => ({
       contained: {
         boxShadow: 'none',
         '&:hover': {
-          boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+          boxShadow: tokens.shadow.md,
         },
       },
       outlined: {
@@ -111,14 +124,12 @@ const getComponentOverrides = (mode) => ({
   MuiCard: {
     styleOverrides: {
       root: {
-        borderRadius: 8,
+        borderRadius: 14,
         boxShadow: 'none',
-        border: `1px solid ${mode === THEME_OPTIONS.DARK ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)'}`,
-        transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
+        border: `1px solid ${tokens.borderSubtle}`,
+        transition: `transform ${animation.duration.base} ${animation.easing.out}, box-shadow ${animation.duration.base} ${animation.easing.out}, border-color ${animation.duration.base} ${animation.easing.out}`,
         '&:hover': {
-          boxShadow: mode === THEME_OPTIONS.DARK
-            ? '0 4px 16px rgba(0,0,0,0.4)'
-            : '0 4px 16px rgba(0,0,0,0.1)',
+          boxShadow: tokens.shadow.lg,
         },
       },
     },
@@ -127,8 +138,8 @@ const getComponentOverrides = (mode) => ({
     styleOverrides: {
       root: {
         '& .MuiOutlinedInput-root': {
-          borderRadius: 6,
-          transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
+          borderRadius: 10,
+          transition: `border-color ${animation.duration.base} ${animation.easing.out}, box-shadow ${animation.duration.base} ${animation.easing.out}`,
           '&:hover .MuiOutlinedInput-notchedOutline': {
             borderWidth: 2,
           },
@@ -142,29 +153,25 @@ const getComponentOverrides = (mode) => ({
   MuiPaper: {
     styleOverrides: {
       root: {
-        borderRadius: 8,
-        transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
+        borderRadius: 12,
+        transition: `box-shadow ${animation.duration.base} ${animation.easing.out}`,
       },
       elevation0: {
         boxShadow: 'none',
       },
       elevation1: {
-        boxShadow: mode === THEME_OPTIONS.DARK
-          ? '0 2px 8px rgba(0,0,0,0.3)'
-          : '0 2px 8px rgba(0,0,0,0.08)',
+        boxShadow: tokens.shadow.sm,
       },
       elevation2: {
-        boxShadow: mode === THEME_OPTIONS.DARK
-          ? '0 4px 12px rgba(0,0,0,0.4)'
-          : '0 4px 12px rgba(0,0,0,0.1)',
+        boxShadow: tokens.shadow.md,
       },
     },
   },
   MuiIconButton: {
     styleOverrides: {
       root: {
-        borderRadius: 8,
-        transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
+        borderRadius: 10,
+        transition: `transform ${animation.duration.fast} ${animation.easing.out}, background-color ${animation.duration.fast} ${animation.easing.out}`,
       },
     },
   },
@@ -175,9 +182,9 @@ const getComponentOverrides = (mode) => ({
         backdropFilter: 'blur(12px)',
         backgroundColor:
           mode === THEME_OPTIONS.DARK
-            ? 'rgba(18, 18, 20, 0.95)'
-            : 'rgba(255, 255, 255, 0.95)',
-        borderBottom: `1px solid ${mode === THEME_OPTIONS.DARK ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)'}`,
+            ? 'rgba(15, 23, 42, 0.9)'
+            : 'rgba(255, 255, 255, 0.9)',
+        borderBottom: `1px solid ${tokens.borderSubtle}`,
         boxShadow: 'none',
       },
     },
@@ -198,92 +205,62 @@ const getComponentOverrides = (mode) => ({
   },
 });
 
+const buildPalette = (tokens, mode) => ({
+  mode,
+  primary: {
+    main: tokens.primary,
+    light: tokens.primaryMuted,
+    dark: tokens.primaryActive,
+    contrastText: tokens.textInverse,
+  },
+  secondary: {
+    main: tokens.accent,
+    light: tokens.accentMuted,
+    dark: tokens.accentStrong,
+    contrastText: tokens.textInverse,
+  },
+  background: {
+    default: tokens.background,
+    paper: tokens.surface,
+  },
+  text: {
+    primary: tokens.textPrimary,
+    secondary: tokens.textSecondary,
+  },
+  divider: tokens.borderSubtle,
+  action: {
+    hover: tokens.primarySubtle,
+    selected: tokens.primaryMuted,
+    focus: tokens.primaryMuted,
+    disabled:
+      mode === 'dark' ? 'rgba(255, 255, 255, 0.3)' : 'rgba(17, 24, 39, 0.3)',
+    disabledBackground:
+      mode === 'dark' ? 'rgba(255, 255, 255, 0.12)' : 'rgba(17, 24, 39, 0.08)',
+  },
+  success: {
+    main: tokens.success,
+  },
+  warning: {
+    main: tokens.warning,
+  },
+  error: {
+    main: tokens.error,
+  },
+  info: {
+    main: tokens.info,
+  },
+});
+
 /**
  * Light theme configuration - High contrast for readability
  */
 const lightTheme = {
   typography: baseTypography,
-  palette: {
-    mode: 'light',
-    primary: {
-      main: '#2563eb', // Vibrant blue
-      light: '#3b82f6',
-      dark: '#1d4ed8',
-      contrastText: '#ffffff',
-    },
-    secondary: {
-      main: '#7c3aed', // Purple accent
-      light: '#8b5cf6',
-      dark: '#6d28d9',
-      contrastText: '#ffffff',
-    },
-    background: {
-      default: '#f9fafb', // Soft light gray background
-      paper: '#ffffff',
-    },
-    text: {
-      primary: '#111827', // Dark gray - excellent contrast
-      secondary: '#4b5563', // Medium gray - still readable
-    },
-    divider: '#e5e7eb',
-    action: {
-      hover: 'rgba(37, 99, 235, 0.08)',
-      selected: 'rgba(37, 99, 235, 0.12)',
-      focus: 'rgba(37, 99, 235, 0.16)',
-      disabled: 'rgba(0, 0, 0, 0.26)',
-      disabledBackground: 'rgba(0, 0, 0, 0.12)',
-    },
-    success: {
-      main: '#10b981',
-      light: '#34d399',
-      dark: '#059669',
-    },
-    warning: {
-      main: '#f59e0b',
-      light: '#fbbf24',
-      dark: '#d97706',
-    },
-    error: {
-      main: '#ef4444',
-      light: '#f87171',
-      dark: '#dc2626',
-    },
-    info: {
-      main: '#3b82f6',
-      light: '#60a5fa',
-      dark: '#2563eb',
-    },
-  },
+  palette: buildPalette(lightTokens, 'light'),
   shape: {
-    borderRadius: 8,
+    borderRadius: 12,
   },
-  shadows: [
-    'none',
-    '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
-    '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-    '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-    '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-    '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-    '0 20px 40px rgba(0,0,0,0.1)',
-    '0 24px 48px rgba(0,0,0,0.1)',
-    '0 28px 56px rgba(0,0,0,0.1)',
-    '0 32px 64px rgba(0,0,0,0.1)',
-    '0 36px 72px rgba(0,0,0,0.1)',
-    '0 40px 80px rgba(0,0,0,0.1)',
-    '0 44px 88px rgba(0,0,0,0.1)',
-    '0 48px 96px rgba(0,0,0,0.1)',
-    '0 52px 104px rgba(0,0,0,0.1)',
-    '0 56px 112px rgba(0,0,0,0.1)',
-    '0 60px 120px rgba(0,0,0,0.1)',
-    '0 64px 128px rgba(0,0,0,0.1)',
-    '0 68px 136px rgba(0,0,0,0.1)',
-    '0 72px 144px rgba(0,0,0,0.1)',
-    '0 76px 152px rgba(0,0,0,0.1)',
-    '0 80px 160px rgba(0,0,0,0.1)',
-    '0 84px 168px rgba(0,0,0,0.1)',
-    '0 88px 176px rgba(0,0,0,0.1)',
-    '0 92px 184px rgba(0,0,0,0.1)',
-  ],
+  shadows: buildShadows(lightTokens),
 };
 
 /**
@@ -291,87 +268,11 @@ const lightTheme = {
  */
 const darkTheme = {
   typography: baseTypography,
-  palette: {
-    mode: 'dark',
-    primary: {
-      main: '#3b82f6', // Single consistent blue accent
-      light: '#60a5fa',
-      dark: '#2563eb',
-      contrastText: '#ffffff',
-    },
-    secondary: {
-      main: '#8b5cf6', // Subtle purple accent
-      light: '#a78bfa',
-      dark: '#7c3aed',
-      contrastText: '#ffffff',
-    },
-    background: {
-      default: '#0f1419', // Deep dark background
-      paper: '#1a1f2e', // Slightly lighter for contrast
-    },
-    text: {
-      primary: '#e5e7eb',
-      secondary: '#9ca3af',
-    },
-    divider: 'rgba(255, 255, 255, 0.08)',
-    action: {
-      hover: 'rgba(59, 130, 246, 0.08)',
-      selected: 'rgba(59, 130, 246, 0.12)',
-      focus: 'rgba(59, 130, 246, 0.16)',
-      disabled: 'rgba(255, 255, 255, 0.3)',
-      disabledBackground: 'rgba(255, 255, 255, 0.12)',
-    },
-    success: {
-      main: '#10b981',
-      light: '#34d399',
-      dark: '#059669',
-    },
-    warning: {
-      main: '#f59e0b',
-      light: '#fbbf24',
-      dark: '#d97706',
-    },
-    error: {
-      main: '#ef4444',
-      light: '#f87171',
-      dark: '#dc2626',
-    },
-    info: {
-      main: '#3b82f6',
-      light: '#60a5fa',
-      dark: '#2563eb',
-    },
-  },
+  palette: buildPalette(darkTokens, 'dark'),
   shape: {
-    borderRadius: 8,
+    borderRadius: 12,
   },
-  shadows: [
-    'none',
-    '0 2px 4px rgba(0,0,0,0.3)',
-    '0 4px 8px rgba(0,0,0,0.3)',
-    '0 8px 16px rgba(0,0,0,0.3)',
-    '0 12px 24px rgba(0,0,0,0.3)',
-    '0 16px 32px rgba(0,0,0,0.3)',
-    '0 20px 40px rgba(0,0,0,0.3)',
-    '0 24px 48px rgba(0,0,0,0.3)',
-    '0 28px 56px rgba(0,0,0,0.3)',
-    '0 32px 64px rgba(0,0,0,0.3)',
-    '0 36px 72px rgba(0,0,0,0.3)',
-    '0 40px 80px rgba(0,0,0,0.3)',
-    '0 44px 88px rgba(0,0,0,0.3)',
-    '0 48px 96px rgba(0,0,0,0.3)',
-    '0 52px 104px rgba(0,0,0,0.3)',
-    '0 56px 112px rgba(0,0,0,0.3)',
-    '0 60px 120px rgba(0,0,0,0.3)',
-    '0 64px 128px rgba(0,0,0,0.3)',
-    '0 68px 136px rgba(0,0,0,0.3)',
-    '0 72px 144px rgba(0,0,0,0.3)',
-    '0 76px 152px rgba(0,0,0,0.3)',
-    '0 80px 160px rgba(0,0,0,0.3)',
-    '0 84px 168px rgba(0,0,0,0.3)',
-    '0 88px 176px rgba(0,0,0,0.3)',
-    '0 92px 184px rgba(0,0,0,0.3)',
-  ],
+  shadows: buildShadows(darkTokens),
 };
 
 /**
@@ -382,9 +283,27 @@ const darkTheme = {
 export const getTheme = (mode = THEME_OPTIONS.DEFAULT) => {
   const isDark = mode === THEME_OPTIONS.DARK;
   const themeConfig = isDark ? darkTheme : lightTheme;
+  const tokens = isDark ? darkTokens : lightTokens;
 
   return createTheme({
     ...themeConfig,
-    components: getComponentOverrides(mode),
+    transitions: {
+      duration: {
+        shortest: parseInt(animation.duration.fast, 10),
+        shorter: parseInt(animation.duration.base, 10),
+        short: parseInt(animation.duration.base, 10) + 50,
+        standard: parseInt(animation.duration.slow, 10),
+        complex: parseInt(animation.duration.slower, 10),
+        enteringScreen: parseInt(animation.duration.slow, 10),
+        leavingScreen: parseInt(animation.duration.base, 10),
+      },
+      easing: {
+        easeInOut: animation.easing.inOut,
+        easeOut: animation.easing.out,
+        easeIn: animation.easing.in,
+        sharp: animation.easing.default,
+      },
+    },
+    components: getComponentOverrides(mode, tokens),
   });
 };

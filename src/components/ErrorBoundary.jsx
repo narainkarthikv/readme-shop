@@ -73,8 +73,7 @@ class ErrorBoundary extends React.Component {
             minHeight: '100vh',
             p: 3,
             bgcolor: 'background.default',
-          }}
-        >
+          }}>
           <Paper
             elevation={3}
             sx={{
@@ -83,19 +82,18 @@ class ErrorBoundary extends React.Component {
               width: '100%',
               textAlign: 'center',
               borderRadius: 2,
-            }}
-          >
+            }}>
             <ErrorOutlineIcon
-              color="error"
+              color='error'
               sx={{ fontSize: 64, mb: 2 }}
-              aria-label="Error icon"
+              aria-label='Error icon'
             />
 
-            <Typography variant="h4" gutterBottom fontWeight={600}>
+            <Typography variant='h4' gutterBottom fontWeight={600}>
               Oops! Something went wrong
             </Typography>
 
-            <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
+            <Typography variant='body1' color='text.secondary' sx={{ mb: 3 }}>
               We&apos;re sorry for the inconvenience. You can try refreshing the
               page or return to the homepage.
             </Typography>
@@ -111,28 +109,25 @@ class ErrorBoundary extends React.Component {
                   textAlign: 'left',
                   overflowX: 'auto',
                   maxHeight: 200,
-                }}
-              >
+                }}>
                 <Typography
-                  variant="caption"
-                  component="div"
-                  sx={{ mb: 1, fontWeight: 600 }}
-                >
+                  variant='caption'
+                  component='div'
+                  sx={{ mb: 1, fontWeight: 600 }}>
                   Error Details (Development Only):
                 </Typography>
                 <Typography
-                  variant="body2"
-                  component="pre"
+                  variant='body2'
+                  component='pre'
                   sx={{
                     color: 'error.main',
                     fontSize: '0.75rem',
                     whiteSpace: 'pre-wrap',
                     wordBreak: 'break-word',
-                  }}
-                >
+                  }}>
                   {this.state.error.toString()}
                   {this.state.errorInfo?.componentStack && (
-                    <Box component="span" sx={{ display: 'block', mt: 1 }}>
+                    <Box component='span' sx={{ display: 'block', mt: 1 }}>
                       {this.state.errorInfo.componentStack}
                     </Box>
                   )}
@@ -146,34 +141,30 @@ class ErrorBoundary extends React.Component {
                 gap: 2,
                 justifyContent: 'center',
                 flexWrap: 'wrap',
-              }}
-            >
+              }}>
               <Button
-                variant="contained"
-                color="primary"
+                variant='contained'
+                color='primary'
                 onClick={this.handleRefresh}
                 startIcon={<RefreshIcon />}
-                aria-label="Refresh page"
-              >
+                aria-label='Refresh page'>
                 Refresh Page
               </Button>
               <Button
-                variant="outlined"
-                color="primary"
-                href="/"
+                variant='outlined'
+                color='primary'
+                href='/'
                 startIcon={<HomeIcon />}
-                aria-label="Go to homepage"
-              >
+                aria-label='Go to homepage'>
                 Go to Homepage
               </Button>
             </Box>
 
             {this.state.errorCount > 1 && (
               <Typography
-                variant="caption"
-                color="text.secondary"
-                sx={{ mt: 2, display: 'block' }}
-              >
+                variant='caption'
+                color='text.secondary'
+                sx={{ mt: 2, display: 'block' }}>
                 Error occurred {this.state.errorCount} times
               </Typography>
             )}

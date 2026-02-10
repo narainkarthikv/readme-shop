@@ -15,7 +15,7 @@ import ModernSection, { SectionGroup } from '@/components/ui/ModernSection';
 
 /**
  * Modern GitHub Section Layout
- * 
+ *
  * Information Architecture:
  * 1. Core Stats - Most important metrics (Stats, Streak)
  * 2. Engagement Badges - Quick insights (Views, Badges, Followers)
@@ -26,14 +26,13 @@ import ModernSection, { SectionGroup } from '@/components/ui/ModernSection';
  * 7. Creative Visuals - Fun elements (Snake Animation)
  */
 const GithubSection = () => (
-  <Container maxWidth="xl" sx={{ py: 4 }}>
+  <Container maxWidth='xl' sx={{ py: 4 }}>
     <SectionGroup spacing={8}>
       {/* SECTION 1: Core Statistics */}
       <ModernSection
-        title="Core Statistics"
-        description="Your most important GitHub metrics at a glance"
-        variant="default"
-      >
+        title='Core Statistics'
+        description='Your most important GitHub metrics at a glance'
+        variant='default'>
         <Grid container spacing={3}>
           <Grid item xs={12} lg={6}>
             <GithubStats />
@@ -46,10 +45,9 @@ const GithubSection = () => (
 
       {/* SECTION 2: Engagement Badges */}
       <ModernSection
-        title="Badges & Engagement"
-        description="Showcase your profile engagement and achievements"
-        variant="default"
-      >
+        title='Badges & Engagement'
+        description='Showcase your profile engagement and achievements'
+        variant='default'>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={4}>
             <ProfileViewsCounter />
@@ -65,21 +63,19 @@ const GithubSection = () => (
 
       {/* SECTION 3: Achievements */}
       <ModernSection
-        title="Achievements"
-        description="Display your GitHub trophies and milestones"
-        variant="default"
-      >
+        title='Achievements'
+        description='Display your GitHub trophies and milestones'
+        variant='default'>
         <GithubTrophies />
       </ModernSection>
 
       {/* SECTION 4: Activity & Contributions */}
       <ModernSection
-        title="Activity & Contributions"
-        description="Visualize your coding activity and contribution patterns"
-        variant="default"
+        title='Activity & Contributions'
+        description='Visualize your coding activity and contribution patterns'
+        variant='default'
         collapsible
-        defaultExpanded={true}
-      >
+        defaultExpanded={true}>
         <Box sx={{ mb: 3 }}>
           <GithubActivityGraph />
         </Box>
@@ -92,7 +88,6 @@ const GithubSection = () => (
           </Grid>
         </Grid>
       </ModernSection>
-
     </SectionGroup>
   </Container>
 );

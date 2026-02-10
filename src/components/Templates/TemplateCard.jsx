@@ -30,109 +30,105 @@ import useClipboard from '@/hooks/useClipboard';
 /**
  * TemplateCardHeader - Modern card header matching Components section pattern
  */
-const TemplateCardHeader = React.memo(({ 
-  template, 
-  category, 
-  onCopy, 
-  onUse, 
-  onPreview,
-  copied 
-}) => {
-  const theme = useTheme();
-  
-  return (
-    <Box
-      sx={{
-        p: 2.5,
-        pb: 1.5,
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        gap: 1.5,
-      }}
-    >
-      <Box sx={{ flex: 1, minWidth: 0 }}>
-        <Typography
-          variant="h6"
-          component="h3"
-          sx={{
-            fontWeight: 600,
-            fontSize: { xs: '1rem', sm: '1.1rem' },
-            color: 'text.primary',
-            mb: category && category !== 'all' ? 0.5 : 0,
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            display: '-webkit-box',
-            WebkitLineClamp: 2,
-            WebkitBoxOrient: 'vertical',
-          }}
-          itemProp="name"
-        >
-          {template.label}
-        </Typography>
-        
-        {category && category !== 'all' && (
-          <Chip
-            label={category}
-            size="small"
+const TemplateCardHeader = React.memo(
+  ({ template, category, onCopy, onUse, onPreview, copied }) => {
+    const theme = useTheme();
+
+    return (
+      <Box
+        sx={{
+          p: 2.5,
+          pb: 1.5,
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          gap: 1.5,
+        }}>
+        <Box sx={{ flex: 1, minWidth: 0 }}>
+          <Typography
+            variant='h6'
+            component='h3'
             sx={{
-              height: 20,
-              fontSize: '0.65rem',
-              fontWeight: 500,
-              bgcolor: alpha(theme.palette.primary.main, 0.1),
-              color: 'primary.main',
-              border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`,
+              fontWeight: 600,
+              fontSize: { xs: '1rem', sm: '1.1rem' },
+              color: 'text.primary',
+              mb: category && category !== 'all' ? 0.5 : 0,
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              display: '-webkit-box',
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: 'vertical',
             }}
-          />
-        )}
-      </Box>
-      
-      {/* Actions in top right - Matching Components section */}
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-        <Tooltip title="Preview template" arrow>
-          <IconButton
-            onClick={onPreview}
-            size="small"
-            sx={{ 
-              color: 'primary.main',
-              '&:hover': {
+            itemProp='name'>
+            {template.label}
+          </Typography>
+
+          {category && category !== 'all' && (
+            <Chip
+              label={category}
+              size='small'
+              sx={{
+                height: 20,
+                fontSize: '0.65rem',
+                fontWeight: 500,
                 bgcolor: alpha(theme.palette.primary.main, 0.1),
-              },
-            }}
-            aria-label="Preview template"
-          >
-            <VisibilityIcon fontSize="small" />
-          </IconButton>
-        </Tooltip>
-        <ButtonGroup size="small" variant="contained">
-          <Tooltip title={copied ? 'Copied!' : 'Copy to clipboard'} arrow>
-            <Button
-              onClick={onCopy}
-              color={copied ? 'success' : 'primary'}
-              sx={{ 
-                minWidth: 'auto',
-                px: 1.5,
+                color: 'primary.main',
+                border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`,
               }}
-              aria-label={copied ? 'Copied to clipboard' : 'Copy template to clipboard'}
-            >
-              {copied ? <CheckIcon fontSize="small" /> : <ContentCopyIcon fontSize="small" />}
-            </Button>
+            />
+          )}
+        </Box>
+
+        {/* Actions in top right - Matching Components section */}
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+          <Tooltip title='Preview template' arrow>
+            <IconButton
+              onClick={onPreview}
+              size='small'
+              sx={{
+                color: 'primary.main',
+                '&:hover': {
+                  bgcolor: alpha(theme.palette.primary.main, 0.1),
+                },
+              }}
+              aria-label='Preview template'>
+              <VisibilityIcon fontSize='small' />
+            </IconButton>
           </Tooltip>
-          <Tooltip title="Insert into editor" arrow>
-            <Button
-              onClick={onUse}
-              color="primary"
-              sx={{ minWidth: 'auto', px: 1.5 }}
-              aria-label="Use template in editor"
-            >
-              <AddIcon fontSize="small" />
-            </Button>
-          </Tooltip>
-        </ButtonGroup>
+          <ButtonGroup size='small' variant='contained'>
+            <Tooltip title={copied ? 'Copied!' : 'Copy to clipboard'} arrow>
+              <Button
+                onClick={onCopy}
+                color={copied ? 'success' : 'primary'}
+                sx={{
+                  minWidth: 'auto',
+                  px: 1.5,
+                }}
+                aria-label={
+                  copied ? 'Copied to clipboard' : 'Copy template to clipboard'
+                }>
+                {copied ? (
+                  <CheckIcon fontSize='small' />
+                ) : (
+                  <ContentCopyIcon fontSize='small' />
+                )}
+              </Button>
+            </Tooltip>
+            <Tooltip title='Insert into editor' arrow>
+              <Button
+                onClick={onUse}
+                color='primary'
+                sx={{ minWidth: 'auto', px: 1.5 }}
+                aria-label='Use template in editor'>
+                <AddIcon fontSize='small' />
+              </Button>
+            </Tooltip>
+          </ButtonGroup>
+        </Box>
       </Box>
-    </Box>
-  );
-});
+    );
+  }
+);
 
 TemplateCardHeader.displayName = 'TemplateCardHeader';
 
@@ -155,7 +151,7 @@ const TemplatePreview = React.memo(({ content, expanded = false }) => {
 
   return (
     <Paper
-      variant="outlined"
+      variant='outlined'
       sx={{
         background: alpha(theme.palette.background.default, 0.6),
         color: theme.palette.text.primary,
@@ -181,13 +177,12 @@ const TemplatePreview = React.memo(({ content, expanded = false }) => {
           borderRadius: 3,
         },
       }}
-      role="textbox"
-      aria-readonly="true"
-      tabIndex={0}
-    >
+      role='textbox'
+      aria-readonly='true'
+      tabIndex={0}>
       <Box
-        component="pre"
-        itemProp="text"
+        component='pre'
+        itemProp='text'
         sx={{
           margin: 0,
           fontFamily:
@@ -195,8 +190,7 @@ const TemplatePreview = React.memo(({ content, expanded = false }) => {
           whiteSpace: 'pre-wrap',
           wordBreak: 'break-word',
           lineHeight: 1.6,
-        }}
-      >
+        }}>
         {content}
       </Box>
     </Paper>
@@ -251,267 +245,252 @@ const TemplateCard = ({
 
   return (
     <>
-    <Card
-      sx={{
-        width: '100%',
-        minHeight: isListView ? 200 : 320,
-        height: isListView ? 'auto' : { xs: 320, sm: 360 },
-        display: 'flex',
-        flexDirection: isListView ? 'row' : 'column',
-        justifyContent: 'flex-start',
-        bgcolor: 'background.paper',
-        border: `1px solid ${
-          isSelected 
-            ? theme.palette.primary.main 
-            : theme.customTokens?.borderSubtle || theme.palette.divider
-        }`,
-        borderRadius: 2,
-        position: 'relative',
-        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-        overflow: 'hidden',
-        '&:hover': {
-          transform: 'translateY(-4px)',
-          boxShadow: theme.customTokens?.shadow?.md || theme.shadows[6],
-          borderColor: isSelected 
-            ? theme.palette.primary.main
-            : theme.customTokens?.border || theme.palette.divider,
-        },
-        '&::before': isSelected ? {
-          content: '""',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          height: 4,
-          bgcolor: 'primary.main',
-          zIndex: 1,
-        } : {},
-      }}
-      component="article"
-      itemScope
-      itemType="https://schema.org/CreativeWork"
-      aria-label={`Template: ${template.label}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {/* Selected Badge - Only show when not hovering to avoid clutter with top buttons */}
-      {isSelected && !isHovered && (
+      <Card
+        sx={{
+          width: '100%',
+          minHeight: isListView ? 200 : 320,
+          height: isListView ? 'auto' : { xs: 320, sm: 360 },
+          display: 'flex',
+          flexDirection: isListView ? 'row' : 'column',
+          justifyContent: 'flex-start',
+          bgcolor: 'background.paper',
+          border: `1px solid ${
+            isSelected
+              ? theme.palette.primary.main
+              : theme.customTokens?.borderSubtle || theme.palette.divider
+          }`,
+          borderRadius: 2,
+          position: 'relative',
+          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+          overflow: 'hidden',
+          '&:hover': {
+            transform: 'translateY(-4px)',
+            boxShadow: theme.customTokens?.shadow?.md || theme.shadows[6],
+            borderColor: isSelected
+              ? theme.palette.primary.main
+              : theme.customTokens?.border || theme.palette.divider,
+          },
+          '&::before': isSelected
+            ? {
+                content: '""',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                height: 4,
+                bgcolor: 'primary.main',
+                zIndex: 1,
+              }
+            : {},
+        }}
+        component='article'
+        itemScope
+        itemType='https://schema.org/CreativeWork'
+        aria-label={`Template: ${template.label}`}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}>
+        {/* Selected Badge - Only show when not hovering to avoid clutter with top buttons */}
+        {isSelected && !isHovered && (
+          <Box
+            sx={{
+              position: 'absolute',
+              top: 12,
+              right: 12,
+              zIndex: 2,
+              bgcolor: 'success.main',
+              color: 'success.contrastText',
+              borderRadius: '50%',
+              p: 0.5,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: theme.shadows[2],
+            }}>
+            <CheckCircleIcon sx={{ fontSize: 20 }} />
+          </Box>
+        )}
+
         <Box
           sx={{
-            position: 'absolute',
-            top: 12,
-            right: 12,
-            zIndex: 2,
-            bgcolor: 'success.main',
-            color: 'success.contrastText',
-            borderRadius: '50%',
-            p: 0.5,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: theme.shadows[2],
-          }}
-        >
-          <CheckCircleIcon sx={{ fontSize: 20 }} />
-        </Box>
-      )}
-
-      <Box
-        sx={{
-          flex: isListView ? '0 0 auto' : 1,
-          width: isListView ? { xs: '100%', sm: '50%' } : '100%',
-          display: 'flex',
-          flexDirection: 'column',
-        }}
-      >
-        <TemplateCardHeader 
-          template={template} 
-          category={template.category}
-          onCopy={handleCopy}
-          onUse={handleUse}
-          onPreview={handlePreviewOpen}
-          copied={copied}
-        />
-        
-        <CardContent
-          sx={{
-            pt: 0,
-            px: 2.5,
-            pb: 2,
-            flexGrow: 1,
+            flex: isListView ? '0 0 auto' : 1,
+            width: isListView ? { xs: '100%', sm: '50%' } : '100%',
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'flex-start',
-          }}
-        >
-          <Typography
-            variant="body2"
+          }}>
+          <TemplateCardHeader
+            template={template}
+            category={template.category}
+            onCopy={handleCopy}
+            onUse={handleUse}
+            onPreview={handlePreviewOpen}
+            copied={copied}
+          />
+
+          <CardContent
             sx={{
-              mb: 2,
-              minHeight: isListView ? 'auto' : 40,
+              pt: 0,
+              px: 2.5,
+              pb: 2,
+              flexGrow: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'flex-start',
+            }}>
+            <Typography
+              variant='body2'
+              sx={{
+                mb: 2,
+                minHeight: isListView ? 'auto' : 40,
+                color: 'text.secondary',
+                lineHeight: 1.6,
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                display: '-webkit-box',
+                WebkitLineClamp: isListView ? 2 : 2,
+                WebkitBoxOrient: 'vertical',
+              }}
+              itemProp='description'>
+              {template.description}
+            </Typography>
+
+            {!isListView && <TemplatePreview content={template.content} />}
+          </CardContent>
+        </Box>
+
+        {/* List View Preview */}
+        {isListView && (
+          <Box
+            sx={{
+              flex: 1,
+              p: 2.5,
+              pt: 3.5,
+              bgcolor: alpha(theme.palette.background.default, 0.4),
+              borderLeft: `1px solid ${theme.customTokens?.borderSubtle || theme.palette.divider}`,
+            }}>
+            <TemplatePreview content={template.content} expanded />
+          </Box>
+        )}
+      </Card>
+
+      {/* Full Preview Modal */}
+      <Dialog
+        open={previewOpen}
+        onClose={handlePreviewClose}
+        maxWidth='md'
+        fullWidth
+        PaperProps={{
+          sx: {
+            borderRadius: 2,
+            maxHeight: '85vh',
+          },
+        }}>
+        <DialogTitle
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            pb: 2,
+          }}>
+          <Box>
+            <Typography variant='h6' sx={{ fontWeight: 600, mb: 0.5 }}>
+              {template.label}
+            </Typography>
+            {template.category && template.category !== 'all' && (
+              <Chip
+                label={template.category}
+                size='small'
+                sx={{
+                  height: 22,
+                  fontSize: '0.7rem',
+                  bgcolor: alpha(theme.palette.primary.main, 0.1),
+                  color: 'primary.main',
+                }}
+              />
+            )}
+          </Box>
+          <IconButton
+            onClick={handlePreviewClose}
+            size='small'
+            sx={{
               color: 'text.secondary',
-              lineHeight: 1.6,
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              display: '-webkit-box',
-              WebkitLineClamp: isListView ? 2 : 2,
-              WebkitBoxOrient: 'vertical',
-            }}
-            itemProp="description"
-          >
+              '&:hover': { bgcolor: alpha(theme.palette.text.secondary, 0.1) },
+            }}>
+            <CloseIcon />
+          </IconButton>
+        </DialogTitle>
+
+        <Divider />
+
+        <DialogContent sx={{ pt: 3 }}>
+          <Typography
+            variant='body2'
+            color='text.secondary'
+            sx={{ mb: 3, lineHeight: 1.7 }}>
             {template.description}
           </Typography>
-          
-          {!isListView && (
-            <TemplatePreview content={template.content} />
-          )}
-        </CardContent>
-      </Box>
 
-      {/* List View Preview */}
-      {isListView && (
-        <Box
-          sx={{
-            flex: 1,
-            p: 2.5,
-            pt: 3.5,
-            bgcolor: alpha(theme.palette.background.default, 0.4),
-            borderLeft: `1px solid ${theme.customTokens?.borderSubtle || theme.palette.divider}`,
-          }}
-        >
-          <TemplatePreview content={template.content} expanded />
-        </Box>
-      )}
-    </Card>
-
-    {/* Full Preview Modal */}
-    <Dialog
-      open={previewOpen}
-      onClose={handlePreviewClose}
-      maxWidth="md"
-      fullWidth
-      PaperProps={{
-        sx: {
-          borderRadius: 2,
-          maxHeight: '85vh',
-        },
-      }}
-    >
-      <DialogTitle
-        sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          pb: 2,
-        }}
-      >
-        <Box>
-          <Typography variant="h6" sx={{ fontWeight: 600, mb: 0.5 }}>
-            {template.label}
-          </Typography>
-          {template.category && template.category !== 'all' && (
-            <Chip
-              label={template.category}
-              size="small"
-              sx={{
-                height: 22,
-                fontSize: '0.7rem',
-                bgcolor: alpha(theme.palette.primary.main, 0.1),
-                color: 'primary.main',
-              }}
-            />
-          )}
-        </Box>
-        <IconButton
-          onClick={handlePreviewClose}
-          size="small"
-          sx={{
-            color: 'text.secondary',
-            '&:hover': { bgcolor: alpha(theme.palette.text.secondary, 0.1) },
-          }}
-        >
-          <CloseIcon />
-        </IconButton>
-      </DialogTitle>
-
-      <Divider />
-
-      <DialogContent sx={{ pt: 3 }}>
-        <Typography
-          variant="body2"
-          color="text.secondary"
-          sx={{ mb: 3, lineHeight: 1.7 }}
-        >
-          {template.description}
-        </Typography>
-
-        <Paper
-          variant="outlined"
-          sx={{
-            p: 3,
-            borderRadius: 2,
-            bgcolor: alpha(theme.palette.background.default, 0.6),
-            border: `1px solid ${theme.customTokens?.borderSubtle || theme.palette.divider}`,
-            maxHeight: 450,
-            overflow: 'auto',
-            '&::-webkit-scrollbar': {
-              width: 8,
-            },
-            '&::-webkit-scrollbar-thumb': {
-              bgcolor: alpha(theme.palette.text.secondary, 0.3),
-              borderRadius: 4,
-            },
-          }}
-        >
-          <Box
-            component="pre"
+          <Paper
+            variant='outlined'
             sx={{
-              margin: 0,
-              fontFamily:
-                'ui-monospace, SFMono-Regular, SF Mono, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
-              fontSize: '0.875rem',
-              lineHeight: 1.7,
-              whiteSpace: 'pre-wrap',
-              wordBreak: 'break-word',
-              color: 'text.primary',
-            }}
-          >
-            {template.content}
-          </Box>
-        </Paper>
-      </DialogContent>
+              p: 3,
+              borderRadius: 2,
+              bgcolor: alpha(theme.palette.background.default, 0.6),
+              border: `1px solid ${theme.customTokens?.borderSubtle || theme.palette.divider}`,
+              maxHeight: 450,
+              overflow: 'auto',
+              '&::-webkit-scrollbar': {
+                width: 8,
+              },
+              '&::-webkit-scrollbar-thumb': {
+                bgcolor: alpha(theme.palette.text.secondary, 0.3),
+                borderRadius: 4,
+              },
+            }}>
+            <Box
+              component='pre'
+              sx={{
+                margin: 0,
+                fontFamily:
+                  'ui-monospace, SFMono-Regular, SF Mono, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+                fontSize: '0.875rem',
+                lineHeight: 1.7,
+                whiteSpace: 'pre-wrap',
+                wordBreak: 'break-word',
+                color: 'text.primary',
+              }}>
+              {template.content}
+            </Box>
+          </Paper>
+        </DialogContent>
 
-      <Divider />
+        <Divider />
 
-      <DialogActions sx={{ p: 2.5, gap: 1 }}>
-        <Button
-          onClick={handlePreviewClose}
-          variant="outlined"
-          color="inherit"
-          sx={{ borderRadius: 1.5 }}
-        >
-          Close
-        </Button>
-        <ButtonGroup variant="contained" size="medium">
+        <DialogActions sx={{ p: 2.5, gap: 1 }}>
           <Button
-            onClick={handleCopy}
-            startIcon={copied ? <CheckIcon /> : <ContentCopyIcon />}
-            color={copied ? 'success' : 'primary'}
-            sx={{ borderRadius: '6px 0 0 6px' }}
-          >
-            {copied ? 'Copied' : 'Copy'}
+            onClick={handlePreviewClose}
+            variant='outlined'
+            color='inherit'
+            sx={{ borderRadius: 1.5 }}>
+            Close
           </Button>
-          <Button
-            onClick={handleUse}
-            startIcon={<AddIcon />}
-            color="primary"
-            sx={{ borderRadius: '0 6px 6px 0' }}
-          >
-            Use Template
-          </Button>
-        </ButtonGroup>
-      </DialogActions>
-    </Dialog>
+          <ButtonGroup variant='contained' size='medium'>
+            <Button
+              onClick={handleCopy}
+              startIcon={copied ? <CheckIcon /> : <ContentCopyIcon />}
+              color={copied ? 'success' : 'primary'}
+              sx={{ borderRadius: '6px 0 0 6px' }}>
+              {copied ? 'Copied' : 'Copy'}
+            </Button>
+            <Button
+              onClick={handleUse}
+              startIcon={<AddIcon />}
+              color='primary'
+              sx={{ borderRadius: '0 6px 6px 0' }}>
+              Use Template
+            </Button>
+          </ButtonGroup>
+        </DialogActions>
+      </Dialog>
     </>
   );
 };

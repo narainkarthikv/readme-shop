@@ -5,7 +5,7 @@ import { copyToClipboard as copyUtil, logger } from '@utils/index';
  * Enhanced Clipboard Hook - 2025+ UX Pattern
  * Provides comprehensive clipboard operations with loading, success, and error states
  * Supports multiple content types: text, markdown, SVG, URLs
- * 
+ *
  * @param {Object} options - Configuration options
  * @param {number} options.duration - Duration to show copied state (ms)
  * @param {Function} options.onSuccess - Callback on successful copy
@@ -13,11 +13,7 @@ import { copyToClipboard as copyUtil, logger } from '@utils/index';
  * @returns {Object} Clipboard state and operations
  */
 export const useClipboard = (options = {}) => {
-  const {
-    duration = 2000,
-    onSuccess,
-    onError,
-  } = options;
+  const { duration = 2000, onSuccess, onError } = options;
 
   const [state, setState] = useState({
     copied: false,
@@ -56,7 +52,9 @@ export const useClipboard = (options = {}) => {
             break;
           case 'svg':
             // Wrap SVG if needed
-            textToCopy = content.startsWith('<svg') ? content : `<svg>${content}</svg>`;
+            textToCopy = content.startsWith('<svg')
+              ? content
+              : `<svg>${content}</svg>`;
             break;
           case 'url':
             // Validate URL format

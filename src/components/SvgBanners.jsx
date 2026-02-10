@@ -7,7 +7,7 @@ const SVG_BANNER_MARKDOWN = `<a href="https://github.com/narainkarthikv/svg-bann
 const SvgBanners = React.memo(() => {
   const theme = useTheme();
   const embedMarkdown = useMarkdownStore((state) => state.embedMarkdown);
-  
+
   const handleClick = React.useCallback(
     () => embedMarkdown(SVG_BANNER_MARKDOWN),
     [embedMarkdown]
@@ -19,17 +19,15 @@ const SvgBanners = React.memo(() => {
         width: '100%',
         mb: 3,
         textAlign: 'center',
-      }}
-    >
+      }}>
       <Typography
-        variant="h6"
+        variant='h6'
         sx={{
           mb: 1.5,
           fontWeight: 600,
           fontSize: '1.125rem',
           color: 'text.primary',
-        }}
-      >
+        }}>
         SVG Banner
       </Typography>
       <Box
@@ -62,24 +60,22 @@ const SvgBanners = React.memo(() => {
             pointerEvents: 'none',
           },
         }}
-        role="button"
+        role='button'
         tabIndex={0}
-        aria-label="Insert SVG banner"
+        aria-label='Insert SVG banner'
         onKeyPress={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             handleClick();
           }
-        }}
-      >
+        }}>
         <a
-          href="https://github.com/narainkarthikv/svg-banners"
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={(e) => e.preventDefault()}
-        >
+          href='https://github.com/narainkarthikv/svg-banners'
+          target='_blank'
+          rel='noopener noreferrer'
+          onClick={(e) => e.preventDefault()}>
           <img
-            src="https://svg-banners.vercel.app/api?type=luminance&text1=README%20SHOP&width=1000&height=200"
-            alt="SVG Banner - README SHOP"
+            src='https://svg-banners.vercel.app/api?type=luminance&text1=README%20SHOP&width=1000&height=200'
+            alt='SVG Banner - README SHOP'
             style={{
               width: '100%',
               maxWidth: 500,

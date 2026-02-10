@@ -15,8 +15,7 @@ const LoadingSpinner = React.memo(({ message = 'Loading...' }) => {
         justifyContent: 'center',
         p: 4,
         gap: 3,
-      }}
-    >
+      }}>
       {/* Modern animated spinner */}
       <Box sx={{ position: 'relative' }}>
         <motion.div
@@ -60,16 +59,14 @@ const LoadingSpinner = React.memo(({ message = 'Loading...' }) => {
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.5 }}
-      >
+        transition={{ delay: 0.2, duration: 0.5 }}>
         <Typography
-          variant="body2"
+          variant='body2'
           sx={{
             color: theme.palette.text.secondary,
             fontWeight: 500,
             textAlign: 'center',
-          }}
-        >
+          }}>
           {message}
         </Typography>
       </motion.div>

@@ -34,56 +34,56 @@ const GithubContributors = () => {
           boxShadow: (theme) => theme.shadows[4],
         },
       }}
-      role="button"
+      role='button'
       tabIndex={0}
-      aria-label="Insert contributors"
-    >
+      aria-label='Insert contributors'>
       <Typography
-        variant="h6"
+        variant='h6'
         sx={{
           mb: 1.5,
           fontWeight: 600,
           textAlign: 'center',
           fontSize: '1.125rem',
-        }}
-      >
+        }}>
         Contributors
       </Typography>
 
       <Box sx={{ display: 'flex', justifyContent: 'center', mb: 1 }}>
         <Box
-          component="img"
+          component='img'
           src={`https://contrib.rocks/image?repo=${REPO}`}
-          alt="Repository contributors"
+          alt='Repository contributors'
           sx={{ width: '100%', maxWidth: 500, borderRadius: 1 }}
         />
       </Box>
 
-      <Stack direction="row" spacing={1} justifyContent="center" sx={{ mt: 1.5 }}>
-        <Tooltip title="Insert into editor">
+      <Stack
+        direction='row'
+        spacing={1}
+        justifyContent='center'
+        sx={{ mt: 1.5 }}>
+        <Tooltip title='Insert into editor'>
           <Button
             startIcon={<InsertDriveFileIcon />}
-            size="small"
-            variant="contained"
+            size='small'
+            variant='contained'
             onClick={(e) => {
               e.stopPropagation();
               handleClick();
-            }}
-          >
+            }}>
             Insert
           </Button>
         </Tooltip>
 
-        <Tooltip title="View on GitHub">
+        <Tooltip title='View on GitHub'>
           <IconButton
-            size="small"
+            size='small'
             onClick={(e) => {
               e.stopPropagation();
               window.open(`https://github.com/${REPO}`, '_blank', 'noopener');
             }}
-            aria-label="Open repository"
-          >
-            <OpenInNewIcon fontSize="small" />
+            aria-label='Open repository'>
+            <OpenInNewIcon fontSize='small' />
           </IconButton>
         </Tooltip>
       </Stack>

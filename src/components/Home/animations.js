@@ -2,16 +2,16 @@
 export const sectionVariants = {
   hidden: {
     opacity: 0,
-    y: 16,
-    filter: 'blur(2px)',
+    y: 10,
+    filter: 'blur(1px)',
   },
   visible: {
     opacity: 1,
     y: 0,
     filter: 'blur(0px)',
     transition: {
-      duration: 0.8,
-      ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic-bezier for smooth entrance
+      duration: 0.7,
+      ease: [0.22, 0.61, 0.36, 1],
       staggerChildren: 0.1,
     },
   },
@@ -29,31 +29,31 @@ export const staggerVariants = {
 export const cardVariants = {
   hidden: {
     opacity: 0,
-    y: 20,
-    scale: 0.95,
+    y: 12,
+    scale: 0.98,
   },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
     transition: {
-      duration: 0.6,
-      ease: [0.25, 0.46, 0.45, 0.94],
+      duration: 0.55,
+      ease: [0.22, 0.61, 0.36, 1],
     },
   },
   hover: {
     y: -2,
-    scale: 1.005,
-    boxShadow: '0 8px 25px rgba(0,0,0,0.08)',
+    scale: 1.003,
+    boxShadow: '0 10px 24px rgba(0,0,0,0.08)',
     transition: {
-      duration: 0.3,
+      duration: 0.25,
       ease: 'easeOut',
     },
   },
   tap: {
-    scale: 0.98,
+    scale: 0.99,
     transition: {
-      duration: 0.1,
+      duration: 0.12,
     },
   },
 };
@@ -85,64 +85,64 @@ export const blobVariants = {
 
 // New subtle animations for enhanced UX
 export const fadeInUpVariants = {
-  hidden: { opacity: 0, y: 16 },
+  hidden: { opacity: 0, y: 12 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.5,
-      ease: [0.25, 0.46, 0.45, 0.94],
+      duration: 0.45,
+      ease: [0.22, 0.61, 0.36, 1],
     },
   },
 };
 
 export const slideInLeftVariants = {
-  hidden: { opacity: 0, x: -24 },
+  hidden: { opacity: 0, x: -18 },
   visible: {
     opacity: 1,
     x: 0,
     transition: {
-      duration: 0.6,
-      ease: [0.25, 0.46, 0.45, 0.94],
+      duration: 0.55,
+      ease: [0.22, 0.61, 0.36, 1],
     },
   },
 };
 
 export const slideInRightVariants = {
-  hidden: { opacity: 0, x: 24 },
+  hidden: { opacity: 0, x: 18 },
   visible: {
     opacity: 1,
     x: 0,
     transition: {
-      duration: 0.6,
-      ease: [0.25, 0.46, 0.45, 0.94],
+      duration: 0.55,
+      ease: [0.22, 0.61, 0.36, 1],
     },
   },
 };
 
 export const scaleInVariants = {
-  hidden: { opacity: 0, scale: 0.9 },
+  hidden: { opacity: 0, scale: 0.97 },
   visible: {
     opacity: 1,
     scale: 1,
     transition: {
-      duration: 0.5,
-      ease: [0.34, 1.56, 0.64, 1],
+      duration: 0.45,
+      ease: [0.22, 0.61, 0.36, 1],
     },
   },
 };
 
 export const buttonHoverVariants = {
   hover: {
-    scale: 1.005,
-    boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
+    scale: 1.004,
+    boxShadow: '0 6px 16px rgba(0,0,0,0.08)',
     transition: {
       duration: 0.2,
       ease: 'easeOut',
     },
   },
   tap: {
-    scale: 0.99,
+    scale: 0.995,
     transition: {
       duration: 0.1,
     },
@@ -151,10 +151,10 @@ export const buttonHoverVariants = {
 
 export const iconFloatVariants = {
   animate: {
-    y: [0, -1, 0],
-    rotate: [0, 0.5, 0],
+    y: [0, -1.5, 0],
+    rotate: [0, 0.4, 0],
     transition: {
-      duration: 3,
+      duration: 3.6,
       repeat: Infinity,
       ease: 'easeInOut',
     },
@@ -162,14 +162,14 @@ export const iconFloatVariants = {
 };
 
 export const textRevealVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 14 },
   visible: (i = 0) => ({
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
-      delay: i * 0.1,
-      ease: [0.25, 0.46, 0.45, 0.94],
+      duration: 0.55,
+      delay: i * 0.08,
+      ease: [0.22, 0.61, 0.36, 1],
     },
   }),
 };
@@ -177,8 +177,8 @@ export const textRevealVariants = {
 export const pageTransitionVariants = {
   initial: {
     opacity: 0,
-    scale: 0.99,
-    filter: 'blur(1px)',
+    scale: 0.995,
+    filter: 'blur(0.5px)',
   },
   in: {
     opacity: 1,
@@ -187,13 +187,13 @@ export const pageTransitionVariants = {
   },
   out: {
     opacity: 0,
-    scale: 1.005,
-    filter: 'blur(0.5px)',
+    scale: 1.002,
+    filter: 'blur(0.35px)',
   },
 };
 
 export const pageTransition = {
   type: 'tween',
-  ease: 'anticipate',
-  duration: 0.4,
+  ease: [0.22, 0.61, 0.36, 1],
+  duration: 0.45,
 };

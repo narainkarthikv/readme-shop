@@ -12,31 +12,28 @@ const GithubFollowers = () => {
       sx={{
         p: 2,
         borderRadius: 2,
-      }}
-    >
+      }}>
       <Box
         sx={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
           mb: 1.5,
-        }}
-      >
+        }}>
         <Typography
-          variant="h6"
+          variant='h6'
           sx={{
             fontWeight: 600,
             fontSize: '1.125rem',
-          }}
-        >
+          }}>
           Followers Badge
         </Typography>
-        
+
         <DualActionButton
           content={FOLLOWERS_MARKDOWN}
-          contentType="markdown"
-          variant="compact"
-          size="small"
+          contentType='markdown'
+          variant='compact'
+          size='small'
         />
       </Box>
 
@@ -46,11 +43,10 @@ const GithubFollowers = () => {
           justifyContent: 'center',
           alignItems: 'center',
           py: 2,
-        }}
-      >
+        }}>
         <img
           src={`https://img.shields.io/github/followers/${USER}?label=Followers&style=social`}
-          alt="GitHub followers badge"
+          alt='GitHub followers badge'
           style={{ height: 24 }}
         />
       </Box>

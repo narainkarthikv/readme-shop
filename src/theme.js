@@ -1,11 +1,11 @@
 import { createTheme } from '@mui/material/styles';
-import { 
-  lightTokens, 
-  darkTokens, 
-  typography, 
+import {
+  lightTokens,
+  darkTokens,
+  typography,
   spacing,
   borderRadius,
-  animation 
+  animation,
 } from './theme/tokens';
 
 /**
@@ -20,7 +20,7 @@ export const getTheme = (mode = 'light') => {
   return createTheme({
     palette: {
       mode,
-      
+
       // Primary brand color
       primary: {
         main: tokens.primary,
@@ -28,23 +28,23 @@ export const getTheme = (mode = 'light') => {
         dark: tokens.primaryActive,
         contrastText: isDark ? tokens.textInverse : tokens.textInverse,
       },
-      
+
       // Backgrounds
       background: {
         default: tokens.background,
         paper: tokens.surface,
       },
-      
+
       // Text
       text: {
         primary: tokens.textPrimary,
         secondary: tokens.textSecondary,
         disabled: tokens.textTertiary,
       },
-      
+
       // Dividers and borders
       divider: tokens.border,
-      
+
       // Semantic colors
       success: {
         main: tokens.success,
@@ -70,7 +70,7 @@ export const getTheme = (mode = 'light') => {
         dark: tokens.info,
         contrastText: isDark ? tokens.textInverse : tokens.textInverse,
       },
-      
+
       // Custom tokens accessible via theme.palette
       action: {
         hover: tokens.surfaceHover,
@@ -83,7 +83,7 @@ export const getTheme = (mode = 'light') => {
     typography: {
       fontFamily: typography.fontFamily.sans,
       fontSize: 16,
-      
+
       h1: {
         fontSize: typography.fontSize['4xl'],
         fontWeight: typography.fontWeight.bold,
@@ -197,7 +197,7 @@ export const getTheme = (mode = 'light') => {
           },
         },
       },
-      
+
       MuiButton: {
         styleOverrides: {
           root: {
@@ -249,7 +249,7 @@ export const getTheme = (mode = 'light') => {
           },
         },
       },
-      
+
       MuiIconButton: {
         styleOverrides: {
           root: {
@@ -261,7 +261,7 @@ export const getTheme = (mode = 'light') => {
           },
         },
       },
-      
+
       MuiPaper: {
         styleOverrides: {
           root: {
@@ -281,7 +281,7 @@ export const getTheme = (mode = 'light') => {
           },
         },
       },
-      
+
       MuiCard: {
         styleOverrides: {
           root: {
@@ -292,7 +292,7 @@ export const getTheme = (mode = 'light') => {
           },
         },
       },
-      
+
       MuiTextField: {
         styleOverrides: {
           root: {
@@ -314,11 +314,13 @@ export const getTheme = (mode = 'light') => {
           },
         },
       },
-      
+
       MuiTooltip: {
         styleOverrides: {
           tooltip: {
-            backgroundColor: isDark ? tokens.surfaceElevated : tokens.textPrimary,
+            backgroundColor: isDark
+              ? tokens.surfaceElevated
+              : tokens.textPrimary,
             color: isDark ? tokens.textPrimary : tokens.textInverse,
             fontSize: typography.fontSize.xs,
             borderRadius: borderRadius.sm,
@@ -330,7 +332,7 @@ export const getTheme = (mode = 'light') => {
           },
         },
       },
-      
+
       MuiChip: {
         styleOverrides: {
           root: {
@@ -346,7 +348,7 @@ export const getTheme = (mode = 'light') => {
           },
         },
       },
-      
+
       MuiDivider: {
         styleOverrides: {
           root: {
@@ -354,7 +356,7 @@ export const getTheme = (mode = 'light') => {
           },
         },
       },
-      
+
       MuiAlert: {
         styleOverrides: {
           root: {
@@ -380,7 +382,7 @@ export const getTheme = (mode = 'light') => {
         },
       },
     },
-    
+
     // Custom tokens accessible throughout the app
     customTokens: tokens,
   });

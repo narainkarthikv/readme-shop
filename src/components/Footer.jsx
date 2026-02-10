@@ -1,57 +1,128 @@
 import React from 'react';
-import { Typography, Link as MuiLink, BottomNavigation } from '@mui/material';
+import { Box, Grid, Link as MuiLink, Stack, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
+
+const footerLinks = [
+  {
+    title: 'Project',
+    links: [
+      { label: 'Open app', to: '/shop', internal: true },
+      { label: 'Templates', to: '/templates', internal: true },
+      { label: 'Components', to: '/components', internal: true },
+      {
+        label: 'GitHub repo',
+        href: 'https://github.com/narainkarthikv/readme-shop',
+      },
+    ],
+  },
+  {
+    title: 'Community',
+    links: [
+      {
+        label: 'Contributing',
+        href: 'https://github.com/narainkarthikv/readme-shop/blob/develop/CONTRIBUTING.md',
+      },
+      {
+        label: 'Code of conduct',
+        href: 'https://github.com/narainkarthikv/readme-shop/blob/develop/CODE_OF_CONDUCT.md',
+      },
+      {
+        label: 'Issues & roadmap',
+        href: 'https://github.com/narainkarthikv/readme-shop/issues',
+      },
+      {
+        label: 'Wisdom Fox',
+        href: 'https://github.com/Wisdom-Fox',
+      },
+    ],
+  },
+  {
+    title: 'Legal',
+    links: [
+      {
+        label: 'MIT License',
+        href: 'https://github.com/narainkarthikv/readme-shop/blob/develop/LICENSE',
+      },
+      {
+        label: 'Security policy',
+        href: 'https://github.com/narainkarthikv/readme-shop/security/policy',
+      },
+      {
+        label: 'Release notes',
+        href: 'https://github.com/narainkarthikv/readme-shop/releases',
+      },
+      {
+        label: 'Documentation',
+        href: 'https://github.com/narainkarthikv/readme-shop#readme',
+      },
+    ],
+  },
+];
 
 const Footer = React.memo(() => (
-  <BottomNavigation
-    component="footer"
+  <Box
+    component='footer'
     sx={(theme) => ({
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      p: 2,
-      bgcolor:
-        theme.palette.mode === 'dark'
-          ? '#008cffff'
-          : theme.palette.primary.main,
-      color:
-        theme.palette.mode === 'dark' ? theme.palette.text.primary : 'white',
-      width: '100%',
       borderTop: `1px solid ${theme.palette.divider}`,
-      fontSize: { xs: '0.85rem', sm: '1rem' },
-      minHeight: 56,
-      boxShadow:
-        theme.palette.mode === 'dark' ? '0 -2px 8px rgba(0,0,0,0.15)' : 'none',
-      transition: 'background 0.3s',
-    })}
-  >
-    <Typography
-      sx={{ fontWeight: 100, textAlign: 'center', width: '100%' }}
-      variant="body2"
-    >
-      &#169; 2025 Open-Source Project -{' '}
-      <MuiLink
-        href="https://www.github.com/Wisdom-Fox/README-SHOP"
-        color="inherit"
-        target="_blank"
-        rel="noopener"
-        underline="hover"
-        aria-label="GitHub Repository"
-      >
-        GitHub Repository
-      </MuiLink>
-      &nbsp; Developed By{' '}
-      <MuiLink
-        href="https://www.github.com/Wisdom-Fox"
-        color="inherit"
-        target="_blank"
-        rel="noopener"
-        underline="hover"
-        aria-label="Wisdom Fox Community"
-      >
-        Wisdom Fox Community
-      </MuiLink>
-    </Typography>
-  </BottomNavigation>
+      bgcolor: theme.palette.background.paper,
+      color: theme.palette.text.secondary,
+      mt: 6,
+    })}>
+    <Box sx={{ maxWidth: 1200, mx: 'auto', px: 2, py: { xs: 4, md: 6 } }}>
+      <Grid container spacing={4}>
+        <Grid item xs={12} md={4}>
+          <Typography
+            variant='h6'
+            sx={{ fontWeight: 700, color: 'text.primary' }}>
+            README Shop
+          </Typography>
+          <Typography variant='body2' sx={{ mt: 1.5, color: 'text.secondary' }}>
+            A fast README builder for open-source maintainers and makers. Curate
+            templates, badges, icons, and stats in one clean workflow.
+          </Typography>
+          <Typography variant='caption' sx={{ display: 'block', mt: 2 }}>
+            Built by the Wisdom Fox community.
+          </Typography>
+        </Grid>
+        {footerLinks.map((group) => (
+          <Grid item xs={6} sm={4} md={2} key={group.title}>
+            <Typography
+              variant='overline'
+              sx={{ letterSpacing: '0.2em', color: 'text.secondary' }}>
+              {group.title}
+            </Typography>
+            <Stack spacing={1} sx={{ mt: 1 }}>
+              {group.links.map((link) =>
+                link.internal ? (
+                  <MuiLink
+                    key={link.label}
+                    component={Link}
+                    to={link.to}
+                    underline='hover'
+                    color='inherit'>
+                    {link.label}
+                  </MuiLink>
+                ) : (
+                  <MuiLink
+                    key={link.label}
+                    href={link.href}
+                    underline='hover'
+                    color='inherit'
+                    target='_blank'
+                    rel='noreferrer'>
+                    {link.label}
+                  </MuiLink>
+                )
+              )}
+            </Stack>
+          </Grid>
+        ))}
+      </Grid>
+      <Typography variant='caption' sx={{ display: 'block', mt: 5 }}>
+        © 2026 README Shop. Crafted with care for open source.
+      </Typography>
+    </Box>
+  </Box>
 ));
 
 Footer.displayName = 'Footer';

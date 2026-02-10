@@ -40,19 +40,17 @@ const GithubSnakeContribution = () => {
           boxShadow: (theme) => theme.shadows[4],
         },
       }}
-      role="button"
+      role='button'
       tabIndex={0}
-      aria-label="Insert GitHub snake contribution animation"
-    >
+      aria-label='Insert GitHub snake contribution animation'>
       <Typography
-        variant="h6"
+        variant='h6'
         sx={{
           mb: 1.5,
           fontWeight: 600,
           textAlign: 'center',
           fontSize: '1.125rem',
-        }}
-      >
+        }}>
         Contribution Snake Animation
       </Typography>
 
@@ -67,11 +65,10 @@ const GithubSnakeContribution = () => {
           alignItems: 'center',
           minHeight: 200,
           border: (theme) => `1px solid ${theme.palette.divider}`,
-        }}
-      >
+        }}>
         <img
-          src="https://raw.githubusercontent.com/narainkarthikv/narainkarthikv/output/github-contribution-grid-snake.svg"
-          alt="GitHub snake contribution animation for narainkarthikv"
+          src='https://raw.githubusercontent.com/narainkarthikv/narainkarthikv/output/github-contribution-grid-snake.svg'
+          alt='GitHub snake contribution animation for narainkarthikv'
           style={{
             width: '100%',
             maxWidth: 800,
@@ -80,31 +77,33 @@ const GithubSnakeContribution = () => {
         />
       </Box>
 
-      <Stack direction="row" spacing={1} justifyContent="center" sx={{ mt: 1.5 }}>
-        <Tooltip title="Insert into editor">
+      <Stack
+        direction='row'
+        spacing={1}
+        justifyContent='center'
+        sx={{ mt: 1.5 }}>
+        <Tooltip title='Insert into editor'>
           <Button
             startIcon={<InsertDriveFileIcon />}
-            size="small"
-            variant="contained"
+            size='small'
+            variant='contained'
             onClick={(e) => {
               e.stopPropagation();
               handleClick();
-            }}
-          >
+            }}>
             Insert
           </Button>
         </Tooltip>
 
-        <Tooltip title="Learn more about Snake animation">
+        <Tooltip title='Learn more about Snake animation'>
           <IconButton
-            size="small"
+            size='small'
             onClick={(e) => {
               e.stopPropagation();
               openInNewTab();
             }}
-            aria-label="Learn more about contribution snake"
-          >
-            <OpenInNewIcon fontSize="small" />
+            aria-label='Learn more about contribution snake'>
+            <OpenInNewIcon fontSize='small' />
           </IconButton>
         </Tooltip>
       </Stack>

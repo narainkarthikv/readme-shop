@@ -36,26 +36,24 @@ const GithubMetrics = () => {
           boxShadow: (theme) => theme.shadows[4],
         },
       }}
-      role="button"
+      role='button'
       tabIndex={0}
-      aria-label="Insert GitHub metrics"
-    >
+      aria-label='Insert GitHub metrics'>
       <Typography
-        variant="h6"
+        variant='h6'
         sx={{
           mb: 1.5,
           fontWeight: 600,
           textAlign: 'center',
           fontSize: '1.125rem',
-        }}
-      >
+        }}>
         GitHub Metrics
       </Typography>
 
       <Box
-        component="img"
-        src="https://metrics.lecoq.io/narainkarthikv?template=classic&config.timezone=America%2FNew_York"
-        alt="Detailed GitHub metrics for narainkarthikv"
+        component='img'
+        src='https://metrics.lecoq.io/narainkarthikv?template=classic&config.timezone=America%2FNew_York'
+        alt='Detailed GitHub metrics for narainkarthikv'
         sx={{
           width: '100%',
           maxWidth: 600,
@@ -65,31 +63,33 @@ const GithubMetrics = () => {
         }}
       />
 
-      <Stack direction="row" spacing={1} justifyContent="center" sx={{ mt: 1.5 }}>
-        <Tooltip title="Insert into editor">
+      <Stack
+        direction='row'
+        spacing={1}
+        justifyContent='center'
+        sx={{ mt: 1.5 }}>
+        <Tooltip title='Insert into editor'>
           <Button
             startIcon={<InsertDriveFileIcon />}
-            size="small"
-            variant="contained"
+            size='small'
+            variant='contained'
             onClick={(e) => {
               e.stopPropagation();
               handleClick();
-            }}
-          >
+            }}>
             Insert
           </Button>
         </Tooltip>
 
-        <Tooltip title="Learn more about GitHub Metrics">
+        <Tooltip title='Learn more about GitHub Metrics'>
           <IconButton
-            size="small"
+            size='small'
             onClick={(e) => {
               e.stopPropagation();
               openInNewTab();
             }}
-            aria-label="Learn more about GitHub Metrics"
-          >
-            <OpenInNewIcon fontSize="small" />
+            aria-label='Learn more about GitHub Metrics'>
+            <OpenInNewIcon fontSize='small' />
           </IconButton>
         </Tooltip>
       </Stack>

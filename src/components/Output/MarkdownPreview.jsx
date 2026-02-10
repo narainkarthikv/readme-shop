@@ -18,9 +18,8 @@ const MarkdownPreview = React.memo(({ markdown }) => {
   return (
     <Paper
       elevation={3}
-      sx={{ flex: 1, p: 2, minHeight: 400, overflow: 'auto' }}
-    >
-      <Typography variant="h6" sx={{ mb: 1 }}>
+      sx={{ flex: 1, p: 2, minHeight: 400, overflow: 'auto' }}>
+      <Typography variant='h6' sx={{ mb: 1 }}>
         Preview
       </Typography>
       <div

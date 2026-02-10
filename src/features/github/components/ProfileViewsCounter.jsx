@@ -10,31 +10,28 @@ const ProfileViewsCounter = () => {
       sx={{
         p: 2,
         borderRadius: 2,
-      }}
-    >
+      }}>
       <Box
         sx={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
           mb: 1.5,
-        }}
-      >
+        }}>
         <Typography
-          variant="h6"
+          variant='h6'
           sx={{
             fontWeight: 600,
             fontSize: '1.125rem',
-          }}
-        >
+          }}>
           Profile Views Counter
         </Typography>
-        
+
         <DualActionButton
           content={PROFILE_VIEWS_MARKDOWN}
-          contentType="markdown"
-          variant="compact"
-          size="small"
+          contentType='markdown'
+          variant='compact'
+          size='small'
         />
       </Box>
 
@@ -44,11 +41,10 @@ const ProfileViewsCounter = () => {
           justifyContent: 'center',
           alignItems: 'center',
           py: 2,
-        }}
-      >
+        }}>
         <img
-          src="https://komarev.com/ghpvc/?username=narainkarthikv&color=blueviolet&style=flat-square&label=Profile+Views"
-          alt="Profile view counter for narainkarthikv"
+          src='https://komarev.com/ghpvc/?username=narainkarthikv&color=blueviolet&style=flat-square&label=Profile+Views'
+          alt='Profile view counter for narainkarthikv'
           style={{ height: 28 }}
         />
       </Box>

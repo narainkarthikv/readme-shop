@@ -14,8 +14,7 @@ const TemplateCategories = ({
       gap: 1,
       mb: 3,
       justifyContent: 'center',
-    }}
-  >
+    }}>
     {categories.map(({ value, label }) => (
       <Chip
         key={value}

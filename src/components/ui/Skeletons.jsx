@@ -10,15 +10,20 @@ export const CardSkeleton = ({ height = 200, hasActions = true }) => (
       p: 3,
       borderRadius: 2,
       bgcolor: 'background.paper',
-      border: (theme) => `1px solid ${theme.customTokens?.borderSubtle || theme.palette.divider}`,
-    }}
-  >
-    <Skeleton variant="text" width="60%" height={32} sx={{ mb: 2 }} />
-    <Skeleton variant="rectangular" width="100%" height={height} sx={{ borderRadius: 1, mb: 2 }} />
+      border: (theme) =>
+        `1px solid ${theme.customTokens?.borderSubtle || theme.palette.divider}`,
+    }}>
+    <Skeleton variant='text' width='60%' height={32} sx={{ mb: 2 }} />
+    <Skeleton
+      variant='rectangular'
+      width='100%'
+      height={height}
+      sx={{ borderRadius: 1, mb: 2 }}
+    />
     {hasActions && (
-      <Stack direction="row" spacing={1} justifyContent="center">
-        <Skeleton variant="rounded" width={100} height={36} />
-        <Skeleton variant="rounded" width={80} height={36} />
+      <Stack direction='row' spacing={1} justifyContent='center'>
+        <Skeleton variant='rounded' width={100} height={36} />
+        <Skeleton variant='rounded' width={80} height={36} />
       </Stack>
     )}
   </Box>
@@ -39,8 +44,7 @@ export const IconGridSkeleton = ({ count = 12 }) => (
       gridTemplateColumns: 'repeat(auto-fill, minmax(80px, 1fr))',
       gap: 2,
       p: 2,
-    }}
-  >
+    }}>
     {Array.from({ length: count }).map((_, index) => (
       <Box
         key={index}
@@ -49,10 +53,9 @@ export const IconGridSkeleton = ({ count = 12 }) => (
           flexDirection: 'column',
           alignItems: 'center',
           gap: 1,
-        }}
-      >
-        <Skeleton variant="circular" width={48} height={48} />
-        <Skeleton variant="text" width={60} height={16} />
+        }}>
+        <Skeleton variant='circular' width={48} height={48} />
+        <Skeleton variant='text' width={60} height={16} />
       </Box>
     ))}
   </Box>
@@ -66,24 +69,27 @@ IconGridSkeleton.propTypes = {
  * StatsSkeleton - Loading state for GitHub stats
  */
 export const StatsSkeleton = () => (
-  <Stack spacing={2} direction={{ xs: 'column', sm: 'row' }} alignItems="center">
-    <Skeleton 
-      variant="rounded" 
-      width="100%" 
-      height={180} 
-      sx={{ 
+  <Stack
+    spacing={2}
+    direction={{ xs: 'column', sm: 'row' }}
+    alignItems='center'>
+    <Skeleton
+      variant='rounded'
+      width='100%'
+      height={180}
+      sx={{
         maxWidth: 400,
         borderRadius: 2,
-      }} 
+      }}
     />
-    <Skeleton 
-      variant="rounded" 
-      width="100%" 
-      height={180} 
-      sx={{ 
+    <Skeleton
+      variant='rounded'
+      width='100%'
+      height={180}
+      sx={{
         maxWidth: 300,
         borderRadius: 2,
-      }} 
+      }}
     />
   </Stack>
 );
@@ -103,12 +109,11 @@ export const ListSkeleton = ({ count = 5, hasAvatar = false }) => (
           p: 2,
           borderRadius: 1,
           bgcolor: 'background.paper',
-        }}
-      >
-        {hasAvatar && <Skeleton variant="circular" width={40} height={40} />}
+        }}>
+        {hasAvatar && <Skeleton variant='circular' width={40} height={40} />}
         <Box sx={{ flex: 1 }}>
-          <Skeleton variant="text" width="80%" height={24} />
-          <Skeleton variant="text" width="60%" height={20} />
+          <Skeleton variant='text' width='80%' height={24} />
+          <Skeleton variant='text' width='60%' height={20} />
         </Box>
       </Box>
     ))}
@@ -128,7 +133,7 @@ export const TextSkeleton = ({ lines = 3, width = '100%' }) => (
     {Array.from({ length: lines }).map((_, index) => (
       <Skeleton
         key={index}
-        variant="text"
+        variant='text'
         width={index === lines - 1 ? '70%' : width}
         height={20}
       />
@@ -153,11 +158,11 @@ export const TableSkeleton = ({ rows = 5, columns = 4 }) => (
         gridTemplateColumns: `repeat(${columns}, 1fr)`,
         gap: 2,
         p: 2,
-        borderBottom: (theme) => `1px solid ${theme.customTokens?.border || theme.palette.divider}`,
-      }}
-    >
+        borderBottom: (theme) =>
+          `1px solid ${theme.customTokens?.border || theme.palette.divider}`,
+      }}>
       {Array.from({ length: columns }).map((_, index) => (
-        <Skeleton key={index} variant="text" height={24} />
+        <Skeleton key={index} variant='text' height={24} />
       ))}
     </Box>
     {/* Rows */}
@@ -169,11 +174,11 @@ export const TableSkeleton = ({ rows = 5, columns = 4 }) => (
           gridTemplateColumns: `repeat(${columns}, 1fr)`,
           gap: 2,
           p: 2,
-          borderBottom: (theme) => `1px solid ${theme.customTokens?.borderSubtle || theme.palette.divider}`,
-        }}
-      >
+          borderBottom: (theme) =>
+            `1px solid ${theme.customTokens?.borderSubtle || theme.palette.divider}`,
+        }}>
         {Array.from({ length: columns }).map((_, colIndex) => (
-          <Skeleton key={colIndex} variant="text" height={20} />
+          <Skeleton key={colIndex} variant='text' height={20} />
         ))}
       </Box>
     ))}

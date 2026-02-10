@@ -19,8 +19,7 @@ const MarkdownLayout = () => {
         flexDirection: 'column',
         p: 2,
         width: '100%',
-      }}
-    >
+      }}>
       <Box sx={{ mb: 2 }}>
         <PersonalizeForm />
       </Box>
@@ -31,8 +30,7 @@ const MarkdownLayout = () => {
           flexDirection: { xs: 'column', md: 'row' },
           flex: 1,
           minHeight: 0, // Important for proper scrolling
-        }}
-      >
+        }}>
         <MarkdownEditor value={markdown} onChange={handleMarkdownChange} />
         <MarkdownPreview markdown={markdown} />
       </Box>

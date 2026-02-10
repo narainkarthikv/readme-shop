@@ -8,16 +8,14 @@ const ComponentsLayout = ({ children }) => (
     sx={{
       minHeight: '100vh',
       width: '100%',
-      bgcolor: 'background.default',
-    }}
-  >
+      bgcolor: 'transparent',
+    }}>
     <Container
-      maxWidth="xl"
+      maxWidth='xl'
       sx={{
         py: { xs: 2, md: 3 },
         px: { xs: 2, md: 3 },
-      }}
-    >
+      }}>
       <SvgBanners />
       <ComponentsGrid />
       {children}

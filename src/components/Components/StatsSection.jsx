@@ -11,8 +11,7 @@ const StatsSection = React.memo(() => (
       mt: 2,
       flexShrink: 0,
       mx: 'auto',
-    }}
-  >
+    }}>
     <GithubTrophies />
     <GithubStats />
   </Box>

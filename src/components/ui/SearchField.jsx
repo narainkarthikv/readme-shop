@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const SearchField = ({ value, onChange, placeholder, sx = {}, ...props }) => (
   <TextField
     fullWidth
-    size="small"
+    size='small'
     value={value}
     onChange={onChange}
     placeholder={placeholder}

@@ -38,22 +38,24 @@ const SEO = memo(({ title, description, keywords, isHome = false }) => (
   <Helmet>
     <title>{title || 'README Shop'}</title>
     <meta
-      name="description"
+      name='description'
       content={
         description ||
         'Create stunning, professional README files for your projects with our easy-to-use tools and templates.'
       }
     />
     <meta
-      name="keywords"
+      name='keywords'
       content={
         keywords ||
         'readme-shop, README generator, markdown, templates, open source, documentation'
       }
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#007bff" />
-    {isHome && <link rel="canonical" href="https://readme-shop.com" />}
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta name='theme-color' content='#2563eb' />
+    {isHome && (
+      <link rel='canonical' href='https://readmeshopwf.netlify.app/' />
+    )}
   </Helmet>
 ));
 
@@ -82,27 +84,29 @@ const AppLayout = memo(({ children }) => {
         minHeight: '100vh',
         bgcolor: theme.palette.background.default,
         color: theme.palette.text.primary,
+        backgroundImage:
+          theme.palette.mode === 'dark'
+            ? 'radial-gradient(1200px 600px at 10% -10%, rgba(37, 99, 235, 0.18), transparent 60%), radial-gradient(900px 500px at 90% -20%, rgba(59, 130, 246, 0.12), transparent 60%)'
+            : 'radial-gradient(1200px 600px at 10% -10%, rgba(37, 99, 235, 0.12), transparent 60%), radial-gradient(900px 500px at 90% -20%, rgba(59, 130, 246, 0.08), transparent 60%)',
         transition: 'background-color 0.3s ease, color 0.3s ease',
-      }}
-    >
+      }}>
       <SEO isHome={isHome} />
 
       {/* Only show Navbar on non-home routes */}
       {!isHome && <Navbar />}
 
       <Box
-        component="main"
+        component='main'
         sx={{
           flexGrow: 1,
           display: 'flex',
           flexDirection: 'column',
           bgcolor: theme.palette.background.default,
-        }}
-      >
+        }}>
         {children}
       </Box>
 
-      <Footer />
+      {isHome && <Footer />}
     </Box>
   );
 });
@@ -120,7 +124,7 @@ const App = () => {
   return (
     <ErrorBoundary>
       <Router>
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode='wait'>
           <Suspense
             fallback={
               <Box
@@ -129,24 +133,21 @@ const App = () => {
                   justifyContent: 'center',
                   alignItems: 'center',
                   minHeight: '100vh',
-                }}
-              >
+                }}>
                 <div>Loading...</div>
               </Box>
-            }
-          >
+            }>
             <Routes>
               <Route
                 path={ROUTES.HOME}
                 element={
                   <motion.div
-                    key="home"
-                    initial="initial"
-                    animate="in"
-                    exit="out"
+                    key='home'
+                    initial='initial'
+                    animate='in'
+                    exit='out'
                     variants={pageTransitionVariants}
-                    transition={pageTransition}
-                  >
+                    transition={pageTransition}>
                     <AppLayout>
                       <Home />
                     </AppLayout>
@@ -157,13 +158,12 @@ const App = () => {
                 path={ROUTES.COMPONENTS}
                 element={
                   <motion.div
-                    key="components"
-                    initial="initial"
-                    animate="in"
-                    exit="out"
+                    key='components'
+                    initial='initial'
+                    animate='in'
+                    exit='out'
                     variants={pageTransitionVariants}
-                    transition={pageTransition}
-                  >
+                    transition={pageTransition}>
                     <AppLayout>
                       <Components />
                     </AppLayout>
@@ -174,13 +174,12 @@ const App = () => {
                 path={ROUTES.SHOP}
                 element={
                   <motion.div
-                    key="output"
-                    initial="initial"
-                    animate="in"
-                    exit="out"
+                    key='output'
+                    initial='initial'
+                    animate='in'
+                    exit='out'
                     variants={pageTransitionVariants}
-                    transition={pageTransition}
-                  >
+                    transition={pageTransition}>
                     <AppLayout>
                       <Output />
                     </AppLayout>
@@ -191,13 +190,12 @@ const App = () => {
                 path={ROUTES.TEMPLATES}
                 element={
                   <motion.div
-                    key="templates"
-                    initial="initial"
-                    animate="in"
-                    exit="out"
+                    key='templates'
+                    initial='initial'
+                    animate='in'
+                    exit='out'
                     variants={pageTransitionVariants}
-                    transition={pageTransition}
-                  >
+                    transition={pageTransition}>
                     <AppLayout>
                       <TemplatesPage />
                     </AppLayout>
@@ -208,13 +206,12 @@ const App = () => {
                 path={ROUTES.NOT_FOUND}
                 element={
                   <motion.div
-                    key="404"
-                    initial="initial"
-                    animate="in"
-                    exit="out"
+                    key='404'
+                    initial='initial'
+                    animate='in'
+                    exit='out'
                     variants={pageTransitionVariants}
-                    transition={pageTransition}
-                  >
+                    transition={pageTransition}>
                     <AppLayout>
                       <Box
                         sx={{
@@ -225,8 +222,7 @@ const App = () => {
                           minHeight: '60vh',
                           textAlign: 'center',
                           p: 3,
-                        }}
-                      >
+                        }}>
                         <h1>404 - Page Not Found</h1>
                         <p>The page you are looking for does not exist.</p>
                       </Box>

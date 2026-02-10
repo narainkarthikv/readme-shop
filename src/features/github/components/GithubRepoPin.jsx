@@ -41,19 +41,17 @@ const GithubRepoPin = () => {
           boxShadow: (theme) => theme.shadows[4],
         },
       }}
-      role="button"
+      role='button'
       tabIndex={0}
-      aria-label="Insert repository pin"
-    >
+      aria-label='Insert repository pin'>
       <Typography
-        variant="h6"
+        variant='h6'
         sx={{
           mb: 1.5,
           fontWeight: 600,
           textAlign: 'center',
           fontSize: '1.125rem',
-        }}
-      >
+        }}>
         Repository Pin
       </Typography>
 
@@ -63,18 +61,16 @@ const GithubRepoPin = () => {
           justifyContent: 'center',
           alignItems: 'center',
           mb: 1,
-        }}
-      >
+        }}>
         <a
           href={`https://github.com/${USER}/readme-shop`}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={(e) => e.preventDefault()}
-        >
+          target='_blank'
+          rel='noopener noreferrer'
+          onClick={(e) => e.preventDefault()}>
           <Box
-            component="img"
+            component='img'
             src={`https://github-readme-stats.vercel.app/api/pin/?username=${USER}&repo=readme-shop&theme=tokyonight&hide_border=true`}
-            alt="Repository pin card"
+            alt='Repository pin card'
             sx={{
               width: '100%',
               maxWidth: 450,
@@ -84,31 +80,33 @@ const GithubRepoPin = () => {
         </a>
       </Box>
 
-      <Stack direction="row" spacing={1} justifyContent="center" sx={{ mt: 1.5 }}>
-        <Tooltip title="Insert into editor">
+      <Stack
+        direction='row'
+        spacing={1}
+        justifyContent='center'
+        sx={{ mt: 1.5 }}>
+        <Tooltip title='Insert into editor'>
           <Button
             startIcon={<InsertDriveFileIcon />}
-            size="small"
-            variant="contained"
+            size='small'
+            variant='contained'
             onClick={(e) => {
               e.stopPropagation();
               handleClick();
-            }}
-          >
+            }}>
             Insert
           </Button>
         </Tooltip>
 
-        <Tooltip title="View repository">
+        <Tooltip title='View repository'>
           <IconButton
-            size="small"
+            size='small'
             onClick={(e) => {
               e.stopPropagation();
               openInNewTab();
             }}
-            aria-label="Open repository"
-          >
-            <OpenInNewIcon fontSize="small" />
+            aria-label='Open repository'>
+            <OpenInNewIcon fontSize='small' />
           </IconButton>
         </Tooltip>
       </Stack>

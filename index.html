@@ -1,82 +1,110 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <link
-      href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,300,400,500,600,700,1&display=swap"
-      rel="stylesheet"
-    />
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <!-- Primary SEO -->
-    <title>Readme Shop — Curated README & Contribution Templates</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Primary Meta Tags -->
+    <title>README Shop - Build premium GitHub READMEs in minutes</title>
+    <meta
+      name="title"
+      content="README Shop - Build premium GitHub READMEs in minutes" />
     <meta
       name="description"
-      content="Readme Shop: a collection of curated README templates and contribution cards to help open-source maintainers and contributors create high-quality README files quickly."
-    />
+      content="README Shop helps you craft world-class GitHub READMEs with templates, badges, icons, and live Markdown preview. Export clean Markdown instantly and give your open-source project the polish it deserves." />
     <meta name="author" content="Narain Karthik" />
     <meta
       name="keywords"
-      content="README templates, open source, contribution cards, README generator, templates, GitHub README"
-    />
+      content="README builder, GitHub README, README templates, badges, icons, markdown preview, open source, contribution templates, developer portfolio" />
+    <meta name="theme-color" content="#2563EB" />
+    <meta name="color-scheme" content="light dark" />
 
-    <!-- Open Graph -->
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="README Shop" />
+    <meta property="og:url" content="https://readme-shop.vercel.app" />
     <meta
       property="og:title"
-      content="Readme Shop — Curated README & Contribution Templates"
-    />
+      content="README Shop - Build premium GitHub READMEs in minutes" />
     <meta
       property="og:description"
-      content="A collection of curated README templates and contribution cards to help maintainers and contributors craft clear, beautiful READMEs."
-    />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:url"
-      content="https://github.com/narainkarthikv/readme-shop"
-    />
-    <meta property="og:image" content="/preview.png" />
+      content="Create professional GitHub READMEs with templates, badges, icons, stats, and live preview. Export clean Markdown instantly." />
+    <meta property="og:image" content="/og-image.svg" />
+    <meta property="og:image:alt" content="README Shop preview" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@narainkarthik" />
+    <meta name="twitter:creator" content="@narainkarthik" />
     <meta
       name="twitter:title"
-      content="Readme Shop — Curated README & Contribution Templates"
-    />
+      content="README Shop - Build premium GitHub READMEs in minutes" />
     <meta
       name="twitter:description"
-      content="Browse and copy curated README templates and contribution cards for open-source projects."
-    />
-    <meta name="twitter:image" content="/preview.png" />
+      content="Templates, badges, icons, and live preview for polished GitHub READMEs. Export clean Markdown instantly." />
+    <meta name="twitter:image" content="/og-image.svg" />
+    <meta name="twitter:image:alt" content="README Shop preview" />
 
-    <!-- Fallback icons -->
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Robots & Canonical -->
-    <meta name="robots" content="index, follow" />
-    <link
-      rel="canonical"
-      href="https://github.com/narainkarthikv/readme-shop"
-    />
+    <!-- SEO & Crawlers -->
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="bingbot" content="index, follow" />
 
-    <!-- Structured data: Website + Organization -->
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://readmeshopwf.netlify.app/" />
+
+    <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "WebSite",
-            "name": "Readme Shop",
-            "url": "https://github.com/narainkarthikv/readme-shop",
-            "description": "Curated README templates and contribution cards for open-source projects."
-          },
-          {
-            "@type": "Organization",
-            "name": "Narain Karthik",
-            "url": "https://github.com/narainkarthikv",
-            "sameAs": ["https://github.com/narainkarthikv"]
-          }
-        ]
+        "@type": "SoftwareApplication",
+        "name": "README Shop",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web Browser",
+        "browserRequirements": "Requires JavaScript. Compatible with Chrome, Firefox, Safari, Edge.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Narain Karthik",
+          "url": "https://github.com/narainkarthikv"
+        },
+        "description": "README Shop helps you craft professional GitHub READMEs with templates, badges, icons, GitHub stats, and live Markdown preview. Export clean Markdown instantly and improve project clarity.",
+        "featureList": [
+          "Curated README templates",
+          "Badges and icons library",
+          "GitHub stats and activity blocks",
+          "Live Markdown editor and preview",
+          "Export clean Markdown",
+          "Responsive design",
+          "Light and dark modes"
+        ],
+        "softwareHelp": {
+          "@type": "WebPage",
+          "url": "https://readme-shop.vercel.app"
+        },
+        "screenshot": "https://readme-shop.vercel.app/og-image.svg",
+        "url": "https://readme-shop.vercel.app",
+        "keywords": "README builder, GitHub README, README templates, badges, icons, markdown preview"
       }
     </script>
   </head>

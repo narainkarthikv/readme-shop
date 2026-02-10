@@ -18,21 +18,19 @@ const TemplateCard = ({
 
   return (
     <CardContainer
-      component="article"
+      component='article'
       itemScope
-      itemType="https://schema.org/CreativeWork"
-      aria-label={`Template: ${template.label}`}
-    >
-      <Typography variant="h6" sx={{ mb: 1 }} itemProp="name">
+      itemType='https://schema.org/CreativeWork'
+      aria-label={`Template: ${template.label}`}>
+      <Typography variant='h6' sx={{ mb: 1 }} itemProp='name'>
         {template.label}
       </Typography>
 
       <Typography
-        variant="body2"
-        color="text.secondary"
+        variant='body2'
+        color='text.secondary'
         sx={{ mb: 2, minHeight: 40 }}
-        itemProp="description"
-      >
+        itemProp='description'>
         {template.description}
       </Typography>
 
@@ -42,22 +40,19 @@ const TemplateCard = ({
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-        }}
-      >
+        }}>
         <Button
           variant={isSelected ? 'contained' : 'outlined'}
-          color="primary"
+          color='primary'
           onClick={() => onUseTemplate(template.content, index)}
-          sx={{ minWidth: 100 }}
-        >
+          sx={{ minWidth: 100 }}>
           {isSelected ? 'Added!' : 'Use'}
         </Button>
 
         <Tooltip title={isCopied ? 'Copied!' : 'Copy to clipboard'}>
           <IconButton
             onClick={() => onCopy(template.content, index)}
-            color={isCopied ? 'success' : 'default'}
-          >
+            color={isCopied ? 'success' : 'default'}>
             {isCopied ? <CheckCircleIcon /> : <ContentCopyIcon />}
           </IconButton>
         </Tooltip>

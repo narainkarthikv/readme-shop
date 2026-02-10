@@ -1,10 +1,4 @@
-import {
-  Box,
-  Typography,
-  Stack,
-  Tooltip,
-  IconButton,
-} from '@mui/material';
+import { Box, Typography, Stack, Tooltip, IconButton } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import useMarkdownStore from '@/features/markdown/store/markdownStore';
 import CardContainer from '@/components/ui/CardContainer';
@@ -27,33 +21,34 @@ const GithubStreak = () => {
         mb: 3,
         p: 3,
         borderRadius: 2,
-        border: (theme) => `1px solid ${theme.customTokens?.borderSubtle || theme.palette.divider}`,
+        border: (theme) =>
+          `1px solid ${theme.customTokens?.borderSubtle || theme.palette.divider}`,
         bgcolor: 'background.paper',
         transition: 'all 0.2s ease',
         '&:hover': {
-          borderColor: (theme) => theme.customTokens?.border || theme.palette.divider,
-          boxShadow: (theme) => theme.customTokens?.shadow.md || theme.shadows[3],
+          borderColor: (theme) =>
+            theme.customTokens?.border || theme.palette.divider,
+          boxShadow: (theme) =>
+            theme.customTokens?.shadow.md || theme.shadows[3],
         },
       }}
-      role="article"
-      aria-label="GitHub Contribution Streak Component"
-    >
+      role='article'
+      aria-label='GitHub Contribution Streak Component'>
       <Box
         sx={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
           mb: 2,
-        }}
-      >
+        }}>
         <Typography
-          variant="h6"
+          variant='h6'
           sx={{
             fontWeight: 600,
             fontSize: '1.125rem',
-            color: (theme) => theme.customTokens?.textPrimary || theme.palette.text.primary,
-          }}
-        >
+            color: (theme) =>
+              theme.customTokens?.textPrimary || theme.palette.text.primary,
+          }}>
           Contribution Streak
         </Typography>
 
@@ -61,31 +56,32 @@ const GithubStreak = () => {
           <DualActionButton
             content={STREAK_MARKDOWN}
             onInsert={handleInsert}
-            contentType="markdown"
-            size="small"
-            variant="compact"
+            contentType='markdown'
+            size='small'
+            variant='compact'
           />
-          <Tooltip title="View on GitHub" arrow>
+          <Tooltip title='View on GitHub' arrow>
             <IconButton
-              size="small"
+              size='small'
               onClick={openInNewTab}
-              aria-label="Open GitHub profile"
+              aria-label='Open GitHub profile'
               sx={{
                 '&:hover': {
-                  bgcolor: (theme) => theme.customTokens?.surfaceHover || theme.palette.action.hover,
+                  bgcolor: (theme) =>
+                    theme.customTokens?.surfaceHover ||
+                    theme.palette.action.hover,
                 },
-              }}
-            >
-              <OpenInNewIcon fontSize="small" />
+              }}>
+              <OpenInNewIcon fontSize='small' />
             </IconButton>
           </Tooltip>
         </Box>
       </Box>
 
       <Box
-        component="img"
-        src="https://github-readme-streak-stats.herokuapp.com/?user=narainkarthikv&theme=tokyonight&hide_border=true"
-        alt="GitHub contribution streak for narainkarthikv"
+        component='img'
+        src='https://github-readme-streak-stats.herokuapp.com/?user=narainkarthikv&theme=tokyonight&hide_border=true'
+        alt='GitHub contribution streak for narainkarthikv'
         sx={{
           width: '100%',
           maxWidth: 500,
@@ -93,7 +89,8 @@ const GithubStreak = () => {
           display: 'block',
           mx: 'auto',
           mb: 2,
-          border: (theme) => `1px solid ${theme.customTokens?.borderSubtle || theme.palette.divider}`,
+          border: (theme) =>
+            `1px solid ${theme.customTokens?.borderSubtle || theme.palette.divider}`,
         }}
       />
     </CardContainer>

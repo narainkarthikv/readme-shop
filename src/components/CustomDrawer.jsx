@@ -28,7 +28,7 @@ const CustomDrawer = ({ open, onClose, currentPath }) => {
 
   return (
     <Drawer
-      anchor="left"
+      anchor='left'
       open={open}
       onClose={onClose}
       variant={isMobile ? 'temporary' : 'temporary'}
@@ -39,32 +39,28 @@ const CustomDrawer = ({ open, onClose, currentPath }) => {
           bgcolor: 'background.paper',
           borderRight: `1px solid ${theme.palette.divider}`,
         },
-      }}
-    >
+      }}>
       <Box
         sx={{
           display: 'flex',
           flexDirection: 'column',
           height: '100%',
         }}
-        role="presentation"
-      >
+        role='presentation'>
         {/* Header */}
         <Box
           sx={{
             px: 3,
             py: 2.5,
             borderBottom: `1px solid ${theme.palette.divider}`,
-          }}
-        >
+          }}>
           <Typography
-            variant="h6"
+            variant='h6'
             sx={{
               fontWeight: 700,
               fontSize: '1.125rem',
               color: 'text.primary',
-            }}
-          >
+            }}>
             Navigation
           </Typography>
         </Box>
@@ -102,14 +98,12 @@ const CustomDrawer = ({ open, onClose, currentPath }) => {
                       bgcolor: 'primary.main',
                     },
                   },
-                }}
-              >
+                }}>
                 <ListItemIcon
                   sx={{
                     minWidth: 40,
                     color: isActive ? 'primary.main' : 'text.secondary',
-                  }}
-                >
+                  }}>
                   {item.icon}
                 </ListItemIcon>
                 <ListItemText
@@ -128,7 +122,7 @@ const CustomDrawer = ({ open, onClose, currentPath }) => {
 
         {/* Footer */}
         <Box sx={{ mt: 'auto', p: 2, textAlign: 'center' }}>
-          <Typography variant="caption" color="text.secondary">
+          <Typography variant='caption' color='text.secondary'>
             README Shop © 2025
           </Typography>
         </Box>

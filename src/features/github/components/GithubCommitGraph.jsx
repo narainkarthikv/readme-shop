@@ -38,26 +38,24 @@ const GithubCommitGraph = () => {
           boxShadow: (theme) => theme.shadows[4],
         },
       }}
-      role="button"
+      role='button'
       tabIndex={0}
-      aria-label="Insert commit graph"
-    >
+      aria-label='Insert commit graph'>
       <Typography
-        variant="h6"
+        variant='h6'
         sx={{
           mb: 1.5,
           fontWeight: 600,
           textAlign: 'center',
           fontSize: '1.125rem',
-        }}
-      >
+        }}>
         Commit Statistics
       </Typography>
 
       <Box
-        component="img"
+        component='img'
         src={`https://github-readme-stats.vercel.app/api?username=${USER}&show_icons=true&count_private=true&theme=tokyonight&hide_border=true&include_all_commits=true`}
-        alt="GitHub commit statistics"
+        alt='GitHub commit statistics'
         sx={{
           width: '100%',
           maxWidth: 500,
@@ -67,31 +65,33 @@ const GithubCommitGraph = () => {
         }}
       />
 
-      <Stack direction="row" spacing={1} justifyContent="center" sx={{ mt: 1.5 }}>
-        <Tooltip title="Insert into editor">
+      <Stack
+        direction='row'
+        spacing={1}
+        justifyContent='center'
+        sx={{ mt: 1.5 }}>
+        <Tooltip title='Insert into editor'>
           <Button
             startIcon={<InsertDriveFileIcon />}
-            size="small"
-            variant="contained"
+            size='small'
+            variant='contained'
             onClick={(e) => {
               e.stopPropagation();
               handleClick();
-            }}
-          >
+            }}>
             Insert
           </Button>
         </Tooltip>
 
-        <Tooltip title="View on GitHub">
+        <Tooltip title='View on GitHub'>
           <IconButton
-            size="small"
+            size='small'
             onClick={(e) => {
               e.stopPropagation();
               openInNewTab();
             }}
-            aria-label="Open GitHub profile"
-          >
-            <OpenInNewIcon fontSize="small" />
+            aria-label='Open GitHub profile'>
+            <OpenInNewIcon fontSize='small' />
           </IconButton>
         </Tooltip>
       </Stack>

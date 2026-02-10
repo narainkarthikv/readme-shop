@@ -9,6 +9,19 @@ Thank you for your interest in contributing! 🚀
 - **Add tests** for new features or bug fixes when possible.
 - **Lint** your code and ensure all tests pass before submitting.
 
+## Development Setup
+
+- **Node.js** 18+ and **npm** 9+
+- Install dependencies: `npm install`
+- Start the dev server: `npm run dev`
+
+## Quality Checks
+
+- Lint: `npm run lint`
+- Auto-fix lint issues: `npm run lint:fix`
+- Format: `npm run format`
+- Check formatting: `npm run format:check`
+
 ## Code Style
 
 - Follow the existing code style and structure.
@@ -18,6 +31,11 @@ Thank you for your interest in contributing! 🚀
 
 - Use the [issue templates](.github/ISSUE_TEMPLATE) for bugs or feature requests.
 - Provide as much detail as possible.
+
+## Security Issues
+
+- Please do not report security vulnerabilities through public issues.
+- See [SECURITY.md](SECURITY.md) for the preferred reporting process.
 
 ## Community
 
