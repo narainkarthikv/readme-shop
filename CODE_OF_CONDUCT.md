@@ -22,7 +22,9 @@ Examples of unacceptable behavior:
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders at [INSERT EMAIL].
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders via:
+
+- https://github.com/narainkarthikv/readme-shop/issues/new?template=other_request.md
 
 ---
 

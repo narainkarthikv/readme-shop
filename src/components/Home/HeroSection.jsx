@@ -1,154 +1,244 @@
 /* eslint-disable react/prop-types */
-import { Box, Typography } from '@mui/material';
+import {
+  Box,
+  Button,
+  Chip,
+  Grid,
+  Paper,
+  Stack,
+  Typography,
+} from '@mui/material';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
-import { sectionVariants, blobVariants } from './animations';
+import {
+  buttonHoverVariants,
+  sectionVariants,
+  textRevealVariants,
+} from './animations';
 
-const Blob = ({
-  color,
-  size = 220,
-  right = 'auto',
-  left = 'auto',
-  top = '10%',
-  style = {},
-  i = 0,
-}) => (
-  <motion.div
-    aria-hidden
-    custom={i}
-    variants={blobVariants}
-    animate="idle"
-    style={{
-      position: 'absolute',
-      width: size,
-      height: size,
-      borderRadius: '50%',
-      filter: 'blur(28px) saturate(1.05)',
-      opacity: 0.18,
-      right,
-      left,
-      top,
-      background: color,
-      pointerEvents: 'none',
-      zIndex: 0,
-      transform: 'translate3d(0,0,0)',
-      ...style,
-    }}
-  />
-);
+const heroStats = [
+  { label: 'Templates', value: '40+' },
+  { label: 'Badges', value: '120+' },
+  { label: 'Icons', value: '300+' },
+];
+
+const highlights = [
+  'Templates tuned for apps and libraries',
+  'Badges, stats, and icons in one flow',
+  'Export clean Markdown in minutes',
+];
 
 const HeroSection = () => {
   const theme = useTheme();
 
   return (
     <motion.section
-      initial="hidden"
-      animate="visible"
+      initial='hidden'
+      animate='visible'
       variants={sectionVariants}
       style={{ width: '100%' }}
-      aria-label="Hero Section"
-    >
+      aria-label='Hero Section'>
       <Box
         sx={{
           position: 'relative',
           overflow: 'hidden',
-          py: { xs: 8, md: 12 },
+          py: { xs: 8, md: 14 },
           px: 2,
-          textAlign: 'center',
-          bgcolor: theme.palette.background.paper,
-          color: theme.palette.text.primary,
           borderBottom: `1px solid ${theme.palette.divider}`,
-          transition: 'background 0.3s, color 0.3s, border-color 0.3s',
-        }}
-      >
-        {/* decorative animated blobs */}
-        <Blob
-          color={theme.palette.primary.main}
-          size={360}
-          left="-8%"
-          top="-6%"
-          i={0}
-        />
-        <Blob
-          color={theme.palette.secondary.main}
-          size={260}
-          right="-6%"
-          top="6%"
-          i={1}
-        />
-        <Blob
-          color={theme.palette.info.main || theme.palette.primary.light}
-          size={180}
-          left="20%"
-          top="40%"
-          i={2}
-          style={{ opacity: 0.12 }}
+          bgcolor: theme.palette.background.paper,
+        }}>
+        <Box
+          sx={{
+            position: 'absolute',
+            inset: 0,
+            background:
+              theme.palette.mode === 'dark'
+                ? 'radial-gradient(1200px 600px at 10% -20%, rgba(59, 130, 246, 0.18), transparent 60%), radial-gradient(800px 500px at 90% 0%, rgba(14, 165, 233, 0.14), transparent 60%)'
+                : 'radial-gradient(1200px 600px at 10% -20%, rgba(37, 99, 235, 0.16), transparent 60%), radial-gradient(800px 500px at 90% 0%, rgba(56, 189, 248, 0.16), transparent 60%)',
+            pointerEvents: 'none',
+          }}
         />
 
         <Box
-          sx={{ position: 'relative', zIndex: 2, maxWidth: 1100, mx: 'auto' }}
-        >
-          <Typography
-            component={motion.h1}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            sx={{
-              fontWeight: 800,
-              fontSize: { xs: '2.25rem', md: '3.5rem' },
-              lineHeight: 1.04,
-              mb: 2,
-              letterSpacing: '-0.5px',
-              color: theme.palette.text.primary,
-            }}
-          >
-            Welcome to{' '}
-            <Box component="span" sx={{ color: theme.palette.primary.main }}>
-              README Shop
-            </Box>
-          </Typography>
+          sx={{ position: 'relative', zIndex: 1, maxWidth: 1200, mx: 'auto' }}>
+          <Grid container spacing={{ xs: 5, md: 8 }} alignItems='center'>
+            <Grid item xs={12} md={6}>
+              <motion.div variants={textRevealVariants} custom={0}>
+                <Chip
+                  label='New: curated templates + stats'
+                  color='primary'
+                  variant='outlined'
+                  sx={{
+                    mb: 2,
+                    fontWeight: 600,
+                    borderRadius: 999,
+                    bgcolor: theme.palette.action.hover,
+                  }}
+                />
+              </motion.div>
 
-          <Typography
-            component={motion.p}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            sx={{
-              fontWeight: 400,
-              fontSize: { xs: '1rem', md: '1.25rem' },
-              mb: 3,
-              color: theme.palette.text.secondary,
-            }}
-          >
-            The fastest way to create stunning, SEO-friendly README files for
-            your projects.
-          </Typography>
+              <motion.div variants={textRevealVariants} custom={1}>
+                <Typography
+                  component='h1'
+                  sx={{
+                    fontWeight: 800,
+                    fontSize: { xs: '2.4rem', md: '3.6rem', lg: '4rem' },
+                    lineHeight: 1.08,
+                    letterSpacing: '-0.02em',
+                    mb: 2,
+                  }}>
+                  Build a README that feels polished, fast, and credible
+                </Typography>
+              </motion.div>
 
-          <motion.button
-            whileHover={{
-              scale: 1.04,
-              boxShadow: '0 8px 30px rgba(15,23,42,0.12)',
-            }}
-            whileTap={{ scale: 0.98 }}
-            style={{
-              fontWeight: 700,
-              background: `linear-gradient(90deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
-              color: theme.palette.getContrastText(theme.palette.primary.main),
-              boxShadow: '0 6px 20px rgba(34,34,34,0.08)',
-              border: 'none',
-              borderRadius: '12px',
-              padding: '0.85rem 2rem',
-              fontSize: '1rem',
-              cursor: 'pointer',
-              marginTop: '0.5rem',
-              zIndex: 3,
-              transition: 'transform 0.2s ease',
-            }}
-            aria-label="Get Started"
-            onClick={() => (window.location.href = '/components')}
-          >
-            Get Started
-          </motion.button>
+              <motion.div variants={textRevealVariants} custom={2}>
+                <Typography
+                  variant='body1'
+                  sx={{
+                    color: theme.palette.text.secondary,
+                    fontSize: { xs: '1rem', md: '1.125rem' },
+                    maxWidth: 520,
+                    mb: 3,
+                  }}>
+                  README Shop blends templates, badges, icons, and GitHub stats
+                  into a single workflow so your project ships with clarity and
+                  confidence.
+                </Typography>
+              </motion.div>
+
+              <motion.div variants={textRevealVariants} custom={3}>
+                <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
+                  <Button
+                    component={Link}
+                    to='/shop'
+                    variant='contained'
+                    color='primary'
+                    size='large'
+                    sx={{ px: 3.5, borderRadius: 3 }}>
+                    Start Building
+                  </Button>
+                  <Button
+                    component={Link}
+                    to='/templates'
+                    variant='outlined'
+                    color='primary'
+                    size='large'
+                    sx={{ px: 3.5, borderRadius: 3 }}>
+                    Browse Templates
+                  </Button>
+                </Stack>
+              </motion.div>
+
+              <Stack
+                direction='row'
+                spacing={2}
+                sx={{ mt: 4, flexWrap: 'wrap', gap: 2 }}>
+                {heroStats.map((stat) => (
+                  <Box
+                    key={stat.label}
+                    sx={{
+                      px: 2.5,
+                      py: 1.2,
+                      borderRadius: 999,
+                      border: `1px solid ${theme.palette.divider}`,
+                      bgcolor: theme.palette.background.paper,
+                      minWidth: 120,
+                    }}>
+                    <Typography variant='h6' sx={{ fontWeight: 700 }}>
+                      {stat.value}
+                    </Typography>
+                    <Typography
+                      variant='body2'
+                      sx={{ color: theme.palette.text.secondary }}>
+                      {stat.label}
+                    </Typography>
+                  </Box>
+                ))}
+              </Stack>
+            </Grid>
+
+            <Grid item xs={12} md={6}>
+              <motion.div
+                variants={buttonHoverVariants}
+                whileHover='hover'
+                whileTap='tap'>
+                <Paper
+                  elevation={0}
+                  sx={{
+                    p: { xs: 3, md: 4 },
+                    borderRadius: 4,
+                    border: `1px solid ${theme.palette.divider}`,
+                    bgcolor: theme.palette.background.default,
+                    boxShadow: theme.shadows[2],
+                  }}>
+                  <Typography
+                    variant='overline'
+                    sx={{ letterSpacing: '0.2em' }}>
+                    README SHOP
+                  </Typography>
+                  <Typography
+                    variant='h4'
+                    sx={{ fontWeight: 700, mt: 1, mb: 1 }}>
+                    A modern README, ready to ship
+                  </Typography>
+                  <Typography
+                    variant='body2'
+                    sx={{ color: theme.palette.text.secondary, mb: 3 }}>
+                    See how your README looks with badges, stats, and a clear
+                    structure.
+                  </Typography>
+                  <Stack spacing={1.5} sx={{ mb: 3 }}>
+                    {highlights.map((item) => (
+                      <Box
+                        key={item}
+                        sx={{
+                          display: 'flex',
+                          gap: 1.5,
+                          alignItems: 'center',
+                        }}>
+                        <Box
+                          sx={{
+                            width: 10,
+                            height: 10,
+                            borderRadius: '50%',
+                            bgcolor: theme.palette.primary.main,
+                          }}
+                        />
+                        <Typography
+                          variant='body2'
+                          sx={{ color: theme.palette.text.secondary }}>
+                          {item}
+                        </Typography>
+                      </Box>
+                    ))}
+                  </Stack>
+                  <Box
+                    sx={{
+                      bgcolor: theme.palette.background.paper,
+                      border: `1px solid ${theme.palette.divider}`,
+                      borderRadius: 3,
+                      p: 2,
+                      fontFamily: theme.typography.fontFamily,
+                    }}>
+                    <Typography
+                      variant='caption'
+                      sx={{ color: theme.palette.text.secondary }}>
+                      README.md
+                    </Typography>
+                    <Typography variant='body2' sx={{ fontWeight: 600, mt: 1 }}>
+                      # Project Overview
+                    </Typography>
+                    <Typography
+                      variant='body2'
+                      sx={{ color: theme.palette.text.secondary }}>
+                      Fast setup, clean structure, and clear next steps.
+                    </Typography>
+                  </Box>
+                </Paper>
+              </motion.div>
+            </Grid>
+          </Grid>
         </Box>
       </Box>
     </motion.section>

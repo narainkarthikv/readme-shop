@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 const SectionTitle = React.memo(({ children, sx = {} }) => (
   <Typography
-    variant="h2"
-    component="h2"
+    variant='h2'
+    component='h2'
     sx={{
       fontWeight: 600,
       mb: 3,
@@ -13,8 +13,7 @@ const SectionTitle = React.memo(({ children, sx = {} }) => (
       color: 'text.primary',
       transition: 'color 0.3s',
       ...sx,
-    }}
-  >
+    }}>
     {children}
   </Typography>
 ));

@@ -1,46 +1,81 @@
-import { Suspense, lazy } from 'react';
-import PropTypes from 'prop-types';
+import { lazy, memo, Suspense } from 'react';
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   useLocation,
 } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { AnimatePresence, motion } from 'framer-motion';
+import {
+  pageTransitionVariants,
+  pageTransition,
+} from '@components/Home/animations';
 import { Box } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { ROUTES } from './config/constants';
-import { LoadingSpinner } from './components/common/LoadingSpinner';
+import { Helmet } from 'react-helmet-async';
+import { ROUTES } from '@config/index';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
-// Lazy load page components
-const Home = lazy(() => import('./pages/Home'));
-const Components = lazy(() => import('./pages/Components'));
-const Output = lazy(() => import('./pages/Output'));
-const TemplatesPage = lazy(() => import('./pages/TemplatesPage'));
-
-// ...existing code...
-// SEO meta tags for landing page
-const SEO = () => (
-  <>
-    <title>Readme Shop - Create Beautiful README.md Files Instantly</title>
-    <meta
-      name="description"
-      content="Readme Shop helps you create, customize, and copy beautiful README.md files for your projects. Discover templates, features, and testimonials."
-    />
-    <meta
-      name="keywords"
-      content="readme-shop, README generator, markdown, templates, open source, documentation"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </>
+// Lazy load page components with preload hints
+const Home = lazy(() => import(/* webpackChunkName: "home" */ './pages/Home'));
+const Components = lazy(
+  () => import(/* webpackChunkName: "components" */ './pages/Components')
+);
+const Output = lazy(
+  () => import(/* webpackChunkName: "output" */ './pages/Output')
+);
+const TemplatesPage = lazy(
+  () => import(/* webpackChunkName: "templates" */ './pages/TemplatesPage')
 );
 
-const AppLayout = ({ children }) => {
+/**
+ * SEO Component with helmet for metadata
+ */
+const SEO = memo(({ title, description, keywords, isHome = false }) => (
+  <Helmet>
+    <title>{title || 'README Shop'}</title>
+    <meta
+      name='description'
+      content={
+        description ||
+        'Create stunning, professional README files for your projects with our easy-to-use tools and templates.'
+      }
+    />
+    <meta
+      name='keywords'
+      content={
+        keywords ||
+        'readme-shop, README generator, markdown, templates, open source, documentation'
+      }
+    />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta name='theme-color' content='#2563eb' />
+    {isHome && (
+      <link rel='canonical' href='https://readmeshopwf.netlify.app/' />
+    )}
+  </Helmet>
+));
+
+SEO.displayName = 'SEO';
+
+SEO.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+  keywords: PropTypes.string,
+  isHome: PropTypes.bool,
+};
+
+/**
+ * App layout wrapper component
+ */
+const AppLayout = memo(({ children }) => {
   const theme = useTheme();
   const location = useLocation();
-  const isHome = location.pathname === '/';
+  const isHome = location.pathname === ROUTES.HOME;
+
   return (
     <Box
       sx={{
@@ -49,78 +84,160 @@ const AppLayout = ({ children }) => {
         minHeight: '100vh',
         bgcolor: theme.palette.background.default,
         color: theme.palette.text.primary,
-      }}
-    >
+        backgroundImage:
+          theme.palette.mode === 'dark'
+            ? 'radial-gradient(1200px 600px at 10% -10%, rgba(37, 99, 235, 0.18), transparent 60%), radial-gradient(900px 500px at 90% -20%, rgba(59, 130, 246, 0.12), transparent 60%)'
+            : 'radial-gradient(1200px 600px at 10% -10%, rgba(37, 99, 235, 0.12), transparent 60%), radial-gradient(900px 500px at 90% -20%, rgba(59, 130, 246, 0.08), transparent 60%)',
+        transition: 'background-color 0.3s ease, color 0.3s ease',
+      }}>
+      <SEO isHome={isHome} />
+
       {/* Only show Navbar on non-home routes */}
       {!isHome && <Navbar />}
-      {/* SEO meta tags for home/landing page */}
-      {isHome && <SEO />}
+
       <Box
-        component="main"
+        component='main'
         sx={{
           flexGrow: 1,
           display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          p: 2,
-          bgcolor: theme.palette.background.paper,
-          color: theme.palette.text.primary,
-        }}
-      >
+          flexDirection: 'column',
+          bgcolor: theme.palette.background.default,
+        }}>
         {children}
       </Box>
-      <Footer />
+
+      {isHome && <Footer />}
     </Box>
   );
-};
+});
+
+AppLayout.displayName = 'AppLayout';
 
 AppLayout.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
+/**
+ * Main App component with routing and page transitions
+ */
 const App = () => {
   return (
     <ErrorBoundary>
       <Router>
-        <Suspense fallback={<LoadingSpinner />}>
-          <Routes>
-            <Route
-              path={ROUTES.HOME}
-              element={
-                <AppLayout>
-                  <Home />
-                </AppLayout>
-              }
-            />
-            <Route
-              path={ROUTES.COMPONENTS}
-              element={
-                <AppLayout>
-                  <Components />
-                </AppLayout>
-              }
-            />
-            <Route
-              path={ROUTES.SHOP}
-              element={
-                <AppLayout>
-                  <Output />
-                </AppLayout>
-              }
-            />
-            <Route
-              path={ROUTES.TEMPLATES}
-              element={
-                <AppLayout>
-                  <TemplatesPage />
-                </AppLayout>
-              }
-            />
-          </Routes>
-        </Suspense>
+        <AnimatePresence mode='wait'>
+          <Suspense
+            fallback={
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  minHeight: '100vh',
+                }}>
+                <div>Loading...</div>
+              </Box>
+            }>
+            <Routes>
+              <Route
+                path={ROUTES.HOME}
+                element={
+                  <motion.div
+                    key='home'
+                    initial='initial'
+                    animate='in'
+                    exit='out'
+                    variants={pageTransitionVariants}
+                    transition={pageTransition}>
+                    <AppLayout>
+                      <Home />
+                    </AppLayout>
+                  </motion.div>
+                }
+              />
+              <Route
+                path={ROUTES.COMPONENTS}
+                element={
+                  <motion.div
+                    key='components'
+                    initial='initial'
+                    animate='in'
+                    exit='out'
+                    variants={pageTransitionVariants}
+                    transition={pageTransition}>
+                    <AppLayout>
+                      <Components />
+                    </AppLayout>
+                  </motion.div>
+                }
+              />
+              <Route
+                path={ROUTES.SHOP}
+                element={
+                  <motion.div
+                    key='output'
+                    initial='initial'
+                    animate='in'
+                    exit='out'
+                    variants={pageTransitionVariants}
+                    transition={pageTransition}>
+                    <AppLayout>
+                      <Output />
+                    </AppLayout>
+                  </motion.div>
+                }
+              />
+              <Route
+                path={ROUTES.TEMPLATES}
+                element={
+                  <motion.div
+                    key='templates'
+                    initial='initial'
+                    animate='in'
+                    exit='out'
+                    variants={pageTransitionVariants}
+                    transition={pageTransition}>
+                    <AppLayout>
+                      <TemplatesPage />
+                    </AppLayout>
+                  </motion.div>
+                }
+              />
+              <Route
+                path={ROUTES.NOT_FOUND}
+                element={
+                  <motion.div
+                    key='404'
+                    initial='initial'
+                    animate='in'
+                    exit='out'
+                    variants={pageTransitionVariants}
+                    transition={pageTransition}>
+                    <AppLayout>
+                      <Box
+                        sx={{
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          minHeight: '60vh',
+                          textAlign: 'center',
+                          p: 3,
+                        }}>
+                        <h1>404 - Page Not Found</h1>
+                        <p>The page you are looking for does not exist.</p>
+                      </Box>
+                    </AppLayout>
+                  </motion.div>
+                }
+              />
+            </Routes>
+          </Suspense>
+        </AnimatePresence>
       </Router>
     </ErrorBoundary>
   );
 };
+
+App.displayName = 'App';
 
 export default App;

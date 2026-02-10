@@ -1,0 +1,20 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A" />
+      <stop offset="1" stop-color="#0B1220" />
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(220 120) rotate(28) scale(520 320)">
+      <stop stop-color="#2563EB" stop-opacity="0.6" />
+      <stop offset="1" stop-color="#2563EB" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#glow)" />
+  <rect x="80" y="120" width="1040" height="390" rx="28" fill="#0F172A" stroke="#1E293B" stroke-width="2" />
+  <text x="140" y="250" fill="#E2E8F0" font-family="Sora, Arial, sans-serif" font-size="56" font-weight="700">README Shop</text>
+  <text x="140" y="315" fill="#94A3B8" font-family="Sora, Arial, sans-serif" font-size="28" font-weight="500">Build premium GitHub READMEs in minutes</text>
+  <rect x="140" y="355" width="240" height="54" rx="27" fill="#2563EB" />
+  <text x="170" y="390" fill="#F8FAFC" font-family="Sora, Arial, sans-serif" font-size="20" font-weight="600">Start Building</text>
+  <text x="140" y="450" fill="#64748B" font-family="Sora, Arial, sans-serif" font-size="18" font-weight="500">Templates • Badges • Icons • Stats • Live Preview</text>
+</svg>

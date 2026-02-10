@@ -1,7 +1,11 @@
 import React from 'react';
-import Templates from '../components/Templates';
+import TemplatesLayout from '@/features/templates/TemplatesLayout';
 
-const TemplatesPage = React.memo(() => <Templates />);
+/**
+ * TemplatesPage - Modern templates showcase
+ * Uses the new TemplatesLayout with improved UX patterns
+ */
+const TemplatesPage = React.memo(() => <TemplatesLayout />);
 
 TemplatesPage.displayName = 'TemplatesPage';
 

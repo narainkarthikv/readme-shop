@@ -77,13 +77,12 @@ const Templates = () => {
   return (
     <Box sx={{ mt: 4, maxWidth: 1200, mx: 'auto', px: { xs: 2, sm: 3 } }}>
       <Typography
-        variant="h4"
+        variant='h4'
         sx={{
           mb: 3,
           textAlign: 'center',
           fontSize: { xs: '1.5rem', sm: '2rem' },
-        }}
-      >
+        }}>
         README.md Templates
       </Typography>
       <Box
@@ -93,8 +92,7 @@ const Templates = () => {
           gap: 1,
           mb: 2,
           justifyContent: 'center',
-        }}
-      >
+        }}>
         {categories.map((cat) => (
           <Chip
             key={cat}
@@ -108,17 +106,17 @@ const Templates = () => {
       </Box>
       <Box sx={{ mb: 3, display: 'flex', justifyContent: 'center' }}>
         <TextField
-          variant="outlined"
-          placeholder="Search templates..."
+          variant='outlined'
+          placeholder='Search templates...'
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           sx={{ width: { xs: '100%', sm: 400 } }}
         />
       </Box>
-      <Grid container spacing={3} justifyContent="center" alignItems="stretch">
+      <Grid container spacing={3} justifyContent='center' alignItems='stretch'>
         {filteredTemplates.length === 0 && (
           <Grid item xs={12}>
-            <Typography variant="body1" color="text.secondary" align="center">
+            <Typography variant='body1' color='text.secondary' align='center'>
               No templates found.
             </Typography>
           </Grid>
@@ -130,8 +128,7 @@ const Templates = () => {
             sm={6}
             md={4}
             key={tpl.label}
-            sx={{ display: 'flex' }}
-          >
+            sx={{ display: 'flex' }}>
             <Fade in timeout={400} style={{ width: '100%' }}>
               <Card
                 sx={{
@@ -158,8 +155,7 @@ const Templates = () => {
                 }}
                 onClick={() => setSelectedIdx(idx)}
                 tabIndex={0}
-                aria-selected={selectedIdx === idx}
-              >
+                aria-selected={selectedIdx === idx}>
                 {/* Header actions always at the top */}
                 <Box
                   sx={{
@@ -172,36 +168,32 @@ const Templates = () => {
                     bgcolor: 'background.paper',
                     borderTopLeftRadius: 8,
                     borderTopRightRadius: 8,
-                  }}
-                >
+                  }}>
                   <Typography
-                    variant="h6"
+                    variant='h6'
                     sx={{
                       fontWeight: 600,
                       fontSize: { xs: '1.1rem', sm: '1.2rem' },
                       color: 'primary.main',
-                    }}
-                  >
+                    }}>
                     {tpl.label}
                   </Typography>
                   <Box sx={{ display: 'flex', gap: 1 }}>
                     <Button
                       variant={selectedIdx === idx ? 'contained' : 'outlined'}
-                      color="primary"
-                      size="small"
+                      color='primary'
+                      size='small'
                       onClick={(e) => {
                         e.stopPropagation();
                         handleUseTemplate(tpl.content, idx);
                       }}
-                      sx={{ minWidth: 110, fontWeight: 500, borderRadius: 2 }}
-                    >
+                      sx={{ minWidth: 110, fontWeight: 500, borderRadius: 2 }}>
                       {selectedIdx === idx ? 'Selected' : 'Use Template'}
                     </Button>
                     <Tooltip
                       title={
                         copiedIdx === idx ? 'Copied!' : 'Copy to clipboard'
-                      }
-                    >
+                      }>
                       <span>
                         <IconButton
                           color={copiedIdx === idx ? 'success' : 'primary'}
@@ -210,9 +202,8 @@ const Templates = () => {
                             handleCopy(tpl.content, idx);
                           }}
                           tabIndex={-1}
-                          size="small"
-                          sx={{ borderRadius: 2 }}
-                        >
+                          size='small'
+                          sx={{ borderRadius: 2 }}>
                           <ContentCopyIcon />
                         </IconButton>
                       </span>
@@ -226,20 +217,18 @@ const Templates = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'flex-start',
-                  }}
-                >
+                  }}>
                   <Typography
-                    variant="body2"
+                    variant='body2'
                     sx={{
                       mb: 2,
                       minHeight: 40,
                       color: theme.palette.text.secondary,
-                    }}
-                  >
+                    }}>
                     {tpl.description}
                   </Typography>
                   <Paper
-                    variant="outlined"
+                    variant='outlined'
                     sx={{
                       background: theme.palette.background.paper,
                       color: theme.palette.text.primary,
@@ -254,8 +243,7 @@ const Templates = () => {
                       mb: 1,
                       whiteSpace: 'pre-wrap',
                       flexGrow: 1,
-                    }}
-                  >
+                    }}>
                     {tpl.content}
                   </Paper>
                 </CardContent>

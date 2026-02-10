@@ -20,7 +20,8 @@ export const getTheme = (mode = 'light') =>
   createTheme({
     palette: palette[mode],
     typography: {
-      fontFamily: 'Roboto, Arial, sans-serif',
+      fontFamily:
+        'Sora, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif',
       h1: { fontWeight: 700 },
       // ...other typography
     },

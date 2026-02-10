@@ -17,9 +17,8 @@ const MarkdownEditor = ({ value, onChange }) => (
         fontFamily: 'monospace',
         height: '100%',
       },
-    }}
-  >
-    <Typography variant="h6" sx={{ mb: 1, flexShrink: 0 }}>
+    }}>
+    <Typography variant='h6' sx={{ mb: 1, flexShrink: 0 }}>
       Markdown Editor
     </Typography>
     <TextField
@@ -27,8 +26,8 @@ const MarkdownEditor = ({ value, onChange }) => (
       value={value}
       onChange={onChange}
       fullWidth
-      variant="outlined"
-      placeholder="Write your README markdown here..."
+      variant='outlined'
+      placeholder='Write your README markdown here...'
       sx={{
         flex: 1,
         '& .MuiInputBase-root': {

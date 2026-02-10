@@ -25,26 +25,24 @@ const PersonalizeForm = () => {
         gap: 2,
         mb: 2,
         flexDirection: { xs: 'column', sm: 'row' },
-      }}
-    >
+      }}>
       <TextField
-        id="userName"
-        label="Name"
+        id='userName'
+        label='Name'
         value={userName}
         onChange={(e) => setUserName(e.target.value)}
-        placeholder="Your name"
-        size="small"
+        placeholder='Your name'
+        size='small'
         fullWidth
       />
-      <FormControl size="small" fullWidth>
-        <InputLabel id="theme-label">Theme</InputLabel>
+      <FormControl size='small' fullWidth>
+        <InputLabel id='theme-label'>Theme</InputLabel>
         <Select
-          labelId="theme-label"
-          id="theme"
+          labelId='theme-label'
+          id='theme'
           value={theme}
-          label="Theme"
-          onChange={(e) => setTheme(e.target.value)}
-        >
+          label='Theme'
+          onChange={(e) => setTheme(e.target.value)}>
           {themeOptions.map((option) => (
             <MenuItem key={option.value} value={option.value}>
               {option.label}

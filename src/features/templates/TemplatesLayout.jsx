@@ -1,99 +1,58 @@
-import { Box, Typography, Grid, Fade } from '@mui/material';
-import useTemplatesStore from './store/templatesStore';
-import TemplateCard from './components/TemplateCard';
-import TemplateCategories from './components/TemplateCategories';
-import TemplateSearch from './components/TemplateSearch';
-import useMarkdownStore from '../markdown/store/markdownStore';
-import useClipboard from '@/hooks/useClipboard';
+import { Box, Container, Paper, useTheme, alpha } from '@mui/material';
+import PropTypes from 'prop-types';
+import ModernSection from '@/components/ui/ModernSection';
+import TemplatesGrid from '@/components/Templates/TemplatesGrid';
 
-const TemplatesLayout = () => {
-  const {
-    search,
-    setSearch,
-    selectedCategory,
-    setSelectedCategory,
-    selectedIdx,
-    setSelectedIdx,
-    copiedIdx,
-    setCopiedIdx,
-    getFilteredTemplates,
-    getCategories,
-  } = useTemplatesStore();
-
-  const { setMarkdown } = useMarkdownStore();
-  const { copyToClipboard } = useClipboard();
-
-  const templates = getFilteredTemplates();
-  const categories = getCategories();
-
-  const handleCopy = async (content, idx) => {
-    await copyToClipboard(content);
-    setCopiedIdx(idx);
-    setTimeout(() => setCopiedIdx(null), 2000);
-  };
-
-  const handleUseTemplate = (content, idx) => {
-    setMarkdown(content);
-    setSelectedIdx(idx);
-    setTimeout(() => setSelectedIdx(null), 2000);
-  };
+/**
+ * TemplatesLayout - Modern 2025+ Design
+ * Features:
+ * - Clean containerized layout matching Components page
+ * - Proper spacing and responsive design
+ * - Modern visual hierarchy
+ * - Optimized for user experience
+ */
+const TemplatesLayout = ({ children }) => {
+  const theme = useTheme();
 
   return (
-    <Box sx={{ mt: 4, maxWidth: 1200, mx: 'auto', px: { xs: 2, sm: 3 } }}>
-      <Typography
-        variant="h4"
+    <Box
+      sx={{
+        minHeight: '100vh',
+        width: '100%',
+        bgcolor: 'transparent',
+      }}>
+      <Container
+        maxWidth='xl'
         sx={{
-          mb: 3,
-          textAlign: 'center',
-          fontSize: { xs: '1.5rem', sm: '2rem' },
-        }}
-      >
-        README.md Templates
-      </Typography>
+          py: { xs: 3, md: 4 },
+          px: { xs: 2, md: 3 },
+        }}>
+        {/* Modern Section Wrapper */}
+        <ModernSection
+          title='README.md Templates'
+          description='Choose from professionally crafted templates to kickstart your project documentation'
+          variant='default'
+          sx={{ mb: 2 }}>
+          <Paper
+            elevation={0}
+            sx={{
+              p: { xs: 2, md: 3 },
+              borderRadius: 2,
+              bgcolor: 'background.paper',
+              border: `1px solid ${theme.customTokens?.borderSubtle || theme.palette.divider}`,
+            }}>
+            <TemplatesGrid />
+          </Paper>
+        </ModernSection>
 
-      <TemplateCategories
-        categories={categories}
-        selectedCategory={selectedCategory}
-        onCategorySelect={setSelectedCategory}
-      />
-
-      <TemplateSearch search={search} onSearchChange={setSearch} />
-
-      <Grid container spacing={3} justifyContent="center" alignItems="stretch">
-        {templates.length === 0 && (
-          <Grid item xs={12}>
-            <Typography variant="body1" color="text.secondary" align="center">
-              No templates found.
-            </Typography>
-          </Grid>
-        )}
-
-        {templates.map((template, idx) => (
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            md={4}
-            key={template.label}
-            sx={{ display: 'flex' }}
-          >
-            <Fade in timeout={400} style={{ width: '100%' }}>
-              <div style={{ width: '100%' }}>
-                <TemplateCard
-                  template={template}
-                  index={idx}
-                  selectedIdx={selectedIdx}
-                  copiedIdx={copiedIdx}
-                  onUseTemplate={handleUseTemplate}
-                  onCopy={handleCopy}
-                />
-              </div>
-            </Fade>
-          </Grid>
-        ))}
-      </Grid>
+        {children}
+      </Container>
     </Box>
   );
+};
+
+TemplatesLayout.propTypes = {
+  children: PropTypes.node,
 };
 
 export default TemplatesLayout;

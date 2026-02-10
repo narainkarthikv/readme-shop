@@ -1,12 +1,16 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import {
   HeroSection,
   InfoSection,
   FeaturesSection,
   HowItWorksSection,
+  TrustSection,
+  CtaSection,
+  SupportSection,
+  ThanksSection,
 } from '../components/Home';
 
 const Home = React.memo(() => {
@@ -14,13 +18,12 @@ const Home = React.memo(() => {
 
   return (
     <Box
-      component="main"
+      component='main'
       sx={{
         bgcolor: theme.palette.background.default,
         minHeight: '100vh',
         width: '100%',
         color: theme.palette.text.primary,
-        fontFamily: 'Clash Grotesk, sans-serif',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -28,35 +31,38 @@ const Home = React.memo(() => {
         gap: 0,
         transition: 'background 0.3s, color 0.3s',
       }}
-      aria-label="Landing Page Main Content"
-    >
+      aria-label='Landing Page Main Content'>
       <Helmet>
-        <title>README Shop - Create Stunning Project READMEs</title>
+        <title>README Shop</title>
         <meta
-          name="description"
-          content="README Shop helps you create beautiful, SEO-optimized README files for your open-source projects. Try our templates, badges, and icons!"
+          name='description'
+          content='README Shop helps you create beautiful, SEO-optimized README files for your open-source projects. Try our templates, badges, and icons!'
         />
         <meta
-          name="keywords"
-          content="readme-shop, README generator, open-source, badges, icons, SEO, templates"
+          name='keywords'
+          content='readme-shop, README generator, open-source, badges, icons, SEO, templates'
         />
         <meta
-          property="og:title"
-          content="README Shop - Create Stunning Project READMEs"
+          property='og:title'
+          content='README Shop - Create Beautiful README Files'
         />
         <meta
-          property="og:description"
-          content="Create beautiful, SEO-optimized README files for your open-source projects."
+          property='og:description'
+          content='Create beautiful, SEO-optimized README files for your open-source projects.'
         />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://readme-shop.com" />
-        <meta property="og:image" content="/public/favicon.svg" />
+        <meta property='og:type' content='website' />
+        <meta property='og:url' content='https://readme-shop.com' />
+        <meta property='og:image' content='/public/favicon.svg' />
       </Helmet>
 
       <HeroSection />
       <InfoSection />
       <FeaturesSection />
       <HowItWorksSection />
+      <TrustSection />
+      <CtaSection />
+      <ThanksSection />
+      <SupportSection />
     </Box>
   );
 });

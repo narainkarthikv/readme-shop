@@ -31,13 +31,12 @@ const MarkdownPreview = ({ markdown }) => {
           maxWidth: '100%',
           height: 'auto',
         },
-      }}
-    >
-      <Typography variant="h6" sx={{ mb: 1 }}>
+      }}>
+      <Typography variant='h6' sx={{ mb: 1 }}>
         Preview
       </Typography>
       <div
-        className="markdown-preview"
+        className='markdown-preview'
         style={{
           fontFamily: 'inherit',
           fontSize: 16,

@@ -1,52 +1,66 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, IconButton, Tooltip } from '@mui/material';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import useMarkdownStore from '@/features/markdown/store/markdownStore';
 import CardContainer from '@/components/ui/CardContainer';
+import DualActionButton from '@/components/ui/DualActionButton.jsx';
 
 const TROPHY_MARKDOWN = `<img src="https://github-profile-trophy.vercel.app/?username=narainkarthikv&theme=tokyonight&no-frame=true&margin-w=4" alt="GitHub Trophies" style="width:100%;max-width:100%;border-radius:8px;" />`;
 
 const GithubTrophies = () => {
-  const embedMarkdown = useMarkdownStore((state) => state.embedMarkdown);
-
-  const handleClick = () => embedMarkdown(TROPHY_MARKDOWN);
+  const openInNewTab = () => {
+    window.open('https://github.com/narainkarthikv', '_blank', 'noopener');
+  };
 
   return (
     <CardContainer
-      onClick={handleClick}
       sx={{
-        cursor: 'pointer',
-        mb: 4,
-        p: 3,
-        borderRadius: 3,
-        transition: 'all 0.3s ease',
-        '&:hover': {
-          transform: 'translateY(-4px)',
-          boxShadow: (theme) => theme.shadows[6],
-        },
-      }}
-    >
-      <Typography
-        variant="h5"
+        p: 2,
+        borderRadius: 2,
+      }}>
+      <Box
         sx={{
-          mb: 2,
-          fontWeight: 600,
-          textAlign: 'center',
-          letterSpacing: 0.5,
-        }}
-      >
-        GitHub Trophies
-      </Typography>
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          mb: 1.5,
+        }}>
+        <Typography
+          variant='h6'
+          sx={{
+            fontWeight: 600,
+            fontSize: '1.125rem',
+          }}>
+          GitHub Trophies
+        </Typography>
+
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+          <DualActionButton
+            content={TROPHY_MARKDOWN}
+            contentType='markdown'
+            variant='compact'
+            size='small'
+          />
+          <Tooltip title='View on GitHub'>
+            <IconButton
+              size='small'
+              onClick={openInNewTab}
+              aria-label='Open GitHub profile'>
+              <OpenInNewIcon fontSize='small' />
+            </IconButton>
+          </Tooltip>
+        </Box>
+      </Box>
 
       <Box
-        component="img"
-        src="https://github-profile-trophy.vercel.app/?username=narainkarthikv&theme=tokyonight&no-frame=true&margin-w=4"
-        alt="GitHub Trophies"
+        component='img'
+        src='https://github-profile-trophy.vercel.app/?username=narainkarthikv&theme=tokyonight&no-frame=true&margin-w=4'
+        alt='GitHub trophies for narainkarthikv'
         sx={{
           width: '100%',
           maxWidth: '100%',
-          borderRadius: 2,
+          borderRadius: 1,
           display: 'block',
           mx: 'auto',
-          boxShadow: (theme) => theme.shadows[2],
         }}
       />
     </CardContainer>

@@ -1,117 +1,101 @@
 /* eslint-disable react/prop-types */
-import { Box, Typography, Grid } from '@mui/material';
-import { motion } from 'framer-motion';
+import { Box, Button, Grid, Paper, Stack, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
-import { floatVariants } from './animations';
+import Section from './components/Section';
+import SectionTitle from './components/SectionTitle';
 
-const InfoItem = ({ icon, title, description }) => {
-  const theme = useTheme();
-
-  return (
-    <Grid item xs={12} sm={4}>
-      <motion.div
-        variants={floatVariants}
-        animate="animate"
-        style={{ display: 'inline-block' }}
-      >
-        <Typography
-          variant="h5"
-          sx={{
-            color: theme.palette.primary.main,
-            fontWeight: 500,
-            transition: 'color 0.3s',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: 1,
-          }}
-        >
-          <Box
-            component="span"
-            sx={{ fontSize: { xs: '1.6rem', md: '2rem' }, lineHeight: 1 }}
-          >
-            {icon}
-          </Box>
-          {title}
-        </Typography>
-      </motion.div>
-
-      <Typography
-        variant="body2"
-        sx={{
-          color: theme.palette.text.secondary,
-          transition: 'color 0.3s',
-          mt: 1,
-        }}
-      >
-        {description}
-      </Typography>
-    </Grid>
-  );
-};
+const infoItems = [
+  {
+    icon: 'Clarity first',
+    title: 'Make projects scannable',
+    description:
+      'Turn complex work into a README that is easy to skim and simple to trust.',
+  },
+  {
+    icon: 'Modular blocks',
+    title: 'Build with reusable pieces',
+    description:
+      'Mix templates, badges, icons, and stats without rebuilding your structure.',
+  },
+  {
+    icon: 'Export ready',
+    title: 'Publish with zero cleanup',
+    description:
+      'Copy Markdown or export assets cleanly when you are ready to ship.',
+  },
+];
 
 const InfoSection = () => {
   const theme = useTheme();
 
-  const infoItems = [
-    {
-      icon: '🚀',
-      title: 'Stand Out',
-      description:
-        'Make your projects memorable with custom banners, badges, and icons.',
-    },
-    {
-      icon: '🌐',
-      title: 'Connect',
-      description:
-        'Showcase your skills, achievements, and social links in one place.',
-    },
-    {
-      icon: '💡',
-      title: 'Inspire',
-      description:
-        'Use our templates to inspire others and grow your open-source impact.',
-    },
-  ];
-
   return (
-    <Box
-      sx={{
-        py: { xs: 4, md: 6 },
-        px: 2,
-        maxWidth: 900,
-        mx: 'auto',
-        textAlign: 'center',
-      }}
-    >
+    <Section aria-label='Why README Shop'>
+      <SectionTitle>Why README Shop</SectionTitle>
       <Typography
-        variant="h3"
+        variant='body1'
         sx={{
-          fontWeight: 600,
-          mb: 2,
-          color: theme.palette.primary.main,
-          transition: 'color 0.3s',
-        }}
-      >
-        Why README Shop?
-      </Typography>
-      <Typography
-        variant="body1"
-        sx={{
-          mb: 2,
+          textAlign: 'center',
           color: theme.palette.text.secondary,
-          transition: 'color 0.3s',
-        }}
-      >
-        Elevate your GitHub profile and project documentation with interactive,
-        visually stunning READMEs. Our platform empowers you to:
+          maxWidth: 640,
+          mx: 'auto',
+          mb: 5,
+        }}>
+        Give your open-source work a professional, trustworthy home. Build a
+        README that invites contributors and makes your project feel ready for
+        the spotlight.
       </Typography>
-      <Grid container spacing={2} justifyContent="center">
+
+      <Grid container spacing={3}>
         {infoItems.map((item) => (
-          <InfoItem key={item.title} {...item} />
+          <Grid item xs={12} md={4} key={item.title}>
+            <Paper
+              elevation={0}
+              sx={{
+                p: 3,
+                height: '100%',
+                borderRadius: 3,
+                border: `1px solid ${theme.palette.divider}`,
+                bgcolor: theme.palette.background.paper,
+              }}>
+              <Typography
+                variant='overline'
+                sx={{
+                  letterSpacing: '0.2em',
+                  color: theme.palette.text.secondary,
+                }}>
+                {item.icon}
+              </Typography>
+              <Typography variant='h5' sx={{ fontWeight: 600, mt: 1, mb: 1 }}>
+                {item.title}
+              </Typography>
+              <Typography
+                variant='body2'
+                sx={{ color: theme.palette.text.secondary }}>
+                {item.description}
+              </Typography>
+            </Paper>
+          </Grid>
         ))}
       </Grid>
-    </Box>
+
+      <Stack
+        direction={{ xs: 'column', sm: 'row' }}
+        spacing={2}
+        justifyContent='center'
+        sx={{ mt: 4 }}>
+        <Button component={Link} to='/shop' variant='contained' color='primary'>
+          Build a README
+        </Button>
+        <Button
+          component={Link}
+          to='/components'
+          variant='outlined'
+          color='primary'>
+          Explore Components
+        </Button>
+      </Stack>
+    </Section>
   );
 };
 
