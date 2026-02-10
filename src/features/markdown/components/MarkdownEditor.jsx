@@ -33,10 +33,12 @@ const MarkdownEditor = ({ value, onChange }) => (
         '& .MuiInputBase-root': {
           height: '100%',
           display: 'flex',
+          alignItems: 'flex-start',
           '& textarea': {
             flex: 1,
             resize: 'none',
             overflowY: 'auto',
+            paddingTop: '8px',
           },
         },
       }}

@@ -2,7 +2,6 @@ import { Box } from '@mui/material';
 import MarkdownEditor from './components/MarkdownEditor';
 import MarkdownPreview from './components/MarkdownPreview';
 import useMarkdownStore from './store/markdownStore';
-import PersonalizeForm from './components/PersonalizeForm';
 
 const MarkdownLayout = () => {
   const { markdown, setMarkdown } = useMarkdownStore();
@@ -20,9 +19,6 @@ const MarkdownLayout = () => {
         p: 2,
         width: '100%',
       }}>
-      <Box sx={{ mb: 2 }}>
-        <PersonalizeForm />
-      </Box>
       <Box
         sx={{
           display: 'flex',
