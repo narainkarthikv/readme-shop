@@ -6,7 +6,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/narainkarthikv/readme-shop)](https://github.com/narainkarthikv/readme-shop/issues)
 [![GitHub stars](https://img.shields.io/github/stars/narainkarthikv/readme-shop)](https://github.com/narainkarthikv/readme-shop/stargazers)
 
-**A modern README builder for crafting polished GitHub profiles and project docs.**
+**Structure your README with confidence. Build clean, ready-to-publish documentation using guided templates and live previews.**
 
 README-SHOP is a React 18 + Vite web app that helps you assemble professional README files using templates, badges, GitHub stats components, and a live markdown editor. The output is sanitized and ready to copy or embed.
 

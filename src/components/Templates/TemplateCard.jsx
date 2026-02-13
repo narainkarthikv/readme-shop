@@ -205,7 +205,7 @@ TemplatePreview.propTypes = {
 };
 
 /**
- * TemplateCard - Modern 2025+ Design
+ * TemplateCard - Modern 2026+ Design
  * Features:
  * - Clean card layout with hover effects
  * - Unified button styling matching DualActionButton from Components section

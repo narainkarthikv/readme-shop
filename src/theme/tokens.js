@@ -1,6 +1,6 @@
 /**
  * Design Tokens - Modern Semantic Color System
- * Inspired by Vercel, Linear, and GitHub 2025 design systems
+ * Inspired by Vercel, Linear, and GitHub 2026 design systems
  * Ensures WCAG AA contrast in both light and dark modes
  */
 
