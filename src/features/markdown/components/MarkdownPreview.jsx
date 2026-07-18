@@ -42,7 +42,7 @@ const MarkdownPreview = ({ markdown }) => {
           wordBreak: 'break-word',
         },
       }}>
-      <Typography variant='h6' sx={{ mb: 1 }}>
+      <Typography variant='h6' sx={{ mb: 1, flexShrink: 0 }}>
         Preview
       </Typography>
       <div
@@ -51,6 +51,7 @@ const MarkdownPreview = ({ markdown }) => {
           fontFamily: 'inherit',
           fontSize: 16,
           flex: 1,
+          minHeight: 0,
           overflowY: 'auto',
           overflowX: 'hidden',
           paddingRight: '8px',
