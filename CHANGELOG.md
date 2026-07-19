@@ -13,6 +13,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+## [1.1.3] - 2026-07-18
+
+### Fixed
+
+- Fixed markdown editor and preview containers scrollability in `/shop` section
+  - Added `minHeight: 0` to flex containers to enable proper scrolling
+  - Replaced MUI TextField with native textarea for reliable scroll behavior
+  - Updated Paper background color to match outer container for consistent design
+  - Ensured both containers scroll independently with proper overflow handling
+  - Improved responsive layout for mobile devices
+
 ## [1.1.2] - 2026-06-30
 
 ### Fixed
