@@ -31,13 +31,14 @@ const CtaSection = () => {
           <Grid container spacing={3} alignItems='center'>
             <Grid item xs={12} md={7}>
               <Typography variant='h3' sx={{ fontWeight: 700, mb: 1.5 }}>
-                Ready to ship a README that feels polished?
+                Ready to turn project notes into publishable Markdown?
               </Typography>
               <Typography
                 variant='body1'
                 sx={{ color: theme.palette.text.secondary }}>
-                Build fast, export clean, and give your project the polish it
-                deserves.
+                Start with the builder, pull in templates and GitHub components,
+                preview the result, then copy the Markdown where your project
+                lives.
               </Typography>
             </Grid>
             <Grid item xs={12} md={5}>
@@ -51,7 +52,7 @@ const CtaSection = () => {
                   variant='contained'
                   color='primary'
                   sx={{ px: 3.5, borderRadius: 3 }}>
-                  Start Building
+                  Open Builder
                 </Button>
                 <Button
                   component={Link}
@@ -59,7 +60,7 @@ const CtaSection = () => {
                   variant='outlined'
                   color='primary'
                   sx={{ px: 3.5, borderRadius: 3 }}>
-                  View Markdown Templates
+                  View Templates
                 </Button>
               </Stack>
             </Grid>

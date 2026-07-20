@@ -7,7 +7,7 @@ test.describe('Navigation', () => {
     await expect(
       page.getByRole('heading', {
         level: 1,
-        name: /build a .*readme.*polished/i,
+        name: /build.*project docs/i,
       })
     ).toBeVisible();
   });
@@ -15,7 +15,7 @@ test.describe('Navigation', () => {
   test('navigates to shop page from home', async ({ page }) => {
     await page.goto('/');
     await page
-      .getByRole('link', { name: /start building/i })
+      .getByRole('link', { name: /open builder/i })
       .first()
       .click();
     await expect(page).toHaveURL(/\/shop$/);

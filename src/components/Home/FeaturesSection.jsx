@@ -1,4 +1,5 @@
-import { Box, Grid, Paper, Typography } from '@mui/material';
+import { useState } from 'react';
+import { Box, Button, Grid, Paper, Stack, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTheme } from '@mui/material/styles';
 import { cardVariants, floatVariants, staggerVariants } from './animations';
@@ -7,39 +8,52 @@ import SectionTitle from './components/SectionTitle';
 
 const features = [
   {
-    title: 'Template intelligence',
+    title: 'README templates',
     description:
-      'Curated layouts for apps, libraries, APIs, and open-source portfolios.',
+      'Start from reusable project, profile, contribution, support, and feature templates instead of a blank file.',
     icon: '01',
+    detail:
+      'Use templates when you need a clean baseline for install steps, feature summaries, contribution notes, support links, and project metadata.',
   },
   {
-    title: 'Prompt Gallery',
+    title: 'Prompt gallery',
     description:
-      'Reusable AI prompts for debugging, content, and product workflows.',
+      'Copy structured prompts for README rewrites, release notes, debugging, product copy, and documentation workflows.',
     icon: '02',
+    detail:
+      'The prompt library gives you a better starting point when you want AI help but still need clear inputs and predictable output.',
   },
   {
-    title: 'Badges that matter',
+    title: 'Badges and icons',
     description:
-      'Highlight releases, license, CI status, and community trust signals.',
+      'Add Shields badges, skill icons, banners, license signals, issues, forks, and release markers.',
     icon: '03',
+    detail:
+      'Use visual signals to communicate tech stack, project health, community status, and repository metadata quickly.',
   },
   {
     title: 'Live markdown preview',
     description:
-      'Edit and preview side-by-side so you know exactly what ships.',
+      'Edit and preview side-by-side with sanitized HTML so you can catch formatting issues before publishing.',
     icon: '04',
+    detail:
+      'The builder keeps writing and reviewing together, which is useful when README structure changes frequently.',
   },
   {
-    title: 'GitHub stats blocks',
+    title: 'GitHub components',
     description:
-      'Drop in streaks, languages, and contribution graphs in a click.',
+      'Generate activity graphs, streaks, repo pins, trophies, followers, profile views, and metrics snippets.',
     icon: '05',
+    detail:
+      'These components are useful for profile READMEs and open-source repos that need social proof or activity context.',
   },
   {
-    title: 'Export without friction',
-    description: 'Copy the Markdown or export assets with zero paywalls.',
+    title: 'Copy and export',
+    description:
+      'Copy clean Markdown or embed snippets quickly when your README is ready.',
     icon: '06',
+    detail:
+      'The output is meant to move directly into GitHub, docs, issues, discussions, or any Markdown-based publishing flow.',
   },
 ];
 
@@ -89,10 +103,11 @@ const FeatureCard = ({ feature }) => {
 
 const FeaturesSection = () => {
   const theme = useTheme();
+  const [activeFeature, setActiveFeature] = useState(features[0]);
 
   return (
     <Section aria-label='Features Section'>
-      <SectionTitle>Everything you need for a world-class README</SectionTitle>
+      <SectionTitle>Current Markdown Shop features</SectionTitle>
       <Typography
         variant='body1'
         sx={{
@@ -102,9 +117,68 @@ const FeaturesSection = () => {
           mx: 'auto',
           mb: 5,
         }}>
-        Focus on building your project. We handle the presentation, structure,
-        and polish.
+        Use Markdown Shop to assemble project READMEs, GitHub profile pages,
+        contributor docs, and reusable Markdown snippets from one focused
+        workspace.
       </Typography>
+
+      <Paper
+        elevation={0}
+        sx={{
+          p: { xs: 2, md: 3 },
+          mb: 3,
+          borderRadius: 3,
+          border: `1px solid ${theme.palette.divider}`,
+          bgcolor: theme.palette.background.paper,
+        }}>
+        <Grid container spacing={3} alignItems='center'>
+          <Grid item xs={12} md={5}>
+            <Stack spacing={1}>
+              {features.map((feature) => (
+                <Button
+                  key={feature.title}
+                  type='button'
+                  variant={
+                    activeFeature.title === feature.title
+                      ? 'contained'
+                      : 'outlined'
+                  }
+                  color='primary'
+                  onClick={() => setActiveFeature(feature)}
+                  sx={{
+                    justifyContent: 'flex-start',
+                    borderRadius: 2,
+                    minHeight: 44,
+                  }}>
+                  {feature.icon}. {feature.title}
+                </Button>
+              ))}
+            </Stack>
+          </Grid>
+          <Grid item xs={12} md={7}>
+            <Typography variant='h5' sx={{ fontWeight: 700, mb: 1 }}>
+              {activeFeature.title}
+            </Typography>
+            <Typography
+              variant='body1'
+              sx={{ color: theme.palette.text.secondary, mb: 2 }}>
+              {activeFeature.detail}
+            </Typography>
+            <Typography
+              variant='body2'
+              sx={{
+                color: theme.palette.text.secondary,
+                p: 2,
+                borderRadius: 2,
+                border: `1px solid ${theme.palette.divider}`,
+                bgcolor: theme.palette.background.default,
+              }}>
+              {activeFeature.description}
+            </Typography>
+          </Grid>
+        </Grid>
+      </Paper>
+
       <motion.div
         variants={staggerVariants}
         initial='hidden'

@@ -8,10 +8,13 @@ import {
 } from '@mui/material';
 import MarkdownEditor from './components/MarkdownEditor';
 import MarkdownPreview from './components/MarkdownPreview';
+import { SectionSelector } from '@/components/SectionSelector';
 import useMarkdownStore from './store/markdownStore';
+import { useSectionPresets } from '@/hooks/useSectionPresets';
 
 const MarkdownLayout = () => {
   const { markdown, setMarkdown, userName, setUserName } = useMarkdownStore();
+  useSectionPresets();
 
   const handleMarkdownChange = (e) => {
     setMarkdown(e.target.value);
@@ -73,7 +76,16 @@ const MarkdownLayout = () => {
           flex: 1,
           minHeight: 0, // Important for proper scrolling
         }}>
-        <MarkdownEditor value={markdown} onChange={handleMarkdownChange} />
+        <Box
+          sx={{
+            flex: 1,
+            display: 'flex',
+            flexDirection: 'column',
+            minHeight: 0,
+          }}>
+          <SectionSelector />
+          <MarkdownEditor value={markdown} onChange={handleMarkdownChange} />
+        </Box>
         <MarkdownPreview markdown={markdown} />
       </Box>
     </Box>

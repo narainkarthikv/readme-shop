@@ -11,19 +11,19 @@ import SectionTitle from './components/SectionTitle';
 
 const steps = [
   {
-    title: 'Start with a template or prompt',
+    title: 'Choose the building block',
     description:
-      'Choose Markdown Templates or AI prompts built for docs, and workflow notes.',
+      'Open the builder, templates, prompts, icons, badges, or GitHub component library based on the README section you need.',
   },
   {
-    title: 'Personalize the page',
+    title: 'Preview as you edit',
     description:
-      'Add badges, icons, stats, and rich sections with live preview feedback.',
+      'Personalize the Markdown and inspect the rendered result while you add sections, stats, and visual signals.',
   },
   {
-    title: 'Publish with confidence',
+    title: 'Copy the finished Markdown',
     description:
-      'Export clean Markdown, copy it instantly, and ship polished project docs.',
+      'Copy or export the output into GitHub README files, profile pages, docs, issues, or discussions.',
   },
 ];
 
@@ -83,7 +83,7 @@ const HowItWorksSection = () => {
 
   return (
     <Section aria-label='How It Works Section'>
-      <SectionTitle>Build in three quick steps</SectionTitle>
+      <SectionTitle>How the workflow fits together</SectionTitle>
       <Typography
         variant='body1'
         sx={{
@@ -93,7 +93,8 @@ const HowItWorksSection = () => {
           mx: 'auto',
           mb: 4,
         }}>
-        A repeatable workflow that keeps you shipping.
+        Move from a rough idea to publishable Markdown without switching between
+        scattered generators.
       </Typography>
       <Grid container spacing={3}>
         {steps.map((step, index) => (

@@ -6,22 +6,22 @@ import SectionTitle from './components/SectionTitle';
 
 const infoItems = [
   {
-    icon: 'Clarity first',
-    title: 'Make projects scannable',
+    icon: 'Repos',
+    title: 'Document a project',
     description:
-      'Turn complex work into a README that is easy to skim and simple to trust.',
+      'Create READMEs that explain what the project does, how to install it, how to contribute, and where users get help.',
   },
   {
-    icon: 'Prompt-ready',
-    title: 'Use AI prompt templates',
+    icon: 'Profiles',
+    title: 'Improve your GitHub profile',
     description:
-      'Jump-start your writing with structured prompts built for debugging, and documentation.',
+      'Combine stats, trophies, contribution graphs, skill icons, profile views, followers, and repo pins into a polished profile page.',
   },
   {
-    icon: 'Export ready',
-    title: 'Publish with zero cleanup',
+    icon: 'Snippets',
+    title: 'Generate reusable markdown',
     description:
-      'Copy Markdown or export assets cleanly when you are ready to ship.',
+      'Build badges, banners, prompt-driven copy, and Markdown blocks you can reuse across repos, issues, discussions, and docs.',
   },
 ];
 
@@ -40,9 +40,9 @@ const InfoSection = () => {
           mx: 'auto',
           mb: 5,
         }}>
-        Turn README writing into a polished SaaS workflow. Use Markdown
-        Templates, AI prompts, badges, and stats to move from idea to launch
-        without friction.
+        Markdown Shop is for developers who need project documentation that is
+        fast to assemble, easy to read, and ready for GitHub without hand
+        stitching every badge, stat card, and section.
       </Typography>
 
       <Grid container spacing={3}>
@@ -91,7 +91,7 @@ const InfoSection = () => {
           to='/prompts'
           variant='outlined'
           color='primary'>
-          Explore Prompt Gallery
+          Open Prompt Gallery
         </Button>
       </Stack>
     </Section>
