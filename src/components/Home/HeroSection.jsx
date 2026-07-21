@@ -1,12 +1,5 @@
-import {
-  Box,
-  Button,
-  Chip,
-  Grid,
-  Paper,
-  Stack,
-  Typography,
-} from '@mui/material';
+import { useState } from 'react';
+import { Box, Button, Grid, Paper, Stack, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
@@ -16,20 +9,56 @@ import {
   textRevealVariants,
 } from './animations';
 
-const heroStats = [
-  { label: 'Markdown Templates', value: '40+' },
-  { label: 'Prompt Gallery', value: '12+' },
-  { label: 'Icons', value: '300+' },
+const productStats = [
+  { label: 'Templates', value: 'README' },
+  { label: 'Components', value: 'GitHub' },
+  { label: 'Output', value: 'Markdown' },
 ];
 
-const highlights = [
-  'Choose from markdown templates and AI prompts',
-  'Build docs with badges, stats, and live preview',
-  'Export ready-to-publish markdown in seconds',
+const useCases = [
+  {
+    label: 'Launch a project',
+    title: 'Turn a new repo into a clear product README',
+    description:
+      'Start from a project template, add setup steps, include license and release badges, then preview the finished README before it goes live.',
+    output: [
+      '# Project Name',
+      '## What it does',
+      'A short promise, screenshots, and the fastest path to install.',
+      '## Quick start',
+      'Copy-ready commands, requirements, and expected output.',
+    ],
+  },
+  {
+    label: 'Upgrade a profile',
+    title: 'Build a GitHub profile that shows real activity',
+    description:
+      'Add stats cards, streaks, trophies, contribution graphs, followers, profile views, badges, and skill icons without hand-writing every snippet.',
+    output: [
+      '# Hi, I am building with React and Vite',
+      '![GitHub Stats](...)',
+      '![Contribution Graph](...)',
+      'React | Vite | Material UI | Markdown',
+    ],
+  },
+  {
+    label: 'Write with prompts',
+    title: 'Use structured prompts when the README needs sharper copy',
+    description:
+      'Open the prompt gallery for release notes, debugging notes, product summaries, and docs writing prompts you can adapt to your project.',
+    output: [
+      '# Prompt: README Rewrite',
+      'Goal: make the project purpose obvious in the first 30 seconds.',
+      'Input: repo summary, install steps, target audience.',
+      'Output: concise sections with contributor-ready language.',
+    ],
+  },
 ];
 
 const HeroSection = () => {
   const theme = useTheme();
+  const [selectedUseCase, setSelectedUseCase] = useState(0);
+  const activeUseCase = useCases[selectedUseCase];
 
   return (
     <motion.section
@@ -37,44 +66,30 @@ const HeroSection = () => {
       animate='visible'
       variants={sectionVariants}
       style={{ width: '100%' }}
-      aria-label='Hero Section'>
+      aria-label='Markdown Shop overview'>
       <Box
         sx={{
           position: 'relative',
           overflow: 'hidden',
-          py: { xs: 8, md: 14 },
+          py: { xs: 6, md: 9 },
           px: 2,
           borderBottom: `1px solid ${theme.palette.divider}`,
           bgcolor: theme.palette.background.paper,
         }}>
         <Box
-          sx={{
-            position: 'absolute',
-            inset: 0,
-            background:
-              theme.palette.mode === 'dark'
-                ? 'radial-gradient(1200px 600px at 10% -20%, rgba(59, 130, 246, 0.18), transparent 60%), radial-gradient(800px 500px at 90% 0%, rgba(14, 165, 233, 0.14), transparent 60%)'
-                : 'radial-gradient(1200px 600px at 10% -20%, rgba(37, 99, 235, 0.16), transparent 60%), radial-gradient(800px 500px at 90% 0%, rgba(56, 189, 248, 0.16), transparent 60%)',
-            pointerEvents: 'none',
-          }}
-        />
-
-        <Box
           sx={{ position: 'relative', zIndex: 1, maxWidth: 1200, mx: 'auto' }}>
           <Grid container spacing={{ xs: 5, md: 8 }} alignItems='center'>
             <Grid item xs={12} md={6}>
               <motion.div variants={textRevealVariants} custom={0}>
-                <Chip
-                  label='New: Prompt Gallery + Markdown Templates'
-                  color='primary'
-                  variant='outlined'
+                <Typography
+                  variant='overline'
                   sx={{
-                    mb: 2,
+                    color: theme.palette.primary.main,
                     fontWeight: 600,
-                    borderRadius: 999,
-                    bgcolor: theme.palette.action.hover,
-                  }}
-                />
+                    letterSpacing: '0.14em',
+                  }}>
+                  README builder for open-source projects
+                </Typography>
               </motion.div>
 
               <motion.div variants={textRevealVariants} custom={1}>
@@ -82,21 +97,12 @@ const HeroSection = () => {
                   component='h1'
                   sx={{
                     fontWeight: 800,
-                    fontSize: { xs: '2.4rem', md: '3.6rem', lg: '4rem' },
-                    lineHeight: 1.08,
-                    letterSpacing: '-0.02em',
+                    fontSize: { xs: '2.35rem', md: '3.4rem', lg: '3.8rem' },
+                    lineHeight: 1.1,
                     mb: 2,
+                    maxWidth: 620,
                   }}>
-                  Build a{' '}
-                  <Box
-                    component='span'
-                    sx={{
-                      color: theme.palette.primary.main,
-                      fontWeight: 800,
-                    }}>
-                    README
-                  </Box>{' '}
-                  that feels polished, fast, and credible
+                  Build, preview, and ship better project docs
                 </Typography>
               </motion.div>
 
@@ -105,17 +111,46 @@ const HeroSection = () => {
                   variant='body1'
                   sx={{
                     color: theme.palette.text.secondary,
-                    fontSize: { xs: '1rem', md: '1.125rem' },
-                    maxWidth: 520,
+                    fontSize: { xs: '1rem', md: '1.1rem' },
+                    maxWidth: 600,
                     mb: 3,
                   }}>
-                  Structure your README the SaaS way. Build clean,
-                  ready-to-publish documentation using Markdown Templates, AI
-                  prompts, and live preview.
+                  Markdown Shop helps you assemble professional READMEs with
+                  templates, live preview, GitHub stats, badges, icons, prompt
+                  templates, and copy-ready Markdown output.
                 </Typography>
               </motion.div>
 
               <motion.div variants={textRevealVariants} custom={3}>
+                <Stack
+                  direction='row'
+                  spacing={1.5}
+                  sx={{ mb: 3, flexWrap: 'wrap', gap: 1.5 }}>
+                  {productStats.map((stat) => (
+                    <Box
+                      key={stat.label}
+                      sx={{
+                        px: 2,
+                        py: 1,
+                        borderRadius: 2,
+                        border: `1px solid ${theme.palette.divider}`,
+                        bgcolor: theme.palette.background.default,
+                        minWidth: 118,
+                      }}>
+                      <Typography variant='body2' sx={{ fontWeight: 700 }}>
+                        {stat.value}
+                      </Typography>
+                      <Typography
+                        variant='caption'
+                        sx={{ color: theme.palette.text.secondary }}>
+                        {stat.label}
+                      </Typography>
+                    </Box>
+                  ))}
+                </Stack>
+              </motion.div>
+
+              <motion.div variants={textRevealVariants} custom={4}>
                 <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
                   <Button
                     component={Link}
@@ -123,47 +158,20 @@ const HeroSection = () => {
                     variant='contained'
                     color='primary'
                     size='large'
-                    sx={{ px: 3.5, borderRadius: 3 }}>
-                    Start Building
+                    sx={{ px: 3.5, borderRadius: 2 }}>
+                    Open Builder
                   </Button>
                   <Button
                     component={Link}
-                    to='/templates'
+                    to='/components'
                     variant='outlined'
                     color='primary'
                     size='large'
-                    sx={{ px: 3.5, borderRadius: 3 }}>
-                    Browse Markdown Templates
+                    sx={{ px: 3.5, borderRadius: 2 }}>
+                    Browse Components
                   </Button>
                 </Stack>
               </motion.div>
-
-              <Stack
-                direction='row'
-                spacing={2}
-                sx={{ mt: 4, flexWrap: 'wrap', gap: 2 }}>
-                {heroStats.map((stat) => (
-                  <Box
-                    key={stat.label}
-                    sx={{
-                      px: 2.5,
-                      py: 1.2,
-                      borderRadius: 999,
-                      border: `1px solid ${theme.palette.divider}`,
-                      bgcolor: theme.palette.background.paper,
-                      minWidth: 120,
-                    }}>
-                    <Typography variant='h6' sx={{ fontWeight: 700 }}>
-                      {stat.value}
-                    </Typography>
-                    <Typography
-                      variant='body2'
-                      sx={{ color: theme.palette.text.secondary }}>
-                      {stat.label}
-                    </Typography>
-                  </Box>
-                ))}
-              </Stack>
             </Grid>
 
             <Grid item xs={12} md={6}>
@@ -174,74 +182,102 @@ const HeroSection = () => {
                 <Paper
                   elevation={0}
                   sx={{
-                    p: { xs: 3, md: 4 },
-                    borderRadius: 4,
+                    p: { xs: 2.5, md: 3 },
+                    borderRadius: 3,
                     border: `1px solid ${theme.palette.divider}`,
                     bgcolor: theme.palette.background.default,
                     boxShadow: theme.shadows[2],
                   }}>
                   <Typography
                     variant='overline'
-                    sx={{ letterSpacing: '0.2em' }}>
-                    MARKDOWN SHOP
+                    sx={{
+                      color: theme.palette.text.secondary,
+                      letterSpacing: '0.14em',
+                    }}>
+                    What do you need to create?
                   </Typography>
-                  <Typography
-                    variant='h4'
-                    sx={{ fontWeight: 700, mt: 1, mb: 1 }}>
-                    Your documentation workflow, built like a SaaS app
-                  </Typography>
-                  <Typography
-                    variant='body2'
-                    sx={{ color: theme.palette.text.secondary, mb: 3 }}>
-                    Preview Markdown live, apply reusable templates and prompts,
-                    and ship docs with confidence.
-                  </Typography>
-                  <Stack spacing={1.5} sx={{ mb: 3 }}>
-                    {highlights.map((item) => (
-                      <Box
-                        key={item}
-                        sx={{
-                          display: 'flex',
-                          gap: 1.5,
-                          alignItems: 'center',
-                        }}>
-                        <Box
+
+                  <Stack
+                    direction={{ xs: 'column', sm: 'row' }}
+                    spacing={1}
+                    sx={{ mt: 1.5, mb: 3 }}
+                    role='tablist'
+                    aria-label='README use cases'>
+                    {useCases.map((item, index) => {
+                      const isActive = selectedUseCase === index;
+
+                      return (
+                        <Button
+                          key={item.label}
+                          type='button'
+                          role='tab'
+                          aria-selected={isActive}
+                          variant={isActive ? 'contained' : 'outlined'}
+                          color='primary'
+                          onClick={() => setSelectedUseCase(index)}
                           sx={{
-                            width: 10,
-                            height: 10,
-                            borderRadius: '50%',
-                            bgcolor: theme.palette.primary.main,
-                          }}
-                        />
-                        <Typography
-                          variant='body2'
-                          sx={{ color: theme.palette.text.secondary }}>
-                          {item}
-                        </Typography>
-                      </Box>
-                    ))}
+                            borderRadius: 2,
+                            justifyContent: 'center',
+                            flex: 1,
+                            minHeight: 44,
+                          }}>
+                          {item.label}
+                        </Button>
+                      );
+                    })}
                   </Stack>
+
                   <Box
                     sx={{
-                      bgcolor: theme.palette.background.paper,
-                      border: `1px solid ${theme.palette.divider}`,
-                      borderRadius: 3,
-                      p: 2,
-                      fontFamily: theme.typography.fontFamily,
+                      display: 'grid',
+                      gap: 2,
                     }}>
-                    <Typography
-                      variant='caption'
-                      sx={{ color: theme.palette.text.secondary }}>
-                      README.md
-                    </Typography>
-                    <Typography variant='body2' sx={{ fontWeight: 600, mt: 1 }}>
-                      # Project Overview
-                    </Typography>
-                    <Typography
-                      variant='body2'
-                      sx={{ color: theme.palette.text.secondary }}>
-                      Fast setup, clean structure, and clear next steps.
-                    </Typography>
+                    <Box>
+                      <Typography variant='h5' sx={{ fontWeight: 700, mb: 1 }}>
+                        {activeUseCase.title}
+                      </Typography>
+                      <Typography
+                        variant='body2'
+                        sx={{ color: theme.palette.text.secondary }}>
+                        {activeUseCase.description}
+                      </Typography>
+                    </Box>
+
+                    <Box
+                      sx={{
+                        bgcolor: theme.palette.background.paper,
+                        border: `1px solid ${theme.palette.divider}`,
+                        borderRadius: 2,
+                        p: 2,
+                      }}>
+                      <Typography
+                        variant='caption'
+                        sx={{
+                          color: theme.palette.text.secondary,
+                          display: 'block',
+                          mb: 1,
+                        }}>
+                        Preview output
+                      </Typography>
+                      <Stack spacing={0.75}>
+                        {activeUseCase.output.map((line) => (
+                          <Typography
+                            key={line}
+                            variant='body2'
+                            sx={{
+                              color: line.startsWith('#')
+                                ? theme.palette.text.primary
+                                : theme.palette.text.secondary,
+                              fontWeight: line.startsWith('#') ? 700 : 400,
+                              fontFamily: line.startsWith('!')
+                                ? 'monospace'
+                                : theme.typography.fontFamily,
+                            }}>
+                            {line}
+                          </Typography>
+                        ))}
+                      </Stack>
+                    </Box>
                   </Box>
                 </Paper>
               </motion.div>

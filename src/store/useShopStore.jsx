@@ -12,6 +12,7 @@ const initialState = {
   loading: false,
   error: null,
   selectedBadges: [],
+  selectedSections: [],
 };
 
 /**
@@ -72,6 +73,40 @@ export const useShopStore = create(
 
       clearBadges: () => set({ selectedBadges: [] }),
 
+      // Section operations
+      addSection: (sectionId) => {
+        const { selectedSections } = get();
+        if (!selectedSections.includes(sectionId)) {
+          set({ selectedSections: [...selectedSections, sectionId] });
+        }
+      },
+
+      removeSection: (sectionId) => {
+        const { selectedSections } = get();
+        set({
+          selectedSections: selectedSections.filter((id) => id !== sectionId),
+        });
+      },
+
+      toggleSection: (sectionId) => {
+        const { selectedSections } = get();
+        if (selectedSections.includes(sectionId)) {
+          get().removeSection(sectionId);
+        } else {
+          get().addSection(sectionId);
+        }
+      },
+
+      setSections: (sections) => {
+        if (!Array.isArray(sections)) {
+          logger.warn('sections must be an array');
+          return;
+        }
+        set({ selectedSections: sections });
+      },
+
+      clearSections: () => set({ selectedSections: [] }),
+
       // Loading state
       setLoading: (loading) => {
         if (typeof loading !== 'boolean') {
@@ -106,6 +141,7 @@ export const useShopStore = create(
       partialize: (state) => ({
         themeMode: state.themeMode,
         selectedBadges: state.selectedBadges,
+        selectedSections: state.selectedSections,
       }),
       version: 1,
       migrate: (persistedState, version) => {
@@ -125,3 +161,4 @@ export const selectLoading = (state) => state.loading;
 export const selectError = (state) => state.error;
 export const selectIconSearchTerm = (state) => state.iconSearchTerm;
 export const selectSelectedBadges = (state) => state.selectedBadges;
+export const selectSelectedSections = (state) => state.selectedSections;

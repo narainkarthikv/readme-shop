@@ -7,9 +7,9 @@ import SectionTitle from './components/SectionTitle';
 
 const guarantees = [
   {
-    title: 'Local-first workflow',
+    title: 'Browser-based workflow',
     description:
-      'Draft, edit, and preview in your browser with no forced accounts.',
+      'Draft, edit, preview, copy, and export from the web app with no forced setup step.',
   },
   {
     title: 'Markdown you own',
@@ -17,22 +17,23 @@ const guarantees = [
       'Export clean Markdown anytime. No lock-in, no proprietary format.',
   },
   {
-    title: 'Fast by design',
+    title: 'Theme-aware interface',
     description:
-      'Lightweight UI so you stay in flow while building your README.',
+      'Light and dark modes keep the builder readable while you work across devices.',
   },
   {
     title: 'Open-source ethos',
     description: 'Built for the community with transparent, inspectable code.',
   },
   {
-    title: 'Contributor-ready',
+    title: 'Contributor-ready docs',
     description:
-      'Structure that invites collaboration and sets expectations clearly.',
+      'Templates help you explain contribution rules, support paths, project scope, and community expectations.',
   },
   {
-    title: 'Quality signals',
-    description: 'Badges and stats add instant credibility to your project.',
+    title: 'Sanitized preview',
+    description:
+      'Rendered Markdown is sanitized before preview so formatting stays useful without careless HTML output.',
   },
 ];
 
@@ -41,7 +42,7 @@ const TrustSection = () => {
 
   return (
     <Section aria-label='Trust Section'>
-      <SectionTitle>Built for open-source trust</SectionTitle>
+      <SectionTitle>Built for readable open-source docs</SectionTitle>
       <Typography
         variant='body1'
         sx={{
@@ -51,8 +52,9 @@ const TrustSection = () => {
           mx: 'auto',
           mb: 5,
         }}>
-        Markdown Shop respects your work: no lock-in, no noisy marketing, just
-        clean documentation that earns confidence.
+        The app focuses on output you can inspect, reuse, and publish in the
+        places developers already read: GitHub READMEs, profile pages, docs,
+        issues, and discussions.
       </Typography>
 
       <Grid container spacing={3}>

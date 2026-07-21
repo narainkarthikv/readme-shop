@@ -1,0 +1,60 @@
+{
+  "sections": [
+    {
+      "id": "installation",
+      "name": "Installation",
+      "description": "How to install your project",
+      "icon": "📦",
+      "content": "## Installation\n\n### Prerequisites\n- Node.js 18.0.0 or higher\n- npm 9.0.0 or higher\n\n### Local Setup\n\n```bash\ngit clone https://github.com/yourusername/your-repo.git\ncd your-repo\nnpm install\n```\n"
+    },
+    {
+      "id": "usage",
+      "name": "Usage",
+      "description": "How to use your project",
+      "icon": "🚀",
+      "content": "## Usage\n\n### Quick Start\n\n```bash\nnpm run dev\n```\n\nThe application will start at `http://localhost:5173`.\n\n### Examples\n\nHere are some common tasks:\n\n- **Build**: `npm run build`\n- **Preview**: `npm run preview`\n- **Lint**: `npm run lint`\n"
+    },
+    {
+      "id": "contributing",
+      "name": "Contributing",
+      "description": "Guidelines for contributing",
+      "icon": "🤝",
+      "content": "## Contributing\n\nWe welcome contributions! Please follow these steps:\n\n1. Fork the repository\n2. Create a feature branch (`git checkout -b feature/amazing-feature`)\n3. Commit your changes (`git commit -m 'Add amazing feature'`)\n4. Push to the branch (`git push origin feature/amazing-feature`)\n5. Open a Pull Request\n\nPlease ensure your code follows our coding standards and includes appropriate tests.\n"
+    },
+    {
+      "id": "license",
+      "name": "License",
+      "description": "License information",
+      "icon": "📜",
+      "content": "## License\n\nThis project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.\n"
+    },
+    {
+      "id": "faq",
+      "name": "FAQ",
+      "description": "Frequently asked questions",
+      "icon": "❓",
+      "content": "## FAQ\n\n### How do I report a bug?\n\nPlease open an [issue](https://github.com/yourusername/your-repo/issues) with a clear description and reproduction steps.\n\n### How do I request a feature?\n\nFeature requests can be submitted as [discussions](https://github.com/yourusername/your-repo/discussions) or issues tagged with `enhancement`.\n\n### Where do I get support?\n\nYou can get support through:\n- GitHub Discussions\n- GitHub Issues\n- Email at [your-email@example.com]\n"
+    },
+    {
+      "id": "troubleshooting",
+      "name": "Troubleshooting",
+      "description": "Common issues and solutions",
+      "icon": "🔧",
+      "content": "## Troubleshooting\n\n### Issue: Dependencies won't install\n\n**Solution**: Clear npm cache and reinstall\n\n```bash\nnpm cache clean --force\nrm -rf node_modules package-lock.json\nnpm install\n```\n\n### Issue: Port already in use\n\n**Solution**: Kill the process using the port or change the port in `vite.config.js`\n\n```bash\n# On Linux/Mac\nlsof -ti:5173 | xargs kill -9\n\n# On Windows\nnetstat -ano | findstr :5173\n```\n"
+    },
+    {
+      "id": "features",
+      "name": "Features",
+      "description": "List of project features",
+      "icon": "✨",
+      "content": "## ✨ Features\n\n- ✅ Feature one description\n- ✅ Feature two description\n- ✅ Feature three description\n- ✅ Feature four description\n"
+    },
+    {
+      "id": "screenshots",
+      "name": "Screenshots",
+      "description": "Project screenshots",
+      "icon": "📸",
+      "content": "## Screenshots\n\n### Dashboard\n\n![Dashboard](/path/to/dashboard-screenshot.png)\n\n### Editor\n\n![Editor](/path/to/editor-screenshot.png)\n"
+    }
+  ]
+}

@@ -11,7 +11,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+## [1.2.0] - 2026-07-20
+
 ### Fixed
+
+- Updated Playwright E2E tests: adjusted navigation.spec.ts selectors to match the current Home Hero heading and CTA label (`Open Builder`) so navigation checks are stable; re-ran `npm run test:e2e` — all 24 tests now pass.
+
+### Added
+
+- Added a template section selector to the markdown editor for quickly inserting common README sections.
+- Added reusable section preset data and a `useSectionPresets` hook to append selected sections without duplicating existing selections.
+- Persisted selected README sections in the shop store so section choices survive page reloads.
 
 ## [1.1.3] - 2026-07-18
 

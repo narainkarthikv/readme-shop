@@ -36,19 +36,19 @@ const Home = React.memo(() => {
         <title>Markdown Shop</title>
         <meta
           name='description'
-          content='Markdown Shop is a SaaS-style README builder with Markdown Templates, AI Prompt Gallery, badges, icons, and live preview for modern project docs.'
+          content='Markdown Shop helps developers build GitHub READMEs and profile pages with templates, prompt snippets, badges, icons, GitHub stats, live preview, and copy-ready Markdown.'
         />
         <meta
           name='keywords'
-          content='markdown shop, README builder, markdown templates, prompt gallery, SaaS, documentation, badges, icons'
+          content='markdown shop, README builder, GitHub profile README, markdown templates, prompt gallery, documentation, badges, icons, GitHub stats'
         />
         <meta
           property='og:title'
-          content='Markdown Shop - SaaS-grade README Builder'
+          content='Markdown Shop - GitHub README Builder'
         />
         <meta
           property='og:description'
-          content='Build polished README docs faster with Markdown Templates, reusable prompts, live preview, and export-ready markdown.'
+          content='Build project READMEs and GitHub profile pages with templates, prompts, badges, icons, stats components, live preview, and clean Markdown output.'
         />
         <meta property='og:type' content='website' />
         <meta property='og:url' content='https://markdownshop.netlify.app' />
