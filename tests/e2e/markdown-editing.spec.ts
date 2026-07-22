@@ -52,13 +52,29 @@ test.describe('Markdown Editing', () => {
     await expect(markdownTextarea).toHaveValue('');
   });
 
-  test('resets markdown content after route navigation', async ({ page }) => {
+  test('persists markdown content after route navigation', async ({ page }) => {
     const testMarkdown = '# Persistent Content\n\nThis should persist.';
 
     const markdownTextarea = getMarkdownEditor(page);
     await markdownTextarea.fill(testMarkdown);
     await page.goto('/templates');
     await page.goto('/shop');
+    await expect(getMarkdownEditor(page)).toHaveValue(testMarkdown);
+  });
+
+  test('clears the saved local draft', async ({ page }) => {
+    const testMarkdown = '# Draft to clear';
+
+    const markdownTextarea = getMarkdownEditor(page);
+    await markdownTextarea.fill(testMarkdown);
+    await page
+      .getByPlaceholder(/octocat/i)
+      .first()
+      .fill('octocat');
+
+    await page.getByRole('button', { name: /clear draft/i }).click();
+
     await expect(getMarkdownEditor(page)).toHaveValue('');
+    await expect(page.getByPlaceholder(/octocat/i).first()).toHaveValue('');
   });
 });

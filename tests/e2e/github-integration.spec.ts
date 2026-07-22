@@ -15,7 +15,7 @@ test.describe('GitHub Username Integration', () => {
     await expect(usernameInput).toHaveValue(testUsername);
   });
 
-  test('resets GitHub username after route navigation', async ({ page }) => {
+  test('persists GitHub username after route navigation', async ({ page }) => {
     const testUsername = 'narainkarthikv';
 
     const usernameInput = getUsernameInput(page);
@@ -23,7 +23,7 @@ test.describe('GitHub Username Integration', () => {
     await usernameInput.fill(testUsername);
     await page.goto('/components');
     await page.goto('/shop');
-    await expect(getUsernameInput(page)).toHaveValue('');
+    await expect(getUsernameInput(page)).toHaveValue(testUsername);
   });
 
   test('clears username input', async ({ page }) => {

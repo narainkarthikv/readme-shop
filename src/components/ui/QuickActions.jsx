@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, IconButton, Tooltip, Button, ButtonGroup } from '@mui/material';
-import { useTheme, alpha } from '@mui/material/styles';
+import { Box, Tooltip, Button, ButtonGroup } from '@mui/material';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import AddIcon from '@mui/icons-material/Add';
@@ -9,8 +8,6 @@ import CheckIcon from '@mui/icons-material/Check';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const QuickActions = ({ onPreview, onCopy, onUse, copied, isSelected }) => {
-  const theme = useTheme();
-
   return (
     <Box
       sx={{
@@ -20,18 +17,19 @@ const QuickActions = ({ onPreview, onCopy, onUse, copied, isSelected }) => {
         flexShrink: 0,
       }}>
       <Tooltip title='Preview template' arrow>
-        <IconButton
+        <Button
           onClick={onPreview}
           size='small'
+          variant='contained'
+          color='primary'
           sx={{
-            color: 'primary.main',
-            '&:hover': {
-              bgcolor: alpha(theme.palette.primary.main, 0.1),
-            },
+            minWidth: 'auto',
+            px: 1.5,
+            py: 0.75,
           }}
           aria-label='Preview template'>
           <VisibilityIcon fontSize='small' />
-        </IconButton>
+        </Button>
       </Tooltip>
 
       <ButtonGroup
