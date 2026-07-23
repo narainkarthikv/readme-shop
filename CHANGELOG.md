@@ -11,6 +11,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+## [1.3.0] - 2026-07-22
+
+### Added
+
+- Added automatic local draft persistence for markdown content, GitHub username, selected icons, and selected README sections.
+- Added a `Clear Draft` control in the markdown editor to reset the saved local draft and selected sections.
+
+### Changed
+
+- Updated the preview action button styling so the eye icon matches the bordered blue copy and insert action buttons.
+
 ## [1.2.0] - 2026-07-20
 
 ### Fixed
@@ -185,7 +196,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Home page and core feature files repeatedly reorganized for clarity.
 - Theme and UI consistency refactors for long-term maintainability.
 
-[Unreleased]: https://github.com/narainkarthikv/markdown-shop/compare/v1.1.2...HEAD
+[Unreleased]: https://github.com/narainkarthikv/markdown-shop/compare/v1.3.0...HEAD
+[1.3.0]: https://github.com/narainkarthikv/markdown-shop/compare/v1.2.0...v1.3.0
+[1.2.0]: https://github.com/narainkarthikv/markdown-shop/compare/v1.1.2...v1.2.0
 [1.1.2]: https://github.com/narainkarthikv/markdown-shop/releases/tag/v1.1.2
 [1.1.1]: https://github.com/narainkarthikv/markdown-shop/releases/tag/v1.1.1
 [1.0.3]: https://github.com/narainkarthikv/markdown-shop/releases/tag/v1.0.3

@@ -5,19 +5,29 @@ import {
   TextField,
   Typography,
   InputAdornment,
+  Button,
 } from '@mui/material';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import MarkdownEditor from './components/MarkdownEditor';
 import MarkdownPreview from './components/MarkdownPreview';
 import { SectionSelector } from '@/components/SectionSelector';
+import { useShopStore } from '@/store/useShopStore';
 import useMarkdownStore from './store/markdownStore';
 import { useSectionPresets } from '@/hooks/useSectionPresets';
 
 const MarkdownLayout = () => {
-  const { markdown, setMarkdown, userName, setUserName } = useMarkdownStore();
+  const { markdown, setMarkdown, userName, setUserName, resetDraft } =
+    useMarkdownStore();
+  const clearSections = useShopStore((state) => state.clearSections);
   useSectionPresets();
 
   const handleMarkdownChange = (e) => {
     setMarkdown(e.target.value);
+  };
+
+  const handleClearDraft = () => {
+    resetDraft();
+    clearSections();
   };
 
   return (
@@ -63,9 +73,17 @@ const MarkdownLayout = () => {
             variant='body2'
             color='text.secondary'
             sx={{ maxWidth: 360 }}>
-            Update the username once and all GitHub components refresh
-            instantly.
+            Drafts save automatically in this browser, including markdown,
+            username, icons, and selected sections.
           </Typography>
+          <Button
+            variant='outlined'
+            color='error'
+            startIcon={<DeleteOutlineIcon />}
+            onClick={handleClearDraft}
+            sx={{ alignSelf: { xs: 'flex-start', md: 'center' } }}>
+            Clear Draft
+          </Button>
         </Stack>
       </Paper>
       <Box

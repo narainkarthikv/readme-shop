@@ -17,6 +17,7 @@ export const STORAGE_KEYS = {
   THEME_MODE: 'markdown-shop-theme-mode',
   USER_PREFERENCES: 'markdown-shop-preferences',
   STORE: 'markdown-shop-store',
+  MARKDOWN_DRAFT: 'markdown-shop-markdown-draft',
 };
 
 /**
